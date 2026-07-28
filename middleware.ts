@@ -12,37 +12,60 @@ import { NextResponse, type NextRequest } from "next/server";
  * Mantendo tudo em um único arquivo sem alias, evitamos esse problema.
  */
 export async function middleware(request: NextRequest) {
-  let response = NextResponse.next({ request });
-
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          );
-          response = NextResponse.next({ request });
-          cookiesToSet.forEach(({ name, value, options }) =>
-            response.cookies.set(name, value, options)
-          );
-        },
-      },
-    }
-  );
-
-  const { data } = await supabase.auth.getUser();
-  const user = data.user;
-
   const path = request.nextUrl.pathname;
   const isProtected =
     path.startsWith("/profissional") ||
     path.startsWith("/estabelecimento") ||
     path.startsWith("/admin");
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  // Sem credenciais do Supabase configuradas: não derruba o site inteiro.
+  // Rotas públicas continuam servindo normalmente; rotas protegidas vão
+  // para o login (fail closed), já que não há como verificar sessão.
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error(
+      "[middleware] NEXT_PUBLIC_SUPABASE_URL ou NEXT_PUBLIC_SUPABASE_ANON_KEY não configuradas."
+    );
+    if (isProtected) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+    return NextResponse.next({ request });
+  }
+
+  let response = NextResponse.next({ request });
+
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value }) =>
+          request.cookies.set(name, value)
+        );
+        response = NextResponse.next({ request });
+        cookiesToSet.forEach(({ name, value, options }) =>
+          response.cookies.set(name, value, options)
+        );
+      },
+    },
+  });
+
+  let user = null;
+  try {
+    const { data } = await supabase.auth.getUser();
+    user = data.user;
+  } catch (err) {
+    // Falha ao contatar o Supabase (rede, chave inválida, etc.). Não
+    // derruba rotas públicas; rotas protegidas caem para login.
+    console.error("[middleware] Falha ao verificar sessão Supabase:", err);
+    if (isProtected) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+    return response;
+  }
 
   if (isProtected && !user) {
     return NextResponse.redirect(new URL("/login", request.url));
