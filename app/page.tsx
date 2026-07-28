@@ -2,10 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+const petShopImage =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBGNABi4q-gzPmpPqdf5nE1IYvCm7NYF5FCEya7PQ-Pog44W7gBVgjTKUSxxRRkHQK2OBNXiLVwLFNc7vqbx4wNbxATLKiue1MXArBbkUkyT73uQucyq3xo15zsFR3qmTrKBCnN20JcZkvdkuqUnXC-WfOyp4b4Kso_pj5eputiQ4eSFLrwQ_8SuTHZhwqPC27ddPEly4_643Sr2PQ1vltdvALoA0I8KLdRk7anWnWOqfFFQDjCGrwbYA";
+const professionalImage =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBgLh8RYSnyLbp8u2wZ0b7tDvNuyKw2xYcAF89k2trekyNaTeGpjyp1erfIN_NR1ho15VD8O0SZTNn7oAYBSag0cCzcdP73MMoUnX7inZ853jHVBX4Fd0DziKPU5qdO4-hNjHwN3BQ358-DNOzU0q4117XnDLrVFhsUdgemotfUp-LsaAqPWWlwpw7Lk5u27KIAoNKOL7ol3M9qcFJuk9S0KJsKFUsAHb0g_wri6Ubq4pWCkPxUW619eA";
+
 const navItems = [
   { href: "#proposta", label: "A rede" },
-  { href: "#estabelecimentos", label: "Estabelecimentos" },
-  { href: "#profissionais", label: "Profissionais" },
+  { href: "#estabelecimentos", label: "Para estabelecimentos" },
+  { href: "#profissionais", label: "Para profissionais" },
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#seguranca", label: "Segurança" },
   { href: "#faq", label: "FAQ" },
@@ -13,471 +18,392 @@ const navItems = [
 
 const valueCards = [
   {
-    marker: "01",
+    icon: "◇",
     title: "Padrão Dog Washer",
-    text: "Profissionais passam por curadoria para elevar qualidade técnica, postura e previsibilidade em cada atendimento.",
+    text: "Profissionais que passam por curadoria rigorosa, garantindo qualidade técnica e postura ética em cada atendimento.",
   },
   {
-    marker: "02",
+    icon: "▧",
     title: "Presença registrada",
-    text: "Check-in e check-out ajudam a dar transparência para o tempo de trabalho realizado no estabelecimento.",
+    text: "Check-in e check-out via geolocalização e QR Code, garantindo transparência total sobre o tempo de trabalho realizado.",
   },
   {
-    marker: "03",
+    icon: "⌁",
     title: "Reputação bilateral",
-    text: "Os dois lados avaliam a experiência, criando uma rede mais justa, profissional e confiável.",
+    text: "Sistema de notas para ambos os lados. Os melhores profissionais e estabelecimentos ganham destaque na rede.",
   },
 ];
 
 const establishmentBenefits = [
-  {
-    title: "Profissionais qualificados",
-    text: "Acesso a uma base de profissionais com experiência e dados de perfil organizados.",
-  },
-  {
-    title: "Seleção transparente",
-    text: "Veja histórico, avaliações e especialidades antes de confirmar uma diária.",
-  },
-  {
-    title: "Controle operacional",
-    text: "Centralize oportunidades, presença, conclusão e avaliação do atendimento.",
-  },
+  ["Profissionais Qualificados", "Acesso a uma base de profissionais com experiência comprovada."],
+  ["Seleção Transparente", "Veja o histórico, avaliações e especialidades antes de aceitar."],
+  ["Controle Operacional", "Registro de presença digital e histórico de diárias centralizado."],
 ];
 
 const professionalBenefits = [
-  {
-    title: "Formação reconhecida",
-    text: "Valorize sua técnica, sua experiência e seu preparo dentro de uma rede especializada.",
-  },
-  {
-    title: "Oportunidades próximas",
-    text: "Encontre trabalhos que combinam com sua agenda e seu raio de atendimento.",
-  },
-  {
-    title: "Condições claras",
-    text: "Veja informações importantes antes de demonstrar interesse por uma oportunidade.",
-  },
+  ["Formação Reconhecida", "Valorizamos seu preparo e técnica frente ao mercado."],
+  ["Oportunidades Próximas", "Encontre trabalhos na sua região com geolocalização inteligente."],
+  ["Transparência Total", "Saiba o valor e as condições antes mesmo de se candidatar."],
 ];
 
 const establishmentSteps = [
-  "Publique a oportunidade com data, horário, endereço e valor.",
-  "Conheça os candidatos interessados na vaga.",
+  "Publique a oportunidade com data, horário e valor.",
+  "Conheça os candidatos que se interessaram pela vaga.",
   "Confirme o atendimento com o profissional escolhido.",
-  "Acompanhe entrada e saída com registro de presença.",
+  "Acompanhe a entrada e saída em tempo real.",
   "Avalie a experiência para manter a qualidade da rede.",
 ];
 
 const professionalSteps = [
   "Crie seu perfil com experiências e especialidades.",
   "Encontre oportunidades próximas que encaixam na sua agenda.",
-  "Confirme interesse e aguarde a seleção do estabelecimento.",
-  "Registre sua presença ao chegar no local combinado.",
-  "Construa reputação com avaliações positivas.",
+  "Confirme o interesse e aguarde a seleção do pet shop.",
+  "Registre sua presença via app ao chegar no local.",
+  "Construa sua reputação com avaliações positivas.",
 ];
 
 const safetyItems = [
-  "Perfis validados",
-  "Fotos e informações do local",
-  "Geolocalização",
-  "Avaliação bilateral",
-  "Histórico digital",
-  "Curadoria ativa",
+  ["Perfis Validados", "Documentação e referências checadas criteriosamente pela nossa equipe."],
+  ["Fotos do Local", "O profissional visualiza as instalações antes de aceitar o trabalho."],
+  ["Geolocalização", "Rastreamento de presença para segurança de todos os envolvidos."],
+  ["Avaliação Bilateral", "Feedbacks reais que regulam o comportamento e a qualidade da rede."],
+  ["Histórico Digital", "Todas as interações e diárias ficam registradas para consulta futura."],
+  ["Curadoria Ativa", "Nossa equipe atua para garantir que apenas bons parceiros permaneçam."],
 ];
 
 const useCases = [
-  {
-    title: "Cobertura de faltas",
-    text: "Resolva imprevistos de última hora sem desmarcar clientes.",
-  },
-  {
-    title: "Agenda cheia",
-    text: "Atenda picos de demanda em feriados, finais de semana e datas fortes.",
-  },
-  {
-    title: "Férias e folgas",
-    text: "Mantenha a operação rodando durante o descanso do seu time fixo.",
-  },
+  ["Cobertura de faltas", "Resolva imprevistos de última hora sem desmarcar clientes."],
+  ["Agenda cheia", "Atenda picos de demanda em feriados ou fins de semana."],
+  ["Férias e folgas", "Mantenha a operação rodando durante o descanso do seu time fixo."],
 ];
 
 const faqItems = [
-  {
-    question: "O cadastro é gratuito?",
-    answer:
-      "Sim, o cadastro inicial é gratuito para profissionais e estabelecimentos. A operação comercial pode incluir taxas sobre conexões concluídas.",
-  },
-  {
-    question: "Como é feita a curadoria dos profissionais?",
-    answer:
-      "A proposta é analisar dados de cadastro, experiência, documentação e histórico para manter um padrão confiável na rede.",
-  },
-  {
-    question: "Como funcionam os pagamentos?",
-    answer:
-      "O valor da diária deve estar claro na oportunidade. O fluxo financeiro pode evoluir conforme as regras operacionais da plataforma.",
-  },
-  {
-    question: "Por que a reputação é bilateral?",
-    answer:
-      "Porque bons profissionais também escolhem onde trabalhar. A rede precisa proteger qualidade, respeito e responsabilidade dos dois lados.",
-  },
+  [
+    "O cadastro é gratuito?",
+    "Sim, o cadastro inicial é gratuito tanto para profissionais quanto para estabelecimentos. A operação comercial pode incluir taxas administrativas sobre conexões realizadas com sucesso.",
+  ],
+  [
+    "Como é feita a curadoria dos profissionais?",
+    "Analisamos documentação, experiências, referências e dados do perfil para manter um padrão confiável dentro da rede.",
+  ],
+  [
+    "Como funcionam os pagamentos?",
+    "O valor deve estar claro na publicação da vaga. Após a conclusão do trabalho, o pagamento segue as regras operacionais definidas pela plataforma.",
+  ],
 ];
-
-function LogoMark({ size = 48 }: { size?: number }) {
-  return (
-    <Image
-      src="/logo-dog-washer-connect.png"
-      alt="Dog Washer Connect"
-      width={size}
-      height={size}
-      className="rounded-md object-cover"
-      priority
-    />
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-xs font-semibold uppercase tracking-wide text-[var(--dw-orange)]">
-      {children}
-    </p>
-  );
-}
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[var(--dw-navy)] text-white">
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-[var(--dw-navy)]/95 px-5 py-4 backdrop-blur md:px-10">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-5">
-          <Link href="/" className="flex items-center gap-3" aria-label="Dog Washer Connect">
-            <LogoMark size={42} />
-            <span className="hidden font-[var(--dw-font-display)] text-sm font-semibold uppercase text-[var(--dw-orange)] sm:inline">
-              Dog Washer Connect
-            </span>
-          </Link>
-
-          <div className="hidden items-center gap-5 lg:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-xs font-semibold uppercase text-white/62 transition-colors hover:text-[var(--dw-orange)]"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link href="/login" className="hidden text-sm font-semibold text-white/75 hover:text-white sm:inline">
-              Entrar
-            </Link>
-            <Link href="/criar-conta">
-              <Button variant="secondary" className="text-sm">Criar conta</Button>
-            </Link>
-          </div>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-[#031427] text-[#d3e4fe]">
+      <Header />
 
       <main>
-        <section className="px-5 pb-16 pt-14 md:px-10 md:pb-24 md:pt-20">
-          <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_420px] md:items-center">
-            <div className="max-w-4xl">
-              <SectionLabel>Rede profissional de banho e tosa</SectionLabel>
-              <h1 className="mt-5 font-[var(--dw-font-display)] text-4xl font-bold leading-tight md:text-6xl">
-                Quando falta um profissional, sua operação não precisa parar.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72">
-                Conectamos pet shops a profissionais qualificados para atendimentos
-                sob demanda, mantendo a agenda cheia e os clientes bem atendidos.
-              </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Link href="/criar-conta?perfil=estabelecimento">
-                  <Button variant="secondary" className="w-full px-7 py-4 sm:w-auto">
-                    Quero contratar profissionais
-                  </Button>
-                </Link>
-                <Link href="/criar-conta?perfil=profissional">
-                  <Button
-                    variant="ghost"
-                    className="w-full border border-[var(--dw-orange)] px-7 py-4 text-[var(--dw-orange)] hover:bg-white/5 sm:w-auto"
-                  >
-                    Quero encontrar oportunidades
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="rounded-md border border-white/10 bg-white/[0.04] p-6">
-              <div className="mx-auto max-w-[280px]">
-                <LogoMark size={280} />
-              </div>
-              <div className="mt-6 grid gap-3 text-sm text-white/70">
-                <p className="rounded-md bg-white/[0.04] p-4">Curadoria antes da conexão.</p>
-                <p className="rounded-md bg-white/[0.04] p-4">Registro de presença na operação.</p>
-                <p className="rounded-md bg-white/[0.04] p-4">Reputação para os dois lados.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="proposta" className="bg-[#000f21] px-5 py-14 md:px-10">
-          <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-            {valueCards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-md border border-white/10 bg-white/[0.04] p-7 transition-colors hover:border-[var(--dw-orange)]"
-              >
-                <p className="text-sm font-bold text-[var(--dw-orange)]">{card.marker}</p>
-                <h2 className="mt-5 font-[var(--dw-font-display)] text-2xl font-semibold">
-                  {card.title}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-white/65">{card.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="bg-[var(--dw-navy)] px-5 py-18 text-center md:px-10 md:py-24">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
-              Formalizando parcerias, profissionalizando o mercado.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-white/68">
-              A Dog Washer Connect não é apenas um mural de vagas. É uma plataforma
-              para estabelecer regras claras e processos seguros para que a relação
-              entre estabelecimentos e freelancers seja justa, profissional e produtiva.
+        <section className="border-b border-white/5 px-6 pb-16 pt-16 md:px-12 md:pb-20 md:pt-24">
+          <div className="mx-auto max-w-6xl text-center">
+            <h1 className="mx-auto max-w-5xl font-[var(--dw-font-display)] text-4xl font-extrabold leading-tight md:text-6xl">
+              Quando falta um profissional, sua{" "}
+              <span className="text-[var(--dw-orange)]">operação não precisa parar.</span>
+            </h1>
+            <p className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-[#dbc2b1]">
+              Conectamos pet shops a profissionais qualificados para atendimentos sob
+              demanda, garantindo que sua agenda continue cheia e seus clientes
+              sempre satisfeitos.
             </p>
-          </div>
-        </section>
-
-        <section id="estabelecimentos" className="bg-[#0b1c30] px-5 py-16 md:px-10 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 md:items-center">
-            <div>
-              <SectionLabel>Para estabelecimentos</SectionLabel>
-              <h2 className="mt-4 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-5xl">
-                Sua equipe completa, sempre que precisar.
-              </h2>
-              <div className="mt-8 space-y-5">
-                {establishmentBenefits.map((item) => (
-                  <div key={item.title} className="border-l-2 border-[var(--dw-orange)] pl-5">
-                    <h3 className="font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-white/65">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-              <Link href="/criar-conta?perfil=estabelecimento" className="mt-8 inline-block">
-                <Button variant="secondary">Cadastrar meu pet shop</Button>
+            <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link href="/criar-conta?perfil=estabelecimento">
+                <Button variant="secondary" className="w-full px-8 py-4 sm:w-auto">
+                  Quero contratar profissionais
+                </Button>
               </Link>
-            </div>
-
-            <div className="rounded-md border border-white/10 bg-white p-6 text-[var(--dw-navy)]">
-              <p className="text-sm font-semibold uppercase text-[var(--dw-orange)]">
-                Operação sob demanda
-              </p>
-              <div className="mt-6 space-y-4">
-                {useCases.map((item) => (
-                  <div key={item.title} className="rounded-md border border-[var(--dw-gray-200)] p-5">
-                    <h3 className="font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[var(--dw-gray-500)]">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="profissionais" className="bg-[var(--dw-navy)] px-5 py-16 md:px-10 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 md:items-center">
-            <div className="order-2 rounded-md border border-white/10 bg-white/[0.04] p-7 md:order-1">
-              <h3 className="font-[var(--dw-font-display)] text-2xl font-semibold">
-                Bons profissionais também escolhem onde trabalhar.
-              </h3>
-              <p className="mt-4 text-base leading-8 text-white/68">
-                A rede também valoriza estabelecimentos que oferecem boas condições,
-                infraestrutura adequada e respeito profissional. Essa reciprocidade
-                atrai talentos melhores e reduz relações improvisadas.
-              </p>
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {["Respeito", "Infraestrutura", "Clareza", "Histórico"].map((item) => (
-                  <p key={item} className="rounded-md bg-white/[0.04] p-4 text-sm font-semibold">
-                    {item}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="order-1 md:order-2">
-              <SectionLabel>Para profissionais</SectionLabel>
-              <h2 className="mt-4 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-5xl">
-                Liberdade e reconhecimento para sua carreira.
-              </h2>
-              <div className="mt-8 space-y-5">
-                {professionalBenefits.map((item) => (
-                  <div key={item.title} className="border-l-2 border-[var(--dw-orange)] pl-5">
-                    <h3 className="font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-white/65">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-              <Link href="/criar-conta?perfil=profissional" className="mt-8 inline-block">
+              <Link href="/criar-conta?perfil=profissional">
                 <Button
                   variant="ghost"
-                  className="border border-[var(--dw-orange)] text-[var(--dw-orange)] hover:bg-white/5"
+                  className="w-full border border-[var(--dw-orange)] px-8 py-4 text-[var(--dw-orange)] hover:bg-white/5 sm:w-auto"
                 >
-                  Criar meu perfil profissional
+                  Quero encontrar oportunidades
                 </Button>
               </Link>
             </div>
           </div>
         </section>
 
-        <section id="como-funciona" className="bg-[#000f21] px-5 py-16 md:px-10 md:py-24">
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <SectionLabel>Como funciona</SectionLabel>
-              <h2 className="mt-4 font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
-                Simples, prático e seguro.
+        <section id="proposta" className="bg-[#031427] px-6 py-8 md:px-12">
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+            {valueCards.map((card) => (
+              <article
+                key={card.title}
+                className="rounded-lg border border-white/8 bg-[#0b1c30] p-8 shadow-[0_20px_70px_rgba(0,0,0,0.18)]"
+              >
+                <p className="text-5xl font-black leading-none text-[var(--dw-orange)]">
+                  {card.icon}
+                </p>
+                <h2 className="mt-8 font-[var(--dw-font-display)] text-2xl font-bold text-[#d3e4fe]">
+                  {card.title}
+                </h2>
+                <p className="mt-5 text-base font-semibold leading-7 text-[#dbc2b1]">
+                  {card.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="px-6 py-20 text-center md:px-12">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-4xl">
+              Formalizando parcerias, profissionalizando o mercado
+            </h2>
+            <p className="mt-8 text-lg font-semibold leading-8 text-[#dbc2b1]">
+              A Dog Washer Connect não é apenas um mural de vagas. Somos uma
+              plataforma que estabelece regras claras e processos seguros para que a
+              relação entre estabelecimentos e freelancers seja justa, profissional
+              e produtiva.
+            </p>
+          </div>
+        </section>
+
+        <section id="estabelecimentos" className="bg-[#0b1c30] px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:items-center">
+            <div>
+              <Pill>Para estabelecimentos</Pill>
+              <h2 className="mt-8 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-5xl">
+                Sua equipe completa, sempre que precisar.
               </h2>
+              <FeatureList items={establishmentBenefits} />
+              <Link href="/criar-conta?perfil=estabelecimento" className="mt-10 inline-block">
+                <Button variant="secondary" className="px-8 py-4">Cadastrar meu Pet Shop</Button>
+              </Link>
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <ProcessCard title="Para estabelecimentos" steps={establishmentSteps} tone="solid" />
-              <ProcessCard title="Para profissionais" steps={professionalSteps} tone="outline" />
+            <FramedImage src={petShopImage} alt="Pet shop profissional com atendimento de banho e tosa" />
+          </div>
+        </section>
+
+        <section id="profissionais" className="bg-[#031427] px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:items-center">
+            <FramedImage
+              src={professionalImage}
+              alt="Profissional Dog Washer segurando cachorro em ambiente pet"
+              className="order-2 md:order-1"
+            />
+            <div className="order-1 md:order-2">
+              <Pill>Para profissionais</Pill>
+              <h2 className="mt-8 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-5xl">
+                Liberdade e reconhecimento para sua carreira.
+              </h2>
+              <FeatureList items={professionalBenefits} />
+              <Link href="/criar-conta?perfil=profissional" className="mt-10 inline-block">
+                <Button
+                  variant="ghost"
+                  className="border border-[var(--dw-orange)] px-8 py-4 text-[var(--dw-orange)] hover:bg-white/5"
+                >
+                  Criar meu Perfil Profissional
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
 
-        <section id="seguranca" className="bg-[var(--dw-navy)] px-5 py-16 md:px-10 md:py-24">
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <SectionLabel>Confiança operacional</SectionLabel>
-              <h2 className="mt-4 font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
-                Tecnologia e curadoria humana para um ambiente mais seguro.
-              </h2>
+        <section id="como-funciona" className="bg-[#000f21] px-6 py-16 md:px-12 md:py-20">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-center font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
+              Simples, prático e seguro
+            </h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-2">
+              <ProcessCard title="Para estabelecimentos" steps={establishmentSteps} solid />
+              <ProcessCard title="Para profissionais" steps={professionalSteps} />
             </div>
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {safetyItems.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-md border border-white/10 bg-white/[0.04] p-6 text-center"
-                >
-                  <p className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[var(--dw-orange)] text-sm font-bold text-[var(--dw-navy)]">
-                    ✓
-                  </p>
-                  <h3 className="mt-4 font-semibold">{item}</h3>
-                  <p className="mt-2 text-sm leading-6 text-white/62">
-                    Um ponto de controle para deixar a conexão mais transparente.
-                  </p>
-                </div>
+          </div>
+        </section>
+
+        <section id="seguranca" className="bg-[#031427] px-6 py-16 md:px-12 md:py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center">
+              <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
+                Confiança Operacional
+              </h2>
+              <p className="mt-4 text-sm font-semibold text-[#dbc2b1]">
+                Tecnologia e curadoria humana para um ambiente de trabalho seguro.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {safetyItems.map(([title, text]) => (
+                <article key={title} className="rounded-lg border border-white/8 bg-[#0b1c30] p-7 text-center">
+                  <p className="text-2xl font-bold text-[var(--dw-orange)]">⌾</p>
+                  <h3 className="mt-5 font-bold">{title}</h3>
+                  <p className="mt-4 text-sm font-semibold leading-6 text-[#dbc2b1]">{text}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="faq" className="bg-[#000f21] px-5 py-16 md:px-10 md:py-24">
+        <section className="bg-[#0b1c30] px-6 py-14 text-center md:px-12">
           <div className="mx-auto max-w-3xl">
-            <div className="text-center">
-              <SectionLabel>Perguntas frequentes</SectionLabel>
-              <h2 className="mt-4 font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
-                O básico para começar.
-              </h2>
+            <h2 className="font-[var(--dw-font-display)] text-2xl font-semibold md:text-3xl">
+              Bons profissionais também escolhem onde trabalhar
+            </h2>
+            <p className="mt-6 text-base font-semibold leading-7 text-[#dbc2b1]">
+              Nossa rede identifica e destaca estabelecimentos que oferecem boas
+              condições de trabalho, infraestrutura adequada e respeito profissional.
+            </p>
+            <p className="mt-6 text-2xl tracking-[0.2em] text-[var(--dw-orange)]">★★★★★</p>
+          </div>
+        </section>
+
+        <section className="bg-[#031427] px-6 py-14 md:px-12">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-center font-[var(--dw-font-display)] text-3xl font-semibold">
+              Quando usar o Dog Washer Connect?
+            </h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {useCases.map(([title, text]) => (
+                <article key={title} className="rounded-lg border border-white/10 bg-[#031427] p-7">
+                  <p className="text-2xl font-bold text-[var(--dw-orange)]">⌁</p>
+                  <h3 className="mt-4 font-bold">{title}</h3>
+                  <p className="mt-3 text-sm font-semibold leading-6 text-[#dbc2b1]">{text}</p>
+                </article>
+              ))}
             </div>
+          </div>
+        </section>
+
+        <section id="faq" className="bg-[#031427] px-6 py-14 md:px-12">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="text-center font-[var(--dw-font-display)] text-3xl font-semibold">
+              Perguntas Frequentes
+            </h2>
             <div className="mt-10 space-y-4">
-              {faqItems.map((item) => (
-                <details
-                  key={item.question}
-                  className="group rounded-md border border-white/10 bg-white/[0.04] p-6"
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
-                    {item.question}
-                    <span className="text-[var(--dw-orange)] group-open:rotate-45">+</span>
+              {faqItems.map(([question, answer]) => (
+                <details key={question} className="group rounded-lg border border-white/10 bg-[#031427]">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-sm font-bold">
+                    {question}
+                    <span className="text-[var(--dw-orange)] transition-transform group-open:rotate-180">⌄</span>
                   </summary>
-                  <p className="mt-4 text-sm leading-7 text-white/65">{item.answer}</p>
+                  <p className="px-5 pb-5 text-sm font-semibold leading-6 text-[#dbc2b1]">{answer}</p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-[var(--dw-orange)] px-5 py-16 text-[var(--dw-navy)] md:px-10 md:py-20">
-          <div className="mx-auto max-w-7xl rounded-md bg-white p-8 text-center md:p-14">
-            <h2 className="mx-auto max-w-3xl font-[var(--dw-font-display)] text-3xl font-bold leading-tight md:text-5xl">
+        <section className="bg-[var(--dw-orange)] px-6 py-16 text-[#031427] md:px-12">
+          <div className="mx-auto max-w-5xl rounded-[36px] bg-[#031427] p-8 text-center text-[#d3e4fe] md:p-14">
+            <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
               Pronto para profissionalizar sua forma de trabalhar?
             </h2>
-            <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
+            <div className="mx-auto mt-10 grid max-w-3xl gap-6 md:grid-cols-2">
               <FinalCta
                 title="Para estabelecimentos"
-                text="Garanta que seu pet shop não fique sem mão de obra qualificada."
+                text="Garanta que seu pet shop nunca fique sem mão de obra qualificada."
                 href="/criar-conta?perfil=estabelecimento"
-                action="Cadastrar pet shop"
+                label="Cadastrar Pet Shop"
                 filled
               />
               <FinalCta
                 title="Para profissionais"
-                text="Encontre boas oportunidades e valorize seu currículo."
+                text="Encontre as melhores oportunidades e valorize seu currículo."
                 href="/criar-conta?perfil=profissional"
-                action="Criar perfil profissional"
+                label="Criar Perfil Profissional"
               />
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-[#000f21] px-5 py-12 text-white md:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
-          <div>
-            <div className="flex items-center gap-3">
-              <LogoMark size={48} />
-              <span className="font-[var(--dw-font-display)] text-lg font-semibold uppercase text-[var(--dw-orange)]">
-                Dog Washer Connect
-              </span>
-            </div>
-            <p className="mt-5 max-w-md text-sm leading-7 text-white/60">
-              A plataforma que eleva o nível técnico e profissional do mercado pet
-              no Brasil, conectando talentos e negócios com transparência.
-            </p>
-          </div>
-          <FooterLinks title="Institucional" items={navItems} />
-          <div>
-            <h3 className="font-semibold text-[var(--dw-orange)]">Legal</h3>
-            <div className="mt-5 space-y-3 text-sm text-white/60">
-              <Link href="/termos" className="block hover:text-white">Termos de uso</Link>
-              <Link href="/privacidade" className="block hover:text-white">Privacidade</Link>
-              <Link href="/login" className="block hover:text-white">Entrar</Link>
-            </div>
-          </div>
-        </div>
-        <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-xs text-white/45">
-          © 2026 Dog Washer Connect. Todos os direitos reservados.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
 
-function ProcessCard({
-  title,
-  steps,
-  tone,
+function Header() {
+  return (
+    <header className="sticky top-0 z-30 border-b border-white/10 bg-[#031427]/95 px-6 py-4 backdrop-blur md:px-12">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6">
+        <Link href="/" className="flex items-center gap-4">
+          <Image
+            src="/logo-dog-washer-connect.png"
+            alt="Dog Washer Connect"
+            width={38}
+            height={38}
+            className="h-9 w-9 rounded-sm object-cover"
+            priority
+          />
+          <span className="hidden font-[var(--dw-font-display)] text-xl font-bold uppercase text-[var(--dw-orange)] sm:inline">
+            Dog Washer Connect
+          </span>
+        </Link>
+        <div className="hidden items-center gap-6 lg:flex">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} className="text-xs font-bold uppercase text-[#dbc2b1] hover:text-[var(--dw-orange)]">
+              {item.label}
+            </a>
+          ))}
+        </div>
+        <div className="flex items-center gap-3">
+          <Link href="/login" className="hidden text-sm font-bold text-[var(--dw-orange)] sm:inline">
+            Entrar
+          </Link>
+          <Link href="/criar-conta">
+            <Button variant="secondary">Criar conta</Button>
+          </Link>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+function Pill({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex rounded-full bg-[var(--dw-orange)]/15 px-4 py-1 text-xs font-black uppercase text-[var(--dw-orange)]">
+      {children}
+    </span>
+  );
+}
+
+function FeatureList({ items }: { items: string[][] }) {
+  return (
+    <div className="mt-8 space-y-6">
+      {items.map(([title, text]) => (
+        <div key={title} className="flex gap-4">
+          <span className="mt-1 text-xl font-bold text-[var(--dw-orange)]">◇</span>
+          <div>
+            <h3 className="font-bold">{title}</h3>
+            <p className="mt-1 text-sm font-semibold leading-6 text-[#dbc2b1]">{text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function FramedImage({
+  src,
+  alt,
+  className = "",
 }: {
-  title: string;
-  steps: string[];
-  tone: "solid" | "outline";
+  src: string;
+  alt: string;
+  className?: string;
 }) {
   return (
-    <article className="rounded-md border border-white/10 bg-white/[0.04] p-7">
-      <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--dw-orange)]">
-        {title}
-      </h3>
+    <div className={`relative aspect-[1.7/1] overflow-hidden rounded-3xl border border-white/10 ${className}`}>
+      <Image src={src} alt={alt} fill sizes="(min-width: 768px) 520px, 90vw" className="object-cover" />
+    </div>
+  );
+}
+
+function ProcessCard({ title, steps, solid = false }: { title: string; steps: string[]; solid?: boolean }) {
+  return (
+    <article className="rounded-lg border border-white/8 bg-[#0b1c30] p-7">
+      <h3 className="text-xs font-black uppercase text-[var(--dw-orange)]">{title}</h3>
       <div className="mt-7 space-y-5">
         {steps.map((step, index) => (
-          <p key={step} className="flex gap-4 text-sm leading-7 text-white/70">
+          <p key={step} className="flex items-start gap-4 text-sm font-semibold leading-6 text-[#d3e4fe]">
             <span
               className={
-                tone === "solid"
-                  ? "flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--dw-orange)] text-sm font-bold text-[var(--dw-navy)]"
-                  : "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--dw-orange)] text-sm font-bold text-[var(--dw-orange)]"
+                solid
+                  ? "flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--dw-orange)] text-xs font-black text-[#031427]"
+                  : "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--dw-orange)] text-xs font-black text-[var(--dw-orange)]"
               }
             >
               {index + 1}
@@ -494,49 +420,93 @@ function FinalCta({
   title,
   text,
   href,
-  action,
+  label,
   filled = false,
 }: {
   title: string;
   text: string;
   href: string;
-  action: string;
+  label: string;
   filled?: boolean;
 }) {
   return (
-    <article className="rounded-md border border-[var(--dw-gray-200)] p-6 text-left">
-      <h3 className="text-2xl font-bold">{title}</h3>
-      <p className="mt-3 text-sm leading-6 text-[var(--dw-gray-500)]">{text}</p>
+    <article className="rounded-lg border border-white/10 bg-[#0b1c30] p-7 text-left">
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="mt-4 min-h-12 text-sm font-semibold leading-6 text-[#dbc2b1]">{text}</p>
       <Link href={href} className="mt-6 block">
         <Button
-          variant={filled ? "primary" : "ghost"}
+          variant={filled ? "secondary" : "ghost"}
           className={
             filled
               ? "w-full"
-              : "w-full border border-[var(--dw-navy)] text-[var(--dw-navy)]"
+              : "w-full border border-[var(--dw-orange)] text-[var(--dw-orange)] hover:bg-white/5"
           }
         >
-          {action}
+          {label}
         </Button>
       </Link>
     </article>
   );
 }
 
-function FooterLinks({
+function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-[#031427] px-6 py-12 md:px-12">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+        <div>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/logo-dog-washer-connect.png"
+              alt="Dog Washer Connect"
+              width={42}
+              height={42}
+              className="h-10 w-10 rounded-sm object-cover"
+            />
+            <span className="font-[var(--dw-font-display)] text-lg font-bold uppercase text-[var(--dw-orange)]">
+              Dog Washer Connect
+            </span>
+          </div>
+          <p className="mt-6 max-w-sm text-sm font-semibold leading-7 text-white/70">
+            A plataforma que eleva o nível técnico e profissional do mercado pet
+            no Brasil, conectando talentos e negócios com transparência.
+          </p>
+        </div>
+        <FooterColumn title="Institucional" links={navItems.slice(0, 4)} />
+        <FooterColumn
+          title="Legal"
+          links={[
+            { href: "/termos", label: "Termos de Uso" },
+            { href: "/privacidade", label: "Privacidade" },
+            { href: "/login", label: "Contato" },
+          ]}
+        />
+      </div>
+      <div className="mx-auto mt-12 flex max-w-6xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-xs font-semibold text-white/45 md:flex-row">
+        <p>© 2026 Dog Washer Connect. Todos os direitos reservados.</p>
+        <div className="flex gap-6">
+          <a href="#" className="hover:text-[var(--dw-orange)]">Instagram</a>
+          <a href="#" className="hover:text-[var(--dw-orange)]">LinkedIn</a>
+          <a href="#" className="hover:text-[var(--dw-orange)]">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FooterColumn({
   title,
-  items,
+  links,
 }: {
   title: string;
-  items: { href: string; label: string }[];
+  links: { href: string; label: string }[];
 }) {
   return (
     <div>
-      <h3 className="font-semibold text-[var(--dw-orange)]">{title}</h3>
-      <div className="mt-5 space-y-3 text-sm text-white/60">
-        {items.map((item) => (
-          <a key={item.href} href={item.href} className="block hover:text-white">
-            {item.label}
+      <h3 className="font-bold text-[var(--dw-orange)]">{title}</h3>
+      <div className="mt-6 space-y-4 text-sm font-semibold text-white/68">
+        {links.map((link) => (
+          <a key={link.href} href={link.href} className="block hover:text-[var(--dw-orange)]">
+            {link.label}
           </a>
         ))}
       </div>
