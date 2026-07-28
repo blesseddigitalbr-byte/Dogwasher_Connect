@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const petShopImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBGNABi4q-gzPmpPqdf5nE1IYvCm7NYF5FCEya7PQ-Pog44W7gBVgjTKUSxxRRkHQK2OBNXiLVwLFNc7vqbx4wNbxATLKiue1MXArBbkUkyT73uQucyq3xo15zsFR3qmTrKBCnN20JcZkvdkuqUnXC-WfOyp4b4Kso_pj5eputiQ4eSFLrwQ_8SuTHZhwqPC27ddPEly4_643Sr2PQ1vltdvALoA0I8KLdRk7anWnWOqfFFQDjCGrwbYA";
 const professionalImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBgLh8RYSnyLbp8u2wZ0b7tDvNuyKw2xYcAF89k2trekyNaTeGpjyp1erfIN_NR1ho15VD8O0SZTNn7oAYBSag0cCzcdP73MMoUnX7inZ853jHVBX4Fd0DziKPU5qdO4-hNjHwN3BQ358-DNOzU0q4117XnDLrVFhsUdgemotfUp-LsaAqPWWlwpw7Lk5u27KIAoNKOL7ol3M9qcFJuk9S0KJsKFUsAHb0g_wri6Ubq4pWCkPxUW619eA";
+  "/professional-dog-washer-official-logo.png";
 
 const navItems = [
   { href: "#proposta", label: "A rede" },
