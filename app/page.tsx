@@ -287,8 +287,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-[var(--dw-orange)] px-6 py-16 text-[#031427] md:px-12">
-          <div className="mx-auto max-w-5xl rounded-[36px] bg-[#031427] p-8 text-center text-[#d3e4fe] md:p-14">
+        <section className="bg-[#031427] px-6 py-16 text-[#d3e4fe] md:px-12">
+          <div className="mx-auto max-w-5xl rounded-[36px] border border-white/10 bg-[#031427] p-8 text-center md:p-14">
             <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold md:text-4xl">
               Pronto para profissionalizar sua forma de trabalhar?
             </h2>
