@@ -1,5 +1,6 @@
 -- =============================================================================
 -- Dog Washer Connect — Fase 1 — Migration 0002: RLS do núcleo
+-- Idempotente: pode ser rodada mais de uma vez sem erro.
 -- =============================================================================
 
 alter table public.users enable row level security;
@@ -36,10 +37,12 @@ $$;
 -- -----------------------------------------------------------------------------
 -- users
 -- -----------------------------------------------------------------------------
+drop policy if exists "users_select_own_or_admin" on public.users;
 create policy "users_select_own_or_admin"
   on public.users for select
   using (id = auth.uid() or public.is_admin());
 
+drop policy if exists "users_update_own" on public.users;
 create policy "users_update_own"
   on public.users for update
   using (id = auth.uid())
@@ -50,18 +53,22 @@ create policy "users_update_own"
 -- Dono vê/edita o próprio perfil. Estabelecimento vê perfil de candidato
 -- (join controlado na camada de application, não aqui). Admin vê tudo.
 -- -----------------------------------------------------------------------------
+drop policy if exists "professional_profiles_select_own_or_admin" on public.professional_profiles;
 create policy "professional_profiles_select_own_or_admin"
   on public.professional_profiles for select
   using (user_id = auth.uid() or public.is_admin());
 
+drop policy if exists "professional_profiles_insert_own" on public.professional_profiles;
 create policy "professional_profiles_insert_own"
   on public.professional_profiles for insert
   with check (user_id = auth.uid());
 
+drop policy if exists "professional_profiles_update_own_or_admin" on public.professional_profiles;
 create policy "professional_profiles_update_own_or_admin"
   on public.professional_profiles for update
   using (user_id = auth.uid() or public.is_admin());
 
+drop policy if exists "professional_availability_owner" on public.professional_availability;
 create policy "professional_availability_owner"
   on public.professional_availability for all
   using (
@@ -74,18 +81,22 @@ create policy "professional_availability_owner"
 -- -----------------------------------------------------------------------------
 -- establishments / units / documents / photos
 -- -----------------------------------------------------------------------------
+drop policy if exists "establishments_select_own_or_admin" on public.establishments;
 create policy "establishments_select_own_or_admin"
   on public.establishments for select
   using (owner_user_id = auth.uid() or public.is_admin());
 
+drop policy if exists "establishments_insert_own" on public.establishments;
 create policy "establishments_insert_own"
   on public.establishments for insert
   with check (owner_user_id = auth.uid());
 
+drop policy if exists "establishments_update_own_or_admin" on public.establishments;
 create policy "establishments_update_own_or_admin"
   on public.establishments for update
   using (owner_user_id = auth.uid() or public.is_admin());
 
+drop policy if exists "establishment_units_owner_or_admin" on public.establishment_units;
 create policy "establishment_units_owner_or_admin"
   on public.establishment_units for all
   using (
@@ -95,6 +106,7 @@ create policy "establishment_units_owner_or_admin"
     or public.is_admin()
   );
 
+drop policy if exists "establishment_documents_owner_or_admin" on public.establishment_documents;
 create policy "establishment_documents_owner_or_admin"
   on public.establishment_documents for all
   using (
@@ -104,6 +116,7 @@ create policy "establishment_documents_owner_or_admin"
     or public.is_admin()
   );
 
+drop policy if exists "establishment_photos_owner_or_admin" on public.establishment_photos;
 create policy "establishment_photos_owner_or_admin"
   on public.establishment_photos for all
   using (
@@ -118,6 +131,7 @@ create policy "establishment_photos_owner_or_admin"
 -- -----------------------------------------------------------------------------
 -- audit_logs — leitura restrita a admin; escrita só via service role (server)
 -- -----------------------------------------------------------------------------
+drop policy if exists "audit_logs_admin_only" on public.audit_logs;
 create policy "audit_logs_admin_only"
   on public.audit_logs for select
   using (public.is_admin());
@@ -125,10 +139,12 @@ create policy "audit_logs_admin_only"
 -- -----------------------------------------------------------------------------
 -- terms_acceptances — cada usuário só vê/insere o próprio aceite
 -- -----------------------------------------------------------------------------
+drop policy if exists "terms_acceptances_own_or_admin" on public.terms_acceptances;
 create policy "terms_acceptances_own_or_admin"
   on public.terms_acceptances for select
   using (user_id = auth.uid() or public.is_admin());
 
+drop policy if exists "terms_acceptances_insert_own" on public.terms_acceptances;
 create policy "terms_acceptances_insert_own"
   on public.terms_acceptances for insert
   with check (user_id = auth.uid());
@@ -137,6 +153,7 @@ create policy "terms_acceptances_insert_own"
 -- platform_settings — leitura pública de configs não sensíveis fica a
 -- critério de cada chave; no MVP, restringe a admin.
 -- -----------------------------------------------------------------------------
+drop policy if exists "platform_settings_admin_only" on public.platform_settings;
 create policy "platform_settings_admin_only"
   on public.platform_settings for all
   using (public.is_admin());
@@ -144,10 +161,12 @@ create policy "platform_settings_admin_only"
 -- -----------------------------------------------------------------------------
 -- notifications — cada usuário só vê as próprias
 -- -----------------------------------------------------------------------------
+drop policy if exists "notifications_own" on public.notifications;
 create policy "notifications_own"
   on public.notifications for select
   using (user_id = auth.uid());
 
+drop policy if exists "notifications_update_own" on public.notifications;
 create policy "notifications_update_own"
   on public.notifications for update
   using (user_id = auth.uid())

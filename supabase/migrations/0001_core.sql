@@ -4,32 +4,44 @@
 
 create extension if not exists "pgcrypto";
 
-create type user_role as enum ('professional', 'establishment_owner', 'admin');
+do $$ begin
+  create type user_role as enum ('professional', 'establishment_owner', 'admin');
+exception
+  when duplicate_object then null;
+end $$;
 
-create type professional_status as enum (
-  'cadastro_incompleto',
-  'aguardando_verificacao',
-  'verificado',
-  'reprovado',
-  'suspenso',
-  'bloqueado'
-);
+do $$ begin
+  create type professional_status as enum (
+    'cadastro_incompleto',
+    'aguardando_verificacao',
+    'verificado',
+    'reprovado',
+    'suspenso',
+    'bloqueado'
+  );
+exception
+  when duplicate_object then null;
+end $$;
 
-create type establishment_status as enum (
-  'cadastro_incompleto',
-  'aguardando_verificacao',
-  'verificado',
-  'qualificado',
-  'reprovado',
-  'suspenso',
-  'bloqueado'
-);
+do $$ begin
+  create type establishment_status as enum (
+    'cadastro_incompleto',
+    'aguardando_verificacao',
+    'verificado',
+    'qualificado',
+    'reprovado',
+    'suspenso',
+    'bloqueado'
+  );
+exception
+  when duplicate_object then null;
+end $$;
 
 -- -----------------------------------------------------------------------------
 -- users
 -- Espelha auth.users do Supabase Auth, guardando dados de negócio + role.
 -- -----------------------------------------------------------------------------
-create table public.users (
+create table if not exists public.users (
   id uuid primary key references auth.users (id) on delete cascade,
   email text not null,
   phone text,
@@ -44,7 +56,7 @@ comment on table public.users is 'Dados de negócio do usuário autenticado. 1:1
 -- -----------------------------------------------------------------------------
 -- professional_profiles
 -- -----------------------------------------------------------------------------
-create table public.professional_profiles (
+create table if not exists public.professional_profiles (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null unique references public.users (id) on delete cascade,
   full_name text not null,
@@ -64,7 +76,7 @@ create table public.professional_profiles (
   deleted_at timestamptz
 );
 
-create table public.professional_availability (
+create table if not exists public.professional_availability (
   id uuid primary key default gen_random_uuid(),
   professional_id uuid not null references public.professional_profiles (id) on delete cascade,
   dia_semana smallint not null check (dia_semana between 0 and 6),
@@ -76,7 +88,7 @@ create table public.professional_availability (
 -- -----------------------------------------------------------------------------
 -- establishments / establishment_units
 -- -----------------------------------------------------------------------------
-create table public.establishments (
+create table if not exists public.establishments (
   id uuid primary key default gen_random_uuid(),
   owner_user_id uuid not null references public.users (id) on delete cascade,
   razao_social text not null,
@@ -91,7 +103,7 @@ create table public.establishments (
   deleted_at timestamptz
 );
 
-create table public.establishment_units (
+create table if not exists public.establishment_units (
   id uuid primary key default gen_random_uuid(),
   establishment_id uuid not null references public.establishments (id) on delete cascade,
   nome text not null,
@@ -107,7 +119,7 @@ create table public.establishment_units (
   deleted_at timestamptz
 );
 
-create table public.establishment_documents (
+create table if not exists public.establishment_documents (
   id uuid primary key default gen_random_uuid(),
   establishment_id uuid not null references public.establishments (id) on delete cascade,
   tipo text not null,
@@ -119,7 +131,7 @@ create table public.establishment_documents (
   created_at timestamptz not null default now()
 );
 
-create table public.establishment_photos (
+create table if not exists public.establishment_photos (
   id uuid primary key default gen_random_uuid(),
   unit_id uuid not null references public.establishment_units (id) on delete cascade,
   categoria text not null, -- fachada, recepcao, area_banho, banheiras, bancadas, secagem, equipamentos, armazenamento, apoio_equipe, geral
@@ -134,7 +146,7 @@ create table public.establishment_photos (
 -- -----------------------------------------------------------------------------
 -- audit_logs (genérico, poliomórfico)
 -- -----------------------------------------------------------------------------
-create table public.audit_logs (
+create table if not exists public.audit_logs (
   id uuid primary key default gen_random_uuid(),
   entity_type text not null,
   entity_id uuid not null,
@@ -145,7 +157,7 @@ create table public.audit_logs (
   created_at timestamptz not null default now()
 );
 
-create table public.terms_acceptances (
+create table if not exists public.terms_acceptances (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.users (id) on delete cascade,
   document_type text not null, -- termos_uso, privacidade, cancelamento
@@ -156,14 +168,14 @@ create table public.terms_acceptances (
   origin text
 );
 
-create table public.platform_settings (
+create table if not exists public.platform_settings (
   key text primary key,
   value jsonb not null,
   updated_by uuid references public.users (id),
   updated_at timestamptz not null default now()
 );
 
-create table public.notifications (
+create table if not exists public.notifications (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.users (id) on delete cascade,
   type text not null,
@@ -173,7 +185,7 @@ create table public.notifications (
 );
 
 -- Índices de apoio
-create index idx_professional_profiles_status on public.professional_profiles (status);
-create index idx_establishments_status on public.establishments (status);
-create index idx_establishment_units_establishment on public.establishment_units (establishment_id);
-create index idx_notifications_user_unread on public.notifications (user_id) where read_at is null;
+create index if not exists idx_professional_profiles_status on public.professional_profiles (status);
+create index if not exists idx_establishments_status on public.establishments (status);
+create index if not exists idx_establishment_units_establishment on public.establishment_units (establishment_id);
+create index if not exists idx_notifications_user_unread on public.notifications (user_id) where read_at is null;
