@@ -2,16 +2,14 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Middleware de sessão + guards de rota por role.
+ * Proxy de sessão + guards de rota por role.
  *
  * A lógica fica inteiramente neste arquivo (em vez de importada de
- * lib/supabase/middleware.ts) porque o bundler de Edge Function da
- * Vercel, em alguns casos, falha ao resolver imports via alias ("@/...")
- * dentro do middleware raiz, retornando o erro:
- *   "Edge Function 'middleware' is referencing unsupported modules"
- * Mantendo tudo em um único arquivo sem alias, evitamos esse problema.
+ * No Next.js 16, a convenção `middleware.ts` foi substituída por
+ * `proxy.ts`. Além de remover a execução pelo caminho legado de Edge
+ * Functions da Vercel, o Proxy usa o runtime Node.js por padrão.
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isProtected =
     path.startsWith("/profissional") ||
