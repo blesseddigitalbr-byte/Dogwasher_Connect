@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { SignUpForm } from "@/features/auth/sign-up-form";
 
@@ -16,9 +17,19 @@ export default async function CriarContaPage({
         <Link href="/" className="text-sm font-medium text-[var(--dw-navy)]">
           ← Dog Washer Connect
         </Link>
-        <h1 className="mt-6 font-[var(--dw-font-display)] text-2xl font-semibold text-[var(--dw-navy)]">
-          Criar conta
-        </h1>
+        <div className="mt-6 flex items-center gap-4">
+          <Image
+            src="/logo-dog-washer-connect.png"
+            alt="Dog Washer Connect"
+            width={72}
+            height={72}
+            priority
+            className="rounded-xl"
+          />
+          <h1 className="font-[var(--dw-font-display)] text-2xl font-semibold text-[var(--dw-navy)]">
+            Criar conta
+          </h1>
+        </div>
         <SignUpForm defaultRole={defaultRole} />
         <p className="mt-4 text-center text-sm text-[var(--dw-gray-500)]">
           Já tem conta?{" "}

@@ -19,23 +19,25 @@ export function SignUpForm({ defaultRole }: { defaultRole: "professional" | "est
         <legend className="text-sm font-medium text-[var(--dw-gray-900)]">
           Você é:
         </legend>
-        <div className="flex gap-4">
-          <label className="flex items-center gap-2 text-sm">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-[var(--dw-gray-200)] bg-white px-3 py-3 text-sm font-medium text-[var(--dw-navy)] transition-colors hover:border-[var(--dw-orange)]">
             <input
               type="radio"
               name="role"
               value="professional"
               defaultChecked={defaultRole === "professional"}
               required
+              className="size-4 accent-[var(--dw-orange)]"
             />
             Profissional Dog Washer
           </label>
-          <label className="flex items-center gap-2 text-sm">
+          <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-[var(--dw-gray-200)] bg-white px-3 py-3 text-sm font-medium text-[var(--dw-navy)] transition-colors hover:border-[var(--dw-orange)]">
             <input
               type="radio"
               name="role"
               value="establishment_owner"
               defaultChecked={defaultRole === "establishment_owner"}
+              className="size-4 accent-[var(--dw-orange)]"
             />
             Estabelecimento
           </label>
