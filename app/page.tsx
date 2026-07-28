@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const petShopImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBGNABi4q-gzPmpPqdf5nE1IYvCm7NYF5FCEya7PQ-Pog44W7gBVgjTKUSxxRRkHQK2OBNXiLVwLFNc7vqbx4wNbxATLKiue1MXArBbkUkyT73uQucyq3xo15zsFR3qmTrKBCnN20JcZkvdkuqUnXC-WfOyp4b4Kso_pj5eputiQ4eSFLrwQ_8SuTHZhwqPC27ddPEly4_643Sr2PQ1vltdvALoA0I8KLdRk7anWnWOqfFFQDjCGrwbYA";
 const professionalImage =
-  "/professional-dog-washer-official-logo.png";
+  "/professional-dog-washer-uniform.png";
 
 const navItems = [
   { href: "#proposta", label: "A rede" },
@@ -184,6 +184,7 @@ export default function LandingPage() {
               src={professionalImage}
               alt="Profissional Dog Washer segurando cachorro em ambiente pet"
               className="order-2 md:order-1"
+              fit="contain"
             />
             <div className="order-1 md:order-2">
               <Pill>Para profissionais</Pill>
@@ -380,14 +381,22 @@ function FramedImage({
   src,
   alt,
   className = "",
+  fit = "cover",
 }: {
   src: string;
   alt: string;
   className?: string;
+  fit?: "cover" | "contain";
 }) {
   return (
-    <div className={`relative aspect-[1.7/1] overflow-hidden rounded-3xl border border-white/10 ${className}`}>
-      <Image src={src} alt={alt} fill sizes="(min-width: 768px) 520px, 90vw" className="object-cover" />
+    <div className={`relative aspect-[1.7/1] overflow-hidden rounded-3xl border border-white/10 bg-[#031427] ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 768px) 520px, 90vw"
+        className={fit === "contain" ? "object-contain" : "object-cover"}
+      />
     </div>
   );
 }
