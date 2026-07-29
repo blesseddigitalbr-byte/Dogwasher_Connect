@@ -99,12 +99,12 @@ export default function LandingPage() {
 
       <main>
         <section className="border-b border-white/5 px-6 pb-16 pt-16 md:px-12 md:pb-20 md:pt-24">
-          <div className="mx-auto max-w-6xl text-center">
-            <h1 className="mx-auto max-w-5xl font-[var(--dw-font-display)] text-4xl font-extrabold leading-tight md:text-6xl">
+          <div className="mx-auto max-w-7xl text-center">
+            <h1 className="mx-auto max-w-4xl font-[var(--dw-font-display)] text-4xl font-extrabold leading-tight md:text-5xl">
               Quando falta um profissional, sua{" "}
               <span className="text-[var(--dw-orange)]">operação não precisa parar.</span>
             </h1>
-            <p className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-[#dbc2b1]">
+            <p className="mx-auto mt-7 max-w-3xl text-base font-semibold leading-7 text-[#dbc2b1]">
               Conectamos pet shops a profissionais qualificados para atendimentos sob
               demanda, garantindo que sua agenda continue cheia e seus clientes
               sempre satisfeitos.
@@ -128,7 +128,7 @@ export default function LandingPage() {
         </section>
 
         <section id="proposta" className="bg-[#031427] px-6 py-8 md:px-12">
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
             {valueCards.map((card) => (
               <article
                 key={card.title}
@@ -137,10 +137,10 @@ export default function LandingPage() {
                 <p className="text-5xl font-black leading-none text-[var(--dw-orange)]">
                   {card.icon}
                 </p>
-                <h2 className="mt-8 font-[var(--dw-font-display)] text-2xl font-bold text-[#d3e4fe]">
+                <h2 className="mt-8 font-[var(--dw-font-display)] text-xl font-bold text-[#d3e4fe]">
                   {card.title}
                 </h2>
-                <p className="mt-5 text-base font-semibold leading-7 text-[#dbc2b1]">
+                <p className="mt-5 text-sm font-semibold leading-6 text-[#dbc2b1]">
                   {card.text}
                 </p>
               </article>
@@ -150,10 +150,10 @@ export default function LandingPage() {
 
         <section className="px-6 py-20 text-center md:px-12">
           <div className="mx-auto max-w-4xl">
-            <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-3xl">
               Formalizando parcerias, profissionalizando o mercado
             </h2>
-            <p className="mt-8 text-lg font-semibold leading-8 text-[#dbc2b1]">
+            <p className="mt-8 text-base font-semibold leading-7 text-[#dbc2b1]">
               A Dog Washer Connect não é apenas um mural de vagas. Somos uma
               plataforma que estabelece regras claras e processos seguros para que a
               relação entre estabelecimentos e freelancers seja justa, profissional
@@ -163,10 +163,10 @@ export default function LandingPage() {
         </section>
 
         <section id="estabelecimentos" className="bg-[#0b1c30] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:items-center">
+          <div className="mx-auto grid max-w-7xl gap-16 md:grid-cols-2 md:items-center">
             <div>
               <Pill>Para estabelecimentos</Pill>
-              <h2 className="mt-8 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-5xl">
+              <h2 className="mt-8 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-4xl">
                 Sua equipe completa, sempre que precisar.
               </h2>
               <FeatureList items={establishmentBenefits} />
@@ -179,16 +179,17 @@ export default function LandingPage() {
         </section>
 
         <section id="profissionais" className="bg-[#031427] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:items-center">
+          <div className="mx-auto grid max-w-7xl gap-16 md:grid-cols-2 md:items-center">
             <FramedImage
               src={professionalImage}
               alt="Profissional Dog Washer segurando cachorro em ambiente pet"
               className="order-2 md:order-1"
               fit="contain"
+              aspect="portrait"
             />
             <div className="order-1 md:order-2">
               <Pill>Para profissionais</Pill>
-              <h2 className="mt-8 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-5xl">
+              <h2 className="mt-8 font-[var(--dw-font-display)] text-3xl font-semibold leading-tight md:text-4xl">
                 Liberdade e reconhecimento para sua carreira.
               </h2>
               <FeatureList items={professionalBenefits} />
@@ -319,17 +320,17 @@ export default function LandingPage() {
 function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-white/10 bg-[#031427]/95 px-6 py-4 backdrop-blur md:px-12">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-4">
           <Image
             src="/logo-dog-washer-connect.png"
             alt="Dog Washer Connect"
-            width={38}
-            height={38}
-            className="h-9 w-9 rounded-sm object-cover"
+            width={56}
+            height={56}
+            className="h-12 w-12 rounded-sm object-cover md:h-14 md:w-14"
             priority
           />
-          <span className="hidden font-[var(--dw-font-display)] text-xl font-bold uppercase text-[var(--dw-orange)] sm:inline">
+          <span className="hidden font-[var(--dw-font-display)] text-base font-bold uppercase text-[var(--dw-orange)] sm:inline">
             Dog Washer Connect
           </span>
         </Link>
@@ -382,14 +383,16 @@ function FramedImage({
   alt,
   className = "",
   fit = "cover",
+  aspect = "wide",
 }: {
   src: string;
   alt: string;
   className?: string;
   fit?: "cover" | "contain";
+  aspect?: "wide" | "portrait";
 }) {
   return (
-    <div className={`relative aspect-[1.7/1] overflow-hidden rounded-3xl border border-white/10 bg-[#031427] ${className}`}>
+    <div className={`relative ${aspect === "portrait" ? "aspect-[4/3]" : "aspect-[1.7/1]"} overflow-hidden rounded-3xl border border-white/10 bg-[#031427] ${className}`}>
       <Image
         src={src}
         alt={alt}
