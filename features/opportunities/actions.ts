@@ -128,3 +128,59 @@ export async function applyToOpportunity(
   revalidatePath(`/profissional/oportunidades/${opportunityId}`);
   redirect("/profissional/oportunidades");
 }
+
+export async function reviewApplication(formData: FormData) {
+  const supabase = await createClient();
+  const { data: authData } = await supabase.auth.getUser();
+
+  if (!authData.user) {
+    redirect("/login");
+  }
+
+  const applicationId = text(formData.get("application_id"));
+  const opportunityId = text(formData.get("opportunity_id"));
+  const decision = text(formData.get("decision"));
+
+  if (!applicationId || !opportunityId || !["accepted", "declined"].includes(decision)) {
+    redirect("/estabelecimento/oportunidades");
+  }
+
+  const { data: opportunity } = await supabase
+    .from("opportunities")
+    .select("id,establishment_id,establishments(owner_user_id)")
+    .eq("id", opportunityId)
+    .single();
+
+  const owner = Array.isArray(opportunity?.establishments)
+    ? opportunity.establishments[0]
+    : opportunity?.establishments;
+
+  if (!opportunity || owner?.owner_user_id !== authData.user.id) {
+    redirect("/estabelecimento/oportunidades");
+  }
+
+  await supabase
+    .from("opportunity_applications")
+    .update({
+      status: decision,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", applicationId)
+    .eq("opportunity_id", opportunityId);
+
+  if (decision === "accepted") {
+    await supabase
+      .from("opportunities")
+      .update({
+        status: "filled",
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", opportunityId);
+  }
+
+  revalidatePath("/estabelecimento/oportunidades");
+  revalidatePath(`/estabelecimento/oportunidades/${opportunityId}`);
+  revalidatePath("/profissional/agenda");
+  revalidatePath("/profissional/trabalhos");
+  redirect(`/estabelecimento/oportunidades/${opportunityId}`);
+}

@@ -55,8 +55,9 @@ export default async function EstabelecimentoOportunidadesPage() {
       <section className="grid gap-4">
         {opportunities?.length ? (
           opportunities.map((opportunity) => (
-            <article
+            <Link
               key={opportunity.id}
+              href={`/estabelecimento/oportunidades/${opportunity.id}`}
               className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm"
             >
               <div className="flex flex-col justify-between gap-4 md:flex-row md:items-start">
@@ -78,7 +79,7 @@ export default async function EstabelecimentoOportunidadesPage() {
                   </span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))
         ) : (
           <div className="rounded-[20px] border border-dashed border-[#c8d3e2] bg-white p-8 text-center">
