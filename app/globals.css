@@ -13,7 +13,9 @@
   --dw-navy: #07111e;
 
   /* PLACEHOLDER — trocar pelo hex oficial do manual de marca */
-  --dw-orange: #e8823c;
+  --dw-orange: #f5a524;
+  --dw-orange-soft: #fff4dc;
+  --dw-orange-muted: #c97915;
 
   --dw-white: #ffffff;
   --dw-off-white: #f7f5f2;
