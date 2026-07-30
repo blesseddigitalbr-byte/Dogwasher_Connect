@@ -33,47 +33,17 @@ export async function signUp(formData: FormData): Promise<ActionResult> {
   const { data: authData, error: authError } = await supabase.auth.signUp({
     email,
     password,
+    options: {
+      data: {
+        role,
+        full_name_or_razao_social: fullNameOrRazaoSocial,
+      },
+    },
   });
 
   if (authError || !authData.user) {
     return { error: authError?.message ?? "Não foi possível criar a conta." };
   }
-
-  const userId = authData.user.id;
-
-  const { error: userInsertError } = await supabase.from("users").insert({
-    id: userId,
-    email,
-    role,
-  });
-
-  if (userInsertError) {
-    return { error: userInsertError.message };
-  }
-
-  if (role === "professional") {
-    const { error } = await supabase.from("professional_profiles").insert({
-      user_id: userId,
-      full_name: fullNameOrRazaoSocial,
-      status: "cadastro_incompleto",
-    });
-    if (error) return { error: error.message };
-  } else {
-    const { error } = await supabase.from("establishments").insert({
-      owner_user_id: userId,
-      razao_social: fullNameOrRazaoSocial,
-      documento: "", // completado no onboarding
-      status: "cadastro_incompleto",
-    });
-    if (error) return { error: error.message };
-  }
-
-  await supabase.from("terms_acceptances").insert({
-    user_id: userId,
-    document_type: "termos_uso",
-    version: "v1",
-    origin: "criar_conta",
-  });
 
   redirect(
     role === "professional"
