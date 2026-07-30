@@ -2,13 +2,7 @@ import { notFound } from "next/navigation";
 import { PageShell } from "@/components/ui/page-shell";
 import { createClient } from "@/lib/supabase/server";
 import { ApplyOpportunityForm } from "@/features/opportunities/apply-opportunity-form";
-
-const navItems = [
-  { href: "/profissional/dashboard", label: "Home", icon: "H" },
-  { href: "/profissional/oportunidades", label: "Vagas", icon: "V" },
-  { href: "/profissional/perfil", label: "Perfil", icon: "P" },
-  { href: "/profissional/onboarding", label: "Conta", icon: "C" },
-];
+import { professionalNavItems } from "@/features/professional/nav";
 
 export default async function DetalheOportunidadePage(props: {
   params: Promise<{ id: string }>;
@@ -33,7 +27,7 @@ export default async function DetalheOportunidadePage(props: {
     <PageShell
       title={opportunity.title}
       subtitle={`${establishmentName(opportunity.establishments)} • ${opportunity.service_type}`}
-      navItems={navItems}
+      navItems={professionalNavItems}
     >
       <div className="grid gap-5 lg:grid-cols-[1fr_380px]">
         <section className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm md:p-7">

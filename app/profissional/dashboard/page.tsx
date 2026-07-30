@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageShell } from "@/components/ui/page-shell";
 import { createClient } from "@/lib/supabase/server";
+import { professionalNavItems } from "@/features/professional/nav";
 
 const featured = [
   { name: "Ricardo Silva", role: "Banho e tosa especialista", rating: "4.9", distance: "3,2 km" },
@@ -42,6 +43,7 @@ export default async function ProfissionalDashboardPage() {
     <PageShell
       title="Profissionais qualificados, quando sua operação mais precisar."
       subtitle="Sua central para acompanhar reputação, oportunidades próximas e evolução do perfil Dog Washer."
+      navItems={professionalNavItems}
     >
       <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
