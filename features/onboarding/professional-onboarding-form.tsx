@@ -32,30 +32,30 @@ export function ProfessionalOnboardingForm({
         name="formacao_declarada"
         placeholder="Ex: Profissional Dog Washer Híbrido, 2024"
         defaultValue={defaultValues.formacao_declarada ?? ""}
-        labelClassName="text-white"
-        className="border-white/15 bg-[#071d33] text-white placeholder:text-white/35 focus:ring-[var(--dw-orange)]"
+        labelClassName="text-[#071426]"
+        className="border-[#dbe3ef] bg-white text-[#071426] placeholder:text-[#8b97a8] focus:ring-[var(--dw-orange)]"
       />
       <Input
         label="Cidade"
         name="cidade"
         defaultValue={defaultValues.cidade ?? "Brasília"}
-        labelClassName="text-white"
-        className="border-white/15 bg-[#071d33] text-white focus:ring-[var(--dw-orange)]"
+        labelClassName="text-[#071426]"
+        className="border-[#dbe3ef] bg-white text-[#071426] focus:ring-[var(--dw-orange)]"
       />
       <Input
         label="Estado"
         name="estado"
         defaultValue={defaultValues.estado ?? "DF"}
-        labelClassName="text-white"
-        className="border-white/15 bg-[#071d33] text-white focus:ring-[var(--dw-orange)]"
+        labelClassName="text-[#071426]"
+        className="border-[#dbe3ef] bg-white text-[#071426] focus:ring-[var(--dw-orange)]"
       />
       <Input
         label="Raio de atendimento (km)"
         name="raio_atendimento_km"
         type="number"
         defaultValue={defaultValues.raio_atendimento_km ?? 10}
-        labelClassName="text-white"
-        className="border-white/15 bg-[#071d33] text-white focus:ring-[var(--dw-orange)]"
+        labelClassName="text-[#071426]"
+        className="border-[#dbe3ef] bg-white text-[#071426] focus:ring-[var(--dw-orange)]"
       />
       {state.error && (
         <p className="rounded-xl border border-red-400/30 bg-red-500/10 p-3 text-sm font-semibold text-red-100">

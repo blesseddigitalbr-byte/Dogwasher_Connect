@@ -69,7 +69,7 @@ export function PageShell({
       </aside>
 
       <div className="min-w-0 flex-1">
-        <header className="sticky top-0 z-30 border-b border-[#dbe3ef] bg-white/95 px-4 py-3 backdrop-blur md:px-8">
+        <header className="sticky top-0 z-30 border-b border-white/10 bg-[#061426]/98 px-4 py-3 text-white backdrop-blur md:border-[#dbe3ef] md:bg-white/95 md:px-8 md:text-[#071426]">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3 md:hidden">
               <Image
@@ -80,7 +80,7 @@ export function PageShell({
                 className="h-12 w-12 rounded-sm object-cover"
                 priority
               />
-              <span className="font-[var(--dw-font-display)] text-xs font-bold uppercase leading-tight tracking-wide text-[#061426]">
+              <span className="font-[var(--dw-font-display)] text-xs font-bold uppercase leading-tight tracking-wide text-white">
                 Dog Washer
                 <span className="block text-[var(--dw-orange)]">Connect</span>
               </span>
@@ -97,7 +97,7 @@ export function PageShell({
               <form action={signOut}>
                 <button
                   type="submit"
-                  className="rounded-lg border border-[#dbe3ef] px-4 py-2 text-xs font-black text-[#071426] transition hover:border-[var(--dw-orange)] hover:text-[var(--dw-orange)]"
+                  className="rounded-lg border border-white/20 px-4 py-2 text-xs font-black text-white transition hover:border-[var(--dw-orange)] hover:text-[var(--dw-orange)] md:border-[#dbe3ef] md:text-[#071426]"
                 >
                   Sair
                 </button>
@@ -107,7 +107,25 @@ export function PageShell({
         </header>
 
         <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-6 md:px-8 md:pb-10">
-          <section className="mb-6">
+          <nav className="mb-5 grid grid-cols-4 gap-2 md:hidden">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={[
+                  "rounded-2xl border px-2 py-3 text-center text-[10px] font-black uppercase tracking-wide shadow-sm",
+                  index === 0
+                    ? "border-[var(--dw-orange)] bg-[var(--dw-orange)] text-[#061426]"
+                    : "border-[#dbe3ef] bg-white text-[#4d5b6f]",
+                ].join(" ")}
+              >
+                <span className="mb-1 block text-xs">{item.icon}</span>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <section className="mb-6 rounded-[20px] border border-[#dbe3ef] bg-white p-4 shadow-sm md:border-0 md:bg-transparent md:p-0 md:shadow-none">
             <h1 className="font-[var(--dw-font-display)] text-2xl font-black leading-tight text-[#071426] md:text-4xl">
               {title}
             </h1>
@@ -118,7 +136,7 @@ export function PageShell({
         </main>
       </div>
 
-      <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-4 rounded-[24px] border border-white/10 bg-[#071d33]/95 p-2 shadow-2xl shadow-black/40 backdrop-blur md:hidden">
+      <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-4 rounded-[24px] border border-white/10 bg-[#061426]/95 p-2 shadow-2xl shadow-black/40 backdrop-blur md:hidden">
         {navItems.map((item) => (
           <Link
             key={item.href}

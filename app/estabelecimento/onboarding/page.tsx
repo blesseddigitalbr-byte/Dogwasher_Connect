@@ -36,7 +36,7 @@ export default async function OnboardingEstabelecimentoPage() {
       subtitle="Documentos e fotos da unidade são analisados antes da liberação para publicar oportunidades."
       navItems={navItems}
     >
-      <section className="max-w-2xl rounded-[28px] border border-white/10 bg-[#0a2138] p-5 md:p-7">
+      <section className="max-w-2xl rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm md:p-7">
         <EstablishmentOnboardingForm
           defaultValues={{
             nome_fantasia: establishment?.nome_fantasia,

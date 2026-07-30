@@ -40,8 +40,8 @@ export function EstablishmentOnboardingForm({
           label={label}
           name={name}
           defaultValue={defaultValue}
-          labelClassName="text-white"
-          className="border-white/15 bg-[#071d33] text-white placeholder:text-white/35 focus:ring-[var(--dw-orange)]"
+          labelClassName="text-[#071426]"
+          className="border-[#dbe3ef] bg-white text-[#071426] placeholder:text-[#8b97a8] focus:ring-[var(--dw-orange)]"
         />
       ))}
       {state.error && (
