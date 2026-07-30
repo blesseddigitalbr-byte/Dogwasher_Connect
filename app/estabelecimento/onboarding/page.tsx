@@ -4,7 +4,7 @@ import { EstablishmentOnboardingForm } from "@/features/onboarding/establishment
 
 const navItems = [
   { href: "/estabelecimento/dashboard", label: "Home", icon: "H" },
-  { href: "/estabelecimento/busca", label: "Busca", icon: "B" },
+  { href: "/estabelecimento/oportunidades", label: "Vagas", icon: "V" },
   { href: "/estabelecimento/onboarding", label: "Perfil", icon: "P" },
   { href: "/admin/dashboard", label: "Admin", icon: "D" },
 ];

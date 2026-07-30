@@ -10,7 +10,7 @@ const candidates = [
 
 const navItems = [
   { href: "/estabelecimento/dashboard", label: "Home", icon: "H" },
-  { href: "/estabelecimento/busca", label: "Busca", icon: "B" },
+  { href: "/estabelecimento/oportunidades", label: "Vagas", icon: "V" },
   { href: "/estabelecimento/onboarding", label: "Perfil", icon: "P" },
   { href: "/admin/dashboard", label: "Admin", icon: "D" },
 ];
@@ -78,8 +78,8 @@ export default async function EstabelecimentoDashboardPage() {
               </p>
               <h2 className="mt-2 text-xl font-black text-[#071426]">Profissionais indicados</h2>
             </div>
-            <Link href="/estabelecimento/busca" className="text-xs font-bold text-[var(--dw-orange)]">
-              Ver busca
+            <Link href="/estabelecimento/oportunidades" className="text-xs font-bold text-[var(--dw-orange)]">
+              Ver vagas
             </Link>
           </div>
 

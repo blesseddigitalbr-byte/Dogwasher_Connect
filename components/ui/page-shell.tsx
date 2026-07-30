@@ -11,7 +11,7 @@ type NavItem = {
 
 const defaultNavItems: NavItem[] = [
   { href: "/profissional/dashboard", label: "Home", icon: "H" },
-  { href: "/profissional/busca", label: "Busca", icon: "B" },
+  { href: "/profissional/oportunidades", label: "Vagas", icon: "V" },
   { href: "/profissional/perfil", label: "Perfil", icon: "P" },
   { href: "/estabelecimento/dashboard", label: "Painel", icon: "D" },
 ];
