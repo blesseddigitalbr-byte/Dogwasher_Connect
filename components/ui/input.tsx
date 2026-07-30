@@ -4,14 +4,18 @@ import { clsx } from "@/lib/utils";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   error?: string;
+  labelClassName?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, id, className, ...props }, ref) => {
+  ({ label, error, id, className, labelClassName, ...props }, ref) => {
     const inputId = id ?? props.name;
     return (
       <div className="flex flex-col gap-1.5">
-        <label htmlFor={inputId} className="text-sm font-medium text-[var(--dw-gray-900)]">
+        <label
+          htmlFor={inputId}
+          className={clsx("text-sm font-medium text-[var(--dw-gray-900)]", labelClassName)}
+        >
           {label}
         </label>
         <input

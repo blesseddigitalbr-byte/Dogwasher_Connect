@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageShell } from "@/components/ui/page-shell";
+import { createClient } from "@/lib/supabase/server";
 
 const featured = [
   { name: "Ricardo Silva", role: "Banho e tosa especialista", rating: "4.9", distance: "3,2 km" },
@@ -12,7 +13,31 @@ const activities = [
   "Nova oportunidade prevista para sua região",
 ];
 
-export default function ProfissionalDashboardPage() {
+export default async function ProfissionalDashboardPage() {
+  const supabase = await createClient();
+  const { data: authData } = await supabase.auth.getUser();
+
+  const { data: profile } = authData.user
+    ? await supabase
+        .from("professional_profiles")
+        .select("full_name,formacao_declarada,cidade,estado,raio_atendimento_km,status")
+        .eq("user_id", authData.user.id)
+        .single()
+    : { data: null };
+
+  const profileProgress = [
+    profile?.full_name,
+    profile?.formacao_declarada,
+    profile?.cidade,
+    profile?.estado,
+    profile?.raio_atendimento_km,
+  ].filter(Boolean).length;
+  const progressPercent = Math.round((profileProgress / 5) * 100);
+  const statusLabel = profile?.status
+    ? profile.status.replaceAll("_", " ")
+    : "cadastro incompleto";
+  const greetingName = profile?.full_name ?? "profissional Dog Washer";
+
   return (
     <PageShell
       title="Profissionais qualificados, quando sua operação mais precisar."
@@ -23,7 +48,7 @@ export default function ProfissionalDashboardPage() {
           <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">
             Meu status
           </p>
-          <h2 className="mt-3 text-xl font-black text-white">Olá, profissional Dog Washer</h2>
+          <h2 className="mt-3 text-xl font-black text-white">Olá, {greetingName}</h2>
           <p className="mt-2 text-sm leading-6 text-white/65">
             Complete seu perfil para aparecer nas buscas, receber convites e construir reputação
             dentro da rede.
@@ -31,8 +56,8 @@ export default function ProfissionalDashboardPage() {
           <div className="mt-5 grid grid-cols-2 gap-3">
             <Metric label="Reputação" value="Novo" />
             <Metric label="Diárias" value="0" />
-            <Metric label="Perfil" value="42%" />
-            <Metric label="Convites" value="Em breve" />
+            <Metric label="Perfil" value={`${progressPercent}%`} />
+            <Metric label="Status" value={statusLabel} />
           </div>
           <Link
             href="/profissional/onboarding"

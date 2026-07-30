@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageShell } from "@/components/ui/page-shell";
+import { createClient } from "@/lib/supabase/server";
 
 const candidates = [
   { name: "Mariana Costa", specialty: "Banho e tosa completa", status: "Disponível hoje" },
@@ -14,10 +15,34 @@ const navItems = [
   { href: "/admin/dashboard", label: "Admin", icon: "D" },
 ];
 
-export default function EstabelecimentoDashboardPage() {
+export default async function EstabelecimentoDashboardPage() {
+  const supabase = await createClient();
+  const { data: authData } = await supabase.auth.getUser();
+
+  const { data: establishment } = authData.user
+    ? await supabase
+        .from("establishments")
+        .select("id,razao_social,nome_fantasia,documento,status")
+        .eq("owner_user_id", authData.user.id)
+        .single()
+    : { data: null };
+
+  const { count: unitsCount } = establishment?.id
+    ? await supabase
+        .from("establishment_units")
+        .select("id", { count: "exact", head: true })
+        .eq("establishment_id", establishment.id)
+    : { count: 0 };
+
+  const displayName =
+    establishment?.nome_fantasia ?? establishment?.razao_social ?? "Pet Shop Central";
+  const statusLabel = establishment?.status
+    ? establishment.status.replaceAll("_", " ")
+    : "cadastro incompleto";
+
   return (
     <PageShell
-      title="Olá, Pet Shop Central"
+      title={`Olá, ${displayName}`}
       subtitle="Painel operacional para publicar oportunidades, acompanhar candidatos e manter a agenda funcionando."
       navItems={navItems}
     >
@@ -32,10 +57,10 @@ export default function EstabelecimentoDashboardPage() {
             profissionais qualificados.
           </p>
           <div className="mt-5 grid grid-cols-2 gap-3">
-            <Metric label="Candidatos" value="24" />
-            <Metric label="Em análise" value="8" />
-            <Metric label="Diárias" value="12" />
-            <Metric label="Avaliação" value="4.9" />
+            <Metric label="Unidades" value={String(unitsCount ?? 0)} />
+            <Metric label="Status" value={statusLabel} />
+            <Metric label="Diárias" value="0" />
+            <Metric label="Avaliação" value="Novo" />
           </div>
           <Link
             href="/estabelecimento/onboarding"
