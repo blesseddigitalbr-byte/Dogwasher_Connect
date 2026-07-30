@@ -44,12 +44,12 @@ export default async function ProfissionalDashboardPage() {
       subtitle="Sua central para acompanhar reputação, oportunidades próximas e evolução do perfil Dog Washer."
     >
       <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-        <section className="rounded-[28px] border border-white/10 bg-[#0a2138] p-5">
+        <section className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
           <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">
             Meu status
           </p>
-          <h2 className="mt-3 text-xl font-black text-white">Olá, {greetingName}</h2>
-          <p className="mt-2 text-sm leading-6 text-white/65">
+          <h2 className="mt-3 text-xl font-black text-[#071426]">Olá, {greetingName}</h2>
+          <p className="mt-2 text-sm leading-6 text-[#4d5b6f]">
             Complete seu perfil para aparecer nas buscas, receber convites e construir reputação
             dentro da rede.
           </p>
@@ -71,17 +71,17 @@ export default async function ProfissionalDashboardPage() {
           <Panel title="Profissionais em destaque" eyebrow="Rede ativa">
             <div className="space-y-3">
               {featured.map((item) => (
-                <div key={item.name} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <div key={item.name} className="rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <p className="font-bold text-white">{item.name}</p>
-                      <p className="mt-1 text-xs text-white/55">{item.role}</p>
+                      <p className="font-bold text-[#071426]">{item.name}</p>
+                      <p className="mt-1 text-xs text-[#637083]">{item.role}</p>
                     </div>
                     <span className="rounded-full bg-[var(--dw-orange)]/15 px-2 py-1 text-xs font-black text-[var(--dw-orange)]">
                       {item.rating}
                     </span>
                   </div>
-                  <p className="mt-3 text-xs font-semibold text-white/50">{item.distance} de distância</p>
+                  <p className="mt-3 text-xs font-semibold text-[#637083]">{item.distance} de distância</p>
                 </div>
               ))}
             </div>
@@ -90,7 +90,7 @@ export default async function ProfissionalDashboardPage() {
           <Panel title="Atividades recentes" eyebrow="Operação">
             <div className="space-y-3">
               {activities.map((item) => (
-                <p key={item} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-5 text-white/70">
+                <p key={item} className="rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4 text-sm leading-5 text-[#4d5b6f]">
                   {item}
                 </p>
               ))}
@@ -99,7 +99,7 @@ export default async function ProfissionalDashboardPage() {
         </section>
       </div>
 
-      <section className="mt-5 rounded-[28px] border border-white/10 bg-[#0a2138] p-5">
+        <section className="mt-5 rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
         <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">
           Confiança em cada trabalho
         </p>
@@ -115,18 +115,18 @@ export default async function ProfissionalDashboardPage() {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#071d33] p-4">
-      <p className="text-[10px] font-bold uppercase tracking-wide text-white/45">{label}</p>
-      <p className="mt-2 text-xl font-black text-white">{value}</p>
+    <div className="rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4">
+      <p className="text-[10px] font-bold uppercase tracking-wide text-[#637083]">{label}</p>
+      <p className="mt-2 text-xl font-black capitalize text-[#071426]">{value}</p>
     </div>
   );
 }
 
 function Panel({ title, eyebrow, children }: { title: string; eyebrow: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-[28px] border border-white/10 bg-[#0a2138] p-5">
+    <div className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
       <p className="text-[10px] font-black uppercase tracking-wide text-[var(--dw-orange)]">{eyebrow}</p>
-      <h2 className="mt-2 text-lg font-black text-white">{title}</h2>
+      <h2 className="mt-2 text-lg font-black text-[#071426]">{title}</h2>
       <div className="mt-4">{children}</div>
     </div>
   );
@@ -134,9 +134,9 @@ function Panel({ title, eyebrow, children }: { title: string; eyebrow: string; c
 
 function TrustCard({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-      <p className="font-bold text-white">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-white/60">{text}</p>
+    <div className="rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4">
+      <p className="font-bold text-[#071426]">{title}</p>
+      <p className="mt-2 text-sm leading-6 text-[#4d5b6f]">{text}</p>
     </div>
   );
 }

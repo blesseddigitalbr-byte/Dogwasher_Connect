@@ -28,62 +28,95 @@ export function PageShell({
   navItems?: NavItem[];
 }) {
   return (
-    <div className="min-h-screen bg-[#031427] text-[#d7e6ff]">
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#031427]/95 px-4 py-3 backdrop-blur md:px-10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/logo-dog-washer-connect.png"
-              alt="Dog Washer Connect"
-              width={64}
-              height={64}
-              className="h-12 w-12 rounded-sm object-cover md:h-16 md:w-16"
-              priority
-            />
-            <span className="font-[var(--dw-font-display)] text-xs font-bold uppercase leading-tight tracking-wide text-white md:text-sm">
-              Dog Washer
-              <span className="block text-[var(--dw-orange)]">Connect</span>
-            </span>
-          </Link>
+    <div className="min-h-screen bg-[#f5f7fb] text-[#071426] md:flex">
+      <aside className="hidden min-h-screen w-[270px] shrink-0 flex-col bg-[#061426] px-5 py-7 text-white md:flex">
+        <Link href="/" className="flex flex-col items-center gap-3">
+          <Image
+            src="/logo-dog-washer-connect.png"
+            alt="Dog Washer Connect"
+            width={104}
+            height={104}
+            className="h-24 w-24 rounded-sm object-cover"
+            priority
+          />
+        </Link>
 
-          <nav className="hidden items-center gap-5 md:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-[11px] font-semibold uppercase tracking-wide text-white/55 transition hover:text-[var(--dw-orange)]"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <form action={signOut}>
-            <button
-              type="submit"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs font-semibold text-white/70 transition hover:border-[var(--dw-orange)] hover:text-[var(--dw-orange)]"
+        <nav className="mt-12 flex flex-col gap-2">
+          {navItems.map((item, index) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={[
+                "flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-black transition",
+                index === 0
+                  ? "bg-[var(--dw-orange)] text-[#061426]"
+                  : "text-white/78 hover:bg-white/8 hover:text-white",
+              ].join(" ")}
             >
-              Sair
-            </button>
-          </form>
-        </div>
-      </header>
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-current/20 text-xs">
+                {item.icon}
+              </span>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-      <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-5 md:px-10 md:pb-12 md:pt-10">
-        <section className="rounded-[28px] border border-white/10 bg-[#071d33] p-5 shadow-2xl shadow-black/20 md:p-8">
-          <div className="flex flex-col gap-3 md:max-w-3xl">
-            <p className="w-fit rounded-full bg-[var(--dw-orange)]/15 px-3 py-1 text-[10px] font-black uppercase tracking-wide text-[var(--dw-orange)]">
-              Área interna
-            </p>
-            <h1 className="font-[var(--dw-font-display)] text-2xl font-black leading-tight text-white md:text-4xl">
+        <div className="mt-auto border-t border-white/15 pt-5">
+          <p className="rounded-xl bg-white/5 px-4 py-3 text-xs font-bold text-white/65">
+            System Status: <span className="text-[var(--dw-orange)]">Active</span>
+          </p>
+        </div>
+      </aside>
+
+      <div className="min-w-0 flex-1">
+        <header className="sticky top-0 z-30 border-b border-[#dbe3ef] bg-white/95 px-4 py-3 backdrop-blur md:px-8">
+          <div className="flex items-center justify-between gap-4">
+            <Link href="/" className="flex items-center gap-3 md:hidden">
+              <Image
+                src="/logo-dog-washer-connect.png"
+                alt="Dog Washer Connect"
+                width={56}
+                height={56}
+                className="h-12 w-12 rounded-sm object-cover"
+                priority
+              />
+              <span className="font-[var(--dw-font-display)] text-xs font-bold uppercase leading-tight tracking-wide text-[#061426]">
+                Dog Washer
+                <span className="block text-[var(--dw-orange)]">Connect</span>
+              </span>
+            </Link>
+
+            <div className="hidden text-xs font-semibold text-[#637083] md:block">
+              Portal &gt; Plataforma &gt; <span className="text-[#071426]">Visão consolidada</span>
+            </div>
+
+            <div className="ml-auto flex items-center gap-3">
+              <span className="hidden rounded-lg border border-[#dbe3ef] bg-[#f7f9fd] px-3 py-2 text-xs font-bold text-[#071426] md:inline-flex">
+                São Paulo - Central
+              </span>
+              <form action={signOut}>
+                <button
+                  type="submit"
+                  className="rounded-lg border border-[#dbe3ef] px-4 py-2 text-xs font-black text-[#071426] transition hover:border-[var(--dw-orange)] hover:text-[var(--dw-orange)]"
+                >
+                  Sair
+                </button>
+              </form>
+            </div>
+          </div>
+        </header>
+
+        <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-6 md:px-8 md:pb-10">
+          <section className="mb-6">
+            <h1 className="font-[var(--dw-font-display)] text-2xl font-black leading-tight text-[#071426] md:text-4xl">
               {title}
             </h1>
-            {subtitle && <p className="max-w-2xl text-sm leading-6 text-white/65">{subtitle}</p>}
-          </div>
-        </section>
+            {subtitle && <p className="mt-2 max-w-3xl text-sm leading-6 text-[#4d5b6f]">{subtitle}</p>}
+          </section>
 
-        <div className="mt-5 md:mt-8">{children}</div>
-      </main>
+          {children}
+        </main>
+      </div>
 
       <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-4 rounded-[24px] border border-white/10 bg-[#071d33]/95 p-2 shadow-2xl shadow-black/40 backdrop-blur md:hidden">
         {navItems.map((item) => (

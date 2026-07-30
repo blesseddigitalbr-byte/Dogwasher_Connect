@@ -47,12 +47,12 @@ export default async function EstabelecimentoDashboardPage() {
       navItems={navItems}
     >
       <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-        <section className="rounded-[28px] border border-white/10 bg-[#0a2138] p-5">
+        <section className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
           <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">
             Resumo do dia
           </p>
-          <h2 className="mt-3 text-xl font-black text-white">Operação pronta para crescer</h2>
-          <p className="mt-2 text-sm leading-6 text-white/65">
+          <h2 className="mt-3 text-xl font-black text-[#071426]">Operação pronta para crescer</h2>
+          <p className="mt-2 text-sm leading-6 text-[#4d5b6f]">
             Cadastre o pet shop, valide sua unidade e prepare a primeira diária para receber
             profissionais qualificados.
           </p>
@@ -70,13 +70,13 @@ export default async function EstabelecimentoDashboardPage() {
           </Link>
         </section>
 
-        <section className="rounded-[28px] border border-white/10 bg-[#0a2138] p-5">
+        <section className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">
                 Talentos próximos
               </p>
-              <h2 className="mt-2 text-xl font-black text-white">Profissionais indicados</h2>
+              <h2 className="mt-2 text-xl font-black text-[#071426]">Profissionais indicados</h2>
             </div>
             <Link href="/estabelecimento/busca" className="text-xs font-bold text-[var(--dw-orange)]">
               Ver busca
@@ -87,12 +87,12 @@ export default async function EstabelecimentoDashboardPage() {
             {candidates.map((candidate) => (
               <article
                 key={candidate.name}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                className="rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4"
               >
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="font-bold text-white">{candidate.name}</p>
-                    <p className="mt-1 text-xs text-white/55">{candidate.specialty}</p>
+                    <p className="font-bold text-[#071426]">{candidate.name}</p>
+                    <p className="mt-1 text-xs text-[#637083]">{candidate.specialty}</p>
                   </div>
                   <span className="rounded-full bg-[var(--dw-orange)]/15 px-3 py-1 text-[10px] font-black uppercase text-[var(--dw-orange)]">
                     {candidate.status}
@@ -115,18 +115,18 @@ export default async function EstabelecimentoDashboardPage() {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#071d33] p-4">
-      <p className="text-[10px] font-bold uppercase tracking-wide text-white/45">{label}</p>
-      <p className="mt-2 text-xl font-black text-white">{value}</p>
+    <div className="rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4">
+      <p className="text-[10px] font-bold uppercase tracking-wide text-[#637083]">{label}</p>
+      <p className="mt-2 text-xl font-black capitalize text-[#071426]">{value}</p>
     </div>
   );
 }
 
 function ActionCard({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-[24px] border border-white/10 bg-[#0a2138] p-5">
-      <p className="font-bold text-white">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-white/60">{text}</p>
+    <div className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
+      <p className="font-bold text-[#071426]">{title}</p>
+      <p className="mt-2 text-sm leading-6 text-[#4d5b6f]">{text}</p>
     </div>
   );
 }
