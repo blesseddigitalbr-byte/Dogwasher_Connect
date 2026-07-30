@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#121c29",
+                        "outline": "#75777c",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "secondary": "#855300",
+                        "surface": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-secondary-fixed": "#2a1700",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-container": "#7b8495",
+                        "on-secondary-container": "#684000",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#ffddb8",
+                        "surface-tint": "#555f6f",
+                        "on-surface-variant": "#44474c",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-container": "#121c29",
+                        "tertiary-container": "#0b1c30",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-container": "#fea619",
+                        "inverse-primary": "#bdc7d9",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d9e3f6",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-container": "#75859d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "container-max": "1280px",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .login-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<main class="min-h-screen flex flex-col md:flex-row">
+<!-- Branding Section (Left Side) -->
+<section class="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden bg-primary-container">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0" data-alt="A premium, high-resolution photograph of a professional dog grooming studio. The space is minimalist and modern, featuring clean white walls, stainless steel equipment, and warm wood accents. A well-groomed Golden Retriever stands calmly on a professional table. The lighting is soft and cinematic, emphasizing a corporate and high-end atmosphere. The color palette is dominated by neutral tones with subtle gold highlights, conveying safety, prestige, and operational excellence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcpcfCZC27K3fMDiYPJ4moPXxatLAfjaJs-nJ4BL6FVV6RSqG_Xvmxl4ZGQILvEHjIH7xXTlbWGqQPW8nPA4yI2i67pm7hyFUdtQhkaah0Orc4NRWXg9oDlx8MZqV73_rU_dxNC_X_8SFf4FOstvMOBkCXyHoS8LEjlLQbCwGeuAU2W4tXjabQ2txNiP0Vn8TavVz0uzXmtSa1VmaUoQ750DLTESxWpZ78M2x_poNoqBCcnR5xJ0aJ')">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent opacity-80"></div>
+</div>
+<!-- Content Overlay -->
+<div class="relative z-10 flex flex-col justify-between p-margin-desktop w-full">
+<!-- Logo -->
+<div class="flex items-center gap-4">
+<img alt="Dog Washer Connect Logo" class="h-16 w-16 object-contain rounded-xl shadow-lg bg-white p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh4onav3hLoVuQoG5fA2mSp4U2frkjlLpqeZMg9DBGFROBInS2OW4JLRfOUnjA1YIYLJc97MscnVz2BJP767NZGIu_sjwprkSLS8tZfORkqjAWtcG8mET9sgZzBZgt1Jqyx2zsX2rfDsqFTccyoyUPnTf-pF2AOe1NACWN4MccD8oJ9w1fNHj0mY-LRJCuH2x8dYll11PKHpSFVji4L1CbrB7FXkH1Z4Py0_wqqYaCmgX_ZH21grPiEYTjt8Stfuk1SQ"/>
+<span class="font-display text-headline-md font-bold text-white tracking-tight">Dog Washer Connect</span>
+</div>
+<!-- Value Proposition -->
+<div class="max-w-xl">
+<h1 class="font-display text-display text-white mb-stack-md leading-tight">
+                        Conectando excelência ao cuidado pet.
+                    </h1>
+<p class="font-body-lg text-primary-fixed-dim opacity-90 leading-relaxed mb-stack-lg">
+                        A plataforma definitiva para profissionais independentes e gestores que buscam agilidade, segurança e prestígio operacional no mercado pet.
+                    </p>
+<!-- Stats / Features -->
+<div class="grid grid-cols-2 gap-stack-lg border-t border-white/10 pt-stack-lg">
+<div>
+<span class="block font-headline-md text-secondary-container">2.5k+</span>
+<span class="font-label-md text-white/70">Profissionais Ativos</span>
+</div>
+<div>
+<span class="block font-headline-md text-secondary-container">150k+</span>
+<span class="font-label-md text-white/70">Atendimentos Realizados</span>
+</div>
+</div>
+</div>
+<!-- Footer-style disclaimer -->
+<div class="font-label-sm text-white/40">
+                    © 2024 Dog Washer Connect - Profissionais Independentes. Todos os direitos reservados.
+                </div>
+</div>
+</section>
+<!-- Login Form Section (Right Side) -->
+<section class="flex-1 flex items-center justify-center p-margin-mobile md:p-margin-desktop bg-surface">
+<div class="w-full max-w-md">
+<!-- Mobile Logo (Only visible on small screens) -->
+<div class="md:hidden flex flex-col items-center mb-stack-lg">
+<img alt="Logo" class="h-20 w-20 mb-stack-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyW5Rrt75oSarQai8crlhe6vrR72_dcpCquv90eCJtaSIKLZFE2tNlNn0MGn67PBGfyPOyuLdKQVb9LvXKQcsymYE392eE6fIMVa3GfJdiFaSLfuIRVh8dcJbURxYhlbNjtN_gObTVWl1K_pip0m_jCpLWztKPKyZwgHyzxKjnYgxFeEsMRDLEYpKV4mYWxag2TSsth0Opi33gRh-3ItAOfNMOEPOW0CcAxTh151G7KuZGtolc-oZ3jqrj5YZZGP1DiQ"/>
+<h2 class="font-display text-headline-md text-primary">Dog Washer Connect</h2>
+</div>
+<!-- Form Header -->
+<div class="mb-stack-lg text-center md:text-left">
+<h2 class="font-headline-lg text-on-surface mb-2">Bem-vindo de volta</h2>
+<p class="font-body-md text-outline">Acesse sua conta para gerenciar seus agendamentos e oportunidades.</p>
+</div>
+<!-- Form -->
+<form action="#" class="space-y-6" method="POST">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface block" for="email">E-mail Corporativo</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-11 pr-4 py-3 bg-white border border-outline-variant rounded-lg font-body-md text-on-surface focus:ring-2 focus:ring-secondary-container focus:border-primary outline-none transition-all placeholder:text-outline-variant" id="email" name="email" placeholder="seu@email.com.br" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-on-surface block" for="password">Senha</label>
+<a class="font-label-sm text-secondary hover:underline transition-all" href="#">Esqueceu a senha?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-11 pr-12 py-3 bg-white border border-outline-variant rounded-lg font-body-md text-on-surface focus:ring-2 focus:ring-secondary-container focus:border-primary outline-none transition-all placeholder:text-outline-variant" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center">
+<input class="w-4 h-4 text-secondary border-outline-variant rounded focus:ring-secondary" id="remember" type="checkbox"/>
+<label class="ml-2 font-label-sm text-outline-variant" for="remember">Lembrar neste dispositivo</label>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-headline-md rounded-lg shadow-sm hover:shadow-lg active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group" type="submit">
+<span>Entrar</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-stack-lg">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<div class="relative flex justify-center text-label-sm">
+<span class="px-4 bg-surface text-outline-variant">OU ACESSE COM</span>
+</div>
+</div>
+<!-- Secondary Auth Options -->
+<div class="grid grid-cols-2 gap-stack-md">
+<button class="flex items-center justify-center gap-2 py-3 px-4 border border-outline-variant rounded-lg font-label-md text-on-surface hover:bg-surface-container-high transition-colors">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.28.81-.56z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Google
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 border border-outline-variant rounded-lg font-label-md text-on-surface hover:bg-surface-container-high transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"></path>
+</svg>
+                        Facebook
+                    </button>
+</div>
+<!-- Footer Link -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-md text-outline">
+                        Não tem uma conta? 
+                        <a class="font-label-md text-secondary hover:underline" href="#">Cadastre-se como parceiro</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Simple Micro-interaction Script -->
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.textContent = 'visibility';
+            }
+        }
+
+        // Add a subtle parallax effect to the branding side
+        document.addEventListener('mousemove', (e) => {
+            const amount = 20;
+            const x = (e.clientX / window.innerWidth - 0.5) * amount;
+            const y = (e.clientY / window.innerHeight - 0.5) * amount;
+            
+            const bg = document.querySelector('[data-alt*="dog grooming studio"]');
+            if(bg) {
+                bg.style.transform = `translate(${x}px, ${y}px) scale(1.1)`;
+                bg.style.transition = 'transform 0.1s ease-out';
+            }
+        });
+    </script>
+</body></html>

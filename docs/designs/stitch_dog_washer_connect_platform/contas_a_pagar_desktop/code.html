@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contas a Pagar - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#121c29",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary-container": "#7b8495",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-container": "#684000",
+                        "surface-container": "#edeeef",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-secondary-fixed": "#2a1700",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-tint": "#555f6f",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "secondary-fixed": "#ffddb8",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#0b1c30",
+                        "inverse-primary": "#bdc7d9",
+                        "outline": "#75777c",
+                        "on-tertiary-container": "#75859d",
+                        "on-surface-variant": "#44474c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "stack-md": "1rem",
+                        "container-max": "1280px",
+                        "gutter": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "display": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid #E2E8F0; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen w-64 bg-surface-container dark:bg-tertiary-container py-stack-lg px-stack-md fixed left-0 top-0 shadow-md">
+<div class="flex items-center gap-3 mb-10 px-2">
+<img alt="Logo Dog Washer" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJQqvoUxaI8d-UyywQk3GDUgz9ex10kvszJpnr3sNYy379h4GKL3QEhKZlVoay8jxuv_RU3jHDAJsgMxiHXIxA9mD_jjCVUuScpw3Kv3-E_6FUVi8YbHxixF_9nFjQp8vg1TfD7zLjlltwdlM3GHVeKfu_FJreWpEEH24rmAxqO-MR90apTVxsIsosL0CiFXsJWPPj5YWz3eulJMeVqKjS9QmVY7tgcZ__MjTKFqUEoS7QTxlIguxwR0jxNyjw5gGU1Q"/>
+<div>
+<h1 class="font-display text-headline-sm font-black text-on-surface dark:text-on-primary-fixed">Financeiro</h1>
+<p class="font-label-sm text-on-surface-variant opacity-70">Gestão Institucional</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span> Visão Geral
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">payments</span> Configuração de Taxas
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> Contas a Receber
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-semibold font-label-md" href="#">
+<span class="material-symbols-outlined">receipt_long</span> Contas a Pagar
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">warning</span> Divergências
+            </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">help</span> Suporte
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">logout</span> Sair
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-margin-desktop w-full h-16 max-w-container-max mx-auto bg-surface dark:bg-surface-dim border-b border-outline-variant shadow-sm z-10 sticky top-0">
+<div class="flex items-center gap-8">
+<span class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Dashboard</a>
+<a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Extratos</a>
+<a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Pagamentos</a>
+<a class="font-label-md text-secondary font-bold border-b-2 border-secondary" href="#">Conciliação</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="hidden sm:flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md hover:opacity-90 transition-all active:scale-95">
+                    Novo Registro
+                </button>
+<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a female business manager in her 40s, looking confident and smiling slightly. She has clean, professional attire, and the lighting is soft and natural. The style is minimalist and corporate, matching a clean tech-focused interface background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwlhN_iQlAmhZ3cIMXpML6IJKYOli0Dd3jqnVPhflqyB6cA7P5-2GILytzPXteXMbHHTIZBrvwTYJGdR8PuiKC_e06x6P1oIaUcyp4bF7tsFEhiaKYKxV4-qmczV4Y2hfRY4EtANkjWTUw62-fb1wh5eCswfNsjHnU4-28pU9YIW4Xu6ZY4hf-2K2RjZ3Ulrqj-CmLMJG655sjTG0Jp3cssqeRrcUxiUSnjH1fBGIptOuBVeq9g1-_"/>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-margin-desktop space-y-stack-lg max-w-container-max mx-auto w-full">
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h2 class="font-headline-md text-on-surface">Contas a Pagar</h2>
+<p class="font-body-md text-on-surface-variant">Gerencie e valide os pagamentos devidos aos profissionais parceiros.</p>
+</div>
+<div class="flex flex-wrap gap-stack-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant">Unidade</label>
+<select class="bg-surface border border-outline-variant rounded-lg font-label-md px-3 py-2 outline-none focus:border-primary">
+<option>Todas as Unidades</option>
+<option>São Paulo - Jardins</option>
+<option>Rio de Janeiro - Barra</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant">Período</label>
+<input class="bg-surface border border-outline-variant rounded-lg font-label-md px-3 py-2 outline-none focus:border-primary" type="date"/>
+</div>
+<button class="self-end px-4 py-2 border border-primary text-primary rounded-lg font-label-md hover:bg-primary-fixed transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filtrar
+                    </button>
+<button class="self-end px-4 py-2 bg-secondary text-on-secondary rounded-lg font-label-md hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span> Exportar Relatório
+                    </button>
+</div>
+</section>
+<!-- Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card p-6 rounded-xl space-y-2 relative overflow-hidden">
+<div class="absolute right-[-10px] top-[-10px] opacity-5">
+<span class="material-symbols-outlined text-8xl">account_balance_wallet</span>
+</div>
+<p class="font-label-md text-on-surface-variant">Total a Pagar</p>
+<h3 class="font-display text-headline-lg text-on-surface">R$ 42.850,00</h3>
+<div class="flex items-center gap-2 text-on-primary-container">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-sm">+12.5% em relação ao mês anterior</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl space-y-2 border-l-4 border-l-secondary">
+<p class="font-label-md text-on-surface-variant">Pagamentos Pendentes</p>
+<h3 class="font-display text-headline-lg text-secondary">R$ 15.320,00</h3>
+<p class="font-label-sm text-on-surface-variant">14 pagamentos aguardando comprovação</p>
+</div>
+<div class="glass-card p-6 rounded-xl space-y-2 border-l-4 border-l-error">
+<p class="font-label-md text-on-surface-variant">Divergências</p>
+<h3 class="font-display text-headline-lg text-error">03</h3>
+<p class="font-label-sm text-error">Requer atenção imediata do gestor</p>
+</div>
+</section>
+<!-- Main Table Card -->
+<section class="glass-card rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Oportunidade</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Unidade</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Profissional</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Vencimento</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Valor Profissional</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Taxa Plataforma</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Total</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Status</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-body-md font-semibold">#DW-9821</td>
+<td class="px-6 py-4 font-body-md">SP - Jardins</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="A small thumbnail portrait of a professional dog groomer, a male in his 30s with a warm smile, wearing a professional uniform. The background is slightly blurred showing a modern pet spa environment. Soft, bright lighting, high-quality digital photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_fTC2zCSIlV-811B3qlG6PJl5C5iHKG3HGYW4ke8jfsQ4Dd4o0QSosziP0E1rsaAOdFmoWdL6WkY_BI419wgEF15izmcPb4whs20ZB53yTZLwIKzmZRHVlytFBmfRG209gSfuYLI4aarvKNDCcnCRK2Alltr4uWrrTQ0EihnqcyiLDZIYyGkFwZ5HLMjESw9W_83LQ3QwozXwGzgdg7-FDdUeQMP8L0c-gtbJjOz6evqy_1PFwyQy"/>
+<span class="font-label-md">Ricardo Alves</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md">15 Out, 2024</td>
+<td class="px-6 py-4 font-body-md">R$ 120,00</td>
+<td class="px-6 py-4 font-body-md">R$ 12,00</td>
+<td class="px-6 py-4 font-body-md font-bold">R$ 132,00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[12px] font-semibold bg-green-100 text-green-700 flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Confirmado
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-body-md font-semibold">#DW-9822</td>
+<td class="px-6 py-4 font-body-md">SP - Jardins</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="A small thumbnail portrait of a young professional pet sitter, female, with blonde hair and a friendly expression. She is wearing a polo shirt with a logo. The background is bright and airy. Minimalist corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB06u30R1Rke-UUaLYJAm_An0oCO0te78mAbhu0ApSRgFNygyicsUmg7ofykQqE8VwBlvJtIhW7hs7I3n9jKFh14C35b7zMA4g_S_-Yyt3pj6IBB1FATIjCrzmx_31wZv6MsAHX88LmxyPm38veva5q2MOqtToDR1vYY1oQg6ipjRrCkcMtw9ysAm4359yBIcrNaLdiSgV27KDj5fOz6UGAFoykI2tjXp5oNo0BonNrFRmpFe1K-s8E"/>
+<span class="font-label-md">Mariana Costa</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-error font-bold">18 Out, 2024</td>
+<td class="px-6 py-4 font-body-md">R$ 85,00</td>
+<td class="px-6 py-4 font-body-md">R$ 8,50</td>
+<td class="px-6 py-4 font-body-md font-bold">R$ 93,50</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[12px] font-semibold bg-pending text-primary flex items-center gap-1 w-fit" style="background-color: #d3e4fe; color: #0b1c30;">
+<span class="material-symbols-outlined text-[14px]">history</span> Aguardando Comprovante
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-body-md font-semibold">#DW-9825</td>
+<td class="px-6 py-4 font-body-md">RJ - Barra</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="A small thumbnail portrait of an experienced dog walker, a male in his 50s, looking professional and trustworthy. Background is a well-lit urban park setting. Soft focus on the background. Minimalist corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8aOSLsAJOCFkDMfdm5JKBbtXskcdfjz-s9MFZ0VHToBNVsR4gdjzMTGlK1PjIPGJSMdnpuKOxVK1BVELIF3MzSiFMtbFXAxTG_LHqaxwbelM2Y4Rg_lUyQKinffUQf9PXC1jMUthBcSbLN2jceLC4L2th6hz9200mWjfiC4gepx7o6YKaefRCnbC13VBBcL-I7qmYDFz1lo8bHKPLGD_WE6DXvxL6FUERqQVQJZNYhUydx9_OwHT7"/>
+<span class="font-label-md">João Pereira</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md">22 Out, 2024</td>
+<td class="px-6 py-4 font-body-md">R$ 150,00</td>
+<td class="px-6 py-4 font-body-md">R$ 15,00</td>
+<td class="px-6 py-4 font-body-md font-bold">R$ 165,00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[12px] font-semibold bg-surface-container-highest text-on-surface-variant flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">event</span> Previsto
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-bright transition-colors border-l-4 border-l-error">
+<td class="px-6 py-4 font-body-md font-semibold">#DW-9829</td>
+<td class="px-6 py-4 font-body-md">SP - Jardins</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="A small thumbnail portrait of a professional pet therapist, female in her late 20s, with a clean and professional look. Soft lighting in a bright, modern studio. High-end corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4tYv6-21Ipe20ekuyuMX5THW_7ymH452CmX5eYTspRE7bdBOKqDDf_UsGtyx82Sx3WDshXr5tynT6ZSaaeFF7aNF_CDJNa6CG5aYb-3-vsaGZyomXnqcjG32D0AewFlLSiO0e6sOMANe2rZzdEXIHc0U7oahAiXhx7e-JO8-OgB7qhndfoeGzs9Xz3sMY-5EtIYZOTGjDCKfa2p0UiXuJdGny62681ySXlH0sw_Ss3PZmCDzE3nhL"/>
+<span class="font-label-md">Beatriz Lima</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md">12 Out, 2024</td>
+<td class="px-6 py-4 font-body-md">R$ 300,00</td>
+<td class="px-6 py-4 font-body-md">R$ 30,00</td>
+<td class="px-6 py-4 font-body-md font-bold">R$ 330,00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-[12px] font-semibold bg-error-container text-error flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">warning</span> Divergência
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-primary text-on-primary px-3 py-1 rounded text-label-sm">Resolver</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-surface-container-low flex justify-between items-center">
+<p class="font-label-sm text-on-surface-variant">Mostrando 1-10 de 154 lançamentos</p>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 bg-primary text-on-primary rounded w-10">1</button>
+<button class="p-2 border border-outline-variant rounded w-10 hover:bg-surface-container transition-colors">2</button>
+<button class="p-2 border border-outline-variant rounded w-10 hover:bg-surface-container transition-colors">3</button>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-auto flex justify-between items-center py-stack-md px-margin-desktop w-full border-t border-outline-variant bg-surface-bright">
+<div class="flex items-center gap-4">
+<span class="font-display text-label-md font-bold text-primary">Dog Washer Connect</span>
+<p class="font-label-sm text-on-surface-variant opacity-70">© 2024 - Gestão Financeira Profissional</p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-on-surface-variant opacity-70 hover:text-secondary transition-colors" href="#">Políticas de Taxas</a>
+<a class="font-label-sm text-on-surface-variant opacity-70 hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-on-surface-variant opacity-70 hover:text-secondary transition-colors" href="#">Privacidade</a>
+</div>
+</footer>
+</main>
+<script>
+        // Simple micro-interaction for rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', function() {
+                if(this.classList.contains('header-row')) return;
+                this.classList.toggle('bg-primary-fixed');
+                setTimeout(() => this.classList.remove('bg-primary-fixed'), 300);
+            });
+        });
+    </script>
+</body></html>

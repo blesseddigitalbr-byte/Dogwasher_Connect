@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Revisão do Cadastro - Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Outfit', sans-serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid #E2E8F0;
+      }
+      .status-pill-complete {
+        background-color: #ECFDF5;
+        color: #065F46;
+      }
+      .status-pill-pending {
+        background-color: #FFF7ED;
+        color: #9A3412;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col lg:flex-row overflow-x-hidden">
+<!-- Side Navigation Shell (from JSON) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 py-stack-lg px-stack-md border-r border-outline-variant bg-surface-container-low dark:bg-tertiary-container shadow-sm z-40">
+<div class="mb-10 px-2">
+<h1 class="font-headline-md text-headline-md text-on-surface">Onboarding</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Setup in progress</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Navigation Items Mapping -->
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer scale-95 active:scale-90 font-label-md text-label-md">
+<span class="material-symbols-outlined">business</span> Company Info
+            </div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer scale-95 active:scale-90 font-label-md text-label-md">
+<span class="material-symbols-outlined">store</span> Units
+            </div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer scale-95 active:scale-90 font-label-md text-label-md">
+<span class="material-symbols-outlined">construction</span> Structure
+            </div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer scale-95 active:scale-90 font-label-md text-label-md">
+<span class="material-symbols-outlined">photo_camera</span> Photography
+            </div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer scale-95 active:scale-90 font-label-md text-label-md">
+<span class="material-symbols-outlined">description</span> Documents
+            </div>
+<!-- Review Tab (Active) -->
+<div class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container rounded-lg font-semibold transition-all cursor-pointer scale-95 active:scale-90 font-label-md text-label-md">
+<span class="material-symbols-outlined">fact_check</span> Revisão Final
+            </div>
+</nav>
+<div class="mt-auto space-y-2 pt-6 border-t border-outline-variant">
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer font-label-md text-label-md">
+<span class="material-symbols-outlined">settings</span> Settings
+            </div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer font-label-md text-label-md">
+<span class="material-symbols-outlined">logout</span> Logout
+            </div>
+</div>
+</aside>
+<!-- Top AppBar (Mobile/Tablet) -->
+<header class="flex justify-between items-center px-6 py-4 w-full sticky top-0 z-50 lg:hidden bg-surface border-b border-outline-variant">
+<h2 class="font-display text-headline-md text-primary">Dog Washer Connect</h2>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 lg:ml-64 p-4 md:p-10 max-w-7xl mx-auto w-full pb-32">
+<!-- Header Section -->
+<div class="mb-8">
+<div class="flex items-center gap-2 text-secondary font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Voltar ao passo anterior</span>
+</div>
+<h1 class="font-display text-headline-lg text-primary mb-2">Revisão do Cadastro</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Confira todas as informações enviadas. Uma vez enviado para análise, os dados não poderão ser editados até a conclusão do processo.</p>
+</div>
+<!-- Alert Banner (Missing Data) -->
+<div class="mb-8 bg-error-container text-on-error-container p-4 rounded-xl flex items-start gap-4 animate-pulse">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<p class="font-title-lg text-title-lg">Atenção: Informações Pendentes</p>
+<p class="font-body-md text-body-md opacity-90">Detectamos que a seção de "Documentos" e "Localização" possuem campos obrigatórios não preenchidos.</p>
+</div>
+</div>
+<!-- Bento Grid Layout for Summary Sections -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Empresa & Responsável -->
+<section class="md:col-span-8 glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">corporate_fare</span>
+<h3 class="font-title-lg text-title-lg">Dados da Empresa e Responsável</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm status-pill-complete">Completo</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Razão Social</p>
+<p class="font-body-md text-body-md">Dog Care Serviços Pet S.A.</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">CNPJ</p>
+<p class="font-body-md text-body-md">12.345.678/0001-90</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Responsável Legal</p>
+<p class="font-body-md text-body-md">Arthur Meireles Silva</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">E-mail de Contato</p>
+<p class="font-body-md text-body-md">arthur.ms@dogcare.com.br</p>
+</div>
+</div>
+<button class="mt-6 text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">edit</span> Editar Seção
+                </button>
+</section>
+<!-- Unidade -->
+<section class="md:col-span-4 glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">storefront</span>
+<h3 class="font-title-lg text-title-lg">Unidade</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm status-pill-complete">Completo</span>
+</div>
+<div class="space-y-4">
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Nome Fantasia</p>
+<p class="font-body-md text-body-md">Matriz Jardins</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Categoria</p>
+<p class="font-body-md text-body-md">Pet Shop Premium &amp; Spa</p>
+</div>
+</div>
+<button class="mt-6 text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">edit</span> Editar
+                </button>
+</section>
+<!-- Localização -->
+<section class="md:col-span-6 glass-card overflow-hidden rounded-xl border border-error/30">
+<div class="p-6">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h3 class="font-title-lg text-title-lg">Localização</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm status-pill-pending">Pendente</span>
+</div>
+<div class="mb-4">
+<p class="text-on-surface-variant font-label-md text-label-md">Endereço</p>
+<p class="font-body-md text-body-md">Alameda Campinas, 450 - São Paulo, SP</p>
+</div>
+<p class="text-error font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span> Coordenadas GPS não validadas
+                    </p>
+</div>
+<div class="h-32 w-full bg-surface-container-highest relative grayscale" data-location="Sao Paulo, Brazil" style="">
+<div class="absolute inset-0 flex items-center justify-center bg-black/5">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">map</span>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant">
+<button class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">edit</span> Completar Localização
+                    </button>
+</div>
+</section>
+<!-- Estrutura -->
+<section class="md:col-span-6 glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">grid_view</span>
+<h3 class="font-title-lg text-title-lg">Estrutura Física</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm status-pill-complete">Completo</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container p-2 rounded-lg font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span> Ar-condicionado
+                    </span>
+<span class="bg-surface-container p-2 rounded-lg font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">videocam</span> Monitoramento 24h
+                    </span>
+<span class="bg-surface-container p-2 rounded-lg font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">area_chart</span> 120m² de área útil
+                    </span>
+</div>
+<button class="mt-10 text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">edit</span> Editar
+                </button>
+</section>
+<!-- Fotos -->
+<section class="md:col-span-7 glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">photo_library</span>
+<h3 class="font-title-lg text-title-lg">Fotos e Fachada</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm status-pill-complete">Completo</span>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<div class="aspect-square rounded-lg bg-cover bg-center border border-outline-variant" data-alt="A high-end modern pet grooming salon facade during the day with large glass windows and minimalist branding in shades of amber and black. The lighting is crisp and professional, showcasing a clean urban environment. The photo is taken from a slightly low angle to emphasize prestige." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3uMIrrTj93ogCbM3M8L0ebFQNX_edUHdq7SDZsaPag5DS1L76Pjs45w7vFUkyVMsuQ0k3RTw8c0eI5avM0vhP1JndlhP95MSIKq3gmlL35pM4fn3gBT3yFNlfgPFC9Hsdd5fQVsaNrDfrNVREbenFSXeGYK17lhDY10sDUywwD6eUjm7oC9IUVHtHB__QI1NzFt4Gcsri2Hsvv88VHM5c_75tU5_JNTDASYd1eR3VcqZCWVgXdxlt')"></div>
+<div class="aspect-square rounded-lg bg-cover bg-center border border-outline-variant" data-alt="The interior of a premium dog washing station with stainless steel equipment and white subway tiles. The lighting is bright and clinically clean, with soft amber accents in the furniture. Professional photography style with a shallow depth of field." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApIXyHU8czWdLEXnok3cFrISiUkjqaAgVCzKpbs8GkcC9YxG6AiFnjP88e0WnN1seYZ6-1jZ4FHkrZnfMqDQ6ReSc4ehvRvMFlcEr7gtUxECKWwByyXf21c8oIeZoDjcOzEFB1Pz3g-_0Yzp8SMSVGe6iFfZppoOOYfN3jAhjiyB2OfwTRTDFYfz0j3t5lUFdOQrhGQnQ2Sq1U0gPsFB-no951_nltU3qTxFz8fBKcRS29wRXPi0iC')"></div>
+<div class="aspect-square rounded-lg bg-cover bg-center border border-outline-variant" data-alt="A cozy but sophisticated pet waiting area with designer chairs and a minimalist reception desk. Neutral gray floors and warm wood textures on the walls. The atmosphere is calm and welcoming, designed for a luxury pet service establishment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAe71jZEHtFnIFhvvWenW06r3IcZxGry8ilClORZqJZZQdoBBfbmUcJi6MRGym3xa7oMu7wkQuQHQrgMnV8fcWXcbxJ3scfjH3u1liv8MsLyWBARg_H4Rw8eCHeAo2onCTdK-v2V12V7qFp74BdykuN64XfQSK6Ub8vKFv64q95_VzOoqgHbkcvOuphVxyEKstXrPd7YJfFR1cegXhPTUYCPNaaW8zSxBmUWK7ZbQKSaUj5HLVqgxzp')"></div>
+<div class="aspect-square rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant cursor-pointer hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<button class="mt-6 text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">edit</span> Gerenciar Galeria
+                </button>
+</section>
+<!-- Documentos -->
+<section class="md:col-span-5 glass-card p-6 rounded-xl border border-error/30">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">description</span>
+<h3 class="font-title-lg text-title-lg">Documentos</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm status-pill-pending">Pendente</span>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center justify-between p-3 border border-outline-variant rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+<span class="font-body-md text-body-md">Contrato Social</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">visibility</span>
+</li>
+<li class="flex items-center justify-between p-3 border border-error rounded-lg bg-error-container/20">
+<div class="flex items-center gap-3 text-error">
+<span class="material-symbols-outlined">error</span>
+<span class="font-body-md text-body-md">Alvará Sanitário</span>
+</div>
+<span class="font-label-sm text-label-sm bg-error text-on-error px-2 py-0.5 rounded cursor-pointer">Enviar</span>
+</li>
+</ul>
+</section>
+</div>
+<!-- Confirmations & Actions -->
+<div class="mt-12 bg-surface-container-low p-8 rounded-2xl border border-outline-variant">
+<h3 class="font-headline-md text-headline-md mb-6">Confirmações Finais</h3>
+<div class="space-y-4 max-w-3xl mb-10">
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="pt-1">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Declaro a veracidade dos dados</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Confirmo que todas as informações e documentos anexados são legítimos e atualizados.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="pt-1">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Autonomia de representação</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Declaro possuir os poderes legais necessários para representar este estabelecimento perante a Dog Washer Connect.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="pt-1">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Aceitação dos Termos de Uso e Privacidade</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Li e concordo com os Termos de Serviço e a Política de Privacidade da plataforma.</p>
+</div>
+</label>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-outline-variant">
+<button class="w-full sm:w-auto px-10 py-4 bg-secondary-container text-on-secondary-container font-headline-md text-headline-md rounded-xl opacity-50 cursor-not-allowed transition-all shadow-sm hover:shadow-lg active:scale-95" disabled="" id="submit-btn">
+                    Enviar unidade para análise
+                </button>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md italic">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<span>O prazo de análise é de até 3 dias úteis.</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm opacity-60">
+<span class="material-symbols-outlined">format_list_numbered</span>
+            Steps
+        </div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm opacity-60">
+<span class="material-symbols-outlined">map</span>
+            Map
+        </div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm opacity-60">
+<span class="material-symbols-outlined">grid_view</span>
+            Gallery
+        </div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-4 py-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+            Review
+        </div>
+</nav>
+<script>
+        // Micro-interaction: Enable submit button only if all checkboxes are checked
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const submitBtn = document.getElementById('submit-btn');
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const allChecked = Array.from(checkboxes).every(c => c.checked);
+                if (allChecked) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            });
+        });
+
+        // Simulating submission
+        submitBtn.addEventListener('click', () => {
+            if (!submitBtn.disabled) {
+                submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando...';
+                setTimeout(() => {
+                    alert('Solicitação enviada com sucesso! Você receberá uma notificação em breve.');
+                    submitBtn.innerHTML = 'Enviado';
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-50');
+                }, 2000);
+            }
+        });
+    </script>
+</body></html>

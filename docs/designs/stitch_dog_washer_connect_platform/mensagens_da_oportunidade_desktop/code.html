@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mensagens da Oportunidade | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#30363c",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "surface-variant": "#d4e4fc",
+                    "on-primary-container": "#86a0cd",
+                    "secondary-fixed": "#d9e3f9",
+                    "on-surface-variant": "#43474e",
+                    "surface-tint": "#455f88",
+                    "surface": "#f8f9ff",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed": "#dde3eb",
+                    "background": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#596376",
+                    "secondary": "#555f71",
+                    "primary": "#002045",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-container": "#d6e0f6",
+                    "outline": "#74777f",
+                    "on-background": "#0d1c2e",
+                    "on-secondary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-container": "#1a365d",
+                    "on-tertiary-fixed": "#161c22",
+                    "on-surface": "#0d1c2e",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary": "#1b2127",
+                    "surface-container-high": "#dce9ff",
+                    "surface-dim": "#ccdbf4",
+                    "outline-variant": "#c4c6cf",
+                    "surface-container-highest": "#d4e4fc",
+                    "inverse-primary": "#adc7f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .message-bubble { position: relative; }
+        .message-bubble::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: inherit;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (from Shared Components) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant p-md gap-sm z-50">
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Admin Portal</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Operational Management</p>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<div class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-md p-sm bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all cursor-pointer font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Messaging</span>
+</div>
+<div class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</div>
+<div class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Finances</span>
+</div>
+<div class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</div>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant flex flex-col gap-xs">
+<div class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Documentation</span>
+</div>
+<div class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-grow ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar (from Shared Components) -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-lg py-sm w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">Dog Washer Connect</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm bg-surface-container-low px-md py-xs rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar oportunidade..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-primary hover:bg-surface-container-low transition-colors rounded-full material-symbols-outlined" data-icon="notifications">notifications</button>
+<button class="p-sm text-primary hover:bg-surface-container-low transition-colors rounded-full material-symbols-outlined" data-icon="help">help</button>
+<button class="p-sm text-primary hover:bg-surface-container-low transition-colors rounded-full material-symbols-outlined" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-lg flex flex-col gap-lg max-w-[1200px] mx-auto w-full">
+<!-- Breadcrumb & Header -->
+<div class="flex justify-between items-end">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-md text-label-md">
+<span class="cursor-pointer hover:underline">Oportunidades</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">#DW-8829</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Central de Mensagens Operacionais</h2>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-[4px] font-title-md text-title-md flex items-center gap-sm hover:opacity-90 active:scale-95 transition-all" onclick="document.getElementById('message-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined">add_comment</span>
+                    Enviar Mensagem Operacional
+                </button>
+</div>
+<!-- Job Context Card -->
+<section class="bg-surface border border-outline-variant p-md rounded-lg flex flex-wrap gap-xl items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional dog groomer in their late 30s, wearing a clean teal apron, smiling warmly in a bright modern studio. The background is softly blurred showing high-end pet grooming tools. The lighting is clean, institutional, and high-key, conveying a professional and trustworthy service environment with a primary blue and teal palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCSuzptLmizLy_KfsowtDdnjUq0jigrSbZ-e-rA5Y3wRjlgbI2c9uRMrqjPjFyAsc623L5b_2Ji4fEmObrV3-ZDpuVXyCSyrJ7LWzn6hOLQfSo3mUgvLhuV62CE52ZwL50y1BMf78ft4GD-5OyegP0k2Z3FSMQtiIl1X8N3Cw68gryejvClCe5vPPGchYYS7jEL3sj5e-qwuG66ggrjAXUfRKBvHziUOi4oJRr9YJIYVzIHB4RRJxU"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Profissional Responsável</p>
+<p class="font-title-md text-title-md text-primary">Marcos Oliveira <span class="text-body-md font-normal text-on-surface-variant">(Groomer Senior)</span></p>
+</div>
+</div>
+<div class="flex gap-xl">
+<div class="flex flex-col">
+<p class="font-label-md text-label-md text-on-surface-variant">STATUS DO JOB</p>
+<span class="inline-flex items-center gap-xs text-[#0D9488] font-bold">
+<span class="w-2 h-2 rounded-full bg-[#0D9488] animate-pulse"></span>
+                            Em Atendimento
+                        </span>
+</div>
+<div class="flex flex-col border-l border-outline-variant pl-xl">
+<p class="font-label-md text-label-md text-on-surface-variant">LOCALIZAÇÃO</p>
+<p class="font-body-md text-body-md text-on-background">Unidade Jardins - Bloco B</p>
+</div>
+<div class="flex flex-col border-l border-outline-variant pl-xl">
+<p class="font-label-md text-label-md text-on-surface-variant">DURAÇÃO ESTIMADA</p>
+<p class="font-body-md text-body-md text-on-background">120 min (Prev. 16:45)</p>
+</div>
+</div>
+</section>
+<!-- Timeline of Operational Messages -->
+<section class="flex flex-col gap-md relative">
+<!-- Timeline Vertical Line -->
+<div class="absolute left-[24px] top-0 bottom-0 w-[2px] bg-outline-variant opacity-30"></div>
+<!-- Timeline Item 1 -->
+<div class="flex gap-md relative z-10">
+<div class="w-[50px] flex justify-center pt-sm">
+<div class="w-6 h-6 rounded-full bg-primary border-4 border-surface-container flex items-center justify-center"></div>
+</div>
+<div class="flex-grow bg-white border border-outline-variant rounded-[4px] p-md shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary font-body-lg">Marcos Oliveira</span>
+<span class="px-sm py-xs bg-surface-container text-[#0D9488] font-label-sm rounded-[2px] uppercase">Check-in</span>
+</div>
+<span class="text-on-surface-variant font-label-md">14:32 • 15 Out</span>
+</div>
+<p class="text-on-background font-body-md mb-md">"Estou na unidade e iniciando os preparativos para o atendimento do Pet 'Thor'. Estrutura limpa e organizada."</p>
+<div class="flex items-center gap-sm border-t border-outline-variant pt-sm">
+<span class="material-symbols-outlined text-[#0D9488] text-[18px]">check_circle</span>
+<span class="text-on-surface-variant font-label-md">Lido pela administração às 14:35</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 - Warning Status -->
+<div class="flex gap-md relative z-10">
+<div class="w-[50px] flex justify-center pt-sm">
+<div class="w-6 h-6 rounded-full bg-[#D97706] border-4 border-surface-container flex items-center justify-center"></div>
+</div>
+<div class="flex-grow bg-white border-l-4 border-l-[#D97706] border border-outline-variant rounded-[4px] p-md shadow-sm">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary font-body-lg">Marcos Oliveira</span>
+<span class="px-sm py-xs bg-[#FEF3C7] text-[#D97706] font-label-sm rounded-[2px] uppercase">Problema de Estrutura</span>
+</div>
+<span class="text-on-surface-variant font-label-md">15:10 • 15 Out</span>
+</div>
+<p class="text-on-background font-body-md mb-md">"O dreno da banheira 03 está apresentando lentidão. Utilizando a banheira 02 por precaução. Solicito manutenção preventiva após o job."</p>
+<div class="flex items-center gap-sm border-t border-outline-variant pt-sm">
+<span class="material-symbols-outlined text-[#D97706] text-[18px]">warning</span>
+<span class="text-on-surface-variant font-label-md">Pendente de avaliação técnica</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 - Critical/Action -->
+<div class="flex gap-md relative z-10">
+<div class="w-[50px] flex justify-center pt-sm">
+<div class="w-6 h-6 rounded-full bg-primary border-4 border-surface-container flex items-center justify-center"></div>
+</div>
+<div class="flex-grow bg-white border border-outline-variant rounded-[4px] p-md shadow-sm">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary font-body-lg">Marcos Oliveira</span>
+<span class="px-sm py-xs bg-surface-container text-primary font-label-sm rounded-[2px] uppercase">Solicitação de Extensão</span>
+</div>
+<span class="text-on-surface-variant font-label-md">15:45 • 15 Out</span>
+</div>
+<p class="text-on-background font-body-md mb-md">"Devido ao estado da pelagem do Thor, será necessário mais 30 minutos para secagem e finalização de qualidade. Solicito extensão de tempo no slot."</p>
+<div class="flex gap-sm">
+<button class="px-md py-xs bg-[#0D9488] text-white font-label-md rounded-[4px] hover:opacity-90">Aprovar +30min</button>
+<button class="px-md py-xs border border-outline-variant text-on-surface-variant font-label-md rounded-[4px] hover:bg-surface-container">Negar</button>
+</div>
+</div>
+</div>
+<!-- System Message -->
+<div class="flex gap-md relative z-10">
+<div class="w-[50px] flex justify-center pt-sm">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+</div>
+<div class="flex-grow bg-surface-container-low border border-dashed border-outline-variant rounded-[4px] p-sm text-center">
+<p class="text-on-surface-variant font-label-md italic">Sistema: Slot de tempo atualizado para 150 minutos. Notificação enviada ao cliente.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Operational Message Picker Modal (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-on-background/40 backdrop-blur-sm" id="message-modal">
+<div class="bg-surface w-full max-w-2xl rounded-lg shadow-xl overflow-hidden border border-outline-variant">
+<div class="p-lg bg-primary text-on-primary flex justify-between items-center">
+<h3 class="font-title-md text-title-md">Nova Mensagem Operacional</h3>
+<button class="material-symbols-outlined hover:rotate-90 transition-transform" onclick="document.getElementById('message-modal').classList.add('hidden')">close</button>
+</div>
+<div class="p-lg flex flex-col gap-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Categories -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">CATEGORIA OPERACIONAL</label>
+<div class="space-y-sm">
+<label class="flex items-center gap-md p-sm border border-outline-variant rounded-[4px] cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-container/10">
+<input class="text-primary focus:ring-primary" name="op_cat" type="radio"/>
+<div class="flex flex-col">
+<span class="font-bold text-body-md">Status de Chegada</span>
+<span class="text-label-md text-on-surface-variant">Reportar início ou presença</span>
+</div>
+</label>
+<label class="flex items-center gap-md p-sm border border-outline-variant rounded-[4px] cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-container/10">
+<input checked="" class="text-primary focus:ring-primary" name="op_cat" type="radio"/>
+<div class="flex flex-col">
+<span class="font-bold text-body-md">Gestão de Tempo</span>
+<span class="text-label-md text-on-surface-variant">Extensões ou atrasos</span>
+</div>
+</label>
+<label class="flex items-center gap-md p-sm border border-outline-variant rounded-[4px] cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-container/10">
+<input class="text-primary focus:ring-primary" name="op_cat" type="radio"/>
+<div class="flex flex-col">
+<span class="font-bold text-body-md">Problema Técnico</span>
+<span class="text-label-md text-on-surface-variant">Infraestrutura ou equipamentos</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Details -->
+<div class="flex flex-col gap-md">
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">MENSAGEM ESTRUTURADA</label>
+<select class="w-full bg-white border border-outline-variant rounded-[4px] p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Solicito extensão de 30 min (Pelagem densa)</option>
+<option>Atraso no início (Acesso bloqueado)</option>
+<option>Necessito de apoio técnico na unidade</option>
+<option>Outro (Descrever abaixo)</option>
+</select>
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">NOTAS ADICIONAIS</label>
+<textarea class="w-full bg-white border border-outline-variant rounded-[4px] p-sm text-body-md focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Detalhes específicos para a central..." rows="4"></textarea>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-md pt-lg border-t border-outline-variant">
+<button class="px-lg py-sm font-title-md text-title-md text-on-surface-variant hover:bg-surface-container rounded-[4px]" onclick="document.getElementById('message-modal').classList.add('hidden')">Cancelar</button>
+<button class="px-xl py-sm bg-primary text-on-primary font-title-md text-title-md rounded-[4px] shadow-lg hover:shadow-xl transition-all" onclick="document.getElementById('message-modal').classList.add('hidden')">Registrar Mensagem</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction for background ambient effect -->
+<div class="fixed inset-0 -z-10 opacity-30 pointer-events-none overflow-hidden">
+<div class="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] animate-pulse"></div>
+<div class="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] animate-pulse" style="animation-delay: 2s"></div>
+</div>
+<script>
+        // Simple micro-interaction for the Send button
+        document.querySelector('button[onclick*="message-modal"]').addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        document.querySelector('button[onclick*="message-modal"]').addEventListener('mouseup', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body></html>

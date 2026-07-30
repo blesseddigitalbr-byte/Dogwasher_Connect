@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Onboarding: Atuação</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7b8495",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "on-tertiary-container": "#75859d",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "primary-container": "#121c29",
+                        "secondary-container": "#fea619",
+                        "on-secondary-container": "#684000",
+                        "surface": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "outline": "#75777c",
+                        "error": "#ba1a1a",
+                        // Custom branding colors for the "Petróleo" and "Dourado" feel
+                        "teal-brand": "#0d4d4d", 
+                        "gold-brand": "#F59E0B"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { background-color: #F59E0B; }
+        .map-gradient-overlay {
+            background: linear-gradient(to top, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0) 20%);
+        }
+        /* Custom range slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #E2E8F0;
+            border-radius: 3px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #F59E0B;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top Navigation (Shell Implementation) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-headline-md" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</span>
+</div>
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors duration-200">
+<span class="material-symbols-outlined text-secondary">notifications</span>
+</button>
+</header>
+<main class="flex-grow pt-24 pb-stack-lg flex justify-center">
+<div class="w-full max-container-max px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Side: Interactive Map & Localization (Bento-like Card) -->
+<div class="lg:col-span-7 flex flex-col gap-stack-md">
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm relative h-[400px] md:h-[550px]">
+<!-- Placeholder for Interactive Map -->
+<div class="absolute inset-0 bg-surface-container-high">
+<img class="w-full h-full object-cover opacity-80" data-alt="A clean, professional digital map interface showing a circular coverage area highlighted in a semi-transparent teal color. The map features a minimalist vector style with subtle golden markers for service locations. The lighting is bright and modern, suggesting a high-tech logistics dashboard for a premium pet care service. The aesthetic is corporate and organized." data-location="Sao Paulo, Brazil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo7GZxkjtr174LWDeOYQQyS1r62IPN1fsfi1Gd_5aZtEByIWGs2QZdut89zRoaE4RAlafo0Msa01w7778BS8ShMcgSKFHO5piJwvgNTfRolV7ZmpEFkPx0n7KotWnbmQs5tcOnpxzGcD1CYipSwE-CjwYAtAHwqZ52VIzMsrP3n97xgm2cIAju0DDDKWW9MQsXE4ku0TVOpbNtQ_ecMjNxaWp6Wtq8jKANlOaXAxbkcl0pmkrEhKsq"/>
+<div class="absolute inset-0 map-gradient-overlay pointer-events-none"></div>
+<!-- Radius Visualization Overlay (CSS/JS Simulation) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border-4 border-gold-brand bg-secondary-container/20 flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</div>
+</div>
+<!-- Search Float -->
+<div class="absolute top-4 left-4 right-4 md:left-6 md:right-auto md:w-96 z-10">
+<div class="bg-white p-2 rounded-lg shadow-lg border border-outline-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="w-full border-none focus:ring-0 text-label-md bg-transparent" placeholder="Digite seu endereço base..." type="text" value="Av. Paulista, 1000 - Bela Vista"/>
+</div>
+</div>
+<!-- Map Legend -->
+<div class="absolute bottom-6 right-6 z-10">
+<div class="bg-white/90 backdrop-blur-md p-stack-sm rounded-lg border border-outline-variant shadow-sm flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-gold-brand"></div>
+<span class="font-label-sm text-on-surface-variant">Sua Base</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container/40 border border-gold-brand"></div>
+<span class="font-label-sm text-on-surface-variant">Raio de Atuação</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-stack-md rounded-lg border border-outline-variant">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">info</span>
+<p class="font-body-md text-on-surface-variant">
+<strong>Privacidade:</strong> Seu endereço exato não será exibido publicamente. Usamos apenas para calcular a distância e o tempo de deslocamento até os pets.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Right Side: Controls & Progress -->
+<div class="lg:col-span-5 flex flex-col gap-stack-lg">
+<!-- Progress Header -->
+<div class="bg-white p-stack-md rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-stack-sm">
+<span class="font-label-md text-secondary font-bold">Step 4: Atuação</span>
+<span class="font-label-sm text-outline">75% Concluído</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gold-brand h-full w-3/4 rounded-full"></div>
+</div>
+</div>
+<!-- Config Form -->
+<div class="bg-white p-stack-lg rounded-xl border border-outline-variant shadow-sm flex flex-col gap-stack-lg">
+<div class="flex flex-col gap-stack-sm">
+<h1 class="font-headline-md text-headline-md text-primary">Área de Atendimento</h1>
+<p class="font-body-md text-on-surface-variant">Defina até onde você está disposto a se deslocar para realizar os banhos e tosas.</p>
+</div>
+<!-- Radius Slider -->
+<div class="flex flex-col gap-stack-md">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-on-surface">Raio de Atuação</label>
+<span class="font-title-lg text-title-lg text-secondary" id="radius-value">15 km</span>
+</div>
+<input class="w-full" id="radius-slider" max="50" min="1" type="range" value="15"/>
+<div class="flex justify-between font-label-sm text-outline">
+<span>1 km</span>
+<span>50 km</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant"></div>
+<!-- Transport Toggle -->
+<div class="flex flex-col gap-stack-md">
+<label class="font-label-md text-on-surface">Meio de Transporte</label>
+<div class="grid grid-cols-2 gap-stack-sm">
+<button class="flex items-center justify-center gap-2 p-stack-md border-2 border-gold-brand bg-secondary-container/10 rounded-lg text-secondary font-bold transition-all" onclick="selectTransport(this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="font-label-md">Próprio</span>
+</button>
+<button class="flex items-center justify-center gap-2 p-stack-md border border-outline-variant rounded-lg text-outline-variant hover:border-gold-brand hover:text-secondary transition-all" onclick="selectTransport(this)">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-md">Público</span>
+</button>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-stack-sm pt-stack-md">
+<button class="w-full py-4 bg-gold-brand hover:bg-on-secondary-container text-on-primary-fixed font-bold rounded-lg transition-all active:scale-95 flex justify-center items-center gap-2">
+<span>Próxima Etapa</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full py-4 border border-outline text-on-surface font-bold rounded-lg hover:bg-surface-container-high transition-all active:scale-95">
+                            Voltar
+                        </button>
+</div>
+</div>
+<!-- Tips Card -->
+<div class="bg-primary-container text-white p-stack-md rounded-xl shadow-lg flex items-center gap-stack-md">
+<div class="bg-secondary-container p-3 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">tips_and_updates</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-secondary-fixed">Dica do Especialista</h4>
+<p class="font-body-md text-tertiary-fixed-dim text-sm">Raio entre 10km e 20km costumam ter maior volume de jobs sem prejudicar sua rotina.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shell Implementation) -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest border-t border-outline-variant mt-auto">
+<span class="font-body-md text-on-surface text-sm">© 2024 Dog Washer Connect - Profissionais Independentes</span>
+<div class="flex gap-stack-lg">
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<!-- Script for Micro-interactions -->
+<script>
+        const slider = document.getElementById('radius-slider');
+        const radiusVal = document.getElementById('radius-value');
+
+        slider.addEventListener('input', (e) => {
+            radiusVal.textContent = `${e.target.value} km`;
+            // Visual feedback - dynamic scaling simulation
+            const mapCircle = document.querySelector('.animate-pulse');
+            if(mapCircle) {
+                const scale = 40 + (e.target.value * 3);
+                mapCircle.style.width = `${scale}px`;
+                mapCircle.style.height = `${scale}px`;
+            }
+        });
+
+        function selectTransport(btn) {
+            const container = btn.parentElement;
+            container.querySelectorAll('button').forEach(b => {
+                b.classList.remove('border-2', 'border-gold-brand', 'bg-secondary-container/10', 'text-secondary', 'font-bold');
+                b.classList.add('border', 'border-outline-variant', 'text-outline-variant');
+                const icon = b.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+            });
+            
+            btn.classList.add('border-2', 'border-gold-brand', 'bg-secondary-container/10', 'text-secondary', 'font-bold');
+            btn.classList.remove('border', 'border-outline-variant', 'text-outline-variant');
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if(icon) icon.style.fontVariationSettings = "'FILL' 1";
+        }
+    </script>
+</body></html>

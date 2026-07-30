@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Composição do Split | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#684000",
+                        "background": "#f8f9fa",
+                        "outline-variant": "#c5c6cc",
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "tertiary-container": "#0b1c30",
+                        "outline": "#75777c",
+                        "on-surface-variant": "#44474c",
+                        "on-background": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary": "#000000",
+                        "primary": "#000000",
+                        "primary-fixed": "#d9e3f6",
+                        "on-surface": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "primary-container": "#121c29",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fea619",
+                        "secondary": "#855300",
+                        "on-primary-fixed": "#121c29",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#2a1700",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "inverse-primary": "#bdc7d9",
+                        "surface-tint": "#555f6f",
+                        "on-tertiary-container": "#75859d",
+                        "surface-container-highest": "#e1e3e4",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#ffddb8",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-container": "#7b8495"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "container-max": "1280px",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Outfit"],
+                        "display": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid #E2E8F0; }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 border-b border-outline-variant shadow-sm sticky z-50">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Dashboard</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Pagamentos</a>
+<a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1 cursor-pointer" href="#">Repasses</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Configurações</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 font-label-md">
+<span class="material-symbols-outlined">help</span> Suporte
+                </button>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-symbols-outlined p-2 text-on-surface-variant cursor-pointer hover:bg-surface-container rounded-full">notifications</span>
+<span class="material-symbols-outlined p-2 text-on-surface-variant cursor-pointer hover:bg-surface-container rounded-full">account_balance_wallet</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high ml-2 overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional profile portrait of a financial administrator for a premium pet care business. The aesthetic is clean and modern with soft studio lighting. He is wearing a dark smart-casual outfit against a neutral corporate background, conveying trust and technological proficiency. The image is crisp, high-resolution, and adheres to a minimalist light-mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTWHaVCFAL907sG6So8y1D4lUrUvatbZE-fvGRqNQnXZ3DzJNh6XYQKjJCkAIDksuOWwmnueadkZRzvSfzGmJfY0JWrGnRZbqYPwPJosmJbm8wb9oNUwTMyNhBf_EXcfv_pGQLRLoKnQ_RVDsjgkmncGYI8_pbT41X_wvK3X7ohgCuFJT75Dwji3Wdwg301jQRjr9Vp8lF2QOlG8RyAZ1CeoMbviewbAcDv0oJMUe_ieZI3fMgIQ2k"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto min-h-[calc(100vh-73px)]">
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col h-full w-64 border-r border-outline-variant p-stack-md bg-surface-container-lowest">
+<div class="mb-8">
+<h2 class="font-headline-sm text-headline-sm text-secondary">Financeiro</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Gestão Segura</p>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Visão Geral</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Fluxo de Caixa</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-md text-label-md">Contas Bancárias</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container rounded-lg" href="#">
+<span class="material-symbols-outlined">pie_chart</span>
+<span class="font-label-md text-label-md">Split de Taxas</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">forms_apps_script</span>
+<span class="font-label-md text-label-md">Estornos</span>
+</a>
+</nav>
+<button class="mt-8 mb-8 bg-secondary text-on-secondary py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 duration-200 shadow-md">
+                Novo Saque
+            </button>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Configurações</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow p-margin-desktop bg-background">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Repasses</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-primary">Composição do Split</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary flex items-center gap-3">
+                        Transação #TRX-948201
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">hourglass_empty</span>
+                            Processando
+                        </span>
+</h2>
+</div>
+<div class="flex gap-3">
+<button class="border border-primary px-6 py-2 rounded-lg font-bold hover:bg-surface-container-high transition-colors">Imprimir Recibo</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold shadow-md hover:opacity-90">Contestar Split</button>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Financial Breakdown Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-primary">Detalhamento Financeiro</h3>
+<span class="text-on-surface-variant font-label-md text-label-md italic">Atualizado há 2 minutos</span>
+</div>
+<div class="p-gutter flex-grow">
+<!-- Value Stream Visualization -->
+<div class="flex flex-col gap-6">
+<!-- Gross Value -->
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg border border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Valor Bruto do Serviço</p>
+<p class="font-headline-md text-headline-md text-primary">R$ 450,00</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Data da Transação</p>
+<p class="font-body-md text-body-md">15 Out, 2023 - 14:30</p>
+</div>
+</div>
+<!-- Mathematical Split -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Professional Split -->
+<div class="p-6 bg-surface-container rounded-xl border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 text-secondary opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">person_check</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Split Profissional (Líquido)</p>
+<p class="font-headline-md text-headline-md text-secondary">R$ 382,50</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Comissão Fixa: 85%</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer">info</span>
+</div>
+</div>
+<!-- Platform Split -->
+<div class="p-6 bg-surface-container rounded-xl border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 text-primary opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">hub</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Split Plataforma (Líquido)</p>
+<p class="font-headline-md text-headline-md text-primary">R$ 52,15</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Taxa de Serviço: 15%</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">info</span>
+</div>
+</div>
+</div>
+<!-- Financial Fees -->
+<div class="p-4 bg-error-container/10 border border-error-container rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">account_balance_wallet</span>
+<div>
+<p class="font-label-md text-label-md text-on-error-container">Tarifas Financeiras (Gateway)</p>
+<p class="font-body-md text-body-md text-error font-bold">- R$ 15,35</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cartão de Crédito (3x)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Taxa MDR: 3.41%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Footer -->
+<div class="p-6 bg-primary text-on-primary flex justify-between items-center">
+<div>
+<p class="font-label-md text-label-md opacity-80">Total Liquidado na Operação</p>
+<p class="font-headline-md text-headline-md">R$ 434,65</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-md text-label-md">Auditado pela DogWasher Core</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Status & Audit Trail -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<!-- Repasse Status Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-6">
+<h3 class="font-title-lg text-title-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">analytics</span>
+                            Status do Repasse
+                        </h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="mt-1 flex flex-col items-center">
+<div class="w-4 h-4 bg-green-500 rounded-full border-4 border-green-100"></div>
+<div class="w-0.5 h-12 bg-outline-variant"></div>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Transação Autorizada</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">15 Out, 14:30:22</p>
+<p class="font-body-md text-body-md mt-1">Gateway confirmou o recebimento dos fundos com sucesso.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 flex flex-col items-center">
+<div class="w-4 h-4 bg-blue-500 rounded-full border-4 border-blue-100"></div>
+<div class="w-0.5 h-12 bg-outline-variant border-dashed"></div>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Processando Split</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">15 Out, 14:35:05</p>
+<p class="font-body-md text-body-md mt-1">Regras de negócio aplicadas. Aguardando janela de liquidação D+1.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 opacity-40">
+<div class="mt-1 flex flex-col items-center">
+<div class="w-4 h-4 bg-outline-variant rounded-full"></div>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Concluído</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Estimado: 16 Out, 10:00</p>
+<p class="font-body-md text-body-md mt-1">Os valores estarão disponíveis para saque nas respectivas carteiras.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Audit Trail Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-6">
+<h3 class="font-title-lg text-title-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">security</span>
+                            Logs de Auditoria
+                        </h3>
+<div class="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+<div class="p-3 bg-surface rounded-lg text-sm border border-outline-variant">
+<p class="font-bold text-primary">System Auth</p>
+<p class="text-on-surface-variant">Validação de chave criptográfica via HMAC-SHA256.</p>
+<p class="text-[10px] text-outline mt-1 uppercase">15 Out 2023 - 14:30:01</p>
+</div>
+<div class="p-3 bg-surface rounded-lg text-sm border border-outline-variant">
+<p class="font-bold text-primary">Anti-Fraud Engine</p>
+<p class="text-on-surface-variant">Score: 0.12 (Baixo Risco). Localização: São Paulo, BR.</p>
+<p class="text-[10px] text-outline mt-1 uppercase">15 Out 2023 - 14:30:05</p>
+</div>
+<div class="p-3 bg-surface rounded-lg text-sm border border-outline-variant">
+<p class="font-bold text-primary">Split Engine v2.4</p>
+<p class="text-on-surface-variant">Cálculo de repasse efetuado para: Profissional #PROF-402.</p>
+<p class="text-[10px] text-outline mt-1 uppercase">15 Out 2023 - 14:31:44</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Transaction Details Card (Full Width) -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-6">
+<h3 class="font-title-lg text-title-lg text-primary mb-6">Informações da Origem</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="p-4 border border-outline-variant rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Cliente</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a satisfied female customer for a pet services app. She is smiling warmly and looks friendly. The lighting is bright and natural, like a sunny afternoon in a clean urban apartment. The photo is high-quality, professional, and fits perfectly into a modern corporate UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2rJpIWIpqSMEtUZ3lH4wmjpee9rgGWC2huplXzJjdcl2hUaRcgHI7Wwptzb8JavM1tBvndte5iegzKTXsLtR_YpaowTllljsQfaHQzlRJIhtykVH4dIg0LPtWoX46RjnP_FgkBQ-dA8Va6mYtOkVr2RjmOVowMQVc5BF3gT06dJhSB1EZ5lyrrN2DTwer3GR6pEYe07j1ZwqHKxPy9nIZ409r3mhOQv0IlFEAqySbsue0Wo-u85oW"/>
+</div>
+<p class="font-body-md text-body-md font-bold">Mariana Silva</p>
+</div>
+</div>
+<div class="p-4 border border-outline-variant rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Profissional</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male professional dog washer. He looks reliable and expertise-driven, wearing a clean branded uniform. Background is a modern pet boutique. High resolution, corporate aesthetic, emphasizing safety and care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi5Vx82yz55FSpBRM80YUGT2By4XVsH1hu8RLjwaykhuaDZ70pV04RwW7XJ1wbMUJ77rtWO1Bsg6DJacnClS-ZFqL-4s9MoO8_Xup0j-FxTDtdccAIJ7FHMXSzfO8Om-F1chBovEi21mm3vyIMpZUWAxMRTuPS6B1RDJnN8CfrwxAB2vySgTdaC39PI7D2R_UH3ak82GzqxcdC5agl3Pyskx71HVKR-BG8ReVhHjJx0XRHiOK_fgYK"/>
+</div>
+<p class="font-body-md text-body-md font-bold">Carlos Alberto</p>
+</div>
+</div>
+<div class="p-4 border border-outline-variant rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Estabelecimento</p>
+<p class="font-body-md text-body-md font-bold">Pet Shop Alegria Ltda.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CNPJ: 12.345.678/0001-90</p>
+</div>
+<div class="p-4 border border-outline-variant rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Serviço</p>
+<p class="font-body-md text-body-md font-bold">Banho &amp; Tosa Premium (G)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Golden Retriever (Bento)</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.cursor-pointer').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.classList.add('scale-[1.02]');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-[1.02]');
+            });
+        });
+    </script>
+</body></html>

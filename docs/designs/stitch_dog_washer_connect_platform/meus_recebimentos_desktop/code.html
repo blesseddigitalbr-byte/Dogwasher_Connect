@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meus Recebimentos | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#121c29",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d9e3f6",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-primary-container": "#7b8495",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-secondary-container": "#684000",
+                    "surface-container": "#edeeef",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#121c29",
+                    "on-secondary-fixed": "#2a1700",
+                    "secondary": "#855300",
+                    "outline-variant": "#c5c6cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-surface": "#191c1d",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "surface-bright": "#f8f9fa",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "secondary-container": "#fea619",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-tint": "#555f6f",
+                    "surface": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-background": "#191c1d",
+                    "surface-dim": "#d9dadb",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "secondary-fixed": "#ffddb8",
+                    "inverse-surface": "#2e3132",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "primary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#0b1c30",
+                    "inverse-primary": "#bdc7d9",
+                    "outline": "#75777c",
+                    "on-tertiary-container": "#75859d",
+                    "on-surface-variant": "#44474c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "container-max": "1280px",
+                    "gutter": "1.5rem"
+            },
+            "fontFamily": {
+                    "display": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "label-sm": ["Outfit"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c5c6cc;
+            border-radius: 10px;
+        }
+        .sidebar-active {
+            background-color: #fea619;
+            color: #684000;
+        }
+        .chart-bar {
+            transition: height 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="hidden lg:flex flex-col h-screen w-64 bg-surface-container py-stack-lg px-stack-md fixed left-0 top-0 z-50">
+<div class="flex items-center gap-3 px-2 mb-10">
+<img alt="Dog Washer Logo" class="w-10 h-10 object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS0j8G84NM78p5Mu6f7R1JGe23P03nv9DFS0ynojfygsph39ONwoYhS65N-MRYp744O59cC8PtTb88jmhSR0FrYaWV6JCyhLjXl5pvps90sdVmfNh5g6wkXUa9kK7VKl0t1dWdiFNfDfVeWTit7rlww9aU4Jm4c9jsQwdPXP7qhf0dMBWoVNCbXWKmsQB1ldnFBeF-jCTwE0bdB8wq3QA3PAZEqZxy4fgQYvOHkJ0iY_U2eE-vv2EM51vRdxMWYHmnmQ"/>
+<div class="flex flex-col">
+<span class="font-display text-headline-sm font-black text-on-surface">Financeiro</span>
+<span class="font-label-sm text-on-surface-variant">Gestão Institucional</span>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Visão Geral
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 sidebar-active rounded-lg font-semibold font-label-md shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                Contas a Receber
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Contas a Pagar
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Configuração de Taxas
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">warning</span>
+                Divergências
+            </a>
+</nav>
+<div class="pt-6 border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                Suporte
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Sair
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 lg:ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar Anchor -->
+<header class="bg-surface sticky top-0 z-40 border-b border-outline-variant shadow-sm h-16 flex items-center px-margin-desktop w-full max-w-container-max mx-auto justify-between">
+<div class="flex items-center gap-8">
+<h1 class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+<nav class="hidden xl:flex items-center gap-6">
+<a class="font-label-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" href="#">Dashboard</a>
+<a class="font-label-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" href="#">Extratos</a>
+<a class="font-label-md text-secondary font-bold border-b-2 border-secondary h-16 flex items-center" href="#">Pagamentos</a>
+<a class="font-label-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors" href="#">Conciliação</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md hover:opacity-80 active:scale-95 transition-all">
+                    Novo Registro
+                </button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a mature business manager with a friendly expression, wearing a smart casual outfit in a brightly lit, modern corporate office setting with soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArAk-zRVF4CzPN9TndJqCJ6Yirr-lc8keDMSIvT0mOCd5ponYIVpipO0qQVtUKuqlitxt_cyfBtjtdRRKSrn1PIzOSfa-pPpOBk-UMLzfSOHcoa0lIsAMUqdUjaDVRb40UULXpmvWDx2E2MeKlSvI_BUNaVHBslH7FFbaTwNAIe5b6GWq-0hx-QRN-ESO8Lssn_3erKorZ0oMca_HdPjLQOHfhgnInc4UWFuQqeJFARIIMw_mi9OQx"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-margin-desktop space-y-stack-lg max-w-container-max mx-auto w-full">
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Main Table Section (Bento Style Layout) -->
+<div class="flex-[3] flex flex-col gap-gutter">
+<!-- KPI Cards Header -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<span class="font-label-sm text-on-tertiary-container uppercase tracking-wider">Total Recebido</span>
+<div class="flex items-end gap-2 mt-2">
+<h2 class="font-display text-headline-lg font-bold">R$ 14.850,00</h2>
+<span class="text-green-600 font-label-sm mb-1 flex items-center"><span class="material-symbols-outlined text-sm">arrow_upward</span> 12%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<span class="font-label-sm text-on-tertiary-container uppercase tracking-wider">Em Confirmação</span>
+<div class="flex items-end gap-2 mt-2">
+<h2 class="font-display text-headline-lg font-bold">R$ 2.410,00</h2>
+<span class="text-secondary font-label-sm mb-1 flex items-center"><span class="material-symbols-outlined text-sm">schedule</span> 5 hoje</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<span class="font-label-sm text-on-tertiary-container uppercase tracking-wider">Pendente</span>
+<div class="flex items-end gap-2 mt-2">
+<h2 class="font-display text-headline-lg font-bold">R$ 890,00</h2>
+<span class="text-error font-label-sm mb-1 flex items-center"><span class="material-symbols-outlined text-sm">warning</span> Crítico</span>
+</div>
+</div>
+</div>
+<!-- Filters & Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex flex-wrap items-center justify-between gap-4">
+<h3 class="font-title-lg text-on-surface">Histórico de Recebimentos</h3>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-label-md flex items-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                                    Filtros
+                                </button>
+<div class="h-8 w-px bg-outline-variant mx-1"></div>
+<div class="flex gap-1">
+<button class="px-3 py-1 rounded-full text-label-sm bg-surface-container-high text-on-surface-variant hover:bg-on-primary-fixed hover:text-white transition-all">Todos</button>
+<button class="px-3 py-1 rounded-full text-label-sm bg-surface-container-high text-on-surface-variant hover:bg-on-primary-fixed hover:text-white transition-all">Recebido</button>
+<button class="px-3 py-1 rounded-full text-label-sm bg-surface-container-high text-on-surface-variant hover:bg-on-primary-fixed hover:text-white transition-all">Pendente</button>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-bright border-b border-outline-variant">
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Oportunidade</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Estabelecimento</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Data</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Valor Total</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Prazo</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant text-center">Status</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant text-right">Ação</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5">
+<span class="font-body-md font-semibold">Tosa Completa Premium</span>
+<p class="text-xs text-on-surface-variant">ID #4412</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-fixed flex items-center justify-center text-primary text-xs font-bold">PB</div>
+<span class="font-body-md">Pet Banho &amp; Cia</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">12 Mai, 2024</td>
+<td class="px-6 py-5 font-body-md font-bold">R$ 245,00</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Imediato</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full text-label-sm bg-green-100 text-green-800 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                    Recebido
+                                                </span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5">
+<span class="font-body-md font-semibold">Banho e Hidratação</span>
+<p class="text-xs text-on-surface-variant">ID #4390</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-fixed flex items-center justify-center text-secondary text-xs font-bold">DA</div>
+<span class="font-body-md">Dog Art Studio</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">10 Mai, 2024</td>
+<td class="px-6 py-5 font-body-md font-bold">R$ 180,00</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">D+2</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full text-label-sm bg-blue-100 text-blue-800 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                                                    Em Confirmação
+                                                </span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5">
+<span class="font-body-md font-semibold">Corte de Unhas e Limpeza</span>
+<p class="text-xs text-on-surface-variant">ID #4355</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-tertiary-fixed flex items-center justify-center text-tertiary text-xs font-bold">LV</div>
+<span class="font-body-md">Lupa Veterinária</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">08 Mai, 2024</td>
+<td class="px-6 py-5 font-body-md font-bold">R$ 65,00</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Atrasado</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full text-label-sm bg-red-100 text-red-800 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                                    Pendente
+                                                </span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5">
+<span class="font-body-md font-semibold">Tosa Higiênica Express</span>
+<p class="text-xs text-on-surface-variant">ID #4321</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-fixed flex items-center justify-center text-primary text-xs font-bold">PB</div>
+<span class="font-body-md">Pet Banho &amp; Cia</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">05 Mai, 2024</td>
+<td class="px-6 py-5 font-body-md font-bold">R$ 120,00</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">Finalizado</td>
+<td class="px-6 py-5">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full text-label-sm bg-green-100 text-green-800 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                    Recebido
+                                                </span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 border-t border-outline-variant flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">Mostrando 4 de 128 lançamentos</span>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar / Charts -->
+<div class="flex-1 space-y-gutter">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm h-fit">
+<h3 class="font-title-lg text-on-surface mb-6">Evolução de Recebimentos</h3>
+<div class="flex items-end justify-between h-48 gap-3 px-2">
+<!-- Bar 1 -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container/20 rounded-t relative group overflow-hidden chart-bar" style="height: 40%">
+<div class="absolute bottom-0 left-0 w-full bg-secondary-container transition-all group-hover:brightness-110 h-full"></div>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">SEG</span>
+</div>
+<!-- Bar 2 -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container/20 rounded-t relative group overflow-hidden chart-bar" style="height: 65%">
+<div class="absolute bottom-0 left-0 w-full bg-secondary-container transition-all group-hover:brightness-110 h-full"></div>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">TER</span>
+</div>
+<!-- Bar 3 -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container/20 rounded-t relative group overflow-hidden chart-bar" style="height: 35%">
+<div class="absolute bottom-0 left-0 w-full bg-secondary-container transition-all group-hover:brightness-110 h-full"></div>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">QUA</span>
+</div>
+<!-- Bar 4 -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container/20 rounded-t relative group overflow-hidden chart-bar" style="height: 85%">
+<div class="absolute bottom-0 left-0 w-full bg-secondary-container transition-all group-hover:brightness-110 h-full"></div>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">QUI</span>
+</div>
+<!-- Bar 5 -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container/20 rounded-t relative group overflow-hidden chart-bar" style="height: 55%">
+<div class="absolute bottom-0 left-0 w-full bg-secondary-container transition-all group-hover:brightness-110 h-full"></div>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">SEX</span>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="text-label-sm text-on-surface-variant">Média Diária</span>
+</div>
+<span class="text-label-sm font-bold">R$ 450,00</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-label-sm text-on-surface-variant">Meta Mensal</span>
+</div>
+<span class="text-label-sm font-bold">82%</span>
+</div>
+</div>
+<button class="w-full mt-8 border border-outline text-on-surface font-label-md py-3 rounded-lg hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">ios_share</span>
+                            Exportar Relatório
+                        </button>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-xl border border-primary shadow-lg overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-title-lg mb-2">Próximo Saque</h4>
+<p class="text-body-md opacity-80 mb-6">Disponível em 2 dias úteis</p>
+<div class="text-headline-md font-bold mb-4">R$ 4.250,00</div>
+<button class="bg-secondary-container text-on-secondary-container w-full py-3 rounded-lg font-bold hover:brightness-110 active:scale-95 transition-all">
+                                Solicitar Antecipação
+                            </button>
+</div>
+<!-- Abstract decoration -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary rounded-full opacity-20 blur-3xl"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Anchor -->
+<footer class="mt-auto border-t border-outline-variant bg-surface-bright flex justify-between items-center py-stack-md px-margin-desktop w-full">
+<div class="flex items-center gap-4">
+<span class="font-display text-label-md font-bold text-primary">Dog Washer Connect</span>
+<span class="text-label-sm text-on-surface-variant opacity-70">© 2024 - Gestão Financeira Profissional</span>
+</div>
+<div class="flex gap-6">
+<a class="text-label-sm text-on-surface-variant opacity-70 hover:text-secondary hover:opacity-100 transition-colors" href="#">Políticas de Taxas</a>
+<a class="text-label-sm text-on-surface-variant opacity-70 hover:text-secondary hover:opacity-100 transition-colors" href="#">Termos de Uso</a>
+<a class="text-label-sm text-on-surface-variant opacity-70 hover:text-secondary hover:opacity-100 transition-colors" href="#">Privacidade</a>
+</div>
+</footer>
+</main>
+<script>
+        // Simple micro-interaction for the bars on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0%';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 300);
+            });
+        });
+    </script>
+</body></html>

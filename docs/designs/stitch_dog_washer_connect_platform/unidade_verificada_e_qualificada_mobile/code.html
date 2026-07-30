@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unidade Verificada | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#75859d",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffddb8",
+                        "on-surface": "#191c1d",
+                        "surface": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-container": "#0b1c30",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#bdc7d9",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed": "#d9e3f6",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#555f6f",
+                        "outline": "#75777c",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#855300",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#fea619",
+                        "inverse-surface": "#2e3132",
+                        "surface-container": "#edeeef",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-primary-container": "#7b8495",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#684000",
+                        "on-primary-fixed": "#121c29",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#000000",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-container": "#121c29",
+                        "on-surface-variant": "#44474c",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "container-max": "1280px",
+                        "stack-lg": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-md": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "display": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .success-gradient {
+            background: radial-gradient(circle at 50% 0%, rgba(254, 166, 25, 0.15) 0%, rgba(248, 249, 250, 0) 70%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-line::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -8px;
+            width: 2px;
+            background-color: #e1e3e4;
+        }
+        .step-item:last-child .step-line::before {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-4 py-4 w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+<div class="font-display text-2xl text-primary font-bold">Dog Washer Connect</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">account_circle</span>
+</div>
+</header>
+<main class="flex-grow pb-24 success-gradient">
+<!-- Success Header Section -->
+<div class="flex flex-col items-center text-center px-margin-mobile pt-10 pb-8">
+<div class="relative mb-6">
+<!-- Decorative Rings -->
+<div class="absolute inset-0 scale-150 animate-pulse bg-secondary-container/20 rounded-full blur-xl"></div>
+<!-- Seal Icons -->
+<div class="relative flex items-center justify-center bg-secondary-container text-on-secondary-container w-20 h-20 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary text-white p-1.5 rounded-full shadow-md border-2 border-surface">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-md text-on-surface mb-2">Unidade Verificada</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[320px]">
+                Parabéns! Sua unidade foi qualificada com sucesso. Você agora faz parte da nossa elite de especialistas certificados.
+            </p>
+</div>
+<!-- Professional Context Card -->
+<div class="px-margin-mobile mb-8">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Autonomia e Conexão</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
+                    Sua qualificação garante prioridade em buscas e acesso exclusivo à nossa rede profissional de alto desempenho. Gerencie suas demandas com a autoridade que o selo <strong>Dog Washer Premium</strong> proporciona.
+                </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-label-sm font-label-sm text-on-surface-variant">Prioridade de Busca</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-label-sm font-label-sm text-on-surface-variant">Selo de Confiança</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-label-sm font-label-sm text-on-surface-variant">Networking PRO</span>
+</div>
+</div>
+</div>
+<!-- Action List -->
+<div class="px-margin-mobile mb-10">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-4 ml-1">Próximos Passos</h3>
+<div class="space-y-6 relative">
+<!-- Step 1 -->
+<div class="step-item flex gap-4 relative">
+<div class="step-line relative z-10">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white">check</span>
+</div>
+</div>
+<div class="flex-grow pt-0.5">
+<h4 class="font-title-lg text-body-lg text-on-surface mb-1">Perfil Atualizado</h4>
+<p class="font-body-md text-label-md text-on-surface-variant">Suas credenciais técnicas foram validadas pelo sistema.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="step-item flex gap-4 relative">
+<div class="step-line relative z-10">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-container font-bold">waves</span>
+</div>
+</div>
+<div class="flex-grow pt-0.5">
+<h4 class="font-title-lg text-body-lg text-on-surface mb-1">Explorar Oportunidades</h4>
+<p class="font-body-md text-label-md text-on-surface-variant">Veja quais estabelecimentos estão buscando seu nível de expertise.</p>
+<button class="mt-2 text-secondary font-label-md flex items-center gap-1 hover:underline">
+                            Ver Mapa de Demandas <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="step-item flex gap-4 relative">
+<div class="step-line relative z-10">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">cloud_download</span>
+</div>
+</div>
+<div class="flex-grow pt-0.5">
+<h4 class="font-title-lg text-body-lg text-on-surface mb-1">Publicar Oferta</h4>
+<p class="font-body-md text-label-md text-on-surface-variant">Anuncie sua disponibilidade para novas parcerias estratégicas.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action Area -->
+<div class="fixed bottom-16 left-0 w-full px-margin-mobile pb-6 pt-4 bg-gradient-to-t from-surface via-surface to-transparent z-40">
+<button class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-title-lg flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+                Publicar Oportunidade
+                <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<p class="text-center text-label-sm text-on-surface-variant mt-3">
+                Visível para mais de 50 estabelecimentos em sua região.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="format_list_numbered">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<!-- Active Tab: Review (Post-verification) -->
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-3 py-1">
+<span class="material-symbols-outlined" data-icon="fact_check" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction: Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.add('bg-white/80');
+                header.classList.add('backdrop-blur-md');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('bg-white/80');
+                header.classList.remove('backdrop-blur-md');
+            }
+        });
+
+        // Trigger animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const seal = document.querySelector('.relative.flex.items-center.justify-center.bg-secondary-container');
+            seal.classList.add('animate-bounce');
+            setTimeout(() => seal.classList.remove('animate-bounce'), 2000);
+        });
+    </script>
+</body></html>

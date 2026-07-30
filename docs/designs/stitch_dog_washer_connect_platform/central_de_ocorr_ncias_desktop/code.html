@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetOps Central - Gestão de Incidentes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fea619",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "outline": "#75777c",
+                    "surface": "#f8f9fa",
+                    "on-secondary-container": "#684000",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#000000",
+                    "on-primary-container": "#7b8495",
+                    "outline-variant": "#c5c6cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#2a1700",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary": "#855300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .status-badge-critical { background-color: #fee2e2; color: #991b1b; }
+        .status-badge-high { background-color: #ffedd5; color: #9a3412; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-full py-gutter px-stack-md bg-surface border-r border-outline-variant h-screen w-64 fixed left-0 top-0 z-50">
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-secondary">PetOps Central</h1>
+<p class="text-on-surface-variant text-label-sm">Administrative Portal</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md">Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md">Units</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary font-bold border-r-4 border-secondary bg-surface-container-high cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-body-md">Incidents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md">Professionals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-secondary text-on-primary py-3 rounded-lg font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">add_alert</span>
+                New Report
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-margin-desktop w-full h-16 bg-surface border-b border-outline-variant shadow-sm sticky top-0 z-40">
+<div class="flex items-center gap-8">
+<span class="font-title-lg text-title-lg font-black text-secondary">PetOps Backoffice</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-all" href="#">Queue</a>
+<a class="text-secondary font-semibold border-b-2 border-secondary pb-2 font-label-md" href="#">Analytics</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-all" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-label-md focus:ring-2 focus:ring-secondary focus:border-secondary outline-none w-64" placeholder="Buscar protocolo..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<button class="bg-secondary text-on-primary px-4 py-2 rounded-lg font-label-md hover:opacity-90 transition-all">
+                    Verify Documents
+                </button>
+<img class="w-10 h-10 rounded-full border-2 border-outline-variant object-cover" data-alt="A professional headshot of a senior pet operations administrator in a clean modern office environment. The person wears professional business attire and looks confidently towards the camera. The background is softly blurred with hints of high-tech screens and warm wooden office furniture, in a bright corporate light-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDfaBFjcVJi9rdoT2Ux1MQe4yt74MySksw654jRRDWol5RVRA5aVuTO79n7PSZEg8wSE929KP05vzWCwa0ZhMM6Ber4zaR495l6LyC8t7j1k1Zfa7kIKMVd9At4X5I6sjFOSzJ7-VkQsvLfMbaNki7GoDWilPDJl7tNNFjbQ0I5RtIkzqnAw8xDOpMOENmcMuUey9_i6Dg93od1FIabdO2noYlbO8ShrhUTpp5tOYcxAdMnrYnZ_Wa"/>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-margin-desktop space-y-stack-lg">
+<!-- Header Section -->
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Central de Ocorrências</h2>
+<p class="text-on-surface-variant font-body-md max-w-2xl">Monitoramento em tempo real de incidentes operacionais e protocolos de segurança em toda a rede PetOps.</p>
+</div>
+<div class="flex gap-3">
+<div class="flex flex-col items-end">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-wider">Status do Sistema</span>
+<div class="flex items-center gap-2 text-green-600 font-bold">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+                            OPERACIONAL
+                        </div>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="bg-white p-gutter border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-red-50 rounded-lg">
+<span class="material-symbols-outlined text-red-600">emergency</span>
+</div>
+<span class="text-red-600 text-label-sm font-bold">+12%</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Críticos Ativos</p>
+<h3 class="font-headline-md text-headline-md">08</h3>
+</div>
+<div class="bg-white p-gutter border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-orange-50 rounded-lg">
+<span class="material-symbols-outlined text-orange-600">warning</span>
+</div>
+<span class="text-orange-600 text-label-sm font-bold">+3%</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Alta Gravidade</p>
+<h3 class="font-headline-md text-headline-md">24</h3>
+</div>
+<div class="bg-white p-gutter border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-blue-50 rounded-lg">
+<span class="material-symbols-outlined text-blue-600">timer</span>
+</div>
+<span class="text-on-surface-variant text-label-sm">-5%</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Tempo Médio Resposta</p>
+<h3 class="font-headline-md text-headline-md">14m</h3>
+</div>
+<div class="bg-white p-gutter border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+</div>
+<span class="text-secondary text-label-sm font-bold">98%</span>
+</div>
+<p class="text-on-surface-variant font-label-md">Resoluções 24h</p>
+<h3 class="font-headline-md text-headline-md">142</h3>
+</div>
+</div>
+<!-- Incident Table Section -->
+<section class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<h3 class="font-title-lg text-title-lg">Fila de Protocolos</h3>
+<div class="flex gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 border border-outline-variant rounded-lg text-label-md hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Filtrar
+                        </button>
+<button class="flex items-center gap-1 px-3 py-1.5 border border-outline-variant rounded-lg text-label-md hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">download</span> Exportar
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant uppercase text-[11px] font-bold tracking-widest">
+<tr>
+<th class="px-6 py-4">Protocolo</th>
+<th class="px-6 py-4">Categoria</th>
+<th class="px-6 py-4">Envolvidos</th>
+<th class="px-6 py-4">Gravidade</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Ação</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md text-secondary">#INC-98231</span>
+<p class="text-label-sm text-on-surface-variant">Há 12 minutos</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-red-500">security</span>
+<span class="font-body-md">Segurança</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Close up of a professional veterinary doctor wearing a blue medical scrub, looking professional and empathetic. Studio lighting, clean corporate look, high resolution, minimalist pet hospital environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuViFo4yTjXaCX-CYWwEt_JGi3yRhF1jLrZoOpRkKWV_a2MHbotsCFLyH0z3hF3UFhDip7yc3CuaWCdwgEBtjusEz6tMeSOVvZeiyQzERcUeQCw1zXgcRZ9A30enIWc4fZQfo41hnUeOoPEUto5iMgiYxiG4oaeLbU-21fX5NirhMYqZgfoJUvzmY-g4q5oXWxyMgC99DtpJcYhWw1GsRNYUMBvBMdHDoy4x1HpsCNSeRBMQ0_i7W2"/>
+<div>
+<p class="font-label-md">Dr. Marcos Silva</p>
+<p class="text-label-sm text-on-surface-variant">Unidade Jardins</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-label-sm font-bold status-badge-critical">CRÍTICA</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-on-surface-variant font-label-md">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                        Em Análise
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-secondary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md text-secondary">#INC-98229</span>
+<p class="text-label-sm text-on-surface-variant">Há 45 minutos</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-blue-500">pets</span>
+<span class="font-body-md">Bem-estar</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Portrait of a young female professional pet groomer in a modern, clean pet salon. She is wearing a dark protective apron and smiling softly. The lighting is warm and inviting, emphasizing a high-end service environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBoZNSwtn6SRVB24EnQc7Qn_WzqdTr1KAklPS8-xwuJDJGbAXohYb_6ljkUxmyKq_0H2xTLwPRR2vvx1qKFosGTwx-dhS4JgeP1oJK65a5mIlemekJ3BU_XQ_U6O1_NWjt4YnOqN4TVcK-h6GM4qzwckgead-_N_rQHjsppKzvgpd7v1KGrEFIs7sw-7H2bYF65z8q58VLetbUdvyCfXcUsBCM1-AuEbOx4Tl_YCcb2H2OkxD5nBPs"/>
+<div>
+<p class="font-label-md">Ana Paula Reys</p>
+<p class="text-label-sm text-on-surface-variant">Pet Móvel Alpha</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-label-sm font-bold status-badge-high">ALTA</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-on-surface-variant font-label-md">
+<span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                                        Aguardando Doc
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-secondary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md text-secondary">#INC-98225</span>
+<p class="text-label-sm text-on-surface-variant">Há 2 horas</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-green-500">payments</span>
+<span class="font-body-md">Pagamento</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-on-surface-variant text-[10px]">SC</div>
+<div>
+<p class="font-label-md">Sistema Central</p>
+<p class="text-label-sm text-on-surface-variant">Gateway Financeiro</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-label-sm font-bold bg-gray-100 text-gray-700">MÉDIA</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-on-surface-variant font-label-md">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                        Em Processo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-secondary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md text-secondary">#INC-98218</span>
+<p class="text-label-sm text-on-surface-variant">Há 3 horas</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-red-500">security</span>
+<span class="font-body-md">Segurança</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="A male professional dog walker in outdoor athletic gear, carrying a professional leash and equipment. He is in a clean urban park setting with modern architecture in the distance. The overall image is bright and professional, adhering to corporate pet care visual standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC01ibGZmRbBi5Gt1QfJ3u1kkVzturnTasA-aoRGaQpRUSU9aEPUcJiEd43QJwNwTcNKpkjnd57rhnRmQRS-EvJl6n2v3eU-eSzKJ-pO7DJCXxsY5vDdlxTf2JtRsQYCX-yylJw1HQIuOZ3hbQvsxxdz4jpVCrw0XCVGHtUyD9sniotNuLQpPEI2DKzLz98ZLs6BjCIKgxR19nSXHJQxVT2p1iqe1Ta-SPViOT7l4YqwHQs6fmqxXkr"/>
+<div>
+<p class="font-label-md">Ricardo Mendes</p>
+<p class="text-label-sm text-on-surface-variant">Unidade Centro</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-label-sm font-bold status-badge-critical">CRÍTICA</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-2 text-on-surface-variant font-label-md">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                        Escalado (L3)
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-secondary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<span class="text-label-sm text-on-surface-variant">Mostrando 1-10 de 156 ocorrências</span>
+<div class="flex items-center gap-2">
+<button class="p-1 hover:bg-white rounded border border-outline-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-secondary text-on-primary rounded text-label-sm">1</button>
+<button class="px-3 py-1 hover:bg-white rounded text-label-sm border border-transparent hover:border-outline-variant">2</button>
+<button class="px-3 py-1 hover:bg-white rounded text-label-sm border border-transparent hover:border-outline-variant">3</button>
+<span class="px-2">...</span>
+<button class="px-3 py-1 hover:bg-white rounded text-label-sm border border-transparent hover:border-outline-variant">16</button>
+<button class="p-1 hover:bg-white rounded border border-outline-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Lower Layout: Live Feed & Analytics -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Real-time Activity Feed -->
+<div class="lg:col-span-1 bg-white border border-outline-variant rounded-xl p-gutter shadow-sm h-fit">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-title-lg text-title-lg">Logs de Auditoria</h4>
+<span class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold">LIVE</span>
+</div>
+<div class="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 bg-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">edit</span>
+</div>
+<p class="text-label-md font-bold">Protocolo #INC-98231 alterado</p>
+<p class="text-label-sm text-on-surface-variant">Por Central L2 às 14:32</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">notification_important</span>
+</div>
+<p class="text-label-md font-bold">Nova Ocorrência Crítica</p>
+<p class="text-label-sm text-on-surface-variant">Unidade Jardins às 14:20</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">upload</span>
+</div>
+<p class="text-label-md font-bold">Relatório Enviado</p>
+<p class="text-label-sm text-on-surface-variant">Ana Paula às 14:15</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">logout</span>
+</div>
+<p class="text-label-md font-bold">Logout de Operador</p>
+<p class="text-label-sm text-on-surface-variant">Sérgio Oliveira às 14:10</p>
+</div>
+</div>
+</div>
+<!-- Specialized Support Panel (Crisis Management) -->
+<div class="lg:col-span-2 bg-primary-container text-white rounded-xl p-gutter overflow-hidden relative group">
+
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-3 bg-red-600 rounded-xl shadow-lg animate-pulse">
+<span class="material-symbols-outlined text-[32px]">support_agent</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md leading-tight">Canal de Crises &amp; Suporte</h4>
+<p class="text-on-primary-container font-body-md">Comando central para incidentes de alta gravidade.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-8">
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-all cursor-pointer">
+<h5 class="text-label-md font-bold flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[20px]">phone_in_talk</span> Hot-Line Direta
+                                </h5>
+<p class="text-label-sm text-on-primary-container">Atendimento imediato para unidades em emergência.</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-all cursor-pointer">
+<h5 class="text-label-md font-bold flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[20px]">gavel</span> Jurídico 24h
+                                </h5>
+<p class="text-label-sm text-on-primary-container">Acionamento do corpo jurídico para intercorrências graves.</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-all cursor-pointer">
+<h5 class="text-label-md font-bold flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[20px]">psychology</span> Veterinário Sênior
+                                </h5>
+<p class="text-label-sm text-on-primary-container">Suporte clínico especializado para intercorrências de saúde.</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-all cursor-pointer">
+<h5 class="text-label-md font-bold flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[20px]">share_location</span> Monitoramento GPS
+                                </h5>
+<p class="text-label-sm text-on-primary-container">Rastreamento em tempo real de unidades móveis.</p>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-white text-primary px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                                Ativar Protocolo de Crise <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action for Crisis (only contextually on dashboard) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-error text-on-error rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 group">
+<span class="material-symbols-outlined text-[32px]">priority_high</span>
+<span class="absolute right-20 bg-error text-on-error px-4 py-2 rounded-lg text-label-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+            ALERTA RÁPIDO
+        </span>
+</button>
+<script>
+        // Micro-interactions for table rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                console.log('Opening incident details...');
+                // Animating a subtle scale for feedback
+                row.style.transform = 'scale(0.995)';
+                setTimeout(() => row.style.transform = 'scale(1)', 100);
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-secondary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-secondary');
+        });
+    </script>
+</body></html>

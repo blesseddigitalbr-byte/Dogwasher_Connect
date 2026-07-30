@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Segurança da Conta - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 0.25rem;
+        }
+        .session-active-border {
+            border-left: 4px solid #07111E;
+        }
+        .session-danger-border {
+            border-left: 4px solid #ba1a1a;
+        }
+        .btn-primary-action {
+            background-color: #F59E0B; /* Orange/Gold approximation */
+            color: #ffffff;
+        }
+        .badge-active {
+            background-color: #F59E0B; /* Orange/Gold approximation */
+            color: #ffffff;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#07111E", // Institutional Blue
+                    "action": "#F59E0B", // Orange/Gold
+                    "on-surface": "#0d1c2e",
+                    "outline": "#74777f",
+                    "background": "#f8f9fa",
+                    "surface": "#ffffff",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "gutter": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "title-md": ["Outfit"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-white border-b border-gray-200 flex justify-between items-center px-md py-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">arrow_back</span>
+<h1 class="font-display-lg text-title-md font-bold text-primary">Dog Washer Connect</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-gray-500 cursor-pointer">notifications</span>
+<div class="w-8 h-8 rounded-full bg-gray-100 overflow-hidden border border-gray-200">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1F31BLewv0Udy9l3gVkIH7G9Z5W8r98REH29FPQaua29LIr8o7SdJoPoiBhRqA-2iy5W5ytW0AXyv8k3B_4fxrMLOac20lHS5uCGh3jBuRj_kGvp09PU-yj9Dm9yqjf8KiKhbFs4ZdjX95Yzp4bKcPsFAr4gl5Ttbf5InU7v3FQcogUEwico5pMINpxG0K1xk1HhCVW2m1ZEt44uiDuL_IYEgQzwBQErruyZsNa7uIIJeUWYTrqMp"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-md space-y-md pb-24">
+<!-- Page Header -->
+<section class="mb-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Segurança</h2>
+<p class="font-body-md text-body-md text-gray-600">Gerencie suas credenciais e sessões ativas para manter sua conta protegida.</p>
+</section>
+<div class="grid grid-cols-1 gap-md">
+<!-- 2FA Card -->
+<div class="bento-card p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="p-base bg-gray-100 rounded-lg">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Autenticação 2FA</h3>
+</div>
+<span class="badge-active font-label-md text-label-md px-sm py-xs rounded-full">ATIVADO</span>
+</div>
+<p class="font-body-md text-body-md text-gray-600">Proteção adicional usando seu smartphone para validar acessos novos.</p>
+<button class="w-full border-2 border-action text-action font-bold text-label-md py-sm rounded-lg active:scale-95 transition-transform">Configurar Método</button>
+</div>
+<!-- Password Card -->
+<div class="bento-card p-md flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<div class="p-base bg-gray-100 rounded-lg">
+<span class="material-symbols-outlined text-primary">lock</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Sua Senha</h3>
+</div>
+<p class="font-body-md text-body-md text-gray-600">Última alteração feita há 45 dias. Recomendamos trocar a cada 90 dias.</p>
+<button class="w-full border-2 border-action text-action font-bold text-label-md py-sm rounded-lg active:scale-95 transition-transform">Alterar Senha</button>
+</div>
+<!-- Active Sessions Section -->
+<section class="mt-lg">
+<div class="flex justify-between items-end mb-sm">
+<h3 class="font-title-md text-title-md text-primary">Sessões Ativas</h3>
+<span class="font-label-md text-label-md text-error cursor-pointer active:opacity-70" onclick="logoutAll()">Encerrar todas</span>
+</div>
+<div class="space-y-sm" id="session-container">
+<!-- Session Item: Current -->
+<div class="bento-card p-md session-active-border flex items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-[32px]">smartphone</span>
+<div>
+<p class="font-title-md text-body-lg font-bold text-primary">iPhone 13 Pro (Atual)</p>
+<p class="font-label-md text-label-md text-gray-500">São Paulo, BR • Online agora</p>
+</div>
+</div>
+</div>
+<!-- Session Item: Browser -->
+<div class="bento-card p-md flex items-center justify-between transition-all duration-300" id="session-1">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-gray-400 text-[32px]">laptop</span>
+<div>
+<p class="font-title-md text-body-lg font-bold text-primary">Chrome no MacOS</p>
+<p class="font-label-md text-label-md text-gray-500">Curitiba, BR • Ativo há 2h</p>
+</div>
+</div>
+<button class="p-sm text-error active:bg-red-50 rounded-full" onclick="terminateSession('session-1')">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+<!-- Session Item: Suspicious -->
+<div class="bento-card p-md session-danger-border flex items-center justify-between transition-all duration-300" id="session-2">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error text-[32px]">public</span>
+<div>
+<p class="font-title-md text-body-lg font-bold text-error">Localização Desconhecida</p>
+<p class="font-label-md text-label-md text-gray-500">Dublin, IE • Ativo há 15 min</p>
+</div>
+</div>
+<button class="p-sm bg-error text-white rounded-lg active:scale-90" onclick="terminateSession('session-2')">
+<span class="material-symbols-outlined">no_accounts</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Logs & Audit -->
+<div class="bento-card p-md mt-md flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<div class="p-base bg-gray-100 rounded-lg">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Logs de Acesso</h3>
+</div>
+<p class="font-body-md text-body-md text-gray-600">Visualize o histórico completo de tentativas de login e mudanças de configuração.</p>
+<button class="w-full btn-primary-action font-bold text-label-md py-sm rounded-lg active:scale-95 transition-transform">Ver Histórico</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center py-sm z-50">
+<div class="flex flex-col items-center gap-xs cursor-pointer text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-sm">Conta</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-md text-label-sm font-bold">Segurança</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-gray-400">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-md text-label-sm">Privacidade</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-gray-400">
+<span class="material-symbols-outlined">database</span>
+<span class="font-label-md text-label-sm">Dados</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-gray-400">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-sm">Ajuda</span>
+</div>
+</nav>
+<script>
+        function terminateSession(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.style.opacity = '0';
+                element.style.transform = 'translateX(20px)';
+                setTimeout(() => {
+                    element.remove();
+                    checkEmptySessions();
+                }, 300);
+            }
+        }
+
+        function logoutAll() {
+            const sessions = document.querySelectorAll('#session-container > .bento-card:not(.session-active-border)');
+            sessions.forEach((s, index) => {
+                setTimeout(() => {
+                    s.style.opacity = '0';
+                    s.style.transform = 'translateX(20px)';
+                    setTimeout(() => {
+                        s.remove();
+                        checkEmptySessions();
+                    }, 300);
+                }, index * 100);
+            });
+        }
+
+        function checkEmptySessions() {
+            const container = document.getElementById('session-container');
+            const remaining = container.querySelectorAll('.bento-card');
+            if (remaining.length === 0) {
+                container.innerHTML = '<p class="text-center py-lg text-gray-500 font-body-md italic">Nenhuma outra sessão ativa encontrada.</p>';
+            }
+        }
+    </script>
+</body></html>

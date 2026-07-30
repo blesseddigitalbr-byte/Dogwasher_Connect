@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lista de Candidatos | PetConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#75859d",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "surface-tint": "#555f6f",
+                        "on-secondary-container": "#684000",
+                        "on-primary-container": "#7b8495",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0b1c30",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed": "#2a1700",
+                        "error-container": "#ffdad6",
+                        "outline": "#75777c",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-error": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary-fixed": "#d9e3f6",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#121c29",
+                        "outline-variant": "#c5c6cc",
+                        "on-surface-variant": "#44474c",
+                        "inverse-primary": "#bdc7d9",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-effect { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+        .ambient-shadow { box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05); }
+        .active-nav-border { border-bottom: 2px solid #fea619; padding-bottom: 4px; }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex">
+<!-- SideNavBar (Authority: JSON/Design System) -->
+<aside class="hidden lg:flex flex-col h-full p-stack-md sticky left-0 w-64 bg-surface border-r border-outline-variant h-screen">
+<div class="mb-10 px-2">
+<img alt="PetConnect Logo" class="h-12 w-auto mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8uk2xZ2MNLdqOZv6P-pUYg13GoKW_Qi9eR4HzdX2QJKjZZSyni8DqHqkNpuKxcOr2QlRqik3nbycGkkNHmCoc2FJeYoOEoWaN4zCSDjV7GyOdwBavy1ZkMIuSZLACr57XxDooscQeek-UQBVttW_tDFnD3QVCfC_UJi4n44jYIk1ZdIdAReoG21CYDOBcVmp_hMN14_nViv1DdBTRy-Ub7C77qBHb738kSBiKtlJqpcT-Qpcmo0yB4kA0N355ufagmw"/>
+<h2 class="font-display text-title-lg font-bold text-primary">PetCorp HQ</h2>
+<p class="font-label-md text-on-surface-variant">Administrator</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-surface-container-high text-primary font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md">Workforce</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md">Schedule</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md">Financial</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<button class="mt-auto bg-secondary-container text-on-secondary-container font-label-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+            New Request
+        </button>
+</aside>
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50 bg-primary shadow-sm">
+<div class="flex items-center gap-8">
+<div class="font-display text-headline-lg font-bold text-on-primary">PetConnect</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Opportunities</a>
+<a class="font-label-md text-secondary-container border-b-2 border-secondary-container pb-1" href="#">My Units</a>
+<a class="font-label-md text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Professionals</a>
+<a class="font-label-md text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Payments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-secondary-container text-on-secondary-container px-4 py-2 rounded-lg font-label-md hover:scale-95 transition-transform">Create Opportunity</button>
+<span class="material-symbols-outlined text-on-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-primary cursor-pointer">account_circle</span>
+</div>
+</header>
+<!-- Content Canvas -->
+<section class="p-margin-desktop space-y-stack-lg max-w-container-max mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-stack-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Candidatos para a Oportunidade</h1>
+<p class="font-body-md text-on-surface-variant">Banho e Tosa Completo • Unidade Jardins • 24 de Outubro</p>
+</div>
+<div class="flex items-center gap-stack-sm bg-surface-container-low p-2 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-64" placeholder="Filtrar profissionais..." type="text"/>
+</div>
+</div>
+<!-- Bento Grid of Candidates -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Candidate Card 1 (Premium/Highlighted) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant ambient-shadow overflow-hidden flex flex-col group hover:border-secondary transition-colors">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a smiling young woman with a golden retriever in a modern, brightly lit pet salon. She is wearing a professional grooming apron. The lighting is soft and high-key, reflecting a clean and upscale atmosphere with orange and blue accents in the background decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH1qFWO5EK0Fq3nFKAXSKgaQago-X0r9N_jl7zBkXScK-d8i-nftTcsd56KSxKBuYh8FFTfoPZjgwB0JU4JKojl-SxsPl8fSDd62QaVVA0826rJGKwYsTp9ouIFClW9W0-pDlqJjE360bkPg2VEBHZ8-3bK_SedSH6G-CO8mT4d7RRZS3QwmmA1jOQFHS_MRkc-GyQsd4ngRiYJIOdex-H9OHnFMTG5M3CfbZOhYQQE1bj7I9e2y5u"/>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                            DWID: 9842
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Mariana Silva</h3>
+<p class="font-label-md text-on-surface-variant">Groomer Especialista</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container p-1 px-2 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md font-bold">4.9</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Experiência</span>
+<span class="font-body-md font-medium text-primary">6 anos</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Distância</span>
+<span class="font-body-md font-medium text-primary">2.4 km</span>
+</div>
+</div>
+<div class="flex gap-3 pt-2 mt-auto">
+<button class="flex-1 font-label-md py-2 px-4 border border-primary text-primary rounded hover:bg-surface-container-low transition-colors">Ver Perfil</button>
+<button class="flex-1 font-label-md py-2 px-4 bg-secondary-container text-on-secondary-container rounded hover:brightness-95 transition-all">Selecionar</button>
+</div>
+</div>
+</div>
+<!-- Candidate Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant ambient-shadow overflow-hidden flex flex-col group hover:border-secondary transition-colors">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male professional pet washer in a state-of-the-art dog bathing facility. He is holding a professional dryer and smiling. The environment is minimalist and clinical with bright white tiles and sleek stainless steel equipment. Sunlight streams in from a large window creating a premium, modern feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwbDwF8Ip6bi4aW-qcKE3N1fwSB-4J0CR_pwnUUM38E7MbeJnnbM0yi19GMZZqLt8Nd0y96lQ_t8omKD2iqK-PQkgnD-CuzLHFlILiNytR__kkffiOqRtW77byTJgKNYtioyJX4zrWxn5rclaSJjidbl3mE3fiFL1hDbbIzfWKb6GYjPJFscL5Ugwpu9jAI4phYyYUzF0XTFI9inIhnAXwP5nZ0zlxE-sc6X2XznBMa7kKlDTmDT_w"/>
+<div class="absolute top-3 right-3 bg-surface-container-highest text-on-surface px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                            DWID: 7521
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Ricardo Mendes</h3>
+<p class="font-label-md text-on-surface-variant">Banhista Sênior</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container p-1 px-2 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md font-bold">4.7</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Experiência</span>
+<span class="font-body-md font-medium text-primary">4 anos</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Distância</span>
+<span class="font-body-md font-medium text-primary">5.1 km</span>
+</div>
+</div>
+<div class="flex gap-3 pt-2 mt-auto">
+<button class="flex-1 font-label-md py-2 px-4 border border-primary text-primary rounded hover:bg-surface-container-low transition-colors">Ver Perfil</button>
+<button class="flex-1 font-label-md py-2 px-4 bg-secondary-container text-on-secondary-container rounded hover:brightness-95 transition-all">Selecionar</button>
+</div>
+</div>
+</div>
+<!-- Candidate Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant ambient-shadow overflow-hidden flex flex-col group hover:border-secondary transition-colors">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a professional woman grooming a small white poodle. The aesthetic is clean and corporate, featuring high-quality photography with shallow depth of field. The professional is focused and precise, wearing a navy blue uniform. The light is warm and inviting, emphasizing quality and care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZm1bNQ7_62fl89q0__8CLE6F6a9GO_FNnlxutC7sOHei4NnIcyv99sHyUI-ILeYVMrd_wtyWmaFPTU9owXNiijKIwBAvgAQvtix_OO-E876dFoSNftsoBvxU5HyR37gCaFybTm9QJgXOLD4LylAmJkeDz85NOjqeGg5FkoYVHploQtgXXjbbIcdphHGJR2eDVi2QX9DInuf2tbkaLFxP_iuJYBHkhsT0MA7S5uIiiOsv_rfiWI8uZ"/>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                            DWID: 4402
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Ana Beatriz</h3>
+<p class="font-label-md text-on-surface-variant">Tosa Higiênica</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container p-1 px-2 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md font-bold">5.0</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Experiência</span>
+<span class="font-body-md font-medium text-primary">12 anos</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Distância</span>
+<span class="font-body-md font-medium text-primary">1.2 km</span>
+</div>
+</div>
+<div class="flex gap-3 pt-2 mt-auto">
+<button class="flex-1 font-label-md py-2 px-4 border border-primary text-primary rounded hover:bg-surface-container-low transition-colors">Ver Perfil</button>
+<button class="flex-1 font-label-md py-2 px-4 bg-secondary-container text-on-secondary-container rounded hover:brightness-95 transition-all">Selecionar</button>
+</div>
+</div>
+</div>
+<!-- Candidate Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant ambient-shadow overflow-hidden flex flex-col group hover:border-secondary transition-colors">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A wide-angle interior of a luxury pet grooming station. A professional groomer is working with a large husky. The room is modern, with dark accents and warm orange backlighting. Minimalist furniture and high-tech tools are visible. Professional photography style, clean lines, and high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaPKJjdXXZT8R86pU_M3GM43ak66dD0-C0MvhbQci5_pRSkppXuWfRawUU9Zffx22HGrYsfafP09lLFpt_QaJSF66tFEnDvr8XMERGrrive1XY7oKZHg9kkSwATCpLbtyh1Q6NwrEtFm6IHlQM7Zt84-SI6Iqoeca2RzgtWUEeATxAXFY5A9LeyJA3rqHBz-geC4xPJHNBO3a-AJjBykCw68f8DA_b9vRKnwGbetjRtbxhsbo60k7Q"/>
+<div class="absolute top-3 right-3 bg-surface-container-highest text-on-surface px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                            DWID: 1109
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Lucas Oliveira</h3>
+<p class="font-label-md text-on-surface-variant">Auxiliar de Groomer</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container p-1 px-2 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md font-bold">4.5</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Experiência</span>
+<span class="font-body-md font-medium text-primary">2 anos</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Distância</span>
+<span class="font-body-md font-medium text-primary">8.5 km</span>
+</div>
+</div>
+<div class="flex gap-3 pt-2 mt-auto">
+<button class="flex-1 font-label-md py-2 px-4 border border-primary text-primary rounded hover:bg-surface-container-low transition-colors">Ver Perfil</button>
+<button class="flex-1 font-label-md py-2 px-4 bg-secondary-container text-on-secondary-container rounded hover:brightness-95 transition-all">Selecionar</button>
+</div>
+</div>
+</div>
+<!-- Summary/Quick View Card (Bento Style) -->
+<div class="bg-primary text-on-primary rounded-xl p-6 ambient-shadow flex flex-col justify-between md:col-span-1 xl:col-span-1 border border-primary">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md">Métricas da Vaga</h3>
+<span class="material-symbols-outlined text-secondary-container">insights</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-on-primary/10 pb-2">
+<span class="font-label-md text-on-primary/60">Candidatos Totais</span>
+<span class="font-body-lg font-bold">14</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-primary/10 pb-2">
+<span class="font-label-md text-on-primary/60">Média de Avaliação</span>
+<span class="font-body-lg font-bold">4.8</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-primary/10 pb-2">
+<span class="font-label-md text-on-primary/60">Urgência</span>
+<span class="text-secondary-container font-label-md font-bold px-2 py-1 bg-secondary-container/10 rounded">ALTA</span>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<p class="font-label-sm text-on-primary/40 italic">As sugestões são baseadas no perfil técnico exigido pela unidade.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only - Authority: JSON) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface shadow-[0_-4px_20px_rgba(7,17,30,0.05)] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-[10px]">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-[10px]">My Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple hover effect interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+
+        // Search highlight interaction
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('border-primary');
+            searchInput.parentElement.classList.remove('border-outline-variant');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('border-primary');
+            searchInput.parentElement.classList.add('border-outline-variant');
+        });
+    </script>
+</body></html>

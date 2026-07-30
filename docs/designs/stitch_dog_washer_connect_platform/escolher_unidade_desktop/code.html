@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Escolher Unidade - PetConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#75859d",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "surface-tint": "#555f6f",
+                        "on-secondary-container": "#684000",
+                        "on-primary-container": "#7b8495",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0b1c30",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed": "#2a1700",
+                        "error-container": "#ffdad6",
+                        "outline": "#75777c",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-error": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary-fixed": "#d9e3f6",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#121c29",
+                        "outline-variant": "#c5c6cc",
+                        "on-surface-variant": "#44474c",
+                        "inverse-primary": "#bdc7d9",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "pet-teal": "#07111E",
+                        "pet-orange": "#F59E0B"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .unit-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .unit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+            border-color: #07111E;
+        }
+        .brand-text {
+            letter-spacing: -0.05em;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar - As per JSON -->
+<header class="bg-primary dark:bg-primary-container shadow-sm flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<img alt="PetConnect Logo" class="h-10 w-auto invert brightness-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW3PTkuoks_sKT8cQaWkfD6UfKhzrbm1jGZ7hQSyL4w8mY5r3Xu8j-MHRbnefVXmEFi6Q1MuJLRpoPWYZjKC3_PAIEBta70umfXKENNPgrqggwU4qqxXZWao9s-5uvDjdokgZ2_vpt2KZXYE0nFtMyeOjKfo6VmOGKsR1yXF0KbxO-4i0r0UfAaeMHr5RxItP83A_qBdozCoWblNRZcu5BVhuKPz2wRYkEbnPPkQY3lBipAPZq5R6hj2vS0CInraeK0Q"/>
+</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-label-md text-secondary-container dark:text-secondary-fixed border-b-2 border-secondary-container pb-1" href="#">Opportunities</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">My Units</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Professionals</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Payments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-pet-orange text-pet-teal px-4 py-2 rounded-lg font-label-md text-label-md font-bold active:scale-95 transition-all">
+                Create Opportunity
+            </button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-primary cursor-pointer p-2 rounded-full hover:bg-on-primary/10">notifications</span>
+<span class="material-symbols-outlined text-on-primary cursor-pointer p-2 rounded-full hover:bg-on-primary/10">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar - As per JSON -->
+<aside class="hidden lg:flex flex-col h-screen w-64 bg-surface dark:bg-inverse-surface border-r border-outline-variant p-stack-md sticky left-0 shrink-0">
+<div class="mb-8 px-2">
+<h2 class="font-display text-title-lg font-bold text-primary">PetCorp HQ</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Administrator</p>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span> Schedule
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md text-label-md bg-surface-container-high text-primary font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span> Workforce
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Financial
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+                </a>
+</nav>
+<button class="mt-auto bg-pet-teal text-white w-full py-3 rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span> New Request
+            </button>
+</aside>
+<!-- Main Content -->
+<main class="flex-grow p-8 md:p-12">
+<div class="max-w-container-max mx-auto">
+<div class="mb-10">
+<button class="flex items-center text-on-surface-variant hover:text-primary transition-colors mb-6 group">
+<span class="material-symbols-outlined text-[18px] mr-1 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="font-label-md text-label-md">Voltar para o Dashboard</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-pet-teal mb-2">Em qual unidade será realizada a oportunidade?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Selecione o estabelecimento onde o serviço será prestado para continuarmos com o agendamento.</p>
+</div>
+<!-- Units Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Unit Card 1 -->
+<div class="unit-card bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col cursor-pointer">
+<div class="h-48 w-full bg-cover bg-center relative" data-alt="A premium high-end pet grooming salon interior featuring modern minimalist architecture. Sleek wooden furniture, glass partitions, and bright clinical-white walls are illuminated by soft morning sunlight. The environment is impeccably clean, professional, and sophisticated, perfectly matching a corporate light-mode UI design with luxury appeal." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCpYlLfmta0AZ2zAORVSL-2DRTInqForMjdYIxdtOXD1dx0oqET01YwnFyEiW4IuJnheys3Vq0ueUzrQu_WJ5yCgUDPbsedkyA5gAMDFQR73U8iSDUDCAYvcAGRso-175LtM1TRJi236Mnen0xP-O6PUBLzc12kN7f-pwx_dsEPzF0_MIH5_wdY82pPtgUavxjnezB4JOIVYpJClePpdkBO8-4fctSCCIut0iVs6rwKBWaKKZnATtDT')">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-yellow-500 text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-pet-teal">4.9</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-start justify-between mb-2">
+<h3 class="font-title-lg text-title-lg text-pet-teal">PetConnect Jardins</h3>
+<div class="flex items-center gap-1 text-info bg-blue-50 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] uppercase font-bold tracking-wider">Unidade Verificada</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Al. Lorena, 1200 - Jardins, SP
+                            </p>
+<div class="mt-auto flex items-center justify-between border-t border-outline-variant pt-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Oportunidades</span>
+<span class="font-headline-md text-headline-md text-pet-teal">03</span>
+</div>
+<button class="bg-pet-orange text-pet-teal px-6 py-2.5 rounded-lg font-bold font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all">
+                                    Selecionar
+                                </button>
+</div>
+</div>
+</div>
+<!-- Unit Card 2 -->
+<div class="unit-card bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col cursor-pointer">
+<div class="h-48 w-full bg-cover bg-center relative" data-alt="The exterior of a luxury pet wellness clinic with a large glass storefront and high-end signage. The lighting is warm and inviting during a blue-hour sunset. The overall aesthetic is professional, modern, and high-tech, showcasing a premium establishment for pets in an upscale urban neighborhood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzpgNgyUp7te0hwuFgAth2umKby7hqRX0CWKkp5FEbhMYBsp9DGFb0lNsJcpXh3DurPb3r3e8Lzvb1FHBfjpwucqRAT911dZSmuNFei3kT2H-9SjICnKk9pe-8boGUkKytWAItCx4ccBRSMZPUcd0KOnrt38h8rdFK08vgzArghpyCn46PBdsrRbIhIiwKZJqaI08zsTMiaDodKQDvwjdNIANuZgxEwNcABhWxEo2pCM67x1Hwi7x3')">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-yellow-500 text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-pet-teal">4.7</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-start justify-between mb-2">
+<h3 class="font-title-lg text-title-lg text-pet-teal">PetConnect Itaim</h3>
+<div class="flex items-center gap-1 text-info bg-blue-50 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] uppercase font-bold tracking-wider">Unidade Verificada</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Rua Tabapuã, 450 - Itaim Bibi, SP
+                            </p>
+<div class="mt-auto flex items-center justify-between border-t border-outline-variant pt-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Oportunidades</span>
+<span class="font-headline-md text-headline-md text-pet-teal">01</span>
+</div>
+<button class="bg-pet-orange text-pet-teal px-6 py-2.5 rounded-lg font-bold font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all">
+                                    Selecionar
+                                </button>
+</div>
+</div>
+</div>
+<!-- Unit Card 3 -->
+<div class="unit-card bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col cursor-pointer border-dashed">
+<div class="flex-grow flex flex-col items-center justify-center p-12 text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-4 group-hover:bg-pet-teal group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">add_business</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-pet-teal mb-2">Nova Unidade</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Deseja cadastrar um novo estabelecimento para sua rede?</p>
+<button class="border border-pet-teal text-pet-teal px-6 py-2.5 rounded-lg font-bold font-label-md text-label-md hover:bg-pet-teal hover:text-white transition-all">
+                                Cadastrar Unidade
+                            </button>
+</div>
+</div>
+</div>
+<!-- Empty State / Footer Info -->
+<div class="mt-16 p-8 bg-surface-container-low rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-white rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-pet-teal text-[32px]">info</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-pet-teal">Precisa de ajuda?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Se sua unidade não estiver aparecendo, verifique o status de validação no menu de configurações.</p>
+</div>
+</div>
+<button class="text-pet-teal font-bold font-label-md text-label-md flex items-center gap-2 hover:underline">
+                        Contactar Suporte Técnico <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar - Mobile Only -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(7,17,30,0.05)] border-t border-outline-variant rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm">My Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.unit-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+        });
+    </script>
+</body></html>

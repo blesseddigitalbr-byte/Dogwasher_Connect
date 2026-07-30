@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#07111E",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "tertiary-fixed": "#dde3eb",
+                    "tertiary": "#1b2127",
+                    "on-primary-fixed": "#001b3c",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#f8f9fa",
+                    "outline": "#74777f",
+                    "on-background": "#07111E",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#d9e3f9",
+                    "tertiary-container": "#30363c",
+                    "surface-dim": "#ccdbf4",
+                    "inverse-primary": "#adc7f7",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#596376",
+                    "surface-variant": "#d4e4fc",
+                    "surface-container-highest": "#d4e4fc",
+                    "on-primary-container": "#86a0cd",
+                    "primary-container": "#07111E",
+                    "on-surface-variant": "#43474e",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "error-container": "#ffdad6",
+                    "primary": "#07111E",
+                    "accent": "#F5A623", /* Orange/Gold for CTAs and highlights */
+                    "background": "#ffffff",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-fixed": "#d6e3ff",
+                    "on-tertiary-fixed": "#161c22",
+                    "surface-container-low": "#f8f9fa",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#07111E",
+                    "surface-container-high": "#e9ecef",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "surface": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#ffffff",
+                    "outline-variant": "#dee2e6",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-secondary-fixed": "#121c2c",
+                    "inverse-surface": "#223144",
+                    "primary-fixed-dim": "#adc7f7",
+                    "secondary": "#555f71"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "gutter": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-md": ["Outfit"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .switch-input:checked + .switch-bg { background-color: #F5A623; } /* Orange/Gold for active highlights */
+        .switch-input:checked + .switch-bg .switch-dot { transform: translateX(16px); background-color: #ffffff; }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-primary border-b border-primary">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-white cursor-pointer active:opacity-80">arrow_back</span>
+<h1 class="font-display-lg text-title-md font-bold text-white">Privacidade</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-white opacity-80 cursor-pointer active:opacity-80">help</span>
+<img class="w-8 h-8 rounded-full border border-white/20" data-alt="User Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC31znM9ozlB9dI-6lt455QzXnVZxHyg5i8V8TS9sj1XfHWlFb2COWVvFlUNB1asLmOFN0S4mUEjFL5g4ABJb5e1a9z0ajT3SG9-pirOOXdwU94d64L6qz0tZUlJ_30P7SdH7cg2t2B34DVwEArZScouvtPUxh4RzF1PIH66rXVDhXj6KTwRkU86J10CGkBYX4FW1AL72OmUSnUe1iC9c1ZvMAR4q8YuTSSCqVzeu-eAJuqVs53DAxR"/>
+</div>
+</div>
+<!-- Tab Navigation (Sub-nav) -->
+<nav class="flex gap-lg px-lg overflow-x-auto hide-scrollbar bg-primary">
+<a class="text-white font-bold border-b-2 border-accent pb-2 font-label-md text-label-md whitespace-nowrap" href="#">Privacidade</a>
+<a class="text-white opacity-70 font-medium pb-2 font-label-md text-label-md whitespace-nowrap" href="#">Dados</a>
+<a class="text-white opacity-70 font-medium pb-2 font-label-md text-label-md whitespace-nowrap" href="#">Segurança</a>
+<a class="text-white opacity-70 font-medium pb-2 font-label-md text-label-md whitespace-nowrap" href="#">Visão Geral</a>
+</nav>
+</header>
+<main class="p-md space-y-lg pb-xl max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="space-y-sm">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Seus Dados, Suas Regras</h2>
+<p class="text-on-surface-variant">Gerencie como o Dog Washer Connect utiliza suas informações pessoais de acordo com a LGPD.</p>
+</section>
+<!-- Compliance Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-start gap-md">
+<div class="bg-surface-container-high p-sm rounded-lg">
+<span class="material-symbols-outlined text-accent">verified_user</span>
+</div>
+<div>
+<h3 class="font-title-md text-body-lg font-bold">Status de Conformidade</h3>
+<p class="text-on-surface-variant text-body-md">Seu perfil está 100% atualizado com as normas vigentes de proteção de dados.</p>
+</div>
+</div>
+<!-- Consent Management Section -->
+<section class="space-y-md">
+<div class="flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-primary">Gestão de Consentimentos</h3>
+<span class="text-accent font-bold text-label-md cursor-pointer active:opacity-80">Salvar Tudo</span>
+</div>
+<div class="space-y-sm">
+<!-- Consent Item 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex justify-between items-center">
+<div class="space-y-xs max-w-[75%]">
+<p class="font-bold">Comunicações de Marketing</p>
+<p class="text-on-surface-variant text-label-md">Receba ofertas personalizadas e novidades sobre cuidados pet.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer switch-input" type="checkbox"/>
+<div class="w-10 h-6 bg-outline-variant peer-focus:outline-none rounded-full switch-bg transition-colors duration-200">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 switch-dot"></div>
+</div>
+</label>
+</div>
+<!-- Consent Item 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex justify-between items-center">
+<div class="space-y-xs max-w-[75%]">
+<p class="font-bold">Análise de Comportamento</p>
+<p class="text-on-surface-variant text-label-md">Melhore sua experiência através da análise de uso do aplicativo.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer switch-input" type="checkbox"/>
+<div class="w-10 h-6 bg-outline-variant peer-focus:outline-none rounded-full switch-bg transition-colors duration-200">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 switch-dot"></div>
+</div>
+</label>
+</div>
+<!-- Consent Item 3 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex justify-between items-center opacity-70">
+<div class="space-y-xs max-w-[75%]">
+<p class="font-bold">Cookies Essenciais</p>
+<p class="text-on-surface-variant text-label-md">Necessários para o funcionamento básico e segurança da plataforma.</p>
+</div>
+<span class="text-label-sm font-bold text-accent">OBRIGATÓRIO</span>
+</div>
+</div>
+</section>
+<!-- Data Subject Rights Section -->
+<section class="space-y-md">
+<h3 class="font-title-md text-title-md text-primary">Direitos do Titular</h3>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Action Card 1 -->
+<button class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-xl gap-sm active:scale-95 transition-transform text-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'opsz' 40;">download</span>
+<span class="font-label-md">Exportar Meus Dados</span>
+</button>
+<!-- Action Card 2 -->
+<button class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-xl gap-sm active:scale-95 transition-transform text-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'opsz' 40;">edit_note</span>
+<span class="font-label-md">Retificar Informações</span>
+</button>
+<!-- Action Card 3 -->
+<button class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-xl gap-sm active:scale-95 transition-transform text-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'opsz' 40;">history</span>
+<span class="font-label-md">Logs de Acesso</span>
+</button>
+<!-- Action Card 4 -->
+<button class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-xl gap-sm active:scale-95 transition-transform text-center">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'opsz' 40;">delete_forever</span>
+<span class="font-label-md text-error">Excluir Conta</span>
+</button>
+</div>
+</section>
+<!-- Information Block -->
+<section class="bg-surface-container border-l-4 border-accent p-md rounded-lg space-y-sm">
+<div class="flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined">info</span>
+<span class="font-bold">Informação Legal</span>
+</div>
+<p class="text-body-md text-on-surface-variant">Suas solicitações de exclusão podem levar até 15 dias úteis para serem processadas integralmente, conforme os prazos legais da LGPD.</p>
+</section>
+<!-- Footer Help -->
+<footer class="pt-lg border-t border-outline-variant space-y-md">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-accent">contact_support</span>
+<span class="font-medium text-primary">Precisa de ajuda?</span>
+</div>
+<button class="bg-accent text-white px-lg py-sm rounded-lg font-bold font-label-md active:opacity-90">Falar com DPO</button>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<span class="font-display-lg text-label-md font-bold text-primary opacity-30">DOG WASHER CONNECT</span>
+<p class="text-center text-label-sm text-on-surface-variant">© 2024 • Política de Privacidade v2.4</p>
+</div>
+</footer>
+</main>
+<!-- Side Nav Navigation Placeholder -->
+<div class="hidden h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex-col gap-sm p-md z-[100] transform -translate-x-full transition-transform duration-300" id="side-nav">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary">Configurações</h2>
+<p class="text-on-surface-variant text-label-md">Gerencie sua conta</p>
+</div>
+<div class="space-y-xs flex-grow">
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md">Conta</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-md">Segurança</span>
+</div>
+<div class="flex items-center gap-md p-md bg-accent text-white rounded-lg font-bold cursor-pointer">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-md">Privacidade</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">database</span>
+<span class="font-label-md">Gestão de Dados</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">devices</span>
+<span class="font-label-md">Sessões</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-md space-y-xs">
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md">Termos</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md">Suporte</span>
+</div>
+</div>
+</div>
+<script>
+    // Simple ripple effect for buttons
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            let ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+
+    // Toggle state for switches (Visual feedback only as requested)
+    document.querySelectorAll('.switch-input').forEach(input => {
+        input.addEventListener('change', function() {
+            const parent = this.closest('.bg-surface-container-low');
+            if(this.checked) {
+                parent.classList.remove('opacity-80');
+            } else {
+                parent.classList.add('opacity-80');
+            }
+        });
+    });
+</script>
+</body></html>

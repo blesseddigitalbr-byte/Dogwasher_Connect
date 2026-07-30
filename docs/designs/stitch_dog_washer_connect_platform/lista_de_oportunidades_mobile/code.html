@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetConnect - Oportunidades</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#75859d",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "surface-tint": "#555f6f",
+                        "on-secondary-container": "#684000",
+                        "on-primary-container": "#7b8495",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0b1c30",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed": "#2a1700",
+                        "error-container": "#ffdad6",
+                        "outline": "#75777c",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-error": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary-fixed": "#d9e3f6",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#121c29",
+                        "outline-variant": "#c5c6cc",
+                        "on-surface-variant": "#44474c",
+                        "inverse-primary": "#bdc7d9",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm-mobile": ["11px", {"lineHeight": "14px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .opportunity-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .opportunity-card:active {
+            transform: scale(0.98);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-sm flex justify-between items-center w-full px-4 md:px-margin-desktop h-16 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<img alt="PetConnect Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsHBNlNMv0bR85kJ7zhp6f2SKGv_WUiMT60QadYnWUxQj4Z38yYjxR9FWJdGeoMUjZkYi9fJABjjFYdv2txE8lj5AUKqapRHVHxptuORIgi5VLCxtGv63Jt6ayRzgiUh_3N7Gz6NyuTislwbtPH0V0xIjspKpBWSlgHZdIFzBLvV31ePVKSi1AOdl6nwYcCFdmgdqFewFxvcqcKOoa6V-9D26OA2cnURhiNQ5-vPzmiW9rM4mYP6rVyJMzIBgPxzkFXQ"/>
+<span class="font-display text-title-lg font-bold text-on-primary">PetConnect</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-secondary-container border-b-2 border-secondary-container pb-1 transition-colors" href="#">Opportunities</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-secondary-container transition-colors" href="#">My Units</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Professionals</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Payments</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 hover:bg-white/10 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-white/10 rounded-full transition-colors">account_circle</button>
+</div>
+</header>
+<main class="flex-grow pb-24 md:pb-8">
+<!-- Hero/Header Section -->
+<section class="px-4 pt-6 pb-2">
+<h1 class="font-headline-md text-headline-md text-primary mb-1">Oportunidades</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Encontre os melhores turnos perto de você</p>
+</section>
+<!-- Filters Section -->
+<section class="sticky top-16 bg-background z-40 px-4 py-4 space-y-3">
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                    Filtros
+                </button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap">Hoje</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap">Este fim de semana</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap">Distância: 5km</button>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Buscar por unidade ou serviço" type="text"/>
+</div>
+</section>
+<!-- Opportunities List -->
+<section class="px-4 space-y-4 mt-2">
+<!-- Card 1 -->
+<div class="opportunity-card bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(7,17,30,0.05)]">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A premium storefront of a high-end pet grooming salon called PetLuxury with glass windows, warm interior lighting, and minimalist wooden signage. The aesthetic is clean, corporate, and modern, reflecting an upscale professional environment for pet care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPsjUDbyQTGH4KxCRASGv-CJheRJhEZkCcE3uJ3W9RkxtxZfeB6hrCl2PASjqtYDflZCFm8JuZf91hlYiUhqdFxpwBQMnATwz23BYzOsebplosM2FkrURU-FGX6BEBf9LOrr59uqfL1eKJr7O58_stl-2og-dpS6SVQ9KZ833KSfx6zB56DSOG73AhPKEjKkRiqpUCM-FWyvIFFOpYPmF6YAOdbBZHPPVnGOXF481KPLJRqIWkko7X"/>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary leading-tight">Banho &amp; Tosa Senior</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">PetCorp HQ • Centro</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-display text-headline-md text-secondary-container font-bold">R$ 180</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-4 mb-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md text-label-md">24 Out • 08:00 - 14:00</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+<span class="font-label-md text-label-md">1.2 km</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4">
+<p class="font-label-sm text-label-sm text-outline-variant uppercase tracking-wider mb-2">Atividades Principais</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Banho</span>
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Tosa Higiênica</span>
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Hidratação</span>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-label-md text-label-md hover:bg-neutral-800 transition-colors active:scale-[0.99] duration-100">
+                    Candidatar-se à Oportunidade
+                </button>
+</div>
+<!-- Card 2 -->
+<div class="opportunity-card bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(7,17,30,0.05)]">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A modern pet daycare facility called PawParadise with bright, airy spaces, large glass partitions, and specialized play equipment. The image has a clean, professional look with plenty of white space and soft natural lighting to convey a sense of premium safety and care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Ac0o03qxpo5eUL2mdl-JA3xXpL4SXb1AlsZh0r7VlJihFp25xG4H5skZC1mgeaThKIf92HO42iLLQPe6A-oMK5QffnjMcaCRj2HxLbrcXhhQKf3MFiRLLUUKJLcy169O-lI8cUAkpQ8wohrWJ3IpvSB483SYdKD9e6Ko4Iks3ykhP0ya2FzgGEnjFF93DJsFGvFiSWBWr0McUzdXOGUCM_a-Cn0jgVbz-5umINeZ-T7Hr8xrrDFQ"/>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary leading-tight">Dog Walker Especialista</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">PetClub • Vila Madalena</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-display text-headline-md text-secondary-container font-bold">R$ 120</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-4 mb-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md text-label-md">25 Out • 09:00 - 12:00</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+<span class="font-label-md text-label-md">3.8 km</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4">
+<p class="font-label-sm text-label-sm text-outline-variant uppercase tracking-wider mb-2">Atividades Principais</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Passeio Educativo</span>
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Relatório de Visita</span>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-label-md text-label-md hover:bg-neutral-800 transition-colors active:scale-[0.99] duration-100">
+                    Candidatar-se à Oportunidade
+                </button>
+</div>
+<!-- Card 3 -->
+<div class="opportunity-card bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(7,17,30,0.05)]">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A high-tech pet veterinary clinic interior with sleek white countertops, advanced medical monitoring screens, and a minimalist design aesthetic. The lighting is bright and clinically clean, conveying trust, technology, and premium medical professionalism in the pet care industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlp5ShWWycmEymgNLl4bOVVdD_-xXusUTVdQN5rS5au2r5bVNy1grSUD_ixgi6CXnKOFp0_4ler_JMZqQ6jkOol4MdAJKXsMwha9HiZAyJNuSNjDWEmdrM2J92MeqpJjWRL4bnPL3rC1VEisiAMB0JcmHMN9Y9dbZE1upBoTFFvVe7tKwFUy6yUU9rgq1n1qY06l3WZ-GdBrTDUgik3_PyAiTWXp-g6Jlahv-3FedYWGFahBjwFhaN"/>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary leading-tight">Auxiliar de Veterinário</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">VetClinic • Jardins</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-display text-headline-md text-secondary-container font-bold">R$ 250</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-4 mb-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md text-label-md">26 Out • 12:00 - 20:00</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+<span class="font-label-md text-label-md">0.5 km</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4">
+<p class="font-label-sm text-label-sm text-outline-variant uppercase tracking-wider mb-2">Atividades Principais</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Triagem</span>
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant">Suporte Cirúrgico</span>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-label-md text-label-md hover:bg-neutral-800 transition-colors active:scale-[0.99] duration-100">
+                    Candidatar-se à Oportunidade
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(7,17,30,0.05)] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm-mobile">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm-mobile">My Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for candidate buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.innerText.includes('Candidatar')) {
+                    const originalText = this.innerText;
+                    this.innerText = 'Candidatura enviada!';
+                    this.classList.replace('bg-primary', 'bg-secondary-container');
+                    this.classList.replace('text-on-primary', 'text-on-secondary-container');
+                    setTimeout(() => {
+                        this.innerText = originalText;
+                        this.classList.replace('bg-secondary-container', 'bg-primary');
+                        this.classList.replace('text-on-secondary-container', 'text-on-primary');
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</body></html>

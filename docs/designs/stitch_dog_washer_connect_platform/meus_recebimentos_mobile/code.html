@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meus Recebimentos - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            view-transition-name: active-tab;
+        }
+        /* Custom scrollbar for horizontal filters */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#121c29",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary-container": "#7b8495",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-container": "#684000",
+                        "surface-container": "#edeeef",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-secondary-fixed": "#2a1700",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-tint": "#555f6f",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "secondary-fixed": "#ffddb8",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#0b1c30",
+                        "inverse-primary": "#bdc7d9",
+                        "outline": "#75777c",
+                        "on-tertiary-container": "#75859d",
+                        "on-surface-variant": "#44474c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "stack-md": "1rem",
+                        "container-max": "1280px",
+                        "gutter": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "display": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- Top Navigation (Mobile Version of TopNavBar) -->
+<header class="sticky top-0 z-50 bg-surface shadow-sm border-b border-outline-variant px-margin-mobile h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Logo Dog Washer" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxEaGoN2ex-n3BaLPBg-UmXxnwv6jxKV5mpflB2Nz3q7Q1ZcZxoYNEvgDN4POoTOgG-XLPBaTHnj25dPT30npznzCDF7pqtb9g7HnTavXBgVj7AaBAQAxH8pc1HQ3gXNSjudYN9vIMMNHg_K9LC2-54Z28UCjuYQiI0ftSlTv_ugA1DRij1h1TRoDafqU04u4zpVqMqwRjSPp9jz6GL7giIr7UxEyMv9k7wUyuGIwhnfb5OMRdM1kFa7g5eX2XkrApJQ"/>
+<span class="font-display text-headline-md font-bold text-primary">Financeiro</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close up profile portrait of a professional male dog groomer in a modern, clean uniform. High-end photography style with soft studio lighting and a neutral grey background that aligns with a professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlYY1QnHurnMvIVOjKwvwPJE2Vx-iZ5aP_6j2GKBt0BcEQyvihW7Wb-UjN_de5bYIESFprSATpW4uPdlDjPBT1LpxOPkbGcOY28WuHNFWCQrBrsf956Ye7hAKc0lwrTpcRBC1hqP-2BUTvxBwptrq8Vwf9BGQxS-h2miKYZrv2Gigrow3q6desyeE7ZyJYnJdlg9GB5PZ53oirwlLZhPalfdaCQrR2OYBoUxsHMCiGTms-RitTtbrI"/>
+</div>
+</div>
+</header>
+<main class="px-margin-mobile py-stack-md">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h1 class="font-headline-md text-on-surface mb-1">Meus Recebimentos</h1>
+<p class="text-on-surface-variant font-label-md">Acompanhe seus ganhos e confirme pendências.</p>
+</section>
+<!-- Quick Filters -->
+<section class="mb-stack-lg -mx-margin-mobile px-margin-mobile overflow-x-auto no-scrollbar flex gap-2">
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-label-md rounded-full shadow-sm flex-shrink-0 transition-all scale-105">
+                Hoje
+            </button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant font-label-md rounded-full border border-outline-variant flex-shrink-0 transition-colors hover:bg-surface-container-highest">
+                Esta Semana
+            </button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant font-label-md rounded-full border border-outline-variant flex-shrink-0 transition-colors hover:bg-surface-container-highest">
+                Últimos 30 dias
+            </button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant font-label-md rounded-full border border-outline-variant flex-shrink-0 transition-colors hover:bg-surface-container-highest">
+                Personalizado
+            </button>
+</section>
+<!-- Summary Metric (Micro-Bento) -->
+<section class="grid grid-cols-2 gap-stack-md mb-stack-lg">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant shadow-sm">
+<span class="text-on-surface-variant font-label-sm block mb-1">A Receber</span>
+<span class="font-headline-md text-secondary">R$ 1.250,00</span>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant shadow-sm">
+<span class="text-on-surface-variant font-label-sm block mb-1">Confirmados</span>
+<span class="font-headline-md text-primary">R$ 4.890,50</span>
+</div>
+</section>
+<!-- Receipt Cards List -->
+<div class="space-y-stack-md">
+<!-- Card: Pending -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col transition-transform active:scale-[0.98]">
+<div class="p-stack-md flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-on-surface mb-1">Unidade Central - Jardins</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md">24 de Outubro, 2023</span>
+</div>
+</div>
+<span class="px-2 py-1 bg-pending/10 text-[#6B46C1] text-[10px] uppercase font-bold rounded bg-purple-50 border border-purple-100" style="background-color: rgba(107, 70, 193, 0.1);">Pendente</span>
+</div>
+<div class="px-stack-md pb-stack-md flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-sm">Valor Total</span>
+<span class="font-headline-md text-primary">R$ 450,00</span>
+</div>
+<button class="px-4 py-2 bg-secondary text-on-secondary font-label-md rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all" onclick="this.innerHTML='Confirmando...'; this.disabled=true; setTimeout(() =&gt; { this.closest('.bg-surface-container-lowest').style.opacity='0.5'; this.innerHTML='Confirmado'; }, 800)">
+                        Confirmar Recebimento
+                    </button>
+</div>
+</div>
+<!-- Card: Completed -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col opacity-90">
+<div class="p-stack-md flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-on-surface mb-1">Unidade Moema</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md">22 de Outubro, 2023</span>
+</div>
+</div>
+<span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] uppercase font-bold rounded border border-green-100">Sucesso</span>
+</div>
+<div class="px-stack-md pb-stack-md flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-sm">Valor Total</span>
+<span class="font-headline-md text-primary">R$ 320,00</span>
+</div>
+<span class="flex items-center gap-1 text-on-surface-variant font-label-md italic">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        Recebido
+                    </span>
+</div>
+</div>
+<!-- Card: Blocked/Issue -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="p-stack-md flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-on-surface mb-1">Unidade Barra</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md">20 de Outubro, 2023</span>
+</div>
+</div>
+<span class="px-2 py-1 bg-on-surface-variant/10 text-on-surface-variant text-[10px] uppercase font-bold rounded border border-outline-variant">Bloqueado</span>
+</div>
+<div class="px-stack-md pb-stack-md flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-sm">Valor Total</span>
+<span class="font-headline-md text-primary">R$ 180,00</span>
+</div>
+<button class="text-error font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">info</span>
+                        Ver Motivo
+                    </button>
+</div>
+</div>
+<!-- Card: Pending -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col transition-transform active:scale-[0.98]">
+<div class="p-stack-md flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-on-surface mb-1">Unidade Itaim Bibi</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md">19 de Outubro, 2023</span>
+</div>
+</div>
+<span class="px-2 py-1 bg-pending/10 text-[#6B46C1] text-[10px] uppercase font-bold rounded bg-purple-50 border border-purple-100" style="background-color: rgba(107, 70, 193, 0.1);">Pendente</span>
+</div>
+<div class="px-stack-md pb-stack-md flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-sm">Valor Total</span>
+<span class="font-headline-md text-primary">R$ 620,00</span>
+</div>
+<button class="px-4 py-2 bg-secondary text-on-secondary font-label-md rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all" onclick="this.innerHTML='Confirmando...'; this.disabled=true; setTimeout(() =&gt; { this.closest('.bg-surface-container-lowest').style.opacity='0.5'; this.innerHTML='Confirmado'; }, 800)">
+                        Confirmar Recebimento
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Consistent with Shared Components) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-16 flex items-center justify-around px-2 z-50">
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm">Início</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm">Extratos</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-secondary font-bold relative">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1">receipt_long</span>
+<span class="font-label-sm">Recebimentos</span>
+<div class="absolute -top-1 right-1/2 translate-x-4 w-1.5 h-1.5 bg-error rounded-full"></div>
+</button>
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm">Ajustes</span>
+</button>
+</nav>
+<!-- Success Modal (Hidden by default, used for interaction simulation) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 bg-on-surface text-surface px-6 py-3 rounded-full shadow-lg flex items-center gap-3 transform translate-y-[-150%] transition-transform duration-300 z-[100]" id="success-toast">
+<span class="material-symbols-outlined text-green-400">check_circle</span>
+<span class="font-label-md">Recebimento confirmado com sucesso!</span>
+</div>
+<script>
+        // Simple micro-interaction for confirmation buttons
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Confirmar Recebimento')) {
+                btn.addEventListener('click', function() {
+                    const toast = document.getElementById('success-toast');
+                    toast.classList.remove('translate-y-[-150%]');
+                    toast.classList.add('translate-y-0');
+                    setTimeout(() => {
+                        toast.classList.add('translate-y-[-150%]');
+                        toast.classList.remove('translate-y-0');
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+</body></html>

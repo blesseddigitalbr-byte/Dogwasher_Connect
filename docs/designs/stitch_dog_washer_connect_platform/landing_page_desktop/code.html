@@ -1,0 +1,368 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dog Washer Connect - Conectando Profissionais e Estabelecimentos Pet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#121c29",
+                    "outline": "#75777c",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "secondary": "#855300",
+                    "surface": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-surface": "#191c1d",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-primary-container": "#7b8495",
+                    "on-secondary-container": "#684000",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container": "#edeeef",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-tint": "#555f6f",
+                    "on-surface-variant": "#44474c",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "secondary-container": "#fea619",
+                    "inverse-primary": "#bdc7d9",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-container": "#75859d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; color: #191c1d; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .premium-shadow { shadow-[0px_4px_20px_rgba(7,17,30,0.05)]; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.5); }
+        .split-hero { min-height: 80vh; }
+        .bg-deep-teal { background-color: #07111E; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface dark:bg-on-primary-fixed border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<img alt="Dog Washer Connect Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi6M3cCTAyFJfbp564Kzy3Rl_Ls0FEp8Jd5dmGVUwdHvkNxrsYhGJgMj2d7Q-B_L-On8LxE-_fJFHRcCGrQJhHq1HRV54ZahA0kxsQAkrxq8SVF3rjCXMyfPeQMvrMmumKbpxOuoii6WL8QglGmQBgwrWH85s7tWI93aFVZGf6QS-QGIEg7Vpih0IVLqfYdgshcqr4G6ZD3e52raPUqTGMUTsFXgHouuDT8zUbTNAwB0T2v8cLJy53WNa0nVndK4bKfA">
+<span class="font-display text-headline-md font-bold text-primary dark:text-primary-fixed">Dog Washer Connect</span>
+</div>
+<div class="hidden md:flex items-center gap-8"><a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200" href="#">A Rede</a><a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200" href="#">Para Estabelecimentos</a><a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200" href="#">Para Profissionais</a><a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200" href="#">Como Funciona</a><a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200" href="#">Segurança</a><a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200" href="#faq">FAQ</a><button class="text-on-surface-variant font-label-md text-label-md font-bold hover:text-secondary transition-all">Entrar</button><button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-md text-label-md font-bold hover:bg-secondary hover:text-on-secondary transition-all active:scale-95">Criar conta</button></div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-secondary text-3xl">menu</span>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Split Hero Section -->
+<section class="relative w-full split-hero flex flex-col md:flex-row overflow-hidden">
+<!-- Side A: Contratar Profissionais -->
+<div class="relative flex-1 group cursor-pointer overflow-hidden bg-deep-teal transition-all duration-700">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500" data-alt="A high-end, professional pet grooming salon interior with modern equipment and clean surfaces. Warm, premium lighting highlights the sophisticated atmosphere of a top-tier veterinary or pet care establishment. The color palette is dominated by deep teals and charcoal tones, conveying reliability and expertise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAY0dy93-EXuiI4voAuJU8ytu5RIBQxOIsRxBt31kXzPPRTbAjKakPxxNqaEViwWaCLIGkfYgqKwQknEcpzImFyLOgbhYIaovgN4ixtq0-UMm-yRKp7p7WArJ-R8qi04oBgJ97_w8MVcxYJa--KUZAWt0P2GskJjNewqWEZ3RI9Od8f12ZrM9-tkPZprOpt8MGD9dSxOBrKRD0SsbPFAkmDySFXXTZzCnlPYwAAgmdJRgs0P07xv0If')"></div>
+<div class="relative z-10 h-full flex flex-col justify-center items-center text-center p-10 text-white">
+<span class="material-symbols-outlined text-6xl mb-6 text-secondary-container" style="font-variation-settings: 'FILL' 1;">store</span>
+<h2 class="font-display text-display mb-4">Contratar Profissionais</h2>
+<p class="font-body-lg text-body-lg mb-8 max-w-md opacity-90">Encontre especialistas qualificados e verificados para o seu pet shop ou clínica veterinária em minutos.</p>
+<button class="bg-white text-on-primary-fixed px-10 py-4 rounded-xl font-headline-md text-label-md font-bold hover:bg-secondary-container transition-all">Contratar Profissionais</button>
+</div>
+</div>
+<!-- Side B: Encontrar Oportunidades -->
+<div class="relative flex-1 group cursor-pointer overflow-hidden bg-on-primary-fixed-variant transition-all duration-700">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500" data-alt="A focused professional pet groomer working with precision and care in a bright, modern studio. The environment is clean and technologically advanced, with soft focus on premium tools. The lighting is crisp and energetic, using a palette of blues and amber to suggest professionalism and passion." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbOhFUAusTAckseyVnqOkzRhfg6tA1wPhdy8p3UFSVK87A6wJtsNEbJfq1GwUdFSCV_QGiB85pC6onClYoD8g05LmXJAX46oHqfTUQbfZm2SR-hT1gtLIoPMn9qzDOoqeKBoG_RF9UH8COO2nUMcfq70gTl8NCgSm2Sn6EQrI_a5uTILRdB4HJJu3GMrMDjutvPQ6gU49mtYcXTwZ6tHm_e43qbcOzTXIlq6LE-oVKG2ccVTcsulvX')"></div>
+<div class="relative z-10 h-full flex flex-col justify-center items-center text-center p-10 text-white">
+<span class="material-symbols-outlined text-6xl mb-6 text-secondary-container" style="font-variation-settings: 'FILL' 1;">assignment_ind</span>
+<h2 class="font-display text-display mb-4">Encontrar Oportunidades</h2>
+<p class="font-body-lg text-body-lg mb-8 max-w-md opacity-90">Sua carreira como banhista ou tosador no próximo nível. Acesse as melhores vagas e gerencie seus jobs.</p>
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-xl font-headline-md text-label-md font-bold hover:bg-white transition-all">Encontrar Oportunidades</button>
+</div>
+</div>
+<!-- Center Divider Decor -->
+<div class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="bg-surface p-4 rounded-full shadow-2xl">
+<span class="material-symbols-outlined text-primary text-4xl">sync_alt</span>
+</div>
+</div>
+</section>
+<!-- Trust Bar: Verified Profiles -->
+<section class="py-12 bg-white border-y border-outline-variant overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary">Perfis Verificados</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Documentação e antecedentes rigorosamente analisados.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary">Reputação Bilateral</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Avaliações honestas de ambos os lados da moeda.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary">Pagamento Garantido</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Segurança financeira para o profissional e para o lojista.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Bento Grid -->
+<section class="py-24 bg-surface-container-low" id="beneficios">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Excelência Operacional</span>
+<h2 class="font-display text-headline-lg mt-2">Por que escolher o Dog Washer Connect?</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[240px]">
+<!-- Bento Item 1 -->
+<div class="md:col-span-8 glass-card rounded-xl p-8 flex flex-col justify-end relative overflow-hidden group shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]">speed</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 relative z-10">Agilidade Incomparável</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg relative z-10">Contrate um profissional para o mesmo dia ou planeje sua agenda semanal com apenas três cliques. Nossa tecnologia de matchmaking reduz o tempo de busca em 85%.</p>
+</div>
+<!-- Bento Item 2 -->
+<div class="md:col-span-4 bg-primary-container text-white rounded-xl p-8 flex flex-col justify-between shadow-lg">
+<span class="material-symbols-outlined text-4xl text-secondary-container">shield</span>
+<div>
+<h3 class="font-title-lg text-title-lg mb-2">Compliance &amp; Segurança</h3>
+<p class="font-label-md text-label-md opacity-80">Garantimos que todos os profissionais possuam as certificações necessárias para atuar com segurança.</p>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col items-center text-center justify-center gap-4 shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<span class="material-symbols-outlined text-5xl text-secondary">trending_up</span>
+<h3 class="font-title-lg text-title-lg">Crescimento de Carreira</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Acesso exclusivo a cursos e workshops para profissionais parceiros.</p>
+</div>
+<!-- Bento Item 4 -->
+<div class="md:col-span-8 bg-white border border-outline-variant rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-2">Gestão Completa de Jobs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Dashboard intuitivo para gerenciar horários, pagamentos e feedbacks em um só lugar, disponível para web e mobile.</p>
+</div>
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary">dashboard_customize</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Geolocation & Map Section -->
+<section class="py-24 bg-white overflow-hidden" id="geolocalizacao">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 space-y-6">
+<h2 class="font-display text-headline-lg">Conectando o Brasil, um pet por vez.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Nossa tecnologia de geolocalização em tempo real permite que você encontre oportunidades ou profissionais no seu bairro. Sem deslocamentos desnecessários, com máxima eficiência logística.</p>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<div>
+<p class="font-title-lg text-label-md font-bold">Filtro por Distância</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Defina seu raio de atuação e receba apenas o que importa.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">map</span>
+<div>
+<p class="font-title-lg text-label-md font-bold">Mapa Interativo</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Visualize estabelecimentos e profissionais ativos no mapa.</p>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="bg-primary text-white px-8 py-3 rounded-full font-label-md text-label-md hover:bg-secondary transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">explore</span> Explores Regiões Atendidas
+                            </button>
+</div>
+</div>
+<div class="flex-1 w-full relative">
+<div class="rounded-3xl overflow-hidden shadow-2xl aspect-video bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="A sophisticated interactive map UI displayed on a high-end tablet screen. The map shows various icons for pet shops and professional bathers across a modern city landscape. The interface is clean, professional, and reflects the premium teal and amber brand colors, using soft shadows and modern typography." data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf3YPifxK2-oefMf24fTLBxFMavQNNbR8LikbifAM-Y25K8JjbHh30kO8J7JAJPOlaAUQCixfSTPvB1ybDCEHV6xHp2trgByDqNQOpoNR8gKiRufyIS2FPvePZhL1WP4LjbknveFQRptsM9NJZZgEyygw_aJdCRdi65Ipj_i2fRsQNONXVrlX0KNHOeRUe7Wb5R78X_Ngq5rpwEy-e0wfKeAX4PkVcOKUOEhvp6u1MP_4IS5iy7ut_">
+<div class="absolute top-4 left-4 glass-card p-3 rounded-xl flex items-center gap-3">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary">124 Profissionais Online Agora</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Establishments (Logos/Social Proof) -->
+<section class="py-20 bg-surface-container-highest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<p class="font-label-md text-label-md text-on-surface-variant mb-10">ESTABELECIMENTOS DE ELITE QUE JÁ CONECTAMOS</p>
+<div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="font-display text-headline-md font-bold text-outline">PETZ</span>
+<span class="font-display text-headline-md font-bold text-outline">COBASI</span>
+<span class="font-display text-headline-md font-bold text-outline">DOG'S CARE</span>
+<span class="font-display text-headline-md font-bold text-outline">ROYAL CANIN</span>
+<span class="font-display text-headline-md font-bold text-outline">VET PREMIUM</span>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-white" id="faq">
+<div class="max-w-3xl mx-auto px-margin-mobile">
+<h2 class="font-display text-headline-lg text-center mb-12">Perguntas Frequentes</h2>
+<div class="space-y-4">
+<details class="group bg-surface-container-low rounded-xl p-6 border border-transparent open:border-outline-variant transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-lg text-title-lg text-primary">
+                            Como funciona a verificação de profissionais?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant">Exigimos documentos de identificação, comprovantes de residência e certificados técnicos de banho e tosa. Além disso, realizamos uma checagem de antecedentes para garantir a segurança dos pets e dos estabelecimentos.</p>
+</details>
+<details class="group bg-surface-container-low rounded-xl p-6 border border-transparent open:border-outline-variant transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-lg text-title-lg text-primary">
+                            Quais são as taxas da plataforma?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant">Trabalhamos com uma taxa de serviço transparente aplicada sobre o valor do job realizado. Não há mensalidade para o plano básico de profissionais independentes.</p>
+</details>
+<details class="group bg-surface-container-low rounded-xl p-6 border border-transparent open:border-outline-variant transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-lg text-title-lg text-primary">
+                            Como recebo os meus pagamentos?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant">Os pagamentos são processados via nossa carteira digital integrada e transferidos para sua conta bancária cadastrada de forma automática e segura após a confirmação do serviço.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative py-24 bg-deep-teal overflow-hidden">
+
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-display text-display text-white mb-6">Pronto para profissionalizar sua conexão?</h2>
+<p class="font-body-lg text-body-lg text-white opacity-80 mb-10 max-w-2xl mx-auto">Junte-se a milhares de profissionais e estabelecimentos que já estão transformando o mercado pet brasileiro com tecnologia e confiança.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-xl font-headline-md text-label-md font-bold hover:scale-105 transition-all">Quero Contratar</button>
+<button class="bg-white text-on-primary-fixed px-10 py-4 rounded-xl font-headline-md text-label-md font-bold hover:scale-105 transition-all border border-transparent hover:border-secondary-container">Quero Trabalhar</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest dark:bg-primary-container border-t border-outline-variant">
+<div class="flex flex-col items-center md:items-start">
+<div class="flex items-center gap-2 mb-2">
+<img alt="Mini Logo" class="h-6 w-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPFOeo4M-sAMhFw_iYIenp_1SYcX60183-b58mBi4n2qJAl9WEcF2br6lQsL3mxpDUW3eJmsxXyRE89nALeTkcdGDN7DK8glUpiC4kAWeHXYefsbZ-poTChqdA26eRm7OEDNiio0lSbAHjyBQIVFO2fMiCKrL-xG-K-D6IZDmmrLS-MOxdR6-BDQIOv9gL8MH_SQntBdy2qumw7AwW6Vv7QtDU_gVFDHVp7k_qYlneTD_m-6-a_tcBKVbErVg-y7Ejmw">
+<span class="font-display text-title-lg text-primary">Dog Washer Connect</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface dark:text-on-primary-fixed-variant opacity-70">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+</div>
+<div class="flex gap-8"><a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">A Rede</a><a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Segurança</a><a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#faq">FAQ</a><a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Suporte</a></div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-secondary-container transition-colors duration-200">
+<span class="material-symbols-outlined text-primary">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-secondary-container transition-colors duration-200">
+<span class="material-symbols-outlined text-primary">mail</span>
+</button>
+</div>
+</footer>
+<!-- Floating Action Button (Only Mobile contextually) -->
+<button class="fixed bottom-6 right-6 md:hidden w-16 h-16 bg-secondary-container text-on-secondary-container rounded-full shadow-2xl flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('details').forEach((el) => {
+          el.addEventListener('toggle', (e) => {
+            if (el.open) {
+              const others = document.querySelectorAll('details');
+              others.forEach((other) => {
+                if (other !== el) other.removeAttribute('open');
+              });
+            }
+          });
+        });
+
+        // Simple smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

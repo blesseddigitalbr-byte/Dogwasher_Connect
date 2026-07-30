@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Menu Global</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Injection of the provided Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#ccdbf4",
+                    "on-secondary-fixed": "#121c2c",
+                    "outline": "#74777f",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "tertiary-fixed": "#dde3eb",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "on-surface-variant": "#43474e",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#d4e4fc",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-primary-container": "#86a0cd",
+                    "on-background": "#0d1c2e",
+                    "primary-container": "#1a365d",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#455f88",
+                    "tertiary-container": "#30363c",
+                    "secondary-fixed": "#d9e3f9",
+                    "primary-fixed-dim": "#adc7f7",
+                    "outline-variant": "#c4c6cf",
+                    "inverse-primary": "#adc7f7",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "tertiary": "#1b2127",
+                    "surface-container-low": "#eff4ff",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-high": "#dce9ff",
+                    "primary": "#002045",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed": "#001b3c",
+                    "secondary-container": "#d6e0f6",
+                    "surface-container-highest": "#d4e4fc",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "surface": "#f8f9ff",
+                    "on-surface": "#0d1c2e",
+                    "on-secondary-container": "#596376",
+                    "on-tertiary-container": "#989fa6",
+                    "surface-container": "#e5eeff",
+                    "on-tertiary-fixed": "#161c22",
+                    "secondary": "#555f71",
+                    "on-primary-fixed-variant": "#2d476f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "xl": "40px"
+            },
+            "fontFamily": {
+                    "label-md": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "display-lg": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "label-sm": ["Outfit"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9ff;
+        }
+        /* Custom scrollbar for menu overlay */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar (Based on JSON) -->
+<header class="w-full top-0 sticky bg-primary z-40 border-b border-primary">
+<div class="flex justify-between items-center px-lg py-sm max-w-container-max mx-auto">
+<div class="h-10"><img alt="Dog Washer Connect" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW62jaiRBYwO4akyoLttFiiWAbLEbApvuE0w582doweEsqpO82ZkQdzSP9P6kuTviZjYpxUIwNXIV5mNr6gemibYkDTt0Uu2r6-_PjFMRRkv-DwNT3uhbMhazz4KYzmSLP_mMk49ms2grVkM1TM_KX_e6a1EmpXBqaN5bQ1fuzsFJqvrdTG6zA3dgUTR9xYU6P1zUBITDaMidJ9VWvRedX6Gix2XovnnvzsI8pDePQAitdO_n93KrdIw0KurRtdrzecg"/></div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-primary cursor-pointer">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly service provider, wearing a clean corporate uniform. The lighting is bright and airy, reflecting a high-quality light-mode aesthetic with soft blue and white tones in the background. The style is modern, sharp, and trustworthy, suitable for a high-end service management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEa-K6D0PGwROzIbvG1SeYPr51e-dNZkk6PWLR8Hjc2_qVzo7ZNDV5OT7u40dTvWMFuS89ZYG7ClXPhNfO_D-o8_hBscjQA3_Btu4vzBtyZhHQu_tozGKzJF5QLu0446xwQPiFNrkEXNiQTWRUc2gpouaopdTmkHJFyIqielgjCVYX-4s1iTfD7J9-TyiA95WX1JeDCmJQ4ydBiQ4Gtmj9FhPmIX-5PFo9jobLldkPNv3KPyw1yBKo"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-md pt-lg pb-32">
+<!-- Welcome Section -->
+<section class="mb-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-xs">Olá, Marcos</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Confira o status da sua conta hoje.</p>
+</section>
+<!-- Bloqueio de Estado (Locked State Example) -->
+<section class="mb-lg">
+<div class="bg-surface-container-lowest border-l-4 border-[#F59E0B] p-md rounded-lg shadow-sm flex flex-col gap-sm">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-[#F59E0B]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h3 class="font-title-md text-title-md text-primary leading-tight">Estado Bloqueado</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Conclua seu cadastro para acessar esta área e começar a receber agendamentos.</p>
+</div>
+</div>
+<div class="flex gap-sm mt-sm">
+<button class="bg-[#F59E0B] text-on-primary px-md py-sm rounded-lg font-label-md text-label-md transition-all active:scale-95">Concluir Cadastro</button>
+<button class="border border-primary text-primary px-md py-sm rounded-lg font-label-md text-label-md">Saiba Mais</button>
+</div>
+</div>
+</section>
+<!-- Feature Grid (Operational Dashboard style) -->
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-lg opacity-50 flex flex-col items-center text-center gap-xs relative overflow-hidden">
+<!-- Overlay lock icon for restricted areas -->
+<div class="absolute inset-0 flex items-center justify-center bg-surface-container/20 backdrop-blur-[1px]">
+<span class="material-symbols-outlined text-primary-container text-4xl">lock</span>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">pets</span>
+<span class="font-label-md text-label-md text-primary">Meus Clientes</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-lg opacity-50 flex flex-col items-center text-center gap-xs relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center bg-surface-container/20 backdrop-blur-[1px]">
+<span class="material-symbols-outlined text-primary-container text-4xl">lock</span>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+<span class="font-label-md text-label-md text-primary">Financeiro</span>
+</div>
+</div>
+<div class="mt-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-low">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-wider">Histórico Recente</h4>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">assignment</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Contrato Assinado</p>
+<p class="font-body-md text-body-md text-on-tertiary-container text-xs">Hoje, 09:45</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Expanded 'Mais' Menu Overlay (Initially hidden) -->
+<div class="fixed inset-0 bg-on-background/40 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="more-menu">
+<div class="absolute bottom-0 left-0 w-full bg-surface-container-lowest rounded-t-xl max-h-[707px] overflow-y-auto no-scrollbar transform translate-y-full transition-transform duration-300 shadow-2xl">
+<div class="sticky top-0 bg-surface-container-lowest px-lg py-md border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-primary">Mais Opções</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-xs rounded-full" onclick="toggleMoreMenu()">close</button>
+</div>
+<div class="p-lg grid grid-cols-3 gap-lg">
+<!-- Professional / Operational Links from SideNavBar JSON -->
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">settings_remote</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Operação</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">store</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Unidade</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">admin_panel_settings</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Admin</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Relatórios</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">help</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Ajuda</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">contact_support</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Suporte</span>
+</div>
+</div>
+<div class="p-lg bg-surface-container-low border-t border-outline-variant">
+<button class="w-full bg-error-container text-on-error-container py-md rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-error">logout</span> Sair da Conta
+                </button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Based on JSON) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-md pb-md pt-sm bg-surface-container-lowest border-t border-outline-variant shadow-lg z-40 rounded-t-xl">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#F59E0B] text-on-primary rounded-full px-4 py-1 scale-95 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined active-nav-icon">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Bookings (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform cursor-pointer active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm">Jobs</span>
+</a>
+<!-- Clients (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform cursor-pointer active:scale-90" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm text-label-sm">Agenda</span>
+</a>
+<!-- More (Trigger) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-transform cursor-pointer active:scale-90" onclick="toggleMoreMenu()">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-sm text-label-sm">Mais</span>
+</button>
+</nav>
+<script>
+        function toggleMoreMenu() {
+            const menu = document.getElementById('more-menu');
+            const panel = menu.querySelector('div');
+            
+            if (menu.classList.contains('pointer-events-none')) {
+                // Open
+                menu.classList.remove('pointer-events-none', 'opacity-0');
+                menu.classList.add('opacity-100');
+                panel.classList.remove('translate-y-full');
+                panel.classList.add('translate-y-0');
+            } else {
+                // Close
+                menu.classList.add('pointer-events-none', 'opacity-0');
+                menu.classList.remove('opacity-100');
+                panel.classList.add('translate-y-full');
+                panel.classList.remove('translate-y-0');
+            }
+        }
+
+        // Close menu on backdrop click
+        document.getElementById('more-menu').addEventListener('click', function(e) {
+            if (e.target === this) toggleMoreMenu();
+        });
+    </script>
+</body></html>

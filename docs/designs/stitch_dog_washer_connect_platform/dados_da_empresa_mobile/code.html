@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Dados da Empresa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .input-focus-ring:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 0 1px #000000;
+        }
+        input:invalid:not(:placeholder-shown) {
+            border-color: #ba1a1a;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- Top Navigation Bar - Semantic Mapping for Mobile -->
+<header class="bg-surface dark:bg-surface-dim text-primary dark:text-inverse-primary font-body-md text-body-md border-b border-outline-variant dark:border-outline flex justify-between items-center px-4 py-4 w-full sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pets</span>
+<h1 class="font-display text-headline-md text-primary dark:text-inverse-primary tracking-tight">Dog Washer</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer active:opacity-80">notifications</span>
+<span class="material-symbols-outlined cursor-pointer active:opacity-80">account_circle</span>
+</div>
+</header>
+<!-- Progress Indicator -->
+<div class="px-margin-mobile pt-stack-md bg-surface">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mb-2">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 20%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">PASSO 1 DE 5</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Company Info</span>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-grow px-margin-mobile py-stack-lg">
+<div class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Dados da Empresa</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Insira as informações oficiais do seu estabelecimento pet para iniciarmos a validação profissional.</p>
+</div>
+<form class="space-y-6" id="onboardingForm">
+<!-- CNPJ Field with Logic -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant flex justify-between" for="cnpj">
+                    CNPJ
+                    <span class="hidden text-error" id="cnpj-status">Inválido</span>
+</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md input-focus-ring transition-all placeholder:text-outline" id="cnpj" maxlength="18" placeholder="00.000.000/0000-00" required="" type="text"/>
+<p class="text-[11px] text-on-surface-variant/70 italic">O CNPJ deve ser do estabelecimento físico ou MEI.</p>
+</div>
+<!-- Razão Social -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="razao-social">Razão Social</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md input-focus-ring transition-all placeholder:text-outline" id="razao-social" placeholder="Ex: Pet Shop Soluções Ltda" required="" type="text"/>
+</div>
+<!-- Nome Fantasia -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="nome-fantasia">Nome Fantasia</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md input-focus-ring transition-all placeholder:text-outline" id="nome-fantasia" placeholder="Ex: Dog &amp; Cia" required="" type="text"/>
+</div>
+<!-- Email Corporativo -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="email">E-mail Corporativo</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md input-focus-ring transition-all placeholder:text-outline" id="email" placeholder="contato@empresa.com.br" required="" type="email"/>
+</div>
+<!-- Telefone -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="phone">Telefone de Contato</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md input-focus-ring transition-all placeholder:text-outline" id="phone" placeholder="(00) 00000-0000" required="" type="tel"/>
+</div>
+<!-- Category Selection - Custom Radio Grid -->
+<div class="space-y-2 pt-2">
+<p class="font-label-md text-label-md text-on-surface-variant">Tipo de Estabelecimento</p>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative flex items-center p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/10">
+<input checked="" class="hidden" name="establishment_type" type="radio" value="clinic"/>
+<span class="font-label-md text-label-md">Clínica/Hospital</span>
+</label>
+<label class="relative flex items-center p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/10">
+<input class="hidden" name="establishment_type" type="radio" value="shop"/>
+<span class="font-label-md text-label-md">Pet Shop</span>
+</label>
+</div>
+</div>
+<!-- Information Card (Premium Layer) -->
+<div class="bg-on-tertiary-container/5 border border-outline-variant/30 rounded-xl p-4 flex gap-3">
+<span class="material-symbols-outlined text-secondary">info</span>
+<p class="font-label-sm text-label-sm leading-relaxed text-on-surface-variant">
+                    Seus dados serão verificados junto à Receita Federal para garantir a segurança dos pets e dos clientes na plataforma.
+                </p>
+</div>
+<div class="h-24"></div> <!-- Spacer for fixed footer -->
+</form>
+</main>
+<!-- Bottom Action Bar (Transactional Suppression of Nav Shell) -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-lowest shadow-[0_-4px_20px_rgba(7,17,30,0.08)] border-t border-outline-variant/30 px-margin-mobile py-4 z-50 flex gap-4">
+<button class="flex-1 px-6 py-3.5 border-2 border-primary text-primary font-label-md text-label-md rounded-lg active:scale-95 transition-transform" type="button">
+            Voltar
+        </button>
+<button class="flex-[2] px-6 py-3.5 bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-lg font-bold shadow-md active:scale-95 transition-transform flex items-center justify-center gap-2" form="onboardingForm" type="submit">
+            Próximo
+            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</footer>
+<!-- Side Navigation Shell (Suppressed on Mobile via responsive pivot rules) -->
+<aside class="hidden lg:flex flex-col h-full py-stack-lg px-stack-md border-r border-outline-variant bg-surface-container-low w-64 fixed left-0 top-0">
+<!-- Content handled by the mobile layout prioritize -->
+</aside>
+<script>
+        // CNPJ Mask and Basic Validation
+        const cnpjInput = document.getElementById('cnpj');
+        const cnpjStatus = document.getElementById('cnpj-status');
+
+        cnpjInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 14) value = value.slice(0, 14);
+            
+            // Apply mask
+            if (value.length > 12) {
+                value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2}).*/, '$1.$2.$3/$4-$5');
+            } else if (value.length > 8) {
+                value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4}).*/, '$1.$2.$3/$4');
+            } else if (value.length > 5) {
+                value = value.replace(/^(\d{2})(\d{3})(\d{3}).*/, '$1.$2.$3');
+            } else if (value.length > 2) {
+                value = value.replace(/^(\d{2})(\d{3}).*/, '$1.$2');
+            }
+            
+            e.target.value = value;
+            
+            // Simple validation UI
+            if (value.length === 18) {
+                validateCNPJ(value.replace(/\D/g, ''));
+            } else {
+                cnpjStatus.classList.add('hidden');
+            }
+        });
+
+        function validateCNPJ(cnpj) {
+            // Simplified validation check (just length for this demo)
+            if (cnpj.length === 14) {
+                cnpjStatus.classList.add('hidden');
+                cnpjInput.classList.remove('border-error');
+                cnpjInput.classList.add('border-secondary');
+            } else {
+                cnpjStatus.classList.remove('hidden');
+                cnpjInput.classList.add('border-error');
+            }
+        }
+
+        // Phone Mask
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            
+            if (value.length > 10) {
+                value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+            } else if (value.length > 6) {
+                value = value.replace(/^(\d{2})(\d{4})(\d{4}).*/, '($1) $2-$3');
+            } else if (value.length > 2) {
+                value = value.replace(/^(\d{2})(\d{0,5}).*/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+
+        // Form Submission
+        document.getElementById('onboardingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Animation feedback
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Processando...';
+            btn.classList.add('opacity-80');
+            setTimeout(() => {
+                alert('Dados validados com sucesso! Avançando para o próximo passo.');
+                btn.innerHTML = 'Próximo <span class="material-symbols-outlined text-[18px]">chevron_right</span>';
+                btn.classList.remove('opacity-80');
+            }, 1000);
+        });
+    </script>
+</body></html>

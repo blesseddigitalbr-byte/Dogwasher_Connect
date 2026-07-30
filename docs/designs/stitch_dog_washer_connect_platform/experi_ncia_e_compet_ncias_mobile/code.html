@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - Experiência e Competências | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7b8495",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "on-tertiary-container": "#75859d",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "primary-container": "#121c29",
+                        "secondary-fixed": "#ffddb8",
+                        "on-surface": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-secondary-container": "#684000",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#bdc7d9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#fea619",
+                        "tertiary": "#000000",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#555f6f",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#121c29",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#2a1700",
+                        "tertiary-container": "#0b1c30",
+                        "surface-bright": "#f8f9fa",
+                        "outline": "#75777c",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Outfit', sans-serif;
+            color: #191c1d;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        .step-active {
+            width: 2.5rem;
+            background-color: #000000;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .input-focus-ring:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .tag-chip {
+            transition: all 0.2s ease;
+        }
+        .tag-chip.active {
+            background-color: #fea619;
+            color: #684000;
+            border-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased">
+<!-- TopAppBar (Transactional - No Shell as per mandate) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-on-primary-fixed border-b border-outline-variant dark:border-outline px-margin-mobile md:px-margin-desktop h-20 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">pets</span>
+<h1 class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-outline">Passo 3 de 4</span>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-outline">close</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Progress Indicator -->
+<div class="mb-10 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-lg text-headline-lg text-primary">Experiência e Competências</h2>
+<div class="flex gap-2">
+<div class="h-1.5 w-8 rounded-full bg-outline-variant"></div>
+<div class="h-1.5 w-8 rounded-full bg-outline-variant"></div>
+<div class="h-1.5 step-active rounded-full transition-all duration-500"></div>
+<div class="h-1.5 w-8 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+<!-- Alert Callout -->
+<div class="flex items-start gap-3 p-4 bg-secondary-fixed text-on-secondary-fixed rounded-xl border border-secondary-fixed-dim">
+<span class="material-symbols-outlined">verified</span>
+<p class="font-label-md text-label-md">Informe apenas experiências que você realmente possui. Sua credibilidade é a chave para novos contratos.</p>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Column 1: Core Info -->
+<div class="col-span-12 md:col-span-8 flex flex-col gap-6">
+<!-- Section: Bio & Experience Time -->
+<div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm">
+<div class="flex flex-col md:flex-row gap-6 mb-6">
+<div class="flex-1">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Tempo de Experiência</label>
+<select class="w-full bg-transparent border border-outline-variant rounded-lg p-3 font-body-md input-focus-ring">
+<option>Menos de 1 ano</option>
+<option selected="">1 a 3 anos</option>
+<option>3 a 5 anos</option>
+<option>Mais de 5 anos</option>
+</select>
+</div>
+<div class="flex-[2]">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Resumo Profissional</label>
+<textarea class="w-full bg-transparent border border-outline-variant rounded-lg p-3 font-body-md h-32 resize-none input-focus-ring" maxlength="300" placeholder="Conte um pouco sobre sua trajetória com os pets..."></textarea>
+<span class="text-[10px] text-outline text-right block mt-1">Máximo 300 caracteres</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Estabelecimentos Anteriores</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-transparent border border-outline-variant rounded-lg p-3 font-body-md input-focus-ring" placeholder="Ex: Pet Shop AuAu, Vet Clinic..." type="text"/>
+<button class="bg-primary text-on-primary px-4 rounded-lg font-label-md hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                                Adicionar
+                            </button>
+</div>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full font-label-md text-on-surface-variant">
+                                Petz Shopping
+                                <button class="material-symbols-outlined text-[16px] hover:text-error">close</button>
+</span>
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full font-label-md text-on-surface-variant">
+                                Clínica Veterinária VetPlus
+                                <button class="material-symbols-outlined text-[16px] hover:text-error">close</button>
+</span>
+</div>
+</div>
+</div>
+<!-- Section: Portfolio Grid -->
+<div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Portfólio de Imagens</h3>
+<p class="font-label-sm text-label-sm text-outline">Adicione fotos dos seus melhores trabalhos.</p>
+</div>
+<button class="text-secondary font-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+                            Subir Fotos
+                        </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square relative rounded-lg overflow-hidden group border border-outline-variant">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-10">
+<button class="p-1.5 bg-white rounded-full text-error shadow-lg"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<img class="w-full h-full object-cover" data-alt="A professional close-up photography of a fluffy white Bichon Frise after a grooming session, looking fresh and tidy against a minimalist studio background with soft warm lighting. The aesthetic is clean, corporate, and high-end, focusing on the texture of the fur and the quality of the service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_WgVMwTTgqveaQhoKr6rD4vqfqb16cHBddt2R3bAr37oDazLoKj9pn148y2EMAWCg5qDB-Uup34SHCTv5E_bLX6WNMevDI30YP9DonIkpfCT7GQehfCrzUhpiX3m08CYJqRIGN94Nv5y8I-0eAFZiprb_aoCncjJV_2gp43dp4yIJ4L3MJN6dRLWlKPhdNj884acP0L4gPMJHBt1OQC7lKtaWZEf05RHZL03WCxTe-hrv04TTIMtV"/>
+</div>
+<div class="aspect-square relative rounded-lg overflow-hidden group border border-outline-variant">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-10">
+<button class="p-1.5 bg-white rounded-full text-error shadow-lg"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<img class="w-full h-full object-cover" data-alt="A high-quality image of a Golden Retriever smiling at the camera after a bath, its coat glowing and perfectly brushed. The background is a modern pet spa environment with clean tiles and high-key lighting, reflecting a professional and safe workspace. The mood is joyful and energetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXsBkt_yZLMybGlmrADr2Bawy8pohKVnkoW3JwROinXVs2FuHQFdk7x0CJcwREVW2R6J4vwRU0I9JuaNLdXAn-xo3g7822oq3zUJOJzs2hDFWafpjgd9uSjezmiaWkiZPAKoq30BOSNw5uaWQWpze4AHpeVJnQoQnA8TqwRL_LyZY1b9-cfEX3iS0MM3YEmjBxgyZFRBQsEnxSvT4XLScMX4v1knx8WQgW10y4Usxec3YvhqjO3XLj"/>
+</div>
+<div class="aspect-square relative rounded-lg overflow-hidden group border border-outline-variant">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-10">
+<button class="p-1.5 bg-white rounded-full text-error shadow-lg"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<img class="w-full h-full object-cover" data-alt="A professional grooming transformation photo showing a Poodle with a sophisticated clip. The lighting is crisp and detailed, highlighting the precision of the groomer's work. The setting is a minimalist pet salon with premium aesthetic touches in black and neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWydQopnzOhUaRDtCIq6XLTY1h-jmdfOb3s2mbjWxznMMXxYlLwy60x5JJXy-NVUHMgcCZHtO4ly5_d-WzDmUZpkahoX1OKKWpKU5pt93KG9J7leg248CMQ7QrdR8lPRiAwVPUuqYg6dgCsccjQ9Gk2wzOHltuncVVLjZ0lhxHfMJZ1sEgaXCCihAOc6yVTd6OH61kZrz810FaDwNhgVhSM2K6hYtSomzMAzwaZt6JXCI4yQhV0fIx"/>
+</div>
+<label class="aspect-square flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-outline-variant hover:border-secondary hover:bg-secondary-fixed/20 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-outline">add_photo_alternate</span>
+<span class="font-label-sm text-outline">Nova Foto</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Column 2: Competencies / Tags -->
+<div class="col-span-12 md:col-span-4 flex flex-col gap-6">
+<div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm h-full">
+<h3 class="font-title-lg text-title-lg text-primary mb-6">Competências</h3>
+<!-- Porte Section -->
+<div class="mb-8">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-3">Porte de Atendimento</label>
+<div class="flex flex-wrap gap-2">
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md active" onclick="toggleTag(this)">Pequeno</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md active" onclick="toggleTag(this)">Médio</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md" onclick="toggleTag(this)">Grande</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md" onclick="toggleTag(this)">Gigante</button>
+</div>
+</div>
+<!-- Pelagem Section -->
+<div class="mb-8">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-3">Tipos de Pelagem</label>
+<div class="flex flex-wrap gap-2">
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md active" onclick="toggleTag(this)">Curta</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md active" onclick="toggleTag(this)">Longa</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md" onclick="toggleTag(this)">Dupla Camada</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md active" onclick="toggleTag(this)">Encaracolada</button>
+<button class="tag-chip px-4 py-2 border border-outline-variant rounded-full font-label-md" onclick="toggleTag(this)">Dura</button>
+</div>
+</div>
+<!-- Skills Checklist -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-3">Serviços Especializados</label>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md group-hover:text-primary transition-colors">Tosa Higiênica</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md group-hover:text-primary transition-colors">Corte de Unhas</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md group-hover:text-primary transition-colors">Tosa na Tesoura</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md group-hover:text-primary transition-colors">Limpeza de Ouvidos</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md group-hover:text-primary transition-colors">Banho Terapêutico</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Navigation for Onboarding Flow -->
+<div class="fixed bottom-0 left-0 w-full bg-white border-t border-outline-variant p-4 z-40">
+<div class="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<button class="px-6 py-3 border border-primary text-primary rounded-lg font-label-md hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                    Anterior
+                </button>
+<button class="px-12 py-3 bg-primary text-on-primary rounded-lg font-label-md hover:scale-[1.02] active:scale-95 transition-all shadow-lg flex items-center gap-2">
+                    Próximo Passo
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer - As mandated by Shared Components -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest dark:bg-primary-container border-t border-outline-variant">
+<p class="font-body-md text-body-md text-on-surface dark:text-on-primary-fixed-variant">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<script>
+        function toggleTag(btn) {
+            btn.classList.toggle('active');
+            if(btn.classList.contains('active')) {
+                btn.style.backgroundColor = '#fea619';
+                btn.style.borderColor = 'transparent';
+                btn.style.color = '#684000';
+            } else {
+                btn.style.backgroundColor = 'transparent';
+                btn.style.borderColor = '#c5c6cc';
+                btn.style.color = 'inherit';
+            }
+        }
+
+        // Initialize active tags visual state
+        document.querySelectorAll('.tag-chip.active').forEach(tag => {
+            tag.style.backgroundColor = '#fea619';
+            tag.style.borderColor = 'transparent';
+            tag.style.color = '#684000';
+        });
+    </script>
+</body></html>

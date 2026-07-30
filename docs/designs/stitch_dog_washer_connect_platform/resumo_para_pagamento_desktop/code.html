@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resumo para Pagamento - Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#684000",
+                    "background": "#f8f9fa",
+                    "outline-variant": "#c5c6cc",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "tertiary-container": "#0b1c30",
+                    "outline": "#75777c",
+                    "on-surface-variant": "#44474c",
+                    "on-background": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary": "#000000",
+                    "primary": "#000000",
+                    "primary-fixed": "#d9e3f6",
+                    "on-surface": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fea619",
+                    "secondary": "#855300",
+                    "on-primary-fixed": "#121c29",
+                    "inverse-surface": "#2e3132",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#2a1700",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-tint": "#555f6f",
+                    "on-tertiary-container": "#75859d",
+                    "surface-container-highest": "#e1e3e4",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary-container": "#7b8495"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<nav class="w-full top-0 bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline shadow-sm z-50 sticky">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Dog Washer Connect</span>
+<div class="hidden md:flex gap-6">
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1 font-body-md text-body-md cursor-pointer transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors font-body-md text-body-md cursor-pointer" href="#">Pagamentos</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors font-body-md text-body-md cursor-pointer" href="#">Repasses</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors font-body-md text-body-md cursor-pointer" href="#">Configurações</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-label-md text-label-md cursor-pointer hover:text-secondary transition-colors">Suporte</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80 transition-opacity" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80 transition-opacity" data-icon="account_balance_wallet">account_balance_wallet</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a pet facility manager, looking confident and approachable. The lighting is soft and professional, set against a modern office background with subtle blue and orange accents. The overall aesthetic is clean, corporate, and high-end, matching the Dog Washer Connect brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy63KXv8L3waVGsjUKvP0yUMxrf50nAw8bE9bB8qv6eAAMCw22Jib6l7L9B40c_YCij-FPUrKwVGM_YGmHRWqb9B6hwzxGgOl1sQ1N_DcgHF18ONULuLM0WyDlCPxT9G6GKgv0fZJ8GOK8iH-n4hlmg7M2f2k42SNH71yXIl0XxaIJh3ayD1R5hoP6YinqI_3V9w9DGiUKPhQuTe6APgfL6oryLJ8Rfq6GdnY3kPReZvkFU-GrR59h"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Breadcrumb / Header Section -->
+<header class="mb-10">
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="text-label-md font-label-md">Profissionais</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-label-md font-label-md">Seleção</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-label-md font-label-md font-bold text-primary">Resumo para Pagamento</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Finalizar Contratação</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Confira os detalhes financeiros antes de seguir para o checkout seguro.</p>
+</header>
+<div class="grid grid-cols-12 gap-gutter items-start">
+<!-- Left Side: Professional & Service Details (Bento Grid Style) -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-2 gap-stack-md">
+<!-- Professional Card -->
+<div class="col-span-2 md:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm flex items-center gap-6">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-quality portrait of a professional male dog groomer in a clean, modern pet salon. He is wearing a professional apron and has a friendly, expert expression. The background is softly blurred, showing premium grooming tools and a minimalist interior with warm wood and charcoal grey tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFzId8E8z0Gmt9qiXRL4SxVonLbeVudBPd1P9MDH1zvtUI2iDvLpvbyb-qtrhKju8W8j34qzO58-utpTe1OC2KQNEXJm3q2njgULHXAIDHzNoSZcnAdvdiw5joflfKbPuDnC5DpTXQRY1X2QTtfbv-60K3_Svwh7YsKKCasg5sK202HCIED19XbM4N6rZAHkI97KcOPLomhDIgl8wrpcbPrmhiV8F1WiFzDyrUVRZu3tj1httrRhO9"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-2 py-0.5 rounded">VERIFICADO</span>
+<div class="flex items-center text-[#F59E0B]">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md ml-1">4.9 (124 serviços)</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Marcos Oliveira</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Especialista em Banho e Tosa Premium • 8 anos exp.</p>
+</div>
+</div>
+<!-- Service Details -->
+<div class="col-span-2 md:col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm">
+<div class="flex items-center gap-2 mb-4 text-secondary">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<h3 class="font-title-lg text-title-lg">Data e Horário</h3>
+</div>
+<p class="font-body-lg text-body-lg text-primary font-bold">14 de Outubro, 2023</p>
+<p class="text-body-md text-on-surface-variant">Segunda-feira, às 09:00</p>
+</div>
+<!-- Location Details -->
+<div class="col-span-2 md:col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm">
+<div class="flex items-center gap-2 mb-4 text-secondary">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<h3 class="font-title-lg text-title-lg">Localização</h3>
+</div>
+<p class="font-body-lg text-body-lg text-primary font-bold">Pet Shop Amigo Fiel</p>
+<p class="text-body-md text-on-surface-variant">Av. das Nações, 1200 - Unidade Centro</p>
+</div>
+<!-- Security Assurance -->
+<div class="col-span-2 bg-primary-container text-on-primary-container rounded-xl p-stack-md flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" data-icon="security">security</span>
+<div>
+<p class="font-title-lg text-title-lg">Pagamento Protegido</p>
+<p class="text-body-md opacity-80">O valor só será liberado ao profissional após a confirmação da execução do serviço em nossa plataforma.</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Order Summary (Checkout Sidebar) -->
+<div class="col-span-12 lg:col-span-4 sticky top-28">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg overflow-hidden">
+<div class="p-stack-md border-b border-outline-variant bg-surface-container-low">
+<h3 class="font-title-lg text-title-lg text-primary">Resumo da Cobrança</h3>
+</div>
+<div class="p-stack-md space-y-4">
+<!-- Remuneração do Profissional -->
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Remuneração do Profissional</p>
+<p class="text-label-sm text-on-surface-variant font-normal">Valor integral repassado ao Marcos</p>
+</div>
+<span class="font-title-lg text-title-lg text-primary">R$ 120,00</span>
+</div>
+<!-- Taxa de Conexão -->
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Taxa de Conexão Connect</p>
+<p class="text-label-sm text-on-surface-variant font-normal">Manutenção e suporte da plataforma</p>
+</div>
+<span class="font-title-lg text-title-lg text-primary">R$ 15,00</span>
+</div>
+<!-- Tarifa de Meio de Pagamento -->
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Tarifa do Meio de Pagamento</p>
+<p class="text-label-sm text-on-surface-variant font-normal">Processamento bancário (PIX/Cartão)</p>
+</div>
+<span class="font-title-lg text-title-lg text-primary">R$ 4,50</span>
+</div>
+<hr class="border-outline-variant my-2"/>
+<!-- Total da Cobrança -->
+<div class="flex justify-between items-center py-2">
+<span class="font-headline-md text-headline-md text-primary">Total</span>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-primary">R$ 139,50</span>
+<p class="text-label-sm text-secondary font-bold">em até 3x sem juros</p>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="p-stack-md pt-0">
+<button class="w-full bg-secondary-container hover:bg-[#F59E0B] text-on-secondary-container font-bold py-4 rounded-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2 group shadow-md">
+<span>Continuar para Pagamento</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full mt-3 border border-outline text-on-surface hover:bg-surface-container-low font-label-md text-label-md py-3 rounded-xl transition-colors">
+                            Alterar Profissional
+                        </button>
+</div>
+<!-- Footer Info -->
+<div class="p-4 bg-surface-container-highest flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+<span class="text-label-sm font-label-sm">Ambiente 100% Criptografado</span>
+</div>
+</div>
+<!-- Promo/Note Card -->
+<div class="mt-6 p-stack-md bg-[#FDF4E3] border border-[#FEA619]/20 rounded-xl flex gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<p class="text-label-md text-on-secondary-container">
+                        Ao clicar em continuar, você reserva o horário do profissional. O pagamento deve ser concluído em até 15 minutos para garantir a vaga.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe md:hidden bg-surface dark:bg-surface-container-highest shadow-[0_-4px_20px_rgba(7,17,30,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-2 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Financeiro</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Extrato</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Perfil</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the "Continue" button
+        const btn = document.querySelector('button.bg-secondary-container');
+        if (btn) {
+            btn.addEventListener('click', function() {
+                this.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-on-secondary-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Processando...</span>
+                `;
+                setTimeout(() => {
+                    alert('Direcionando para o Gateway de Pagamento Seguro...');
+                    location.reload();
+                }, 1500);
+            });
+        }
+    </script>
+</body></html>

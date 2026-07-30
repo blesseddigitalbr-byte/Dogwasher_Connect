@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Dashboard do Profissional</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#121c29",
+                    "outline": "#75777c",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "secondary": "#855300",
+                    "surface": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-surface": "#191c1d",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-primary-container": "#7b8495",
+                    "on-secondary-container": "#684000",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container": "#edeeef",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-tint": "#555f6f",
+                    "on-surface-variant": "#44474c",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "secondary-container": "#fea619",
+                    "inverse-primary": "#bdc7d9",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-container": "#75859d",
+                    "brand-navy": "#07111E",
+                    "brand-orange": "#FEA619"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar { transition: height 1s ease-out; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @media (min-width: 768px) {
+            .main-content {
+                margin-left: 260px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-background min-h-screen">
+<!-- Sidebar (Desktop) -->
+<aside class="hidden md:flex fixed top-0 left-0 h-screen w-[260px] bg-brand-navy flex-col z-50">
+<div class="p-8">
+<img alt="Dog Washer Connect" class="w-full h-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoN5YqZrycaBs87FBx9rMWAxobEkdpZ3Cfw52PuQBJ-eCybVdGdN8cI7wGqVmfoBA9hDqsndsOtI40PnCHDYADpcZ82aoKHnKs9zChmYNrNsoHfNL2Qa5_L-5x9qsw6qZgYvYbg66wFM6fuZqngXGtB_jN15YNRCm2Q77qIuk1IZ34sXD30_UK4Vp6mcAW7T7ORwaGDIdE4WvLHa8vDeF2rLsBMi_IOXAITnvA0H6b2S9P1exgE7Fhw0fPG_boJB3EkA"/>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md">Início</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-brand-orange text-brand-navy font-bold shadow-lg" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-md">Oportunidades</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md">Candidaturas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md">Agenda</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-label-md">Trabalhos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="font-label-md">Avaliações</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md">Financeiro</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md">Perfil</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-md">Suporte</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-white/10 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-white/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span class="text-label-sm">Ajuda</span>
+</a>
+<div class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-[10px] text-white/50 uppercase tracking-widest">Status: Ativo</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar (Mobile & Global) -->
+<header class="fixed top-0 right-0 left-0 md:left-[260px] z-40 h-16 bg-white/80 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="md:hidden">
+<img alt="Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIqRjZmv9ACyIbV30cvF_FnjrT6btO_3vkwRHPBU6678tokSMNVTP5O8Ww7f-AYzN3UN2Q_0gDtMMA2JKdeuh3ayOIXIBCvZNo_6NzGUdqe9Fid0cH77kFFaygE6k-SY4swNsTk_wJh68Epc4bU3pw2Y_hCNZW1gS_4MtEr2l8GMBC8z9qcE0Xz5Te2pGLrXcjbY_VJx4OATcVgCwsm6gl0C1Ptqhqg5aIGW50GeGBL548m8KxCrL96h85v78e7ge5IQ"/>
+</div>
+<div class="hidden md:block">
+<nav class="flex items-center gap-2 text-label-sm text-outline">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Profissional</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-brand-navy font-bold">Visão Consolidada</span>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-low rounded-full px-3 py-1.5 border border-outline-variant flex items-center gap-2 text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-brand-orange" data-icon="location_on">location_on</span>
+<span class="text-on-surface">São Paulo - Central</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md text-brand-navy font-bold">Ricardo Silva</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Profissional Gold</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center text-brand-navy font-bold border-2 border-white shadow-sm">
+                R
+            </div>
+</div>
+</div>
+</header>
+<main class="main-content pt-20 px-margin-mobile md:px-margin-desktop pb-24 md:pb-12 max-w-container-max mx-auto">
+<!-- Welcome & Status Header -->
+<section class="mb-stack-lg flex flex-col lg:flex-row justify-between items-start lg:items-end gap-stack-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-brand-navy">Painel do Profissional</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Visão consolidada do seu rendimento e próximas atividades.</p>
+</div>
+<div class="flex gap-4 w-full lg:w-auto">
+<div class="flex-1 lg:flex-none glass-card px-6 py-3 rounded-xl shadow-sm border-outline-variant flex items-center gap-4">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Status de Trabalho</p>
+<p class="font-label-md text-label-md text-brand-orange font-bold" id="status-text">Disponível para novos jobs</p>
+</div>
+<button class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none bg-brand-orange" id="toggle-btn" onclick="toggleAvailability()">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out" id="toggle-circle"></span>
+</button>
+</div>
+<button class="bg-brand-orange text-brand-navy font-bold px-6 py-3 rounded-xl shadow-lg hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+<span>Novo Job</span>
+</button>
+</div>
+</section>
+<!-- Alert Box -->
+<div class="mb-stack-lg p-4 bg-brand-orange/5 border-l-4 border-brand-orange rounded-r-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange">
+<span class="material-symbols-outlined">info</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-brand-navy font-medium">Lembrete de Flexibilidade</p>
+<p class="text-label-sm text-on-surface-variant">Você define sua disponibilidade e escolhe livremente as oportunidades em que deseja atuar.</p>
+</div>
+</div>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Earnings Chart -->
+<div class="lg:col-span-8 bg-white border border-outline-variant rounded-xl p-stack-lg flex flex-col shadow-sm">
+<div class="flex justify-between items-center mb-stack-lg">
+<h3 class="font-title-lg text-title-lg text-brand-navy font-bold">Rendimento Semanal</h3>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 border border-outline-variant rounded-lg font-label-sm text-label-sm hover:bg-surface transition-colors">Exportar Relatório</button>
+<span class="px-4 py-1.5 bg-brand-navy text-white rounded-lg font-label-md text-label-md font-bold">R$ 4.280,00</span>
+</div>
+</div>
+<div class="flex-1 flex items-end justify-between gap-3 h-64 mb-4">
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 40%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 420</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">SEG</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 65%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 680</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">TER</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 90%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 950</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">QUA</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 55%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 510</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">QUI</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 75%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 790</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">SEX</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 100%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 1100</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">SÁB</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-surface-container rounded-t-lg relative">
+<div class="chart-bar w-full bg-brand-orange/80 rounded-t-lg group-hover:bg-brand-orange transition-colors" style="height: 30%;"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-brand-navy text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl z-10">R$ 280</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-3">DOM</span>
+</div>
+</div>
+</div>
+<!-- Profile Card -->
+<div class="lg:col-span-4 bg-white border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-6 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden relative border-2 border-brand-orange/30">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMFTj_9ekmMVGhmC-ccw0fte4YjKlUQcDxHd7Mxe9j2lVxbgLj8ejqbPBrEl1FkxhE1FtjPGhrbgHjvukWEVAPOdgQJJ8ouEkM5cFg5ajjrzhARHblIoiOT7VdrAOR4Gp5bfHFlegAyAZ6Tt7HvVtiWRxgTnG1Q-D3msKYoWW1AyK3TiJJ-GV4FNxsXwTdb_Ell8MxRjTN0Rd0KySI9yt8sKExK0zNQs6MizXjYpqVI9B7wP0dWlyC"/>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-brand-navy font-bold">Ricardo Silva</h4>
+<div class="flex items-center gap-1 text-brand-orange">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.9</span>
+<span class="text-outline font-normal ml-1">(128 avaliações)</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant">
+<p class="text-[10px] uppercase tracking-widest text-outline font-bold mb-1">Nível</p>
+<p class="font-label-md text-label-md text-brand-navy font-bold">Especialista Gold</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant">
+<p class="text-[10px] uppercase tracking-widest text-outline font-bold mb-1">Concluídos</p>
+<p class="font-label-md text-label-md text-brand-navy font-bold">342 Jobs</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-label-sm text-on-surface-variant font-medium">Verificação de Documentos</span>
+<span class="text-green-600 font-bold text-[10px] uppercase tracking-wider bg-green-50 px-2 py-0.5 rounded">Aprovado</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-green-500 w-full"></div>
+</div>
+</div>
+<button class="w-full py-3 border-2 border-brand-orange text-brand-orange font-bold rounded-xl hover:bg-brand-orange hover:text-brand-navy transition-all">Ver Perfil Completo</button>
+</div>
+<!-- Upcoming Jobs -->
+<div class="lg:col-span-6 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<h3 class="font-title-lg text-title-lg text-brand-navy font-bold">Próximos Jobs</h3>
+<button class="text-brand-orange font-label-sm text-label-sm font-bold hover:underline">Ver Agenda</button>
+</div>
+<div class="p-6 space-y-4 max-h-[400px] overflow-y-auto hide-scrollbar">
+<!-- Job Item 1 -->
+<div class="group p-4 bg-white hover:bg-surface-container-lowest border border-outline-variant rounded-xl transition-all flex items-center gap-4 cursor-pointer hover:border-brand-orange/50">
+<div class="w-14 h-14 rounded-xl bg-brand-orange/10 flex flex-col items-center justify-center text-brand-orange">
+<span class="text-[10px] font-bold uppercase">Out</span>
+<span class="text-xl font-bold -mt-1">24</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-brand-navy font-bold">Banho &amp; Tosa - Thor (Golden)</p>
+<div class="flex items-center gap-3 text-outline text-label-sm mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 09:00 - 10:30</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span> Jardins, SP</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-brand-orange transition-colors">chevron_right</span>
+</div>
+<!-- Job Item 2 -->
+<div class="group p-4 bg-white hover:bg-surface-container-lowest border border-outline-variant rounded-xl transition-all flex items-center gap-4 cursor-pointer hover:border-brand-orange/50">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex flex-col items-center justify-center text-outline">
+<span class="text-[10px] font-bold uppercase">Out</span>
+<span class="text-xl font-bold -mt-1">24</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-brand-navy font-bold">Passeio Educativo - Mel</p>
+<div class="flex items-center gap-3 text-outline text-label-sm mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 14:00 - 15:00</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span> Pinheiros, SP</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-brand-orange transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Opportunities Feed -->
+<div class="lg:col-span-6 bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="p-6 border-b border-outline-variant bg-brand-navy">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-white font-bold">Oportunidades Próximas</h3>
+<span class="px-3 py-1 bg-brand-orange text-brand-navy font-bold text-[10px] rounded-full uppercase animate-pulse">4 Novas</span>
+</div>
+</div>
+<div class="p-6 space-y-4 max-h-[400px] overflow-y-auto hide-scrollbar">
+<!-- Opportunity 1 -->
+<div class="p-5 bg-white border-2 border-brand-orange/20 rounded-xl shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-brand-orange"></div>
+<div class="flex justify-between items-start mb-3">
+<div>
+<h5 class="font-label-md text-label-md text-brand-navy font-bold">Pet Shop Amigo Fiel</h5>
+<p class="text-label-sm text-outline">Suporte: Banho e Secagem</p>
+</div>
+<p class="font-headline-md text-headline-md text-brand-orange">R$ 180</p>
+</div>
+<div class="flex items-center gap-4 text-label-sm text-on-surface-variant mb-5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">distance</span>
+<span>1.2 km</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">timer</span>
+<span>Hoje, 16:30</span>
+</div>
+</div>
+<button class="w-full bg-brand-orange text-brand-navy font-bold py-3 rounded-xl hover:opacity-90 transition-opacity shadow-md">Candidatar-se</button>
+</div>
+<!-- Opportunity 2 -->
+<div class="p-5 bg-surface-container-low border border-outline-variant rounded-xl opacity-60">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h5 class="font-label-md text-label-md text-brand-navy font-bold">Clínica VetPremium</h5>
+<p class="text-label-sm text-outline">Freelancer p/ Tosa Higiênica</p>
+</div>
+<p class="font-headline-md text-headline-md text-outline">R$ 250</p>
+</div>
+<button class="w-full border border-outline-variant text-outline font-bold py-3 rounded-xl cursor-not-allowed">Detalhes</button>
+</div>
+</div>
+</div>
+<!-- Reviews -->
+<div class="lg:col-span-12 bg-white border border-outline-variant rounded-xl p-stack-lg shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-title-lg text-title-lg text-brand-navy font-bold">Avaliações Recentes</h3>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-4 border-white bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1pogLwkBRfQyVd7sKEbj5LQWOTRrQy4tlAAJEKUSp-5PEMtVm55RPmrxg4RYpZiPeOHHfvlGOc_KizRfoKGiE6M75dKpZaWEYuK9r-zZkypGJmVUXo7NmooemGe_LxxLbV07T90-kbo-OVFYN1GJhLr53xzQzL_U6QADiwLfTYb8bbyoya-lfvKiQWs8bn4YV1QCc1H2pdOoKPpKf6z2U2AK9Vp5yHaWmaiA2AbWn9NcmrA_EVjAY"/>
+</div>
+<div class="w-10 h-10 rounded-full border-4 border-white bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACxGbJR6nvidbiVl7abr7zGK5nWSR3sdN8OkKcCgTu2gyXAiPWCpvGPvNf3iRycCYdezLIbs_XnhCZNyy_o4ZTdpsruX4MkjT0eIIu1HefDp_a_NIkhjY4vd4KcU0BiL-W9zYPUSSB_tEPYO9bya_02jk8WJGnkolZSq61q7p1Sl1kJOdGCH26ahho45BmJj3RNmcqG4J-SvGdw83EPL_9tFI7l5_Rs9SCzQ5YCxTwHWK9KHvQjqSu"/>
+</div>
+<div class="w-10 h-10 rounded-full border-4 border-white bg-surface-container overflow-hidden flex items-center justify-center bg-brand-navy text-white text-[10px] font-bold">
+                            +125
+                        </div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="flex flex-col h-full bg-surface-container-low/30 p-6 rounded-2xl border border-outline-variant/30">
+<div class="flex items-center gap-1 text-brand-orange mb-4">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Ricardo é excepcional. O Thor voltou cheiroso e muito calmo. Nota-se que ele tem muito jeito com animais de grande porte."</p>
+<div class="flex items-center gap-3 mt-auto">
+<div class="w-8 h-8 rounded-full bg-brand-navy/10 flex items-center justify-center text-brand-navy font-bold text-xs">JM</div>
+<div>
+<p class="font-label-sm text-label-sm text-brand-navy font-bold">Juliana Mendes</p>
+<span class="text-outline text-[10px]">Há 2 dias</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="flex flex-col h-full bg-surface-container-low/30 p-6 rounded-2xl border border-outline-variant/30">
+<div class="flex items-center gap-1 text-brand-orange mb-4">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Pontual e extremamente profissional. Recomendo para qualquer estabelecimento que precise de ajuda extra."</p>
+<div class="flex items-center gap-3 mt-auto">
+<div class="w-8 h-8 rounded-full bg-brand-navy/10 flex items-center justify-center text-brand-navy font-bold text-xs">VL</div>
+<div>
+<p class="font-label-sm text-label-sm text-brand-navy font-bold">VetLife Clinic</p>
+<span class="text-outline text-[10px]">Há 1 semana</span>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="flex flex-col h-full bg-surface-container-low/30 p-6 rounded-2xl border border-outline-variant/30">
+<div class="flex items-center gap-1 text-brand-orange mb-4">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Ótimo serviço de passeio. A Mel ficou muito feliz. Apenas demorou um pouco para enviar o relatório final."</p>
+<div class="flex items-center gap-3 mt-auto">
+<div class="w-8 h-8 rounded-full bg-brand-navy/10 flex items-center justify-center text-brand-navy font-bold text-xs">CD</div>
+<div>
+<p class="font-label-sm text-label-sm text-brand-navy font-bold">Carlos Drummond</p>
+<span class="text-outline text-[10px]">Há 1 semana</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-brand-navy shadow-lg rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] uppercase font-bold">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center text-brand-navy bg-brand-orange rounded-full w-12 h-12 -mt-6 border-4 border-surface-container-lowest" href="#">
+<span class="material-symbols-outlined">explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] uppercase font-bold">Agenda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/50" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] uppercase font-bold">Ganhos</span>
+</a>
+</nav>
+<footer class="main-content py-10 px-margin-mobile md:px-margin-desktop border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-outline">
+<p class="font-label-sm text-label-sm">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-8">
+<a class="font-label-sm hover:text-brand-orange transition-colors" href="#">Privacidade</a>
+<a class="font-label-sm hover:text-brand-orange transition-colors" href="#">Termos</a>
+<a class="font-label-sm hover:text-brand-orange transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<script>
+    let isAvailable = true;
+    function toggleAvailability() {
+        isAvailable = !isAvailable;
+        const btn = document.getElementById('toggle-btn');
+        const circle = document.getElementById('toggle-circle');
+        const statusText = document.getElementById('status-text');
+
+        if (isAvailable) {
+            btn.classList.remove('bg-outline-variant');
+            btn.classList.add('bg-brand-orange');
+            circle.classList.add('translate-x-5');
+            circle.classList.remove('translate-x-0');
+            statusText.innerText = "Disponível para novos jobs";
+            statusText.classList.remove('text-outline');
+            statusText.classList.add('text-brand-orange');
+        } else {
+            btn.classList.remove('bg-brand-orange');
+            btn.classList.add('bg-outline-variant');
+            circle.classList.remove('translate-x-5');
+            circle.classList.add('translate-x-0');
+            statusText.innerText = "Em pausa / Ocupado";
+            statusText.classList.remove('text-brand-orange');
+            statusText.classList.add('text-outline');
+        }
+    }
+
+    // Simple animation trigger for chart
+    window.addEventListener('load', () => {
+        const bars = document.querySelectorAll('.chart-bar');
+        bars.forEach(bar => {
+            const height = bar.style.height;
+            bar.style.height = '0';
+            setTimeout(() => {
+                bar.style.height = height;
+            }, 300);
+        });
+    });
+</script>
+</body></html>

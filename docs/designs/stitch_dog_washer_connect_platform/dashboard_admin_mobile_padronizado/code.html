@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel Administrativo | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#0b1c30", // Teal/Dark Blue from Image 3
+                    "secondary": "#fea619", // Orange from Image 3
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "surface": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "outline-variant": "#c5c6cc",
+                    "on-surface": "#191c1d",
+                    "on-surface-variant": "#44474c",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "display": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "label-sm": ["Outfit"]
+            },
+            "fontSize": {
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f8f9fa; font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+        .glass-card { background: #ffffff; border: 1px solid #E2E8F0; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Compact Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-primary text-on-primary shadow-md">
+<div class="flex items-center gap-2">
+<img alt="Logo" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc3Gb79cNL75_5mAF7X8g1ykzaHJaHl7BeBVQJSF9dfqoldWN0yycXNfqul3-H919ODRYFV-T5uZRxSRFaoqe-VBgzGkmaPmnlBbdBbr4EzGJE266jvIOd4zsWov6PzxN15KFB67dWB1Jb48rwKWowFzgj-RJiH87KSSgws77ixdXo3siE_7TvRO1LsFvEZ1azcMn-Pm43DyOlHFEkuXQkM8Kh99J6BlSIStkRajcO9Ba1J4_8Ghwj1svFCn_qIKG_qQ"/>
+<span class="font-display text-label-md font-bold uppercase tracking-wider">Admin</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-[22px]" data-icon="search">search</button>
+<button class="material-symbols-outlined text-[22px] relative" data-icon="notifications">
+            notifications
+            <span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full border border-white/20 overflow-hidden bg-white/10">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmzWtGGK_Wp2n3dh1CmDjsCi3IcHf5q88QrvVb2zLlWbN69I4n5p-CY4473-BYivKYZf8St3DfkA_ujVhaXRqL050U2cmh2ReqmlYc3vUkzguYWdNFPlYGoVDQQTGPuAfA_nk-ktrBC3UQo79tbWSQjS6omzIQ9kZP3Bdfmr_dKmp4ISCDE-evBKX_2PASqymx0tLCL_GHdgDzV7G0JFCBdPwHxBwkJI7QpEQ0ETD0Jxus_eBbSAsl"/>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-24 px-4 max-w-full">
+<!-- Breadcrumb & Title -->
+<div class="mb-6">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant uppercase tracking-widest mb-1">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span>Administração</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Visão Consolidada</span>
+</div>
+<h2 class="font-display text-headline-md text-primary leading-tight">Painel de Controle</h2>
+<p class="text-label-sm text-on-surface-variant">Monitoramento de governança e pendências.</p>
+</div>
+<!-- Quick Stats Horizontal Scroll -->
+<div class="flex gap-3 overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+<div class="flex-shrink-0 w-40 p-4 bg-secondary/10 border-l-4 border-secondary rounded-lg">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Pagamentos</span>
+<div class="text-title-lg font-bold text-primary">R$ 14.5k</div>
+</div>
+<div class="flex-shrink-0 w-40 p-4 bg-error-container/20 border-l-4 border-error rounded-lg">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Críticos</span>
+<div class="text-title-lg font-bold text-error">02 Alertas</div>
+</div>
+<div class="flex-shrink-0 w-40 p-4 bg-surface border border-outline-variant rounded-lg shadow-sm">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Novos Profs.</span>
+<div class="text-title-lg font-bold text-primary">12 Candidatos</div>
+</div>
+</div>
+<div class="bento-grid mt-2">
+<!-- Ocorrências Críticas (Full Width on Mobile) -->
+<section class="col-span-12 glass-card rounded-xl p-4 border-error/20">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-lg text-error flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="report" style="font-variation-settings: 'FILL' 1;">report</span>
+                    Alertas Críticos
+                </h3>
+<span class="bg-error text-on-error text-[10px] font-bold px-2 py-1 rounded-full animate-pulse uppercase">Urgente</span>
+</div>
+<div class="space-y-3">
+<div class="p-3 bg-white border border-outline-variant rounded-lg shadow-sm">
+<p class="font-label-md text-primary font-bold">#8821 Acidente Reportado</p>
+<p class="text-[13px] text-on-surface-variant mt-1 line-clamp-2">Pet sofreu escoriação na unidade "Bicho Feliz".</p>
+<div class="mt-2 flex justify-end">
+<button class="text-secondary font-bold text-label-sm uppercase tracking-wider">Intervir</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Profissionais em Análise -->
+<section class="col-span-12 glass-card rounded-xl p-4">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-lg text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="person_search">person_search</span>
+                    Profissionais
+                </h3>
+<span class="bg-primary/5 text-primary text-[10px] font-bold px-2 py-1 rounded">12 NOVOS</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 border border-outline-variant rounded-lg">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGIXiU271u1tjTZLvFnHI83sJ2qS5ztLflKaMTwyvB0l5zAE0XIDLW6s-8BX6fp6JjwE-K5SWGeRv2xSoepAqPDUfa6-WeWr4oVhRVKlCmCfeMm8uZ5kSPaGKyxPEfiiWY9rdgFkPzUvAUaDEL_LluGy9bXgeTNKnOa6YxRjQei4p5zCaxY-hhvggvYbVBkSWL4p7qSs352pSqNmhvnxqn9bjAIJkqRnd_4noakODrycY8Az3C13yP"/>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-bold text-primary">Ricardo Souza</p>
+<p class="text-[11px] text-on-surface-variant">Banhista • São Paulo, SP</p>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase">Análise</span>
+</div>
+<div class="flex items-center gap-3 p-2 border border-outline-variant rounded-lg">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBArbvsOVKZ1AEkLfnctHr9YYVPDUDMzqjN_MyDSQw_L5caAEra4F_a1ur0a8Au_wTCCo8CtAHK9z6RHN22FahnKQzSZPRt4PNZ7dU3sUrsLHSd7VSQacFW1vzGUyqt2lI_OOT3tVul2c2_VOilm5ZO6QwwZIJivtxNZJAmG0b4faKudVTx7GNtMv5ND6grQh3NmrdD3qLLkhv7IWckVLLqfcot9YXLX0TFxMZUwNYlgMDidNUxU7lD"/>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-bold text-primary">Juliana Martins</p>
+<p class="text-[11px] text-on-surface-variant">Tosa • Rio de Janeiro, RJ</p>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase">Análise</span>
+</div>
+</div>
+<button class="w-full mt-4 py-2 text-[12px] font-bold text-primary border border-primary/20 rounded uppercase tracking-widest">Ver Todos</button>
+</section>
+<!-- Estabelecimentos -->
+<section class="col-span-12 glass-card rounded-xl p-4">
+<h3 class="font-title-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="store">store</span>
+                Estabelecimentos
+            </h3>
+<div class="p-3 border border-outline-variant rounded-lg mb-3">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-label-md font-bold text-primary">Pet Shop Estrela</p>
+<p class="text-[11px] text-on-surface-variant">Curitiba, PR</p>
+</div>
+<span class="bg-secondary/20 text-on-surface font-bold text-[9px] px-2 py-0.5 rounded uppercase">Pendente</span>
+</div>
+<div class="flex gap-2 mt-3">
+<button class="flex-1 text-[10px] font-bold border border-outline-variant py-2 rounded uppercase">Docs</button>
+<button class="flex-1 text-[10px] font-bold bg-primary text-white py-2 rounded uppercase">Validar</button>
+</div>
+</div>
+</section>
+<!-- Oportunidades & Jobs -->
+<section class="col-span-12 glass-card rounded-xl overflow-hidden">
+<div class="bg-primary/5 p-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="text-label-md font-bold text-primary flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-[20px]" data-icon="work">work</span>
+                    Jobs Ativos
+                </h3>
+<span class="text-[10px] font-bold text-secondary uppercase underline">Mapa Global</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-4 flex justify-between items-center">
+<div>
+<p class="text-label-md font-bold text-primary">Petz Matriz</p>
+<p class="text-[11px] text-on-surface-variant">3/5 vagas • 08h-17h</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div>
+<p class="text-label-md font-bold text-primary">Dog World Resort</p>
+<p class="text-[11px] text-on-surface-variant">1/1 vaga • Noturno</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Financeiro -->
+<section class="col-span-12 glass-card rounded-xl p-4">
+<h3 class="font-title-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="payments">payments</span>
+                Financeiro
+            </h3>
+<div class="bg-primary p-4 rounded-lg text-white mb-4 shadow-inner">
+<span class="text-[10px] uppercase font-bold text-white/60">Total em Aberto</span>
+<div class="text-headline-md font-bold">R$ 14.502,30</div>
+<div class="mt-1 text-[10px] flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                    +12% ESTE MÊS
+                </div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[12px]">
+<span class="text-on-surface-variant">Estabelecimentos</span>
+<span class="font-bold">R$ 8.210,00</span>
+</div>
+<div class="flex justify-between text-[12px]">
+<span class="text-on-surface-variant">Repasses Profs.</span>
+<span class="font-bold">R$ 6.292,30</span>
+</div>
+</div>
+<button class="w-full mt-4 bg-secondary text-primary font-bold py-3 rounded-lg text-label-md uppercase tracking-widest shadow-md">Ir para Finanças</button>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-white border-t border-outline-variant shadow-[0px_-2px_10px_rgba(0,0,0,0.05)] px-4">
+<button class="flex flex-col items-center justify-center text-secondary transition-all">
+<span class="material-symbols-outlined fill-1" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold mt-0.5 uppercase tracking-tighter">Painel</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="text-[10px] font-bold mt-0.5 uppercase tracking-tighter">Rede</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-[10px] font-bold mt-0.5 uppercase tracking-tighter">Equipe</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-bold mt-0.5 uppercase tracking-tighter">Ajustes</span>
+</button>
+</nav>
+<!-- Footer for Desktop visibility or simple info -->
+<footer class="w-full py-10 px-4 flex flex-col items-center gap-2 bg-surface-container border-t border-outline-variant mb-16">
+<img alt="Logo" class="h-6 opacity-40 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJQyKHe0chmofRB4tTpgjc9rrpv9mrqrrwnlvmw8UYtQEVbBH9euAYEbqkhnY470hATi4odI9pwKUGiueI0ZDb6N2bGMFgo-hV92ue11W4UIt69DD-Kb6JsY5M4_ZDl7GdDmTk4NX2Jv7E3lWYJp9bRl7eERIfGIX_nyrx0UJDmmqmQ_gLpHAfLK8nykM6AclO0Av8UHJ9SyAHqfQrQawFTB1FiBDYspbeHdkVXXqELDK7ANoNHKKfV-P0Bqr5t0T7VQ"/>
+<p class="text-[10px] text-on-surface-variant text-center uppercase tracking-widest">© 2024 Dog Washer Connect<br/>SISTEMA DE GESTÃO E GOVERNANÇA</p>
+</footer>
+<script>
+    // Ripple effect simulation or micro-interactions
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('touchstart', () => {
+            btn.classList.add('opacity-70');
+        });
+        btn.addEventListener('touchend', () => {
+            btn.classList.remove('opacity-70');
+        });
+    });
+</script>
+</body></html>

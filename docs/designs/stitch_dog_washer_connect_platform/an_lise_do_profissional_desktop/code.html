@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetOps Central - Análise de Profissional</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fea619",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "outline": "#75777c",
+                    "surface": "#f8f9fa",
+                    "on-secondary-container": "#684000",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#000000",
+                    "on-primary-container": "#7b8495",
+                    "outline-variant": "#c5c6cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#2a1700",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary": "#855300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="bg-surface dark:bg-surface-container-low h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col py-gutter px-stack-md z-50">
+<div class="mb-10 px-2">
+<h1 class="font-headline-md text-headline-md font-bold text-secondary dark:text-secondary-fixed">PetOps Central</h1>
+<p class="font-label-sm text-on-surface-variant">Administrative Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md text-body-md">Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md text-body-md">Units</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-body-md text-body-md">Incidents</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md text-body-md">Professionals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<button class="mt-auto bg-secondary text-on-secondary px-4 py-3 rounded-lg font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+            New Report
+        </button>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline shadow-sm flex items-center justify-between px-margin-desktop z-40">
+<div class="flex items-center gap-8">
+<span class="font-title-lg text-title-lg font-black text-secondary dark:text-secondary-fixed">PetOps Backoffice</span>
+<nav class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed font-semibold border-b-2 border-secondary pb-2" href="#">Queue</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<input class="bg-surface-container-low border-none rounded-full px-4 py-1.5 text-label-md w-64 focus:ring-1 focus:ring-secondary" placeholder="Search professionals..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1.5 text-on-surface-variant">search</span>
+</div>
+<button class="bg-secondary text-on-secondary px-4 py-1.5 rounded-full font-label-sm hover:opacity-90 transition-opacity">
+                Verify Documents
+            </button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">help_outline</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a professional corporate administrator with a friendly expression, wearing a modern charcoal suit against a clean white studio background. The lighting is soft and professional, emphasizing a high-trust atmosphere for a pet services management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwxZbwdWYoCLzvX04hK6shKiO81nWzGDxneVZ5JDuPzMegMP3Ge7swgQykYsO30M8UyxgaJYGVaQWuNmnP-Lp9nj6REAUjMRqesWEI9SJdCXKK1B_N3zqwjqFRvfmC6p2XfUep6msm0PeLUXpGzx-GqU3WdjBOJaTL_j3jV0VME_3Wy1dHz0SJpyg8RDrGsWLhUqqkvJoFV8B_B6xKFBco_Qi0WoU-gHP4tlNAKMYoW2exLa6zsNOf"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 mt-16 p-margin-desktop min-h-[calc(100vh-4rem)]">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-2xl overflow-hidden ring-4 ring-white shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A high-quality professional headshot of a veterinarian in a modern clinic setting. The professional is a woman in her late 30s wearing a clean white lab coat and a stethoscope, looking confidently at the camera. The background is slightly blurred showing a sterile, warm-toned pet clinic with high-end medical equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAozJFmqQmOMEzUYpYsdBZOGKl-L8lqj2flVVdi0dq10zIzUqnxnmaPPJlvS50NB6OsdTSkA0Ycw1L_quCbxoyH8o_IkdcJ9qN2pd0UHb4bl7gDR0KoVMe-Unc6ImpQGZXAe5CoIjhGEZ7kzCtthuvuN44pFvf68goyNyMcuLLZSsY4Xcx5CY85LUxWHKB3g7FhPf9T0-b-TEi9XSu_thrmdJgKSizIQmPIyQ2HiP34CqVpmf1gqwCl"/>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h2 class="font-headline-lg text-headline-lg">Dr. Beatriz Helena Silva</h2>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-0.5 rounded-full font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                            Verificação em Curso
+                        </span>
+</div>
+<p class="font-body-md text-on-surface-variant">Médica Veterinária | CRMV-SP 45.281 | Especialista em Felinos</p>
+<div class="flex gap-4 mt-2">
+<span class="flex items-center gap-1 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span> São Paulo, SP
+                        </span>
+<span class="flex items-center gap-1 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span> Inscrito em 12 Out 2023
+                        </span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-lg border border-outline text-on-surface font-label-md hover:bg-surface-container transition-colors">Imprimir Dossiê</button>
+<button class="px-6 py-2.5 rounded-lg bg-secondary text-on-secondary font-label-md hover:opacity-90 transition-opacity">Verificar Histórico Externo</button>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex border-b border-outline-variant mb-8 gap-10">
+<button class="pb-4 border-b-2 border-secondary font-label-md text-secondary">Resumo da Análise</button>
+<button class="pb-4 font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Dados Pessoais</button>
+<button class="pb-4 font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Identidade &amp; Selfie</button>
+<button class="pb-4 font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Formação (DWID)</button>
+<button class="pb-4 font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Documentos Anexos</button>
+<button class="pb-4 font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Ocorrências</button>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Analysis Summary Card -->
+<div class="col-span-8 space-y-gutter">
+<div class="bg-white rounded-xl p-6 border border-outline-variant shadow-sm">
+<h3 class="font-title-lg text-title-lg mb-6">Status da Documentação</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">id_card</span>
+<span class="font-body-md">RG / CNH Digital</span>
+</div>
+<span class="text-secondary font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Validado
+                            </span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">school</span>
+<span class="font-body-md">Diploma de Graduação</span>
+</div>
+<span class="text-secondary font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Validado
+                            </span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low flex items-center justify-between border-2 border-secondary-container">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+<span class="font-body-md">Certidões Criminais</span>
+</div>
+<span class="text-on-secondary-container bg-secondary-container/20 px-2 py-0.5 rounded font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sync</span> Em análise
+                            </span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">contact_emergency</span>
+<span class="font-body-md">Registro no CRMV</span>
+</div>
+<span class="text-secondary font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Validado
+                            </span>
+</div>
+</div>
+</div>
+<!-- Document Preview Bento -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="bg-white rounded-xl p-6 border border-outline-variant shadow-sm overflow-hidden flex flex-col h-80">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md uppercase tracking-wider text-on-surface-variant">Diploma Frente</h3>
+<button class="text-secondary hover:underline font-label-sm">Ver original</button>
+</div>
+<div class="flex-1 rounded-lg bg-surface-container-highest overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="High-resolution scan of a Brazilian university diploma from a prestigious veterinary school. The document features ornate borders, official seals, and signatures in dark ink. The lighting is even and flat, typical of a professional document scanner, presented in a minimalist digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXmOQKPI0Sb0NIka_yY_quJ4fS-QaL4b-lZAiKxV-bN7Xidpf57iRkx5K3sN73a8MRfunzRNNMtB8mAGzTBB_MbmMeWHD1H515ruyOTr4NXxwdU6-CDiU7x9HLcU6GCJuuCfl22nHZAetpxOfgCddKZUAFY9j644I3HHX04_oSG_dOzwkAHuG3KXWjHHpY4GOH7z5PSUXsO3zaRcNiR4h3_QZpvrfM6oP1KuQt3EFBjrKivvwlIzTO"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl">zoom_in</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl p-6 border border-outline-variant shadow-sm overflow-hidden flex flex-col h-80">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md uppercase tracking-wider text-on-surface-variant">Selfie de Segurança</h3>
+<button class="text-secondary hover:underline font-label-sm">Comparar faces</button>
+</div>
+<div class="flex-1 rounded-lg bg-surface-container-highest overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clear, high-resolution security selfie of the same professional veterinarian. She is holding her ID card next to her face in a well-lit room. The image is crisp, showing clear facial features for biometric verification against a neutral grey wall, integrated into a sleek backoffice UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiDcLp72xWvsb7SKCC-yUnsVucue2MyLoRbAF9Z-mHYBMekz7QXsr0i8PjG9aFLcEK56BppQEAJecUh-n64MDRbcYb6aWnMrnwSdOdvTNVlk4ZHpkaEJPGddG0eHMK8nsVbymn_QgoSvWPHklCgl7LW5fBXnrigya8zMMoZ0xh2rdt3SR2LfXJGo1Ukuc-4294jAEQ5187UTLnCKs9KykQfurRy3fJVeh-ko4zHKgRULezCh5NX8v_"/>
+<div class="absolute top-4 right-4 bg-secondary text-on-secondary px-2 py-1 rounded font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> 98% Match
+                            </div>
+</div>
+</div>
+</div>
+<!-- Event History -->
+<div class="bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg">Histórico de Ocorrências</h3>
+<span class="text-secondary font-label-md">Nenhuma ocorrência grave</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-6 flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div>
+<p class="font-body-md font-semibold">Atualização de Cadastro</p>
+<p class="text-on-surface-variant font-body-md mt-1">O profissional alterou o endereço comercial para a unidade Campinas Central.</p>
+<span class="text-label-sm text-on-surface-variant mt-2 block">14 de Nov, 2023 • Sistema</span>
+</div>
+</div>
+<div class="p-6 flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+</div>
+<div>
+<p class="font-body-md font-semibold">Verificação de Background concluída</p>
+<p class="text-on-surface-variant font-body-md mt-1">Busca em tribunais estaduais e federais não retornou apontamentos impeditivos.</p>
+<span class="text-label-sm text-on-surface-variant mt-2 block">10 de Nov, 2023 • Verifact-AI</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decision Sidebar -->
+<div class="col-span-4 space-y-gutter">
+<div class="bg-white rounded-xl p-6 border border-outline-variant shadow-sm sticky top-[6.5rem]">
+<h3 class="font-title-lg text-title-lg mb-6">Área de Decisão</h3>
+<div class="space-y-4">
+<label class="block">
+<span class="font-label-md text-on-surface-variant mb-2 block">Justificativa da Ação</span>
+<textarea class="w-full rounded-lg border-outline-variant focus:border-secondary focus:ring-secondary text-body-md placeholder-on-surface-variant/50" placeholder="Digite aqui os motivos para aprovação ou rejeição..." rows="5"></textarea>
+</label>
+<div class="grid grid-cols-1 gap-3 pt-4">
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-headline-md text-center hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">how_to_reg</span>
+                                Aprovar Profissional
+                            </button>
+<button class="w-full bg-surface-container-highest text-on-surface py-3 rounded-lg font-label-md text-center hover:bg-surface-variant transition-colors flex items-center justify-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined">edit_document</span>
+                                Solicitar Ajustes
+                            </button>
+<button class="w-full text-error border border-error py-3 rounded-lg font-label-md text-center hover:bg-error-container/20 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">block</span>
+                                Suspender / Bloquear
+                            </button>
+</div>
+</div>
+<div class="mt-8 p-4 rounded-lg bg-tertiary-container text-on-tertiary-container">
+<div class="flex gap-3">
+<span class="material-symbols-outlined">security</span>
+<div>
+<p class="font-label-md font-bold mb-1">Dica do Analista</p>
+<p class="text-label-sm leading-relaxed opacity-90">Verifique sempre a validade do CRMV no portal oficial antes de concluir a aprovação definitiva.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<p class="font-label-sm text-on-surface-variant mb-4 uppercase">Informações da Conta</p>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">ID do Sistema</span>
+<span class="font-body-md font-mono">#VET-8829-X</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Tipo de Conta</span>
+<span class="font-body-md">Especialista Senior</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Nível de Acesso</span>
+<span class="font-body-md">Operacional Pleno</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Atmosphere Elements -->
+<div class="fixed bottom-8 right-8 pointer-events-none">
+<div class="w-64 h-64 bg-secondary/5 blur-[120px] rounded-full"></div>
+</div>
+<script>
+        // Simple micro-interactions for buttons and tabs
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => el.style.transform = 'scale(0.98)');
+            el.addEventListener('mouseup', () => el.style.transform = 'scale(1)');
+            el.addEventListener('mouseleave', () => el.style.transform = 'scale(1)');
+        });
+
+        // Tab selection logic simulation
+        const tabs = document.querySelectorAll('button.font-label-md.text-on-surface-variant');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // This is a mockup behavior
+                console.log('Tab selected: ' + tab.innerText);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetConnect - Escolher Unidade</title>
+<!-- Google Fonts: Outfit for Headline & Body -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e1e3e4",
+                    "secondary-fixed": "#ffddb8",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#000000",
+                    "on-tertiary-container": "#75859d",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "secondary": "#855300",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-surface": "#191c1d",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-container": "#684000",
+                    "on-primary-container": "#7b8495",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#d3e4fe",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fa",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary-container": "#0b1c30",
+                    "tertiary": "#000000",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-fixed": "#2a1700",
+                    "error-container": "#ffdad6",
+                    "outline": "#75777c",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-error": "#ffffff",
+                    "primary-container": "#121c29",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#121c29",
+                    "outline-variant": "#c5c6cc",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "surface": "#f8f9fa",
+                    "on-primary-fixed-variant": "#3e4756"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "container-max": "1280px",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "title-lg-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "label-sm-mobile": ["10px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #f8f9fa;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .unit-card {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+        }
+        .unit-card:active {
+            transform: scale(0.98);
+        }
+        .custom-shadow {
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- Top Navigation Bar (Context: Task-Focused / Selection) -->
+<!-- Note: Suppression of standard TopNavBar as per task-focused selection screen mandate -->
+<header class="bg-surface sticky top-0 z-50 px-4 h-16 flex items-center justify-between border-b border-outline-variant/30">
+<button aria-label="Voltar" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<img alt="PetConnect Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3fYj3y12KZgNuURntw76MRprK6hVAhQdMph4bANVKGvSfFopCd7lQwVKB32_OXROWaU4mfRs9UY2slJxjvAx7j7SNZvJCk_kEO0uly3Ve6dnqlBH7ivI-9nRJ0xQsVMeNU9BGByLlnoBJQm3iO_5UOah76oB7iVbqcBDDtRXJrqpOMzaV8KpIoX7BkRiQLMZjlW08PaN2TbpUWZ33cPwcnp92quW25QftzaFVi8BGK_N57JW3uplAXuv5fhVvwC3BQA"/>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</header>
+<main class="max-w-md mx-auto px-margin-mobile py-stack-lg min-h-[calc(100vh-64px)] pb-32">
+<!-- Page Title & Context -->
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md-mobile text-primary mb-1">Escolha a Unidade</h1>
+<p class="font-body-md text-on-surface-variant">Selecione qual de seus estabelecimentos abrirá esta nova oportunidade.</p>
+</div>
+<!-- Units Grid -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Unit Card 1 -->
+<div class="unit-card bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden custom-shadow cursor-pointer group" onclick="this.classList.toggle('ring-2'); this.classList.toggle('ring-secondary-container')">
+<div class="relative h-48 w-full bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="A premium pet grooming salon interior with modern wood finishes, sleek white workstations, and warm designer lighting. The atmosphere is clean, professional, and high-end, representing a corporate pet care facility in a bright light-mode setting. Deep black and gold accents reflect the PetConnect brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFwqik_5tb3jlIypKV0W470ORSwA4WS7pfvKg01JJRGfqEvMmNwg2K4IC_vNBRP_Qh1kJ8Q19-sK5QaSzC4Dfzq26XzSr3aH4o2-bpQU0b8MiLWMtTd9lL4wJ1B6tj9Oxg4lJMpGqdVsASH7lIJHa3QnQz6TGmFnJAOVuiIm9azs3lsyMKk34JBtYupDnDymNigjLKvnkYXXGEq72CayhbeIuf5IaZEVxYn1hO0FcaE5tVjqjhhL17"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg flex items-center gap-1.5 border border-outline-variant/50">
+<span class="material-symbols-outlined text-secondary text-[16px] filled-icon">verified</span>
+<span class="font-label-sm text-label-sm-mobile text-primary">Unidade Verificada</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary text-white px-2 py-1 rounded-lg flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px] filled-icon text-secondary-container">star</span>
+<span class="font-label-sm text-label-sm-mobile">4.9</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-title-lg text-title-lg-mobile text-primary">PetCorp - Jardins</h3>
+<p class="font-label-md text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Al. Lorena, 1240 - SP
+                            </p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant group-active:border-secondary-container flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-secondary-container opacity-0 transition-opacity"></div>
+</div>
+</div>
+<div class="flex gap-2 mt-3">
+<span class="bg-surface-container px-2 py-1 rounded font-label-sm text-label-sm-mobile text-on-surface-variant">Banho &amp; Tosa</span>
+<span class="bg-surface-container px-2 py-1 rounded font-label-sm text-label-sm-mobile text-on-surface-variant">Hotelaria</span>
+</div>
+</div>
+</div>
+<!-- Unit Card 2 -->
+<div class="unit-card bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden custom-shadow cursor-pointer group" onclick="this.classList.toggle('ring-2'); this.classList.toggle('ring-secondary-container')">
+<div class="relative h-48 w-full bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="An upscale pet boutique and spa storefront from a street view during the day. Large glass windows show a minimalist interior with premium pet products on display. The design uses high-key lighting, soft white textures, and refined black architectural details. The mood is sophisticated and institutionally trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS6K-IHZUj8JhJbyoPLKvPIS9Y540_67V3obRbSMKA6PJxevJ1LAxcO9GQSwj_GC7d6rpE5wThua_nnGgS5fg8Bt3AXbcNAlOQG7SVFPFyNeN1aR00TqedyZ_j2GDPUG9-pVsdF0oDZWrfuYouZZZyxQUlK5m_83NxoQGAUv2juVDc643ulFaGoduiaAdgFYfKu_ldU3xrYcB10l-Yfq7Y7qjJDVfCIVR64LnAfH47yjYupj2m71f9"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg flex items-center gap-1.5 border border-outline-variant/50">
+<span class="material-symbols-outlined text-secondary text-[16px] filled-icon">verified</span>
+<span class="font-label-sm text-label-sm-mobile text-primary">Unidade Verificada</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-primary text-white px-2 py-1 rounded-lg flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px] filled-icon text-secondary-container">star</span>
+<span class="font-label-sm text-label-sm-mobile">4.7</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-title-lg text-title-lg-mobile text-primary">PetCorp - Itaim Bibi</h3>
+<p class="font-label-md text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                R. Tabapuã, 822 - SP
+                            </p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant group-active:border-secondary-container flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-secondary-container opacity-0 transition-opacity"></div>
+</div>
+</div>
+<div class="flex gap-2 mt-3">
+<span class="bg-surface-container px-2 py-1 rounded font-label-sm text-label-sm-mobile text-on-surface-variant">Daycare</span>
+<span class="bg-surface-container px-2 py-1 rounded font-label-sm text-label-sm-mobile text-on-surface-variant">Clínica 24h</span>
+</div>
+</div>
+</div>
+<!-- Unit Card 3 -->
+<div class="unit-card bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden custom-shadow cursor-pointer group opacity-80" onclick="this.classList.toggle('ring-2'); this.classList.toggle('ring-secondary-container')">
+<div class="relative h-48 w-full bg-surface-dim">
+<img class="w-full h-full object-cover grayscale" data-alt="A modern and spacious pet recreation area featuring minimalist playground equipment for dogs. The background is a clean white wall with a subtle pet-themed mural in gray tones. Bright natural light flows from above, creating a serene and premium atmosphere for high-end pet care management software visuals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAuhLDL8l9qql9XhSwg_yjBctdno2YJfZF246d0H_TWwya4nXhSwMgx3JE-7necvfm7fTgGM_HqctIM35W7MWmjpGVAC6O0qCYfGrxIQrh-QBpCUraRpKVDrfmSiDYzldKQsYcu517JN7IHiycy7eKIsL1FdxbApPO7mhSiWArHvkIPYl3vxUuvXjq6stzR-Ag9GyY3mexQ2iIleIqCMDBb452rRUQN4Rv925q0yX1LKIBnIlLkTOo"/>
+<div class="absolute inset-0 bg-primary/40 flex items-center justify-center">
+<span class="bg-white text-primary px-3 py-1.5 rounded-full font-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+                             Em Manutenção
+                         </span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-title-lg text-title-lg-mobile text-primary">PetCorp - Moema</h3>
+<p class="font-label-md text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Av. Rouxinol, 45 - SP
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Contextual) -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-surface border-t border-outline-variant/30 z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full h-14 bg-secondary-container text-on-secondary-container font-label-md text-body-md rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+                Continuar com Seleção
+                <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Hidden Bottom Nav Bar (Suppressed as per "The Destination Rule" for Transactional/Linear flow) -->
+<!-- But included in comments to show awareness of design system hierarchy -->
+<!-- The user is in a "focused journey" (Selection) -> Hide Global Nav -->
+<script>
+        // Simple micro-interaction for card selection
+        document.querySelectorAll('.unit-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Clear previous selection
+                document.querySelectorAll('.unit-card .w-3').forEach(dot => dot.classList.add('opacity-0'));
+                document.querySelectorAll('.unit-card').forEach(c => c.classList.remove('ring-2', 'ring-secondary-container'));
+                
+                // Set current selection
+                const dot = card.querySelector('.w-3');
+                if(dot) dot.classList.remove('opacity-0');
+                card.classList.add('ring-2', 'ring-secondary-container');
+            });
+        });
+    </script>
+</body></html>

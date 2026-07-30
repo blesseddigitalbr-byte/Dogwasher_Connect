@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#121c29",
+                    "outline": "#75777c",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary": "#ffffff",
+                    "background": "#F8F9FA",
+                    "secondary": "#FEA619",
+                    "surface": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#07111E",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-surface": "#191c1d",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-primary-container": "#7b8495",
+                    "on-secondary-container": "#684000",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container": "#edeeef",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-tint": "#555f6f",
+                    "on-surface-variant": "#44474c",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#07111E",
+                    "tertiary-container": "#0b1c30",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "secondary-container": "#FEA619",
+                    "inverse-primary": "#bdc7d9",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-container": "#75859d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Outfit', sans-serif;
+        background-color: #F8F9FA;
+        color: #191c1d;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      .active-nav-item {
+        background-color: #FEA619;
+        color: #07111E !important;
+      }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- Sidebar Nav (Official Visual Standard) -->
+<aside class="w-[240px] bg-[#07111E] text-white flex flex-col fixed h-full z-50">
+<div class="p-6 mb-8">
+<img alt="Dog Washer Connect Logo" class="w-full h-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD67RmYvz3lj8pyDy2iI4Doj1UfZ78C5ToTwSwcCgMcEp4drlR-dpXh2FhFTaahTnDnr2AuiwwVMpPYCRSWeJVHwkK4xSBlXYcLczBTbXy_tk4y5NHOpXelGy1tENiOeKt4Hb2-XoOpTHnG45pLJt6-QDF7MQFXB5a878HxoAWsoYlk_PHogInABDfKF0pF4T-iQHWqT8DlewH3BPVeCsUNJXxyBhqfrSM4A8SADoZ5uBg_cdsNBDYwT6DgSRjzbiXjWg"/>
+</div>
+<nav class="flex-grow space-y-1 px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors text-white/70" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors text-white/70" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-md text-label-md">Rede</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors text-white/70" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="font-label-md text-label-md">Operações</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors text-white/70" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">Qualidade</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors text-white/70" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Financeiro</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg active-nav-item" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-md text-label-md font-bold">Admin</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors text-white/70" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-white/10 mt-auto">
+<a class="flex items-center gap-3 px-4 py-2 text-white/50 hover:text-white transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+      Help
+    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-white/50 hover:text-white transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+      Support
+    </a>
+<div class="mt-4 flex items-center gap-2 px-4 text-[10px] text-green-400">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+      System Status: Active
+    </div>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="flex-grow ml-[240px] flex flex-col h-screen overflow-y-auto custom-scrollbar">
+<!-- Header / Top Bar -->
+<header class="sticky top-0 bg-white border-b border-outline-variant z-40 px-8 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Administração</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-bold text-primary">Visão Consolidada</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 bg-surface-container rounded-lg px-3 py-1.5 border border-outline-variant">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">location_on</span>
+<div class="text-[12px]">
+<p class="text-on-surface-variant font-bold leading-none">UNIDADE ATUAL</p>
+<p class="text-on-surface">São Paulo - Central</p>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">keyboard_arrow_down</span>
+</div>
+<div class="flex items-center gap-4 border-l border-outline-variant pl-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">settings</button>
+<div class="flex items-center gap-3">
+<img alt="Admin Master" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDauOhga1WzCXCAsGE0Kh3yV-Wn3hqCsQts2dT_Ko_SiwUWDkxstQYmvxDO8qp6UbPI97P1LCpiXmT_XrfbZ6knPS02EwEVtqkHzNg-gfC-0ddAksZby1GQyJNCxx-IWxOashtRdyK_kJuI1db7fj9n6JBChTn_FNCiJhea9uwlQu157__J00GHwlGLdTBt1krXv94jPzdv_HRmeHJ7ZqcRa3i5OpTAHTqh1LSkZseVaQ1ek0qG4RiE"/>
+<span class="font-label-md text-on-surface">Admin Master</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow p-8 max-w-[1400px] mx-auto w-full">
+<!-- Dashboard Header -->
+<section class="mb-10 flex flex-col md:flex-row justify-between items-end gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dashboard Admin</h2>
+<p class="font-body-md text-on-surface-variant">Visão consolidada de acessos, governança e pendências críticas do sistema.</p>
+</div>
+<div class="flex gap-3">
+<button class="border border-outline-variant text-on-surface-variant font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+          Exportar Logs
+        </button>
+<button class="bg-[#FEA619] text-[#07111E] font-bold font-label-md text-label-md px-4 py-2 rounded-lg hover:brightness-110 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+          Novo Perfil
+        </button>
+</div>
+</section>
+<!-- KPI Bento Grid (Restyled to match inspiration) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase font-bold tracking-tight">Trabalhos em andamento</span>
+<span class="material-symbols-outlined text-[#FEA619]" data-icon="file_download">file_download</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">142</div>
+<div class="text-green-600 font-label-sm text-label-sm flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+          +12% vs ontem
+        </div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-error">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase font-bold tracking-tight">Check-ins com exceção</span>
+<span class="material-symbols-outlined text-error">report</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">28</div>
+<div class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-[10px] font-bold mt-2 inline-block">URGENTE</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase font-bold tracking-tight">Receita (24h)</span>
+<span class="material-symbols-outlined text-[#FEA619]">payments</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">R$ 12.450</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm mt-2">Meta: 88% atingida</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase font-bold tracking-tight">Ocorrências</span>
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">03</div>
+<div class="text-error font-label-sm text-label-sm mt-2 font-bold">Requer atenção imediata</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Content Left Area -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Approval Queues Table -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Fila de Aprovação (Novos Membros)</h3>
+<div class="flex bg-surface-container p-1 rounded-lg">
+<button class="text-label-sm font-bold text-primary bg-white px-4 py-1.5 rounded-md shadow-sm">Profissionais (18)</button>
+<button class="text-label-sm font-bold text-on-surface-variant px-4 py-1.5 rounded-md hover:bg-white/50 transition-all">Pet Shops (10)</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<tr>
+<th class="px-6 py-4">Candidato</th>
+<th class="px-6 py-4">Tipo / Especialidade</th>
+<th class="px-6 py-4">Data Registro</th>
+<th class="px-6 py-4">Status Doc.</th>
+<th class="px-6 py-4 text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#07111E] text-white flex items-center justify-center font-bold text-xs">RM</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface group-hover:text-[#FEA619] transition-colors">Ricardo Mendes</div>
+<div class="text-xs text-on-surface-variant">São Paulo, SP</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md">Dog Walker Senior</td>
+<td class="px-6 py-4 font-body-md text-body-md">Hoje, 09:12</td>
+<td class="px-6 py-4">
+<span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[10px] font-bold border border-blue-100">AGUARDANDO VALIDAÇÃO</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary font-label-sm text-label-sm mr-4 transition-colors">Ver Docs</button>
+<button class="text-[#FEA619] font-bold font-label-sm text-label-sm hover:underline">Aprovar</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#07111E] text-white flex items-center justify-center font-bold text-xs">PB</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface group-hover:text-[#FEA619] transition-colors">Pet Banho &amp; Cia</div>
+<div class="text-xs text-on-surface-variant">Curitiba, PR</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md">Estabelecimento</td>
+<td class="px-6 py-4 font-body-md text-body-md">Ontem, 18:45</td>
+<td class="px-6 py-4">
+<span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-[10px] font-bold border border-purple-100">PENDENTE</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary font-label-sm text-label-sm mr-4 transition-colors">Ver Docs</button>
+<button class="text-[#FEA619] font-bold font-label-sm text-label-sm hover:underline">Aprovar</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Monitoring Section -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Monitoramento em Tempo Real</h3>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm bg-surface-container px-3 py-1 rounded-full">142 jobs em andamento</span>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Job Card 1 -->
+<div class="border border-outline-variant p-5 rounded-xl hover:border-[#FEA619] transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label-sm font-bold text-on-surface-variant">JOB #88219</span>
+<span class="text-green-600 font-bold text-[10px] uppercase bg-green-50 px-2 py-1 rounded">Em Execução</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary group-hover:bg-[#FEA619] transition-colors">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Banho + Tosa Higiênica</p>
+<p class="text-xs text-on-surface-variant">Prof: Ana Júlia | Local: Pet Palace</p>
+</div>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mb-3">
+<div class="bg-[#FEA619] h-full transition-all duration-1000" style="width: 65%;"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-on-surface-variant font-bold">
+<span>Início: 14:00</span>
+<span class="text-primary">Estimativa: 15:30 (45min restantes)</span>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="border border-outline-variant p-5 rounded-xl hover:border-[#FEA619] transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label-sm font-bold text-on-surface-variant">JOB #88220</span>
+<span class="text-[#FEA619] font-bold text-[10px] uppercase bg-orange-50 px-2 py-1 rounded">A Caminho</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary group-hover:bg-[#FEA619] transition-colors">
+<span class="material-symbols-outlined">directions_walk</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Passeio 60min</p>
+<p class="text-xs text-on-surface-variant">Prof: Carlos D. | Pet: Max (Golden)</p>
+</div>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mb-3">
+<div class="bg-[#FEA619] h-full transition-all duration-1000" style="width: 15%;"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-on-surface-variant font-bold">
+<span>Início: 14:15</span>
+<span class="text-primary">Check-in realizado</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="space-y-8">
+<!-- Finance Card (Official Navy style) -->
+<div class="bg-[#07111E] text-white rounded-xl p-8 shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#FEA619]/10 rounded-full -translate-y-16 translate-x-16"></div>
+<h3 class="font-title-lg text-title-lg text-white mb-8 relative z-10">Fluxo Financeiro</h3>
+<div class="space-y-6 relative z-10">
+<div class="pb-6 border-b border-white/10">
+<span class="text-white/50 text-label-sm uppercase font-bold tracking-widest block mb-2">Total Processado (Mês)</span>
+<span class="text-3xl font-display font-bold">R$ 284.900</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-white/50 text-label-md">Repasses Pendentes</span>
+<span class="text-[#FEA619] font-bold text-lg">R$ 42.100</span>
+</div>
+<button class="w-full bg-[#FEA619] text-[#07111E] py-4 rounded-xl font-bold hover:brightness-110 transition-all shadow-lg active:scale-[0.98]">
+              Processar Pagamentos em Lote
+            </button>
+</div>
+</div>
+<!-- Occurrence Feed -->
+<div class="bg-white rounded-xl border border-outline-variant h-full max-h-[600px] flex flex-col shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant bg-white flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Ocorrências Ativas</h3>
+<span class="bg-error-container text-error px-2 py-0.5 rounded text-[10px] font-bold">3 ALERTAS</span>
+</div>
+<div class="flex-grow overflow-y-auto custom-scrollbar p-6 space-y-5">
+<!-- Critical Item -->
+<div class="p-4 bg-error-container/5 border-l-4 border-error rounded-r-xl">
+<div class="flex justify-between mb-2">
+<span class="font-bold text-error text-[10px] uppercase">Crítico - Atraso</span>
+<span class="text-[10px] text-on-surface-variant font-bold">HÁ 12 MIN</span>
+</div>
+<p class="text-sm font-label-md text-on-surface leading-tight mb-3">Prof. Ana Júlia não iniciou o Job #88210 no horário previsto.</p>
+<div class="flex gap-2">
+<button class="text-[10px] font-bold bg-error text-white px-3 py-1.5 rounded-lg hover:brightness-110 transition-all">Ligar p/ Prof.</button>
+<button class="text-[10px] font-bold bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-lg hover:bg-surface-variant transition-all">Ignorar</button>
+</div>
+</div>
+<!-- Info Item -->
+<div class="p-4 bg-surface-container-low border-l-4 border-outline rounded-r-xl">
+<div class="flex justify-between mb-2">
+<span class="font-bold text-on-surface-variant text-[10px] uppercase">Informativo</span>
+<span class="text-[10px] text-on-surface-variant font-bold">HÁ 45 MIN</span>
+</div>
+<p class="text-sm font-label-md text-on-surface leading-tight mb-2">Pet Shop "Mundo Animal" solicitou alteração de dados bancários.</p>
+<button class="text-[10px] font-bold text-[#FEA619] hover:underline">Ver Solicitação</button>
+</div>
+<!-- Support Item -->
+<div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-xl">
+<div class="flex justify-between mb-2">
+<span class="font-bold text-blue-600 text-[10px] uppercase">Suporte - Chat</span>
+<span class="text-[10px] text-on-surface-variant font-bold">HÁ 1 HORA</span>
+</div>
+<p class="text-sm font-label-md text-on-surface leading-tight mb-3">Cliente reportou dificuldade no pagamento do Job #88190.</p>
+<button class="w-full text-[10px] font-bold bg-[#07111E] text-white px-3 py-1.5 rounded-lg hover:brightness-125 transition-all">Assumir Atendimento</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-10 px-8 flex flex-col md:flex-row justify-between items-center gap-6 bg-white border-t border-outline-variant mt-8">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-display font-bold text-xl text-[#07111E]">Dog Washer Connect</div>
+<p class="text-on-surface-variant font-body-md text-xs mt-1 text-center md:text-left">
+        © 2024 - Painel Administrativo de Gestão Profissional. Todos os direitos reservados.
+      </p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-[#FEA619] transition-colors font-label-sm text-label-sm font-bold" href="#">FAQ</a>
+<a class="text-on-surface-variant hover:text-[#FEA619] transition-colors font-label-sm text-label-sm font-bold" href="#">Termos</a>
+<a class="text-on-surface-variant hover:text-[#FEA619] transition-colors font-label-sm text-label-sm font-bold" href="#">Privacidade</a>
+</div>
+</footer>
+</div>
+<script>
+    // Micro-interactions for table rows
+    document.querySelectorAll('tr').forEach(row => {
+        row.addEventListener('click', () => {
+            row.classList.add('scale-[0.99]', 'bg-surface-container');
+            setTimeout(() => {
+                row.classList.remove('scale-[0.99]', 'bg-surface-container');
+            }, 100);
+        });
+    });
+
+    // Real-time update simulation
+    setInterval(() => {
+        const bars = document.querySelectorAll('.bg-\\[\\#FEA619\\].h-full');
+        bars.forEach(bar => {
+          let currentWidth = parseFloat(bar.style.width);
+          if(currentWidth < 98) {
+              bar.style.width = (currentWidth + 0.05) + '%';
+          }
+        });
+    }, 2000);
+</script>
+</body></html>

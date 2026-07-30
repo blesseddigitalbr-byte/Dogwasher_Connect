@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Remuneração - PetConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#75859d",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "surface-tint": "#555f6f",
+                        "on-secondary-container": "#684000",
+                        "on-primary-container": "#7b8495",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0b1c30",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed": "#2a1700",
+                        "error-container": "#ffdad6",
+                        "outline": "#75777c",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-error": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary-fixed": "#d9e3f6",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#121c29",
+                        "outline-variant": "#c5c6cc",
+                        "on-surface-variant": "#44474c",
+                        "inverse-primary": "#bdc7d9",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm-mobile": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .composition-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #fea619;
+            border-radius: 4px 0 0 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- Screen Content: Navigation Suppressed for Focus Journey -->
+<header class="bg-surface px-margin-mobile py-stack-md flex items-center justify-between sticky top-0 z-50">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<div class="flex items-center">
+<img alt="PetConnect Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEMg7VwQXuzUokDQoS3tP_u3B_OysuJAXlDgrJSAfV_MWpycS-ab0hGlfaOms7FB3cBwYF6lysB7iynELZNhmd2_00ZjdHX2rVmD-Et4YKwCBMECQcqchOpz6ijwwIBJnpB-eHPX1Viy4QSRVEw3SqC4nr7DxCZv2U-3lv1xL2hNl6oh_UaR37gTr2fBO6XGfd_KcJln2PXBgU0_hN1vVINnFesc85evuEK1I6UaAKrYYwl2o9az2gzbxJgP6rLIcYsA"/>
+</div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 px-margin-mobile pb-32">
+<div class="mt-stack-lg mb-stack-md">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Remuneração</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Configure os detalhes financeiros da oportunidade para atrair os melhores especialistas.</p>
+</div>
+<!-- Financial Composition Bento Grid -->
+<div class="space-y-stack-md">
+<!-- Main Input Card -->
+<div class="bg-white border border-outline-variant p-stack-md rounded-xl shadow-sm">
+<label class="font-label-md text-label-md text-on-surface-variant mb-2 block">Valor Base do Serviço</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 font-title-lg text-title-lg text-on-surface-variant">R$</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-bright border border-outline-variant rounded-lg font-title-lg text-title-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="base_value" placeholder="0,00" step="0.01" type="number"/>
+</div>
+<div class="mt-4 flex items-center gap-2 text-info bg-surface-container-low p-3 rounded-lg">
+<span class="material-symbols-outlined text-body-md">info</span>
+<span class="font-label-md text-label-md">Este valor é o montante bruto antes dos bônus.</span>
+</div>
+</div>
+<!-- Extra Benefits Selection -->
+<div class="bg-white border border-outline-variant p-stack-md rounded-xl shadow-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-4 uppercase tracking-wider">Benefícios Extras</h3>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">commute</span>
+<span class="font-body-md text-body-md text-on-surface">Ajuda de Custo (Transporte)</span>
+</div>
+<input class="w-6 h-6 rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">restaurant</span>
+<span class="font-body-md text-body-md text-on-surface">Alimentação no Local</span>
+</div>
+<input class="w-6 h-6 rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+<span class="font-body-md text-body-md text-on-surface">Bônus por Performance</span>
+</div>
+<input class="w-6 h-6 rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
+</label>
+</div>
+<div class="mt-4">
+<label class="font-label-md text-label-md text-on-surface-variant mb-2 block">Outros Benefícios ou Observações</label>
+<textarea class="w-full p-4 bg-surface-bright border border-outline-variant rounded-lg font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Ex: Equipamentos inclusos, flexibilidade de horário..." rows="3"></textarea>
+</div>
+</div>
+<!-- Financial Summary Card -->
+<div class="composition-card relative bg-primary-container p-stack-md rounded-xl shadow-lg">
+<h3 class="font-label-md text-label-md text-on-primary-container mb-4">Resumo da Composição</h3>
+<div class="space-y-2 border-b border-on-primary-container/20 pb-4 mb-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-primary-container/80">Valor Base</span>
+<span class="font-body-md text-body-md text-on-primary-container">R$ 0,00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-primary-container/80">Taxa de Conexão</span>
+<span class="font-body-md text-body-md text-on-primary-container">- R$ 0,00</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-title-lg text-title-lg text-on-primary-container">Total Estimado</span>
+<span class="font-title-lg text-title-lg text-secondary-container">R$ 0,00</span>
+</div>
+<p class="font-label-sm text-label-sm-mobile text-on-primary-container/60 mt-4 italic">
+                    * Valores podem variar conforme a negociação final com o profissional.
+                </p>
+</div>
+</div>
+</main>
+<!-- Fixed CTA Action -->
+<footer class="fixed bottom-0 left-0 w-full bg-white p-margin-mobile border-t border-outline-variant flex flex-col gap-3 shadow-[0_-4px_20px_rgba(7,17,30,0.1)] z-40">
+<button class="w-full bg-secondary-container text-on-secondary-container font-headline-md text-[18px] h-14 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md">
+            Publicar Oportunidade
+            <span class="material-symbols-outlined">send</span>
+</button>
+<button class="w-full text-on-surface-variant font-label-md text-label-md py-2 hover:bg-surface-container-low rounded-lg transition-colors">
+            Salvar como rascunho
+        </button>
+</footer>
+<!-- Interactive Layer for Value Update simulation -->
+<script>
+        const baseValueInput = document.getElementById('base_value');
+        const summaryBase = document.querySelector('.composition-card .flex:first-child span:last-child');
+        const summaryTax = document.querySelector('.composition-card .flex:nth-child(2) span:last-child');
+        const summaryTotal = document.querySelector('.composition-card .flex:nth-child(2) + .flex span:last-child');
+
+        baseValueInput.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value) || 0;
+            const tax = val * 0.05; // 5% fee example
+            const total = val - tax;
+
+            summaryBase.innerText = `R$ ${val.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            summaryTax.innerText = `- R$ ${tax.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            summaryTotal.innerText = `R$ ${total.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        });
+    </script>
+</body></html>

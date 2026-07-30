@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetOps Central - Análise da Unidade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fea619",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "outline": "#75777c",
+                    "surface": "#f8f9fa",
+                    "on-secondary-container": "#684000",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#000000",
+                    "on-primary-container": "#7b8495",
+                    "outline-variant": "#c5c6cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#2a1700",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary": "#855300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .active-tab-indicator { position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background-color: #855300; transition: all 0.3s ease; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Authority: JSON) -->
+<nav class="bg-surface dark:bg-surface-container-low text-secondary dark:text-secondary-fixed h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col h-full py-gutter px-stack-md z-50">
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-secondary dark:text-secondary-fixed">PetOps Central</h1>
+<p class="font-label-sm text-on-surface-variant">Administrative Portal</p>
+</div>
+<div class="flex-1 space-y-stack-sm">
+<!-- Dashboard -->
+<div class="flex items-center gap-stack-md py-stack-md px-stack-md rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</div>
+<!-- Approvals -->
+<div class="flex items-center gap-stack-md py-stack-md px-stack-md rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md text-body-md">Approvals</span>
+</div>
+<!-- Units (ACTIVE) -->
+<div class="flex items-center gap-stack-md py-stack-md px-stack-md rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md text-body-md">Units</span>
+</div>
+<!-- Incidents -->
+<div class="flex items-center gap-stack-md py-stack-md px-stack-md rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-body-md text-body-md">Incidents</span>
+</div>
+<!-- Professionals -->
+<div class="flex items-center gap-stack-md py-stack-md px-stack-md rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md text-body-md">Professionals</span>
+</div>
+<!-- Settings -->
+<div class="flex items-center gap-stack-md py-stack-md px-stack-md rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</div>
+</div>
+<button class="mt-auto bg-secondary text-on-secondary py-3 px-4 rounded-lg font-label-md hover:opacity-90 transition-opacity">
+            New Report
+        </button>
+</nav>
+<!-- TopAppBar (Authority: JSON) -->
+<header class="bg-surface dark:bg-surface-container-lowest text-secondary dark:text-secondary-fixed fixed top-0 right-0 w-[calc(100%-16rem)] h-16 border-b border-outline-variant dark:border-outline shadow-sm flex items-center justify-between px-margin-desktop ml-64 z-40">
+<div class="flex items-center gap-8">
+<span class="font-title-lg text-title-lg font-black text-secondary dark:text-secondary-fixed uppercase tracking-wider">PetOps Backoffice</span>
+<nav class="flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all" href="#">Queue</a>
+<a class="font-label-md text-label-md text-secondary font-semibold border-b-2 border-secondary pb-2 transition-all" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-48" placeholder="Search units, ID or cnpj..." type="text"/>
+</div>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-label-md hover:shadow-lg transition-all">Verify Documents</button>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">help_outline</span>
+<img class="w-10 h-10 rounded-full border-2 border-secondary" data-alt="A professional headshot of a corporate administrator in a modern office, wearing professional business attire. The lighting is bright and clear, reflecting a high-tech corporate environment with soft bokeh background and cool blue and neutral grey tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJfCtSe0ueWQpRutl1Fl1ZX3-Ss8I8Lrwn8oDo9vHzcpQaGIdyc7I3wezrahfqtOnj1nyKmrBY7TLJbFL_Lkwua3RZo4eSob5p8d9Exeo0Lrol28rYdbzTjpeaRd_0ugZ4YgertaTSrxQE638nTJfnuETlZmoUgYVgeQVSOUbNyra-xTjhZJ1uK7VmdQtPDGuxFQxr1_XsPrjhROc1PyQLI24KpbICOAbcR1rEP92aKYAO6OVCB2ri"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-margin-desktop pb-12">
+<!-- Unit Header & Status -->
+<div class="flex justify-between items-start mb-stack-lg">
+<div>
+<nav class="flex gap-2 text-label-sm text-on-surface-variant mb-2">
+<span>Unidades</span> / <span>Sudeste</span> / <span class="text-secondary font-bold">Unidade Jardins Premium</span>
+</nav>
+<div class="flex items-center gap-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Unidade Jardins Premium</h2>
+<span class="bg-[#d3e4fe] text-[#0b1c30] px-3 py-1 rounded-full text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">info</span> Aguardando Validação
+                    </span>
+</div>
+<p class="text-on-surface-variant font-body-md mt-1">ID: #UP-992831 • Matriz: PetCare Group LTDA • CNPJ: 12.345.678/0001-99</p>
+</div>
+<div class="flex gap-stack-md">
+<button class="bg-surface border border-error text-error px-6 py-3 rounded-lg font-label-md hover:bg-error-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">block</span> Reprovar Unidade
+                </button>
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-lg font-label-md hover:bg-secondary-container transition-shadow shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined">verified</span> Validar Estabelecimento
+                </button>
+</div>
+</div>
+<!-- Bento Grid Analysis Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Tab Navigation Card -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl p-4">
+<div class="flex border-b border-outline-variant relative" id="main-tabs">
+<button class="tab-trigger px-8 py-4 font-label-md text-secondary font-bold relative" onclick="switchTab('mapa')">
+                        Localização (Mapa)
+                        <div class="active-tab-indicator" id="indicator-mapa"></div>
+</button>
+<button class="tab-trigger px-8 py-4 font-label-md text-on-surface-variant hover:text-secondary transition-colors relative" onclick="switchTab('estrutura')">
+                        Estrutura Física
+                        <div class="active-tab-indicator hidden" id="indicator-estrutura"></div>
+</button>
+<button class="tab-trigger px-8 py-4 font-label-md text-on-surface-variant hover:text-secondary transition-colors relative" onclick="switchTab('fotos')">
+                        Galeria de Fotos
+                        <div class="active-tab-indicator hidden" id="indicator-fotos"></div>
+</button>
+<button class="tab-trigger px-8 py-4 font-label-md text-on-surface-variant hover:text-secondary transition-colors relative" onclick="switchTab('documentos')">
+                        Documentação Legal
+                        <div class="active-tab-indicator hidden" id="indicator-documentos"></div>
+</button>
+<button class="tab-trigger px-8 py-4 font-label-md text-on-surface-variant hover:text-secondary transition-colors relative" onclick="switchTab('reputacao')">
+                        Reputação &amp; Feedback
+                        <div class="active-tab-indicator hidden" id="indicator-reputacao"></div>
+</button>
+</div>
+<!-- Tab Contents -->
+<div class="mt-6">
+<!-- Aba Mapa -->
+<div class="tab-content active" id="tab-mapa">
+<div class="grid grid-cols-3 gap-gutter">
+<div class="col-span-2 rounded-xl overflow-hidden h-[500px] border border-outline-variant relative">
+<div class="w-full h-full bg-cover bg-center" data-location="São Paulo, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9UI6o0ohVlg9TtqWQN6GKkn9q7sVZxzZfXnTLRtso0Z9ns169SuM7QRq_vYjxuxYP_Eehy_RAWXQ-S2mPVJbypNqeLD-XST65Tw-U9pzi16l7lcIGiktOOhvBFxIJpg5zSKJqjHlUF0dQApLdnwMF-lI8C3OTftu0qzXe0Jy9LIcjG2uCdsdzR3vDm64KV6QvPIjmi89W67N5dq10NEnIcw7TQxGGABQe3e3wc0Xs01XhD8U6CVTH')"></div>
+<div class="absolute top-4 left-4 glass-card p-4 rounded-lg flex flex-col gap-1 max-w-xs">
+<span class="text-label-sm font-bold uppercase text-secondary">Endereço Auditado</span>
+<span class="text-body-md font-medium">Al. Campinas, 800 - Jardins</span>
+<span class="text-label-sm text-on-surface-variant">São Paulo - SP, 01404-001</span>
+<div class="flex items-center gap-2 mt-2 text-green-700 font-bold text-label-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Geofencing Validado
+                                    </div>
+</div>
+</div>
+<div class="col-span-1 space-y-gutter">
+<div class="glass-card p-6 rounded-xl">
+<h4 class="font-title-lg text-title-lg mb-4">Vizinhança</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant">
+<span class="text-body-md">Estabelecimentos Próximos</span>
+<span class="font-bold">12</span>
+</div>
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant">
+<span class="text-body-md">Índice de Segurança</span>
+<span class="text-green-600 font-bold">Alta</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md">Acessibilidade</span>
+<span class="text-green-600 font-bold">Excelente</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl">
+<h4 class="font-title-lg text-title-lg mb-4">Notas de Auditoria</h4>
+<p class="text-body-md text-on-surface-variant mb-4 italic">"Localização de alto padrão, fácil acesso para transporte pet e área segura para embarque e desembarque."</p>
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Close up of a professional female auditor's face, wearing glasses and a focused expression. High-end lighting, neutral professional color palette, extremely high detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbu5SE2hMsaMh8J4ZeLkMIA3rSc0b2mQ9p4tFcV4dpanoQl5zOMoERw3WVGmi-U07RIVjCkKo94-oivnE-98v8fr3nZoOx3DvpqITESTWDmGZqT-HFw3Aq7nQwAUa5qEyWpVG5xTyXQu8t07buRrs-VSbuZgMauvYiOM9uGU_sZNQBGlxR-UejOO1VQliDWmyjDRBu4MuL6VLpvh_e-xrP3_BVHDLl0zPiwRmy5D6Oz_BVXiqArFaF"/>
+<div>
+<p class="text-label-md font-bold">Ricardo S.</p>
+<p class="text-label-sm text-on-surface-variant">Auditor de Campo</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Aba Estrutura -->
+<div class="tab-content" id="tab-estrutura">
+<div class="grid grid-cols-4 gap-gutter">
+<div class="bg-surface border border-outline-variant p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-secondary text-[40px] mb-2">straighten</span>
+<p class="text-label-sm text-on-surface-variant uppercase font-bold">Área Total</p>
+<p class="text-headline-md font-bold text-primary">350 m²</p>
+</div>
+<div class="bg-surface border border-outline-variant p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-secondary text-[40px] mb-2">ac_unit</span>
+<p class="text-label-sm text-on-surface-variant uppercase font-bold">Climatização</p>
+<p class="text-headline-md font-bold text-primary">Central</p>
+</div>
+<div class="bg-surface border border-outline-variant p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-secondary text-[40px] mb-2">videocam</span>
+<p class="text-label-sm text-on-surface-variant uppercase font-bold">Monitoramento</p>
+<p class="text-headline-md font-bold text-primary">24/7 Live</p>
+</div>
+<div class="bg-surface border border-outline-variant p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-secondary text-[40px] mb-2">groups</span>
+<p class="text-label-sm text-on-surface-variant uppercase font-bold">Capacidade Max</p>
+<p class="text-headline-md font-bold text-primary">45 Pets</p>
+</div>
+<div class="col-span-4 glass-card p-8 rounded-xl mt-4">
+<h4 class="font-title-lg text-title-lg mb-6">Checklist Técnico de Infraestrutura</h4>
+<div class="grid grid-cols-2 gap-x-12 gap-y-4">
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-green-600">check_box</span> Piso Antiderrapante e Impermeável</span>
+<span class="text-label-sm font-bold text-on-surface-variant">OK</span>
+</div>
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-green-600">check_box</span> Sala de Isolamento (Quarentena)</span>
+<span class="text-label-sm font-bold text-on-surface-variant">OK</span>
+</div>
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">check_box_outline_blank</span> Área de Recreação Externa Cobrerta</span>
+<span class="text-label-sm font-bold text-error">PENDENTE</span>
+</div>
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-green-600">check_box</span> Sistema de Exaustão Industrial</span>
+<span class="text-label-sm font-bold text-on-surface-variant">OK</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Aba Fotos -->
+<div class="tab-content" id="tab-fotos">
+<div class="flex gap-4 mb-8">
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-full text-label-md">Todas (24)</button>
+<button class="bg-surface border border-outline-variant px-4 py-2 rounded-full text-label-md hover:bg-surface-variant transition-colors">Recepção</button>
+<button class="bg-surface border border-outline-variant px-4 py-2 rounded-full text-label-md hover:bg-surface-variant transition-colors">Áreas de Banho</button>
+<button class="bg-surface border border-outline-variant px-4 py-2 rounded-full text-label-md hover:bg-surface-variant transition-colors">Dormitórios</button>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="group relative overflow-hidden rounded-xl h-48 border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A luxurious pet hotel reception area featuring minimalist modern furniture, warm wooden panels, and high-end lighting. The floor is clean polished marble, and there's a stylish counter. The atmosphere is professional and sophisticated with a corporate color palette of soft greys and amber accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKZN8WjiDVBakvq8q3kuu3NKc2THPfrIk11PvBKxJyY-9Q1ofQkyG_u7K34yUzIn1QI9oI7y6EzeNL8Yj8uaSrkWjxOSUA-DzvzmmC-nEHOVQIZ37BOgV2xcHwNeQP8TCr27c0p54owiB2WqgUkR3izEi_YdHQyNYWucr7xsYHt_CPtDBDcHzF0cVedAuwhvGRlV24uajD-HB7PHpLz8R8Rdr_ZXa9iVIJqMqR-W6BdB5hGubiN0Wf"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl h-48 border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A modern and hygienic pet grooming station with stainless steel tubs, professional hair dryers, and neatly organized grooming tools. The lighting is bright and industrial-chic, emphasizing cleanliness and professional medical-grade hygiene. The walls are white tiles with dark grey grout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzq1424zn7WIsLJDGZ5apzBKe3cW-u7SUQXSn3nsW9jYlOVIqOvmigud-fHkL5lHK1KFyE8WCn36H653CTrehCTILkCkvzWdsuqce1M3VMyfimVMhzxyy7UH4bVrkQ07YpWqIxd7ce8BEZAjRvuB5keB1iT4abfMWT1dFC2oHf007xC17-shIlXT-ZHimMbvVYgRaGQctQTEdlzEoR1crE9N4vMQnV_9alwFrLr460AE9UhXtIEnB1"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl h-48 border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Spacious indoor pet playground featuring high-quality rubber flooring, modern climbing structures for dogs, and large windows bringing in natural light. The design is minimalist and safe, with a professional color scheme including neutral tones and vibrant safety-focused accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWQoWdVZmZlYJEUicYJIo7nVcW-_dXq6nEkwRasJBGcFT3_kKsgJOIDGY_tnMCyeB3vVFe9TtzbkuKPYNabTriW2fyibEco4eI9mVVMyr37yx4q4dO2DOUoWN3pDAmbRdwERq5EVF96tI6Gg7IfNDTn8sfbBOg_e3UeRYntmKBbVB7a_lc4bolvYkA8RMZNJauXc_tZJn7Rtun1R642I9GqGrxOTwUQdeIMpm03xWFEXFWzrwvoWy_"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl h-48 border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An organized storage room for pet food and supplies in a professional pet facility. Shelving is industrial-grade steel, everything is labeled clearly, and the room is exceptionally clean. Bright LED lighting creates a corporate, audit-ready atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARGYAPvoe_y0OERxW6Y3J-2C4LVXhMFvq2L5vwBwhgrm2uOPyrKrDKOkPv76MDNMZMVqquPibMqaL5j9OOUn9IRkUlxs0KzM_3Azekmwy15c2b4PBS658jWAI3otUrGu9O0qcmL33wpcdDOluwRcoLgqL-7udneFYakhJquWS9uygStbxpb39cug044hO9HolQzQFukgcMK7NiFZmttaOcmzJ1XOG-BtA6LjcBsqDGkKgIMAWHkfsA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Aba Documentos -->
+<div class="tab-content" id="tab-documentos">
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-red-100 text-red-700 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-label-md font-bold">Alvará de Funcionamento (Vigente)</p>
+<p class="text-label-sm text-on-surface-variant">Vencimento: 12/12/2025 • Enviado em 01/01/2024</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-green-600 font-bold text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined">verified</span> Verificado
+                                    </span>
+<button class="text-secondary font-label-md hover:underline">Visualizar</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-red-100 text-red-700 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-label-md font-bold">Responsável Técnico (CRMV-SP)</p>
+<p class="text-label-sm text-on-surface-variant">Dr. Marcos Vinicius - CRMV 99.882</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-green-600 font-bold text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined">verified</span> Verificado
+                                    </span>
+<button class="text-secondary font-label-md hover:underline">Visualizar</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl border-dashed bg-surface-container-lowest">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-variant text-on-surface-variant flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">pending</span>
+</div>
+<div>
+<p class="font-label-md font-bold">Laudo de Inspeção do Corpo de Bombeiros</p>
+<p class="text-label-sm text-on-surface-variant">Documento pendente de upload ou revalidação.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[#855300] font-bold text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined">warning</span> Pendente
+                                    </span>
+<button class="bg-secondary/10 text-secondary px-4 py-2 rounded-lg font-label-md hover:bg-secondary/20">Solicitar Envio</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Aba Reputação -->
+<div class="tab-content" id="tab-reputacao">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-4 space-y-gutter">
+<div class="bg-surface border border-outline-variant p-8 rounded-xl text-center">
+<p class="text-label-sm text-on-surface-variant uppercase font-bold mb-2">Score de Qualidade</p>
+<p class="text-display font-bold text-secondary">4.9</p>
+<div class="flex justify-center gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-label-md text-on-surface-variant">Baseado em 142 avaliações verificadas</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl">
+<h5 class="font-label-md font-bold mb-4">Métricas Operacionais</h5>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-label-sm mb-1">
+<span>Pontualidade Check-in</span>
+<span class="font-bold">98%</span>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full">
+<div class="bg-green-600 h-full w-[98%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm mb-1">
+<span>Tempo de Resposta Chat</span>
+<span class="font-bold">5 min</span>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full">
+<div class="bg-secondary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-8">
+<h5 class="font-title-lg text-title-lg mb-6">Últimos Feedbacks dos Clientes</h5>
+<div class="space-y-6">
+<div class="border-b border-outline-variant pb-6">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full" data-alt="A profile picture of a happy customer in a high-key bright setting. The person looks satisfied and is smiling warmly. The aesthetic is clean and modern, following the corporate-minimalist style of the overall UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUSZLTSN6aqiiKNwKgOrgHZE_DIkDkoZLM36W16P4L-ZWx6RGxQIwTuYjWe_j_TuKKEWhYilLlKT5qdqdXpfUXfD5BSqGJMETie0rBZWRVkW0ues_oaf_63-7qTgejI3U7utAAX_VhJW2ddoKjuBjc2_NjeTXFriAfD87FFwdqc5ExMkJrfUzwDSCvYYpTtGqZD3LWcXOaGGW_AMUAQ-Y9qagbRHj1Bs96Ez1Ts_eioJCfIb-UVA6P"/>
+<div>
+<p class="font-label-md font-bold">Carla Mendes</p>
+<p class="text-label-sm text-on-surface-variant">Dona do "Bidu" • Ontem</p>
+</div>
+</div>
+<div class="flex text-secondary scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface">"Excelente atendimento. A unidade é extremamente limpa e organizada. Fiquei tranquila em deixar meu pet durante o dia todo."</p>
+</div>
+<div class="border-b border-outline-variant pb-6">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full" data-alt="A professional male user profile icon in a corporate setting. The person has a neutral but positive expression. The lighting is soft and professional, with a clean background in shades of light grey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoNNOCW1BciyXCrKIj4nq3ohD2mZcBx3bwLo0h1oyM2TOTeRpvcVmLA-H4gJOsltBTTFdbJL2EH6uGrz1TGBNOfbd-omhnQOyoIhfW6uCdp2j4_sPHNiK3m5_lEaNPH2o8375zNbkEI7EpklhqX5VwZcqpiHqC4xnnUhzxIhDNAJPbFiZfQNXo4asX1Ur_RUL4zBsbeOSkqvslKDa0MF0rHFH4F9fczD-zTIZmddhEkPlZpacko10u"/>
+<div>
+<p class="font-label-md font-bold">Felipe Araújo</p>
+<p class="text-label-sm text-on-surface-variant">Dono da "Mel" • Há 3 dias</p>
+</div>
+</div>
+<div class="flex text-secondary scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface">"A estrutura é nota 10, mas achei o estacionamento um pouco concorrido em horários de pico. De resto, tudo impecável."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Sidebar Summary -->
+<div class="col-span-12 mt-stack-lg border-t border-outline-variant pt-stack-lg">
+<div class="flex justify-between items-center bg-[#0b1c30] text-white p-8 rounded-2xl">
+<div>
+<h3 class="font-headline-md text-headline-md">Conclusão da Auditoria</h3>
+<p class="text-on-tertiary-container opacity-80">Revisado por Sistema de IA PetOps &amp; Auditor Senior</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<p class="text-label-sm uppercase opacity-60">Status Final Sugerido</p>
+<p class="font-title-lg text-secondary-container font-bold">APROVAÇÃO CONDICIONAL</p>
+</div>
+<div class="h-12 w-px bg-white/20"></div>
+<button class="bg-white text-[#0b1c30] px-10 py-4 rounded-xl font-bold hover:bg-secondary-fixed transition-colors">
+                            Gerar Relatório Final
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function switchTab(tabName) {
+            // Hide all contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Show target content
+            document.getElementById('tab-' + tabName).classList.add('active');
+
+            // Reset tab triggers styling
+            const triggers = document.querySelectorAll('.tab-trigger');
+            triggers.forEach(t => {
+                t.classList.remove('text-secondary', 'font-bold');
+                t.classList.add('text-on-surface-variant');
+            });
+
+            // Set active trigger styling
+            const activeTrigger = event.currentTarget;
+            activeTrigger.classList.add('text-secondary', 'font-bold');
+            activeTrigger.classList.remove('text-on-surface-variant');
+
+            // Handle indicator
+            const indicators = document.querySelectorAll('.active-tab-indicator');
+            indicators.forEach(i => i.classList.add('hidden'));
+            document.getElementById('indicator-' + tabName).classList.remove('hidden');
+        }
+    </script>
+</body></html>

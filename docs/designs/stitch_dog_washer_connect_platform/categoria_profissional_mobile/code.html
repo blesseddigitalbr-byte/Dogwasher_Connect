@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7b8495",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "on-tertiary-container": "#75859d",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "primary-container": "#121c29",
+                        "secondary-fixed": "#ffddb8",
+                        "on-surface": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-secondary-container": "#684000",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#bdc7d9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#fea619",
+                        "tertiary": "#000000",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#555f6f",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#121c29",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#2a1700",
+                        "tertiary-container": "#0b1c30",
+                        "surface-bright": "#f8f9fa",
+                        "outline": "#75777c",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F9FAFB;
+            color: #191C1D;
+            overflow-x: hidden;
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+        }
+        .selectable-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .selectable-card:hover {
+            border-color: #855300;
+            transform: translateY(-2px);
+        }
+        .selectable-card.active {
+            border-color: #855300;
+            background-color: #FFF8F1;
+            box-shadow: 0 0 0 2px #855300;
+        }
+        .step-transition {
+            transition: width 0.8s ease-in-out;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md antialiased">
+<!-- Top Navigation Shell - Suppressed for Onboarding as per instructions, but using TopAppBar components for identity branding -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface dark:bg-on-primary-fixed border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="pets">pets</span>
+<h1 class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<span class="font-label-md text-on-surface-variant">Suporte: ajuda@dogwasher.com</span>
+</div>
+</header>
+<main class="min-h-screen pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col items-center">
+<!-- Progress Indicator Section -->
+<div class="w-full max-w-2xl mb-12">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="font-label-sm text-secondary uppercase tracking-widest">Passo 2 de 4</span>
+<h2 class="font-headline-md text-primary mt-1">Formação &amp; Vínculo</h2>
+</div>
+<span class="font-label-md text-on-surface-variant">50% Completo</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary step-transition w-[50%]"></div>
+</div>
+</div>
+<!-- Question Header -->
+<div class="text-center mb-10">
+<h3 class="font-headline-lg text-primary mb-3">Qual é o seu vínculo atual com o ecossistema Dog Washer?</h3>
+<p class="font-body-lg text-on-surface-variant max-w-xl mx-auto">Selecione a categoria que melhor descreve seu estágio atual de conexão profissional com a nossa rede.</p>
+</div>
+<!-- Professional Categories Bento Grid-ish Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl" id="category-grid">
+<!-- Card 1: Certificado -->
+<button class="selectable-card flex flex-col text-left p-6 bg-surface-container-lowest border border-outline-variant rounded-xl card-shadow group" onclick="selectCategory(this)">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center mb-4 text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<h4 class="font-title-lg text-primary mb-2">Certificado UniDogwasher</h4>
+<p class="font-body-md text-on-surface-variant">Já concluí minha certificação oficial e estou pronto para atuar em alto nível.</p>
+<div class="mt-auto pt-4 flex items-center text-secondary font-label-md opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span>Selecionado</span>
+<span class="material-symbols-outlined ml-1" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+<!-- Card 2: Aluno -->
+<button class="selectable-card flex flex-col text-left p-6 bg-surface-container-lowest border border-outline-variant rounded-xl card-shadow group" onclick="selectCategory(this)">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<h4 class="font-title-lg text-primary mb-2">Aluno</h4>
+<p class="font-body-md text-on-surface-variant">Atualmente cursando módulos na UniDogwasher e em fase de aprendizado prático.</p>
+<div class="mt-auto pt-4 flex items-center text-secondary font-label-md opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span>Selecionado</span>
+<span class="material-symbols-outlined ml-1" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+<!-- Card 3: Instrutor -->
+<button class="selectable-card flex flex-col text-left p-6 bg-surface-container-lowest border border-outline-variant rounded-xl card-shadow group" onclick="selectCategory(this)">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<h4 class="font-title-lg text-primary mb-2">Instrutor</h4>
+<p class="font-body-md text-on-surface-variant">Sou um especialista habilitado para ensinar e validar novos profissionais na plataforma.</p>
+<div class="mt-auto pt-4 flex items-center text-secondary font-label-md opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span>Selecionado</span>
+<span class="material-symbols-outlined ml-1" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+<!-- Card 4: Profissional Externo -->
+<button class="selectable-card flex flex-col text-left p-6 bg-surface-container-lowest border border-outline-variant rounded-xl card-shadow group md:col-span-1 lg:col-span-1" onclick="selectCategory(this)">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<h4 class="font-title-lg text-primary mb-2">Profissional Externo</h4>
+<p class="font-body-md text-on-surface-variant">Possuo experiência prévia em outras instituições e quero validar minhas habilidades.</p>
+<div class="mt-auto pt-4 flex items-center text-secondary font-label-md opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span>Selecionado</span>
+<span class="material-symbols-outlined ml-1" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+<!-- Card 5: Em Desenvolvimento (Highlight Card) -->
+<button class="selectable-card flex flex-col text-left p-6 bg-surface-container-lowest border border-outline-variant rounded-xl card-shadow group md:col-span-2" onclick="selectCategory(this)">
+<div class="flex items-start justify-between w-full">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-tighter">Novo</span>
+</div>
+<h4 class="font-title-lg text-primary mb-2">Profissional em Desenvolvimento</h4>
+<p class="font-body-md text-on-surface-variant max-w-lg">Estou iniciando minha jornada agora e busco as melhores ferramentas e treinamentos para crescer.</p>
+<div class="mt-auto pt-4 flex items-center text-secondary font-label-md opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span>Selecionado</span>
+<span class="material-symbols-outlined ml-1" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+</div>
+<!-- Footer Actions -->
+<div class="mt-16 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl">
+<button class="w-full md:w-1/3 py-4 border border-primary text-primary font-label-md rounded-lg hover:bg-surface-container transition-colors order-2 md:order-1">
+                Voltar
+            </button>
+<button class="w-full md:w-2/3 py-4 bg-secondary text-on-secondary font-label-md rounded-lg opacity-50 cursor-not-allowed hover:brightness-95 transition-all order-1 md:order-2 flex justify-center items-center gap-2" disabled="" id="btn-next">
+                Continuar Onboarding
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Visual Polish: Decorative Element -->
+<div class="fixed bottom-0 right-0 p-8 pointer-events-none opacity-20 hidden lg:block">
+<span class="material-symbols-outlined text-[180px] text-outline-variant" data-icon="pets">pets</span>
+</div>
+<!-- Mandatory Footer Component -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest dark:bg-primary-container border-t border-outline-variant">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-display text-title-lg text-primary">Dog Washer Connect</span>
+<p class="font-body-md text-on-surface dark:text-on-primary-fixed-variant">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<script>
+        function selectCategory(element) {
+            // Remove active class from all cards
+            const cards = document.querySelectorAll('.selectable-card');
+            cards.forEach(card => card.classList.remove('active'));
+            
+            // Add active class to clicked card
+            element.classList.add('active');
+            
+            // Enable next button
+            const nextBtn = document.getElementById('btn-next');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            nextBtn.classList.add('scale-100', 'active:scale-95');
+
+            // Scroll feedback
+            element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Simple enter animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.selectable-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body></html>

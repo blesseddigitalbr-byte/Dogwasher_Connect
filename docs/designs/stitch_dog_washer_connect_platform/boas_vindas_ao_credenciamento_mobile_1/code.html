@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Onboarding</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#7b8495",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-container": "#edeeef",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "primary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-container": "#75859d",
+                    "tertiary-fixed": "#d3e4fe",
+                    "secondary": "#855300",
+                    "outline-variant": "#c5c6cc",
+                    "primary-container": "#121c29",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-secondary-container": "#684000",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-low": "#f3f4f5",
+                    "secondary-container": "#fea619",
+                    "tertiary": "#000000",
+                    "surface": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "background": "#f8f9fa",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#121c29",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed": "#2a1700",
+                    "tertiary-container": "#0b1c30",
+                    "surface-bright": "#f8f9fa",
+                    "outline": "#75777c",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "petrol-blue": "#073B4C" /* Custom brand addition for the 'azul-petróleo' request */
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .progress-bar-step {
+            height: 4px;
+            border-radius: 2px;
+            background-color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #073B4C; /* petrol-blue */
+            width: 12.5%; /* Step 1 of 8 */
+            transition: width 0.3s ease;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Progress Indicator - Top Sticky -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md px-margin-mobile md:px-margin-desktop py-4 flex flex-col gap-2">
+<div class="flex justify-between items-center max-w-container-max mx-auto w-full">
+<span class="font-label-md text-label-md text-petrol-blue">Step 1 de 8: Perfil</span>
+<span class="font-label-md text-label-md text-outline">12% concluído</span>
+</div>
+<div class="max-w-container-max mx-auto w-full progress-bar-step">
+<div class="progress-bar-fill"></div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="min-h-screen pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12">
+<!-- Left Side: Visual/Atmosphere (Bento Grid Style) -->
+<div class="w-full md:w-1/2 grid grid-cols-2 grid-rows-6 gap-4 h-[400px] md:h-[600px]">
+<div class="col-span-2 row-span-3 rounded-xl overflow-hidden shadow-sm relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-petrol-blue/40 to-transparent z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional groomer expertly bathing a friendly golden retriever in a clean, modern pet salon environment. The lighting is bright and high-key, emphasizing a clinical yet warm atmosphere. The background features minimalist white tiles and stainless steel equipment, aligning with a premium corporate pet care aesthetic. Subtle petrol blue accents are visible in the groomer's professional uniform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2IANTJ-N01piCaGwEh5JovIcZWoGn2-Mz8F1mTCI9D1CGcOOthEzMjZMiPYD0BbiDzzMYjiUQPqYmFLWuwrC-ZpKKgl3prpBvYS_hhbB0ZzBtO4_8fKfW4IYzEda-pjaH4DJfiRpjMENEuuR2zEVGd2PkyNazgjvF1-JLSwTDqAiQfBlPFSyidhSSfXVYDpfhKHQsL5P-53myYUeNUQnodzOagnM3lRFW-VTT5TVW3XMAQ2jvthrH"/>
+<div class="absolute bottom-4 left-4 z-20 text-white">
+<p class="font-label-sm text-label-sm uppercase tracking-wider opacity-90">Profissionalismo</p>
+<p class="font-title-lg text-title-lg">Cuidado institucional</p>
+</div>
+</div>
+<div class="col-span-1 row-span-3 rounded-xl overflow-hidden shadow-sm glass-card p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-secondary text-4xl">verified</span>
+<div>
+<p class="font-headline-md text-headline-md text-petrol-blue">Elite</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Conecte-se aos melhores estabelecimentos.</p>
+</div>
+</div>
+<div class="col-span-1 row-span-3 rounded-xl overflow-hidden shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist close-up shot of professional grooming shears and a high-quality pet brush resting on a pristine white marble surface. The lighting is soft and even, highlighting the metallic textures. The composition is clean and corporate, reflecting technical rigor and precision in pet care services. The overall mood is sophisticated, professional, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7imWQL675wSImA3B_Y8E-JihUOB1o3805d3H59piq-RvQfu473-mII6QqQoqHeQbyVdYG5O47DSEF2cbBkHuTB9rgS72MI6PyIu5FuUkh87PZR7THqQpfaEHutk5v47aabWtTZ1yoGiFFIDLl5M7Rj8PaFDApiyUieRCgxQjn8zgqz9HZg9exwG2nHK8OebpqTeJ4lS6Cj5gOiw1V4x6PNU9Lf6lmRTPt8yxFJ03s0iQMphXjnq3Y"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+</div>
+</div>
+<!-- Right Side: Content & Actions -->
+<div class="w-full md:w-1/2 flex flex-col gap-stack-lg">
+<header class="flex flex-col gap-stack-sm">
+<div class="inline-flex items-center gap-2 text-petrol-blue px-3 py-1 bg-tertiary-fixed rounded-full w-fit">
+<span class="material-symbols-outlined text-sm">handshake</span>
+<span class="font-label-md text-label-md">Credenciamento Aberto</span>
+</div>
+<h1 class="font-display text-headline-lg md:text-display text-primary leading-tight">
+                    Complete seu perfil profissional
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Para garantir o padrão de excelência da nossa rede, precisamos conhecer sua trajetória. Compartilhe sua formação técnica e experiências prévias no setor pet.
+                </p>
+</header>
+<!-- Autonomy Highlight Card -->
+<div class="p-6 rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm flex gap-4 items-start">
+<div class="p-3 bg-secondary-fixed rounded-lg text-on-secondary-fixed">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-lg text-title-lg text-petrol-blue">Sua liberdade, seu ritmo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Destaque para autonomia: <span class="font-bold text-on-surface">Você define sua disponibilidade e escolhe livremente as oportunidades em que deseja atuar.</span> Sem amarras, apenas conexões de valor.
+                    </p>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="px-8 py-4 bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-secondary transition-all active:scale-95 shadow-lg shadow-secondary-container/20">
+                    Começar cadastro
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 bg-transparent border border-petrol-blue text-petrol-blue font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all active:scale-95">
+                    Salvar e continuar depois
+                </button>
+</div>
+<footer class="pt-8 border-t border-outline-variant flex items-center gap-4 text-outline">
+<span class="material-symbols-outlined text-lg">security</span>
+<p class="font-label-sm text-label-sm">Seus dados são protegidos por criptografia de ponta a ponta e usados apenas para fins de qualificação profissional.</p>
+</footer>
+</div>
+</main>
+<!-- Visual Element: Floating background spheres for depth -->
+<div class="fixed top-[20%] -left-20 w-64 h-64 bg-tertiary-fixed opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-[10%] -right-20 w-96 h-96 bg-secondary-fixed opacity-10 rounded-full blur-[120px] pointer-events-none"></div>
+<script>
+        // Micro-interaction for the progress bar on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const fill = document.querySelector('.progress-bar-fill');
+            fill.style.width = '0%';
+            setTimeout(() => {
+                fill.style.width = '12.5%';
+            }, 300);
+        });
+
+        // Simple button interaction feedback
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mapa da Experiência - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#ccdbf4",
+                        "on-secondary-fixed": "#121c2c",
+                        "outline": "#74777f",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#223144",
+                        "tertiary-fixed": "#dde3eb",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d4e4fc",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-primary-container": "#86a0cd",
+                        "on-background": "#0d1c2e",
+                        "primary-container": "#1a365d",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#455f88",
+                        "tertiary-container": "#30363c",
+                        "secondary-fixed": "#d9e3f9",
+                        "primary-fixed-dim": "#adc7f7",
+                        "outline-variant": "#c4c6cf",
+                        "inverse-primary": "#adc7f7",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "tertiary": "#1b2127",
+                        "surface-container-low": "#eff4ff",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-high": "#dce9ff",
+                        "primary": "#002045",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#001b3c",
+                        "secondary-container": "#d6e0f6",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#001b3c",
+                        "secondary-container": "#d6e0f6",
+                        "surface-container-highest": "#d4e4fc",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#0d1c2e",
+                        "on-secondary-container": "#596376",
+                        "on-tertiary-container": "#989fa6",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-fixed": "#161c22",
+                        "secondary": "#555f71",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "brand-teal": "#004d40",
+                        "brand-orange": "#f57c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "container-max": "1440px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "display-lg": ["Outfit"],
+                        "title-md": ["Outfit"],
+                        "label-sm": ["Outfit"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .connector-line {
+            position: absolute;
+            z-index: 0;
+            stroke: #94a3b8;
+            stroke-dasharray: 4;
+            fill: none;
+        }
+        .canvas-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .canvas-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-secondary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-lg py-sm max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="font-display-lg text-title-md font-bold text-primary">Dog Washer Connect</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-sm py-xs" href="#">Dashboard</a>
+<a class="font-title-md text-title-md text-primary border-b-2 border-primary pb-1" href="#">Schedules</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-sm py-xs" href="#">Clients</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-sm py-xs" href="#">Financials</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors">settings</button>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined">add</span>
+                New Booking
+            </button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female operations manager in a corporate office setting, wearing a clean white shirt. The background is a blurred modern office with soft daylight coming through large windows, maintaining a clean, light-mode institutional aesthetic with blue and grey tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd88-IeopaW9POb4E_hfYNMqkWvsprWoLxvN5XzpLyY25t6eX75HzxfHJ9uPtBCKPjUF2s3nq8dH25mi3IWuBx-JAIsvTUi0_rm2wya9qrRo4iSTUfnFzp668DBN21i8aofGj4m8FY7uOAKyj_99wdlY2tNEqzN6_VL0rtP5uZiVZOdjjlktMxvSgT0kmAFbIxu_pCH0DkUoI96Z9b1VUZ931zfZYTNXPrf1qfw44pr7PDe8qhHRtZ"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto p-lg mb-24">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-brand-teal mb-sm">Mapa da Experiência</h1>
+<p class="text-on-surface-variant max-w-2xl">Blueprint operacional detalhando o fluxo de jornada desde o prospecto inicial até a fidelização administrativa.</p>
+</div>
+<!-- Legend -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant flex gap-lg">
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-brand-orange"></span>
+<span class="font-label-md text-label-md">Ação Prioritária</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-brand-teal"></span>
+<span class="font-label-md text-label-md">Etapa Concluída</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md">Ponto de Decisão</span>
+</div>
+</div>
+</div>
+<!-- Experience Canvas Grid -->
+<div class="blueprint-grid border border-outline-variant rounded-xl overflow-hidden relative min-h-[800px] bg-surface-container-lowest">
+<!-- Column Headers -->
+<div class="grid grid-cols-4 border-b border-outline-variant bg-surface-container-low/50 sticky top-0 z-10 backdrop-blur-sm">
+<div class="p-md text-center border-r border-outline-variant">
+<span class="font-title-md text-brand-teal uppercase tracking-widest text-[14px]">Área Pública</span>
+</div>
+<div class="p-md text-center border-r border-outline-variant">
+<span class="font-title-md text-brand-teal uppercase tracking-widest text-[14px]">Profissional</span>
+</div>
+<div class="p-md text-center border-r border-outline-variant">
+<span class="font-title-md text-brand-teal uppercase tracking-widest text-[14px]">Estabelecimento</span>
+</div>
+<div class="p-md text-center">
+<span class="font-title-md text-brand-teal uppercase tracking-widest text-[14px]">Administração</span>
+</div>
+</div>
+<!-- Content Area -->
+<div class="grid grid-cols-4 min-h-[700px] relative">
+<!-- SVG Connectors Overlay (Simplified for HTML view) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40">
+<path class="connector-line" d="M 180 120 L 380 120" stroke-width="2"></path>
+<path class="connector-line" d="M 540 160 L 540 240" stroke-width="2"></path>
+<path class="connector-line" d="M 540 320 L 740 320" stroke-width="2"></path>
+<path class="connector-line" d="M 900 360 L 1100 360" stroke-width="2"></path>
+<path class="connector-line" d="M 1100 440 L 1100 520" stroke-width="2"></path>
+<path class="connector-line" d="M 1100 600 L 540 600" stroke-width="2"></path>
+</svg>
+<!-- AREA PÚBLICA -->
+<div class="p-lg space-y-xl border-r border-outline-variant relative">
+<!-- Step 1: Cadastro -->
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-brand-orange">person_add</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Cadastro</h3>
+</div>
+<p class="text-xs text-on-surface-variant">O washer preenche dados básicos e anexa certificados de competência pet.</p>
+<div class="mt-md flex justify-between items-center">
+<span class="bg-brand-orange/10 text-brand-orange px-xs py-[2px] rounded text-[10px] font-bold">START</span>
+<span class="text-[10px] text-outline italic">Mobile App</span>
+</div>
+</div>
+<!-- Step: Public Info -->
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm opacity-60">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary">info</span>
+<h3 class="font-title-md text-sm font-bold text-primary">FAQ & Ajuda</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Acesso a manuais e diretrizes da plataforma antes do aceite.</p>
+</div>
+</div>
+<!-- PROFISSIONAL -->
+<div class="p-lg space-y-xl border-r border-outline-variant relative">
+<!-- Step 2: Aprovação (Decision) -->
+<div class="canvas-card bg-surface-container-low border-2 border-brand-teal/30 border-dashed rounded-lg p-md shadow-sm relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-brand-teal" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Aprovação</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Validação de antecedentes e verificação de perfil pela equipe regional.</p>
+<div class="mt-md border-t border-outline-variant pt-sm flex gap-xs">
+<span class="material-symbols-outlined text-xs text-brand-teal">check_circle</span>
+<span class="text-[10px] text-brand-teal font-bold uppercase">Liberado para Job</span>
+</div>
+</div>
+<!-- Step 3: Oportunidade -->
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10 mt-12">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-brand-orange">notification_important</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Oportunidade</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Push notification de demanda disponível em raio de 5km.</p>
+<button class="mt-md w-full bg-primary text-white py-xs rounded text-[11px] font-bold">Aceitar Job</button>
+</div>
+</div>
+<!-- ESTABELECIMENTO -->
+<div class="p-lg space-y-xl border-r border-outline-variant relative">
+<!-- Step 4: Execução -->
+<div class="canvas-card bg-white border-l-4 border-l-brand-orange border border-outline-variant rounded-lg p-md shadow-sm relative z-10 mt-24">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-brand-orange">pets</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Execução</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Lavagem técnica e secagem no local parceiro. Check-in obrigatório.</p>
+<div class="mt-md space-y-xs">
+<div class="h-1 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-brand-orange w-3/4"></div>
+</div>
+<span class="text-[10px] text-outline">75% concluído</span>
+</div>
+</div>
+<!-- Step 5: Pagamento -->
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-brand-teal">payments</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Pagamento</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Processamento via Gateway. Split automático entre Washer e Loja.</p>
+<div class="mt-md flex items-center justify-between">
+<span class="text-[14px] font-bold text-brand-teal">R$ 84,90</span>
+<span class="material-symbols-outlined text-xs text-brand-teal">lock</span>
+</div>
+</div>
+</div>
+<!-- ADMINISTRAÇÃO -->
+<div class="p-lg space-y-xl relative">
+<!-- Step 6: Avaliação -->
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10 mt-32">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-brand-orange">star</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Avaliação</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Feedback 360º. Feedback do cliente e do estabelecimento sobre o Washer.</p>
+<div class="flex gap-xs mt-sm text-brand-orange">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+<!-- Step 7: Fidelização (End) -->
+<div class="canvas-card bg-primary-container text-white rounded-lg p-md shadow-md relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-secondary-fixed">auto_graph</span>
+<h3 class="font-title-md text-sm font-bold">Fidelização</h3>
+</div>
+<p class="text-xs opacity-80">Análise de métricas de recorrência e liberação de bônus por produtividade.</p>
+<div class="mt-md text-right">
+<span class="text-[10px] font-bold uppercase text-secondary-fixed tracking-widest">Loop Operacional</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Stats / Footer of Map -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant flex items-center gap-md">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-brand-teal">speed</span>
+</div>
+<div>
+<span class="block font-label-md text-outline">Lead Time Médio</span>
+<span class="text-title-md font-bold text-primary">42 min</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant flex items-center gap-md">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-brand-teal">thumb_up</span>
+</div>
+<div>
+<span class="block font-label-md text-outline">NPS do Fluxo</span>
+<span class="text-title-md font-bold text-primary">8.9</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant flex items-center gap-md">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-brand-orange">error_outline</span>
+</div>
+<div>
+<span class="block font-label-md text-outline">Gargalo Identificado</span>
+<span class="text-title-md font-bold text-primary">Check-in Loja</span>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 left-0 top-0 fixed bg-surface-container-low border-r border-outline-variant p-md gap-sm transition-all duration-200 ease-in-out z-40">
+<div class="mb-xl">
+<div class="flex items-center gap-sm mb-xs">
+<div class="bg-primary p-1 rounded">
+<span class="material-symbols-outlined text-white text-md">pets</span>
+</div>
+<h2 class="font-brand-logo text-primary font-bold">Dog Washer</h2>
+</div>
+<p class="text-[10px] text-outline font-bold uppercase tracking-wider">Enterprise Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Home</span>
+</a>
+<a class="flex items-center gap-md p-sm bg-primary-container text-on-primary-container font-bold rounded-xl shadow-sm" href="#">
+<span class="material-symbols-outlined">settings_remote</span>
+<span class="font-label-md">Operations</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">store</span>
+<span class="font-label-md">Establishment</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="font-label-md">Professional</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-md">Admin</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md">Reports</span>
+</a>
+</nav>
+<div class="pt-md border-t border-outline-variant space-y-1">
+<div class="px-sm mb-sm">
+<span class="text-[10px] font-bold text-brand-teal uppercase flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+                    System Active
+                </span>
+</div>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Help</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-md pb-md pt-sm bg-surface-container-lowest border-t border-outline-variant shadow-lg z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant transition-transform scale-95 active:scale-90 p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm uppercase mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant transition-transform scale-95 active:scale-90 p-2" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm uppercase mt-1">Clients</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant transition-transform scale-95 active:scale-90 p-2" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-sm uppercase mt-1">More</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.canvas-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'var(--brand-teal)';
+            });
+            card.addEventListener('mouseleave', () => {
+                if(!card.classList.contains('bg-primary-container')) {
+                    card.style.borderColor = '';
+                }
+            });
+        });
+    </script>
+</body></html>

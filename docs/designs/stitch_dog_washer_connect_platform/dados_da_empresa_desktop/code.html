@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Cadastro de Empresa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #000000 !important;
+            ring: 0 !important;
+        }
+        .bg-gradient-mesh {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(at 0% 0%, rgba(254, 166, 25, 0.05) 0px, transparent 50%), 
+                              radial-gradient(at 100% 100%, rgba(133, 83, 0, 0.05) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-margin-desktop py-4 w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flat no shadows">
+<div class="flex items-center gap-8">
+<span class="font-display text-headline-md text-primary dark:text-inverse-primary">Dog Washer Connect</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer active:opacity-80" href="#">Help</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer active:opacity-80" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">notifications</button>
+<div class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-full cursor-pointer hover:opacity-90 transition-opacity">
+<span class="font-label-md text-label-md">Save Progress</span>
+</div>
+<button class="material-symbols-outlined text-primary">account_circle</button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full py-stack-lg px-stack-md border-r border-outline-variant bg-surface-container-low dark:bg-tertiary-container w-64 shadow-sm">
+<div class="mb-10 px-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">pets</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Onboarding</h2>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Setup in progress</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Tab Active: Company Info -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-semibold scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-md text-label-md">Company Info</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">store</span>
+<span class="font-label-md text-label-md">Units</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">construction</span>
+<span class="font-label-md text-label-md">Structure</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+<span class="font-label-md text-label-md">Photography</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Documents</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-gradient-mesh p-4 md:p-10">
+<div class="max-w-4xl mx-auto">
+<!-- Header Section -->
+<div class="mb-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full mb-4">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm">Etapa 1 de 5</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Dados da Empresa</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Insira as informações oficiais do seu estabelecimento pet para começarmos.</p>
+</div>
+<!-- Form Card -->
+<form class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-6 md:p-8 space-y-8">
+<!-- Form Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-6">
+<!-- Col 1 -->
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Tipo de cadastro</label>
+<div class="flex gap-4">
+<label class="flex-1 flex items-center justify-center gap-2 p-3 border border-outline-variant rounded-lg cursor-pointer hover:border-primary transition-colors has-[:checked]:bg-primary-container has-[:checked]:text-on-primary-container has-[:checked]:border-primary">
+<input checked="" class="hidden" name="tipo_cadastro" type="radio" value="PJ"/>
+<span class="font-label-md text-label-md">Pessoa Jurídica (PJ)</span>
+</label>
+<label class="flex-1 flex items-center justify-center gap-2 p-3 border border-outline-variant rounded-lg cursor-pointer hover:border-primary transition-colors has-[:checked]:bg-primary-container has-[:checked]:text-on-primary-container has-[:checked]:border-primary">
+<input class="hidden" name="tipo_cadastro" type="radio" value="EI"/>
+<span class="font-label-md text-label-md">Empresa Individual (EI)</span>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="razao_social">Razão Social</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md focus:border-primary transition-all" id="razao_social" placeholder="Ex: Pet Shop Estrela Ltda" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="cnpj">CNPJ</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="cnpj" placeholder="00.000.000/0000-00" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="data_abertura">Data de abertura</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="data_abertura" type="date"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="unidades">Quantidade de unidades</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="unidades" min="1" placeholder="1" type="number"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="instagram">Instagram</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">@</span>
+<input class="w-full pl-9 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="instagram" placeholder="seu_petshop" type="text"/>
+</div>
+</div>
+</div>
+<!-- Col 2 -->
+<div class="space-y-6">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="nome_fantasia">Nome Fantasia</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="nome_fantasia" placeholder="Nome comercial" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="ie">Inscrição Estadual (IE)</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="ie" placeholder="Isento ou número" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="segmento">Segmento</label>
+<select class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md appearance-none" id="segmento">
+<option value="">Selecione o segmento</option>
+<option value="petshop">Pet Shop</option>
+<option value="clinica">Clínica Veterinária</option>
+<option value="estetica">Estética Animal</option>
+<option value="hotel">Hotel / Creche</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="site">Site</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="site" placeholder="https://www.exemplo.com.br" type="url"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="telefone">Telefone</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="telefone" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="email">E-mail corporativo</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md" id="email" placeholder="contato@empresa.com.br" type="email"/>
+</div>
+</div>
+<!-- Full Width Fields -->
+<div class="md:col-span-2 space-y-6">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="apresentacao">Breve apresentação</label>
+<textarea class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md resize-none" id="apresentacao" placeholder="Conte um pouco sobre a história e os diferenciais da sua empresa..." rows="4"></textarea>
+</div>
+<!-- Security Message -->
+<div class="flex items-start gap-3 p-4 bg-surface-container rounded-lg border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary">security</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold">Seus dados estão protegidos</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Utilizamos criptografia de ponta a ponta para garantir a segurança das informações institucionais. Seus dados nunca serão compartilhados sem autorização.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col sm:flex-row justify-between items-center pt-6 border-t border-outline-variant gap-4">
+<button class="w-full sm:w-auto px-8 py-3 border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary/5 transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                            Voltar
+                        </button>
+<button class="w-full sm:w-auto px-10 py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2" type="submit">
+                            Próximo passo
+                            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Help Card (Asymmetric Layout element) -->
+<div class="mt-12 flex flex-col md:flex-row gap-6">
+<div class="flex-1 bg-surface-container-high rounded-xl p-6 flex items-start gap-4">
+<div class="p-3 bg-white rounded-full">
+<span class="material-symbols-outlined text-primary">live_help</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Dúvidas no preenchimento?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Nossa central de suporte está disponível em horário comercial para auxiliar com a documentação PJ.</p>
+<a class="inline-block mt-3 text-secondary font-semibold hover:underline" href="#">Falar com consultor</a>
+</div>
+</div>
+<div class="md:w-1/3 bg-tertiary-container text-on-tertiary p-6 rounded-xl relative overflow-hidden group">
+<!-- Glassmorphism card effect inside -->
+<div class="relative z-10">
+<h4 class="font-title-lg text-title-lg mb-2">Por que Dog Washer?</h4>
+<p class="font-label-md text-label-md opacity-80">Junte-se a mais de 2.000 estabelecimentos que digitalizaram sua gestão pet hoje.</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-10 group-hover:scale-110 transition-transform">pets</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant rounded-t-xl">
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-3 py-1 active:scale-95 transition-transform opacity-90">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface active:scale-95 transition-transform opacity-90">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface active:scale-95 transition-transform opacity-90">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface active:scale-95 transition-transform opacity-90">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</button>
+</nav>
+<script>
+        // Simple Micro-interaction for form inputs
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.classList.add('scale-[1.01]');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Form submission prevention for demo
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Avançando para a etapa de Unidades...');
+        });
+    </script>
+</body></html>

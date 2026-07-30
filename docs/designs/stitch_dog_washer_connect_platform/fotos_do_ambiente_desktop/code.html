@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fotos do Ambiente - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+        .image-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen w-64 sticky top-0 py-stack-lg px-stack-md border-r border-outline-variant bg-surface-container-low transition-all">
+<div class="mb-8 px-2">
+<h1 class="font-headline-md text-headline-md text-on-surface">Onboarding</h1>
+<p class="text-on-surface-variant font-label-md text-label-md">Setup in progress</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">business</span> Company Info
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">store</span> Units
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">construction</span> Structure
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-semibold font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">photo_camera</span> Photography
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">description</span> Documents
+                </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col pb-24 lg:pb-0">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined cursor-pointer">menu</span>
+<span class="font-display text-headline-md text-primary">Dog Washer Connect</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Help</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Support</a>
+</div>
+<span class="material-symbols-outlined cursor-pointer text-on-surface-variant">notifications</span>
+<span class="material-symbols-outlined cursor-pointer text-on-surface-variant">account_circle</span>
+</div>
+</header>
+<div class="p-margin-mobile md:p-margin-desktop max-w-6xl mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg mb-2">Fotos do Ambiente</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">
+                        A qualidade das fotos influencia diretamente na confiança dos clientes. Certifique-se de que o local está limpo e bem iluminado.
+                    </p>
+</div>
+<!-- Guidelines Banner -->
+<div class="glass-card rounded-xl p-6 mb-stack-lg flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="bg-secondary-container/20 p-4 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-lg text-title-lg mb-1">Dicas para boas fotos</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary">wb_sunny</span>
+                                Luz Natural
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary">filter_none</span>
+                                Sem Filtros
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary">straighten</span>
+                                Ângulo Amplo
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary">cleaning_services</span>
+                                Ambiente Limpo
+                            </div>
+</div>
+</div>
+</div>
+<!-- Bento Grid for Categories -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Main Category: Fachada -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest transition-shadow hover:shadow-md">
+<div class="aspect-[16/7] w-full relative">
+<img class="w-full h-full object-cover" data-alt="High-resolution, wide-angle exterior photo of a modern pet shop facade during golden hour. The building features minimalist glass architecture with professional branding and warm internal lighting. The surrounding pavement is clean, and the overall mood is premium, trustworthy, and welcoming, using a palette of soft whites and amber highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7IY32sSDO4pz9an8eEPxzYps4k-STy3nb3xUqU5hcindIMIx3wm8SNdWnDbSwrI9rfcGwJN48RB0X1oZPfNy77CKuqCVi962_QWpforpqHbNppkcv0lEbIp2Awl8zWkUTfftuBIlYeoAt07h6DE2oV1jxpDqQvo2RMEzhoe4hzHKqZrJlQcJ0uFfoE0cA-ID7QsVXUAi9A2ePK_vOGU9DiocDZkUwoLzzySKHsxrHKWOv9S07Lw0X"/>
+<div class="absolute inset-0 image-overlay flex flex-col justify-end p-6">
+<div class="flex justify-between items-end">
+<div>
+<span class="px-2 py-1 bg-green-100 text-green-800 text-[10px] font-bold uppercase rounded mb-2 inline-block">Aprovada</span>
+<h4 class="text-white font-title-lg text-title-lg">Fachada Principal</h4>
+</div>
+<button class="bg-white/20 hover:bg-white/40 backdrop-blur-md text-white px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined">sync</span> Substituir
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary: Recepção -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<div class="group relative flex-1 overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest transition-shadow hover:shadow-md">
+<div class="h-full min-h-[200px] relative">
+<img class="w-full h-full object-cover" data-alt="Interior view of a sleek, minimalist pet grooming reception area. The space is illuminated with bright, natural lighting, featuring polished wooden counters and clean white walls. Minimalist pet products are displayed neatly on glass shelves. The atmosphere is professional, sophisticated, and tranquil, reflecting a high-end corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPFORA2l624YOLO8T3VobOWVeB68h-PUb-HMW8hcgNG1FdlarrA43lDmdp-2i5LSktwqJiG1-LHgR0ZpLFdgQQMqmQVEyOkIWKvYCR7GBycwvDpFvJdRPqtIhUyLScEKNfn6oqeUQeCJGhI3ZjkgK-Hj8Di_im1TjhUCThJIPf78H4cG2ST2nXoHOjRAmx60LdbSNPD2WehEh86_NJsgkx3MqacAn8a6nZd6b8jiV9HA-JyFR4wXXS"/>
+<div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined">visibility</span> Ver Detalhes
+                                    </button>
+</div>
+<div class="absolute top-4 left-4">
+<span class="px-2 py-1 bg-amber-100 text-amber-800 text-[10px] font-bold uppercase rounded">Em Análise</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4">
+<h4 class="text-white font-title-lg text-title-lg drop-shadow-md">Recepção</h4>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2: Banho & Secagem -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest transition-shadow hover:shadow-md">
+<div class="aspect-square relative">
+<img class="w-full h-full object-cover" data-alt="A clinical and extremely clean pet bathing station with stainless steel tubs and modern faucets. The lighting is crisp and bright, highlighting the sterility and professional equipment. The walls are white subway tiles, conveying a sense of hygiene and high-standard care for pets. Corporate lighting style with high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGtymcIioIlj3kSBb9STxmiUFK2Lk1jS2bT66VXYGUvoWLQNY83sHePjBbb1eTgY2ZcrXjSiuvcrCnE35eNiz9w57edIHPOdX8ww79ee6y_sGO5MKeG7D5L05kjbVosIk8tPvIXPLY6we8oQJ32TKxLmPz7bFTHG8qExqkszFMtpOmCOfcfUMEt8zFEaQ36LmPpPTRI8wBLnPbkTtKxa0HfLrJSEJTrM6btiVN6ESjJA-SUaF3f5Ww"/>
+<div class="absolute inset-0 image-overlay flex flex-col justify-end p-4">
+<span class="px-2 py-1 bg-red-100 text-red-800 text-[10px] font-bold uppercase rounded mb-2 w-fit">Recusada</span>
+<h4 class="text-white font-title-lg text-title-lg">Área de Banho</h4>
+<p class="text-white/80 text-[11px] mt-1">Motivo: Iluminação insuficiente no canto esquerdo.</p>
+<button class="mt-3 w-full bg-secondary text-on-secondary py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">upload</span> Tentar Novamente
+                                </button>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer flex flex-col items-center justify-center text-center p-8">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">add_a_photo</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Área de Secagem</h4>
+<p class="text-on-surface-variant font-label-md text-label-md">Clique para enviar ou arraste a foto</p>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer flex flex-col items-center justify-center text-center p-8">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">add_a_photo</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Outros Ambientes</h4>
+<p class="text-on-surface-variant font-label-md text-label-md">Opcional: Sala de espera, jardim, etc.</p>
+</div>
+</div>
+<!-- Confirmation Section -->
+<div class="mt-12 p-8 glass-card rounded-2xl border-2 border-secondary/20">
+<div class="flex items-start gap-4">
+<div class="pt-1">
+<input class="w-6 h-6 rounded border-outline text-secondary focus:ring-secondary cursor-pointer" id="legal-declaration" type="checkbox"/>
+</div>
+<label class="cursor-pointer" for="legal-declaration">
+<span class="font-title-lg text-title-lg text-on-surface block mb-2">Declaração de Autenticidade</span>
+<span class="font-body-md text-body-md text-on-surface-variant">
+                                Declaro que as fotos enviadas são representações reais e atuais do estabelecimento Dog Washer Connect e que possuo todos os direitos de imagem para uso institucional na plataforma. Entendo que o uso de filtros excessivos ou imagens falsas pode levar à suspensão do cadastro.
+                            </span>
+</label>
+</div>
+<div class="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+<button class="w-full sm:w-auto px-8 py-3 border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary/5 transition-colors">
+                            Salvar Rascunho
+                        </button>
+<button class="w-full sm:w-auto px-12 py-4 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md font-bold shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center gap-3">
+                            Salvar e Continuar <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-3 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the checkbox and CTA button
+        const checkbox = document.getElementById('legal-declaration');
+        const submitBtn = document.querySelector('button.bg-secondary');
+
+        // Initial state
+        submitBtn.style.opacity = '0.5';
+        submitBtn.style.pointerEvents = 'none';
+
+        checkbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+            } else {
+                submitBtn.style.opacity = '0.5';
+                submitBtn.style.pointerEvents = 'none';
+            }
+        });
+
+        // Hover effects for the dropzones
+        const dropzones = document.querySelectorAll('.border-dashed');
+        dropzones.forEach(dz => {
+            dz.addEventListener('mouseenter', () => {
+                dz.classList.add('border-secondary');
+            });
+            dz.addEventListener('mouseleave', () => {
+                dz.classList.remove('border-secondary');
+            });
+        });
+    </script>
+</body></html>

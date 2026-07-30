@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#07111E",
+                        "secondary": "#FEA619",
+                        "background": "#F8F9FA",
+                        "surface": "#FFFFFF",
+                        "on-surface": "#191C1D",
+                        "on-surface-variant": "#44474C",
+                        "outline": "#75777C",
+                        "outline-variant": "#C5C6CC",
+                        "error": "#BA1A1A",
+                        "error-container": "#FFDAD6",
+                        "surface-container": "#EDEEEF",
+                        "surface-container-low": "#F3F4F5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "display": ["Outfit", "sans-serif"],
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Outfit", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-item {
+            background-color: #FEA619 !important;
+            color: #07111E !important;
+        }
+        .sidebar-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="text-on-surface flex min-h-screen">
+<!-- Fixed Sidebar -->
+<aside class="hidden md:flex flex-col w-64 bg-[#07111E] text-white fixed h-full z-50">
+<div class="p-6 mb-4">
+<img alt="Dog Washer Connect" class="w-full invert brightness-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeYfu5j76O2jzVWh2EOFANO-BZckafUShYB0PNH7W6yqtzYc0vAFO7mZAvlUlaN_GVQGK4OrBF2Fnyvv4i53XuCZPe_GLOV6SNZgU5RAmFsWtU_ji9S1fMraXHJkk4Fy8abnLw-9v5LB95feLYIlBsS8ZEQFhXEXbdMjVMcWtBt8DitwHJ6MlY37M7IGZPBZO_lTbr8SkR3_diB-pgi5Qx7WsIzTrS_AFBLrz-EUYleqnxBJzaiaTlCwBXf5UnfIIsGQ"/>
+</div>
+<nav class="flex-1 px-4 space-y-1 sidebar-scrollbar overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors active-nav-item" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-medium">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-medium">Rede</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">settings_accessibility</span>
+<span class="font-medium">Operações</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-medium">Qualidade</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Financeiro</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-medium">Admin</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-medium">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-white/10 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span>Help</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+<span>Support</span>
+</a>
+<div class="px-4 py-4 mt-2">
+<div class="flex items-center gap-2 text-[10px] text-green-400 uppercase tracking-widest font-bold">
+<span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    System Status: Active
+                </div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 bg-[#F8F9FA] min-h-screen">
+<!-- TopBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-white border-b border-outline-variant">
+<div class="md:hidden flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-[#07111E] text-[32px]">menu</span>
+</div>
+<div class="hidden md:flex items-center gap-2 text-sm text-outline">
+<span>Portal</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Administração</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-medium">Visão Consolidada</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden lg:flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-sm">location_on</span>
+<div class="text-[10px]">
+<p class="text-outline uppercase leading-none">Unidade Atual</p>
+<p class="text-primary font-bold">São Paulo - Central</p>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 ml-4 border-l pl-6 border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-primary">Pet Spa Premium</p>
+<p class="text-[11px] text-outline">Carlos Silva</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border border-outline-variant">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjDVG4MSrjym7TFkh6w8r7tA6estiTi1bHwIRrOOAzZpF1eKZ7jbwHq3YlPMwraO2eOlFWvebc6gMskZkBXE1KJQRvSZ3UGRgFTqLQdLx3T-QDyA1dLxsaq7oT0KednMuQUgChOWb94pTiaUoUP4oOSYdMwcEr1qoAvCBQDnGnr32DS7pA9ZbTquu6dx83iSLGggFMd67Sm16BSOCKj5ILE0oXrAf022Ux7JQRv8RruQmVArgYwxsA"/>
+</div>
+</div>
+</div>
+</header>
+<main class="p-margin-mobile md:p-margin-desktop max-w-screen-2xl mx-auto">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md mb-stack-lg">
+<div>
+<h2 class="text-3xl font-bold text-primary tracking-tight">Painel da Unidade</h2>
+<p class="text-on-surface-variant">Gerencie suas vagas e acompanhe o desempenho financeiro em tempo real.</p>
+</div>
+<button class="flex items-center gap-2 bg-[#FEA619] text-[#07111E] px-6 py-3 rounded-xl font-bold shadow-sm hover:brightness-95 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                    Publicar Nova Oportunidade
+                </button>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Unit Summary Cards -->
+<div class="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-gutter">
+<div class="glass-card p-6 rounded-xl shadow-sm border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg">assignment_turned_in</span>
+<span class="text-xs font-bold text-green-600">+12% vs ontem</span>
+</div>
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-1">Jobs Ativos</p>
+<h3 class="text-3xl font-bold text-primary">24</h3>
+</div>
+<div class="glass-card p-6 rounded-xl shadow-sm border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/5 p-2 rounded-lg">group</span>
+<span class="text-xs font-bold text-primary">8 novos</span>
+</div>
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-1">Candidaturas</p>
+<h3 class="text-3xl font-bold text-primary">42</h3>
+</div>
+<div class="glass-card p-6 rounded-xl shadow-sm border-l-4 border-error">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error bg-error/10 p-2 rounded-lg">warning</span>
+<span class="text-xs font-bold text-error uppercase">Crítico</span>
+</div>
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-1">Ocorrência Operacional</p>
+<h3 class="text-3xl font-bold text-primary">03</h3>
+</div>
+</div>
+<!-- Financial Overview -->
+<div class="col-span-12 md:col-span-4 glass-card p-6 rounded-xl shadow-sm flex flex-col justify-between border-t-4 border-secondary">
+<div>
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-primary">Visão Financeira</h3>
+<span class="material-symbols-outlined text-outline">payments</span>
+</div>
+<div class="mb-4">
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest">Faturamento Mensal</p>
+<h2 class="text-3xl font-bold text-secondary">R$ 18.450,00</h2>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-outline-variant">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-outline">Pagos</span>
+<span class="text-primary font-bold">R$ 12.200</span>
+</div>
+<div class="flex justify-between text-xs font-medium">
+<span class="text-outline">Em Processamento</span>
+<span class="text-primary font-bold">R$ 6.250</span>
+</div>
+</div>
+</div>
+<!-- Management Table: Active Jobs -->
+<div class="col-span-12 md:col-span-8 glass-card rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-white">
+<h3 class="text-lg font-bold text-primary">Gerenciamento de Jobs Ativos</h3>
+<button class="text-sm font-bold text-secondary hover:underline">Ver todos</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-[10px] font-bold text-outline uppercase tracking-widest">
+<tr>
+<th class="px-6 py-4">PROFISSIONAL CREDENCIADO</th>
+<th class="px-6 py-4">SERVIÇO</th>
+<th class="px-6 py-4">HORÁRIO</th>
+<th class="px-6 py-4">STATUS</th>
+<th class="px-6 py-4 text-right">AÇÕES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-white">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center text-xs font-bold">RM</div>
+<span class="text-sm font-medium text-primary">Ricardo Mendes</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Banho &amp; Tosa Completo</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">08:00 - 17:00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded-full bg-primary/10 text-primary text-[9px] font-black uppercase tracking-tighter">Em andamento</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">AF</div>
+<span class="text-sm font-medium text-primary">Ana Ferreira</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Higiene Bucal Specialist</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">10:00 - 19:00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded-full bg-primary/10 text-primary text-[9px] font-black uppercase tracking-tighter">Em andamento</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center text-xs font-bold">--</div>
+<span class="text-sm font-medium">Aguardando...</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Auxiliar de Limpeza Pet</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">13:00 - 21:00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded-full bg-secondary/20 text-secondary text-[9px] font-black uppercase tracking-tighter">Chegada Pendente</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Operational Issues List -->
+<div class="col-span-12 md:col-span-4 glass-card rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant bg-white">
+<h3 class="text-lg font-bold text-primary">Alertas Operacionais</h3>
+</div>
+<div class="p-6 space-y-4 bg-white flex-1 overflow-y-auto">
+<div class="flex gap-4 items-start p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+<span class="material-symbols-outlined text-red-500 mt-0.5">block</span>
+<div>
+<p class="text-sm font-bold text-red-900">Atraso Crítico</p>
+<p class="text-xs text-red-700">Marcos Silva não realizou check-in (Posto B).</p>
+<span class="text-[10px] font-bold text-red-500 uppercase mt-1 inline-block">Há 15 minutos</span>
+</div>
+</div>
+<div class="flex gap-4 items-start p-3 bg-amber-50 rounded-lg border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary mt-0.5">pending</span>
+<div>
+<p class="text-sm font-bold text-amber-900">Documentação</p>
+<p class="text-xs text-amber-700">Carla Dias precisa validar o certificado sanitário.</p>
+<span class="text-[10px] font-bold text-secondary uppercase mt-1 inline-block">Urgente</span>
+</div>
+</div>
+<div class="flex gap-4 items-start p-3 bg-slate-50 rounded-lg border-l-4 border-slate-400">
+<span class="material-symbols-outlined text-slate-500 mt-0.5">info</span>
+<div>
+<p class="text-sm font-bold text-slate-900">Manutenção</p>
+<p class="text-xs text-slate-700">Área de secagem passará por revisão às 21h.</p>
+<span class="text-[10px] font-bold text-slate-500 uppercase mt-1 inline-block">Hoje</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pending Candidacies Grid -->
+<div class="col-span-12">
+<div class="flex justify-between items-center mb-stack-md mt-4">
+<h3 class="text-xl font-bold text-primary">Novas Candidaturas</h3>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-white transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-white transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Candidacy Card 1 -->
+<div class="glass-card p-6 rounded-xl shadow-sm group hover:border-secondary transition-all">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDPLAzed2iEuPC5KtWPVSzNYSx3FFKUAe7yonaxnOveSeEapv8frOxM5ggLJO8dkaeNSVnLwaKmEQ4iczERXml_k0hafVrIOMN0m9MvgrvzYv32JmhfP-mWupB_oJ3ADX54V8TcMGv3xhjZHMBh1QlhowYHa18VgEs7Db1YT1a_Z4UFm24tK7F3zmVqCB_-_zFlqQ-INxFvSSORKJodp3DMEEb7_bZXEfBAsa_DWN4eLg0NIpZkVhi"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-primary text-sm">Julia Campos</h4>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.9</span>
+</div>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mb-6 line-clamp-2">Especialista em gatos e animais de porte médio. 5 anos de experiência.</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-xs font-bold hover:brightness-110 transition-all">Aceitar</button>
+<button class="px-3 py-2 border border-outline-variant rounded-lg text-xs font-bold text-outline hover:bg-surface-container transition-all">Perfil</button>
+</div>
+</div>
+<!-- Candidacy Card 2 -->
+<div class="glass-card p-6 rounded-xl shadow-sm group hover:border-secondary transition-all">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjDVG4MSrjym7TFkh6w8r7tA6estiTi1bHwIRrOOAzZpF1eKZ7jbwHq3YlPMwraO2eOlFWvebc6gMskZkBXE1KJQRvSZ3UGRgFTqLQdLx3T-QDyA1dLxsaq7oT0KednMuQUgChOWb94pTiaUoUP4oOSYdMwcEr1qoAvCBQDnGnr32DS7pA9ZbTquu6dx83iSLGggFMd67Sm16BSOCKj5ILE0oXrAf022Ux7JQRv8RruQmVArgYwxsA"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-primary text-sm">Bruno Mattos</h4>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.7</span>
+</div>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mb-6 line-clamp-2">Auxiliar técnico focado em organização e banho inicial. Disponível imediato.</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-xs font-bold hover:brightness-110 transition-all">Aceitar</button>
+<button class="px-3 py-2 border border-outline-variant rounded-lg text-xs font-bold text-outline hover:bg-surface-container transition-all">Perfil</button>
+</div>
+</div>
+<!-- Candidacy Card 3 -->
+<div class="glass-card p-6 rounded-xl shadow-sm group hover:border-secondary transition-all">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJqLWuqXAH8gCAUi5TT7GyZN42GlfgqlVZK14cXynAGzxylcj-QFejDrjfCTiE159jDQyewwWIvM9v6aX0uE33qvTKP-jPi-wTs2deGTfVjNETf6fQdfs69WeWjBsn_O86OFD3846G4LO8mbY53K1HUMfcPw78eRguuRHh_nfA89kZw2ndfAWYvVmOT8adXB3xzec9sL69GJ7zK9bk9u9eqGv84omdpX3XqCuoPFHuzhyb3gpLSTh0"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-primary text-sm">Lúcia Rocha</h4>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">5.0</span>
+</div>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mb-6 line-clamp-2">Expert em Tosa de Show e tratamentos dermatológicos pet.</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-xs font-bold hover:brightness-110 transition-all">Aceitar</button>
+<button class="px-3 py-2 border border-outline-variant rounded-lg text-xs font-bold text-outline hover:bg-surface-container transition-all">Perfil</button>
+</div>
+</div>
+<!-- Candidacy Card 4 -->
+<div class="glass-card p-6 rounded-xl shadow-sm group hover:border-secondary transition-all">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-outline">person</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-primary text-sm">Felipe Soares</h4>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.5</span>
+</div>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mb-6 line-clamp-2">Estudante de veterinária buscando experiência prática em banho.</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-xs font-bold hover:brightness-110 transition-all">Aceitar</button>
+<button class="px-3 py-2 border border-outline-variant rounded-lg text-xs font-bold text-outline hover:bg-surface-container transition-all">Perfil</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Desktop Only) -->
+<footer class="hidden md:flex w-full py-10 px-margin-desktop flex-col md:flex-row justify-between items-center gap-stack-md bg-white border-t border-outline-variant mt-12">
+<div class="flex flex-col items-center md:items-start">
+<div class="h-8 mb-2">
+<img alt="Logo" class="h-full object-contain opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbcNSgxBLyxtlSNc4hxlOwPKbvqpzQ8W7c4t7MPnJ6n0AT_woOPnQ0ZByflIN8UxyIW-KCvFatJzDdcyUJbYOl5Co2hOT9t69DZ6NaGzvAtZFoa_K62uQzEDC3BQ963guzWWg2Jdpa-XwnN37Ee33pUv4kTUzuXglnmQn8zxUfPJI3BDvcnSs9PxvPWmtWTB8iHnHHtsDVKLOvvgHAB5vw13s-VuWtyc3Atv7RtBlvyOtmXnD6mydSz_szWET0YVRyCA"/>
+</div>
+<p class="text-[11px] text-outline font-medium tracking-tight">© 2024 Dog Washer Connect - Gestão de Profissionais Independentes</p>
+</div>
+<div class="flex gap-10">
+<a class="text-xs font-bold text-outline hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="text-xs font-bold text-outline hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="text-xs font-bold text-outline hover:text-secondary transition-colors" href="#">Suporte Premium</a>
+</div>
+</footer>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-white border-t border-outline-variant">
+<div class="flex w-full overflow-x-auto no-scrollbar px-4 gap-6 items-center h-full">
+<a class="flex flex-col items-center justify-center min-w-fit text-secondary" href="#"><span class="material-symbols-outlined">home</span><span class="text-[9px] font-bold uppercase">Início</span></a>
+<a class="flex flex-col items-center justify-center min-w-fit text-outline" href="#"><span class="material-symbols-outlined">add_circle</span><span class="text-[9px] font-bold uppercase">Job</span></a>
+<a class="flex flex-col items-center justify-center min-w-fit text-outline" href="#"><span class="material-symbols-outlined">group</span><span class="text-[9px] font-bold uppercase">Candidatos</span></a>
+<a class="flex flex-col items-center justify-center min-w-fit text-outline" href="#"><span class="material-symbols-outlined">payments</span><span class="text-[9px] font-bold uppercase">Fin</span></a>
+<a class="flex flex-col items-center justify-center min-w-fit text-outline" href="#"><span class="material-symbols-outlined">person</span><span class="text-[9px] font-bold uppercase">Perfil</span></a>
+</div>
+</nav>
+<script>
+        // Simple micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Detalhes da Oportunidade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 0.75rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:hover {
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+        }
+        .status-badge {
+            background-color: #E0E7FF;
+            color: #4338CA;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#555f6f",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#bdc7d9",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-primary-fixed": "#121c29",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#855300",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-variant": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#0b1c30",
+                        "secondary-container": "#fea619",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "secondary-fixed": "#ffddb8",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "surface-bright": "#f8f9fa",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "primary-container": "#121c29",
+                        "background": "#f8f9fa",
+                        "on-primary-container": "#7b8495",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "tertiary-fixed": "#d3e4fe",
+                        "outline": "#75777c",
+                        "on-tertiary-container": "#75859d",
+                        "on-surface-variant": "#44474c",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#684000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-lg": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface border-b border-outline-variant shadow-sm glass-header">
+<div class="flex items-center gap-stack-md">
+<img alt="Dog Washer Connect Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIleNxwJw7nargO4hnTSowBxyoWhtknP8G8p4tv-hO91yQkwJdHxH_Xc_yxwG0_305s-UURoE-FKcIuYmNa3wpz5Px8QunLmEGLlKcGB96jm0cf2ozYdLaXImMiEwhW96uDLqx8yFTtRhJ3JGaTLnIOk2Kd_QLARZ6A-Odt87fuqsCeUqFgODms41lb0wSv-ZQaiLPFuyCab2GByqkZTvx5UEm3JPO6l36Ja4paQ5wko3MYXIVWDeSVycKUMoSCQ5zfA"/>
+<h1 class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md" href="#">Oportunidades</a>
+<a class="text-secondary font-bold font-label-md border-b-2 border-secondary" href="#">Meus Jobs</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md" href="#">Perfil</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">
+                PR
+            </div>
+</div>
+</header>
+<main class="pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg gap-4">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-secondary uppercase tracking-wider">Oportunidade Confirmada</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Banho e Tosa Premium - Golden Retriver</h2>
+<p class="text-on-surface-variant font-body-md">ID do Job: #DW-88291 • Confirmado em 12 de Outubro, 2024</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="px-6 py-2 border border-primary rounded-lg text-primary font-label-md hover:bg-surface-container-high transition-all">Imprimir Guia</button>
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-label-md hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">chat</span>
+                    Falar com Responsável
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Details -->
+<div class="md:col-span-8 space-y-gutter">
+<!-- Time and Location Bento Card -->
+<div class="bento-card p-stack-md grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex gap-4 items-start border-r border-outline-variant pr-stack-md">
+<div class="p-3 bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<div>
+<p class="text-outline font-label-sm uppercase">Período e Horário</p>
+<p class="font-title-lg text-primary">15 de Outubro, 2024</p>
+<p class="text-on-surface-variant font-body-md">09:00 - 11:30 (2.5 horas estimadas)</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="p-3 bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<p class="text-outline font-label-sm uppercase">Endereço do Estabelecimento</p>
+<p class="font-title-lg text-primary">Pet Luxury Jardins</p>
+<p class="text-on-surface-variant font-body-md">Alameda Lorena, 1250 - Jardins, São Paulo - SP</p>
+</div>
+</div>
+</div>
+<!-- Activities and Requirements -->
+<div class="bento-card p-stack-lg">
+<h3 class="font-headline-md text-headline-md mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined">assignment</span>
+                        Atividades e Escopo
+                    </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md mb-stack-lg">
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md">Banho Terapêutico (Pelagem Longa)</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md">Tosa Higiênica e Corte de Unhas</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md">Limpeza Auricular Especializada</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md">Secagem com Soprador de Baixo Ruído</span>
+</div>
+</div>
+<h4 class="font-title-lg text-title-lg mb-stack-sm">Observações Especiais</h4>
+<p class="text-on-surface-variant font-body-md p-4 border-l-4 border-secondary bg-surface-container-lowest">
+                        "O pet (Max) é um Golden de 4 anos, muito dócil porém ansioso com sopradores potentes. Favor utilizar a técnica de aproximação gradual. O shampoo hipoalergênico será fornecido pelo estabelecimento."
+                    </p>
+</div>
+<!-- Checklist Section -->
+<div class="bento-card p-stack-lg">
+<h3 class="font-headline-md text-headline-md mb-stack-md">Checklist de Preparação</h3>
+<div class="space-y-4">
+<label class="flex items-start gap-4 p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="mt-1 rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<div>
+<p class="font-label-md text-primary">Uniforme Completo</p>
+<p class="text-outline font-label-sm">Camiseta preta oficial e calçados fechados antiderrapantes.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="mt-1 rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<div>
+<p class="font-label-md text-primary">Kit de Ferramentas (Opcional)</p>
+<p class="text-outline font-label-sm">Tesouras de desbaste e rasqueadeira própria (caso prefira as suas).</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="mt-1 rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<div>
+<p class="font-label-md text-primary">Certificado Digital no App</p>
+<p class="text-outline font-label-sm">Certifique-se que seu comprovante de vacinação e MEI estão ativos.</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar / Map / Contact -->
+<div class="md:col-span-4 space-y-gutter">
+<!-- Map Card -->
+<div class="bento-card overflow-hidden">
+<div class="h-48 bg-surface-container-highest relative">
+<div class="w-full h-full" data-alt="A clean, professional digital map interface showing a specific location in the Jardins neighborhood of Sao Paulo. The map uses a minimalist, modern aesthetic with soft grays, muted blues, and high-contrast labels. A prominent gold marker pinpoints the exact destination on a tree-lined street. The lighting is bright and clear, reflecting a high-end corporate navigation tool." data-location="Sao Paulo, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAatMDgpKit59HPG-8Q9CEqqOCV0ifA68oNTDHckuldJizXakruSj99Yyhfxo6v2Y7tiOtw9BunYUsewV2YiE3kagjTyQmjVAD-aSsnK3-A2-Hdc942F2Pmwuq0dMMNbYNE-EleYuk_Ionl9GB-iFrQPqLbEzdwyDmZVFWjGTb5_jMG_IXZJtnQq8525WC7uRACgZPyUioN5c8uUqwAtUj2Ktzw1cYc7iiULlL-pTTaoPOB3-mJXgAr')"></div>
+<div class="absolute bottom-2 right-2">
+<button class="bg-surface p-2 rounded shadow-md text-primary flex items-center gap-1 font-label-sm">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+                                Abrir no Waze
+                            </button>
+</div>
+</div>
+<div class="p-stack-md border-t border-outline-variant">
+<p class="font-label-md text-primary">Acesso: Entrada lateral (serviço)</p>
+<p class="text-outline font-label-sm">Vaga para colaboradores disponível no subsolo.</p>
+</div>
+</div>
+<!-- Responsible Person -->
+<div class="bento-card p-stack-md flex items-center gap-4">
+<div class="relative">
+<img class="h-14 w-14 rounded-full object-cover border-2 border-secondary" data-alt="A professional headshot of a boutique pet store manager, a woman in her 30s with a welcoming and authoritative expression. She is wearing a professional minimalist uniform in a bright, modern studio setting with soft, high-key lighting. The background is a clean, out-of-focus high-end pet grooming salon with white marble and wood accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPdMrkMisEVchB_uXb22XcJlIwSZjvFfOfrsm2mb7_zzFCiHDR0Tl_iKDk46oBOvtCk--LSQkcFnSF3LQrU1cUqC0kkZRErARp0pZXqedyIsXEDi_sXqme2ismDjvUn1RzEnvCruXZYF20h0gHxoCbsxtc1NfJIsUs6u9Jx24hEfd1tDWEKMaUwsXtMGt__4TGO_Zc5mLVEEpn64z2CRCSJ_DH8_IaI3DB2UlX8IteWiuBnZzCjBro"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface rounded-full"></span>
+</div>
+<div>
+<p class="text-outline font-label-sm uppercase">Responsável</p>
+<p class="font-title-lg text-primary">Mariana Siqueira</p>
+<p class="text-on-surface-variant font-body-md">Gerente Operacional</p>
+</div>
+</div>
+<!-- Terms Accepted -->
+<div class="bento-card p-stack-md bg-surface-container-low border-dashed border-2 border-outline-variant">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+<h4 class="font-label-md text-primary font-bold">Termos de Serviço</h4>
+</div>
+<p class="text-on-surface-variant font-body-sm text-[13px] leading-relaxed mb-4">
+                        Você aceitou os termos de confidencialidade e as regras do estabelecimento em 10/10/2024 às 14:32. O cancelamento sem multa é permitido até 24h antes do início.
+                    </p>
+<a class="text-secondary font-label-sm flex items-center gap-1 hover:underline" href="#">
+                        Visualizar Termo Completo (PDF)
+                        <span class="material-symbols-outlined text-sm">download</span>
+</a>
+</div>
+<!-- Earnings Estimate -->
+<div class="bento-card p-stack-lg bg-primary-container text-on-primary">
+<p class="font-label-sm uppercase text-on-primary-container">Remuneração Estimada</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-headline-lg font-display">R$ 180,00</span>
+<span class="text-on-primary-container font-label-sm">/ job</span>
+</div>
+<div class="mt-4 pt-4 border-t border-on-primary-fixed-variant flex justify-between items-center text-on-primary-container font-label-sm">
+<span>Pagamento via App</span>
+<span>D+2 úteis</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest border-t border-outline-variant mt-20">
+<div class="flex flex-col items-center md:items-start">
+<h5 class="font-display text-title-lg text-primary mb-2">Dog Washer Connect</h5>
+<p class="text-outline font-label-sm">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+</div>
+<div class="flex gap-8">
+<a class="text-outline hover:text-secondary transition-colors font-label-sm" href="#">FAQ</a>
+<a class="text-outline hover:text-secondary transition-colors font-label-sm" href="#">Termos de Uso</a>
+<a class="text-outline hover:text-secondary transition-colors font-label-sm" href="#">Suporte</a>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<div class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-surface-container-lowest shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm">Oportunidades</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-label-sm">Meus Jobs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm">Perfil</span>
+</div>
+</div>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple checklist logic
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const parent = e.target.closest('label');
+                if(e.target.checked) {
+                    parent.classList.add('bg-surface-container-low');
+                    parent.style.borderColor = 'var(--tw-color-secondary)';
+                } else {
+                    parent.classList.remove('bg-surface-container-low');
+                    parent.style.borderColor = '';
+                }
+            });
+        });
+    </script>
+</body></html>

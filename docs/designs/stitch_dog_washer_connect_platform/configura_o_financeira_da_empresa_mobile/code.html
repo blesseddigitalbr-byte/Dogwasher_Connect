@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuração Financeira - Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#684000",
+                    "background": "#f8f9fa",
+                    "outline-variant": "#c5c6cc",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "tertiary-container": "#0b1c30",
+                    "outline": "#75777c",
+                    "on-surface-variant": "#44474c",
+                    "on-background": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary": "#000000",
+                    "primary": "#000000",
+                    "primary-fixed": "#d9e3f6",
+                    "on-surface": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fea619",
+                    "secondary": "#855300",
+                    "on-primary-fixed": "#121c29",
+                    "inverse-surface": "#2e3132",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#2a1700",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-tint": "#555f6f",
+                    "on-tertiary-container": "#75859d",
+                    "surface-container-highest": "#e1e3e4",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary-container": "#7b8495"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .bento-card {
+            background-color: #ffffff;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top AppBar (Mobile Version) -->
+<header class="w-full top-0 bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline shadow-sm z-40 sticky">
+<div class="flex justify-between items-center px-4 py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<button class="p-1 cursor-pointer active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-[20px] font-bold text-primary dark:text-primary-fixed">Configurações</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate pet shop manager, middle-aged with a friendly yet authoritative expression, captured in high-key studio lighting with a clean white background. The style is minimalist and premium, aligning with a professional corporate design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMgnD-NgfvFGoU6OWqin9-MP04WOQ4PNxBIuIOmmvtiAxAZu1kzTsWM-UQ-T9kszrexlevfV5yP4E93h-QaBlG7woZ8MWud_W_ouB0NODHWpkISiEFEUf6MmywXJ7fMPEpfOlNSPfLBiidu7FtodkMqC7jRECVONBQz4kEuBmdOhUSwvxy1jtld_S-ws0aAcIW6drXROB0BAO6ovaaTw3TZa9vuN8d0ZpLymNZs2q6Ldv0o0qyvWtA"/>
+</div>
+</div>
+</div>
+</header>
+<main class="p-4 space-y-6">
+<!-- Status do Cadastro Section -->
+<section>
+<div class="flex justify-between items-end mb-3">
+<h2 class="font-title-lg text-title-lg text-primary">Status da Conta</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Última atualização: Hoje, 09:42</span>
+</div>
+<div class="bento-card rounded-xl p-5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">verified_user</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold text-primary">Aguardando Validação</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Documentos em análise pela equipe.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</section>
+<!-- Dados Básicos do Responsável Section -->
+<section>
+<h2 class="font-title-lg text-title-lg text-primary mb-3">Responsável Financeiro</h2>
+<div class="bento-card rounded-xl p-5 space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Nome Completo</label>
+<div class="flex items-center justify-between border-b border-surface-container pb-2">
+<p class="font-body-md text-body-md font-medium text-primary">Ricardo Albuquerque Silva</p>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">edit</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">CPF/CNPJ</label>
+<p class="font-body-md text-body-md font-medium text-primary">***.482.190-**</p>
+</div>
+<div class="flex flex-col gap-1 text-right">
+<label class="font-label-md text-label-md text-on-surface-variant">Telefone</label>
+<p class="font-body-md text-body-md font-medium text-primary">(11) 98211-0042</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">E-mail para Notas Fiscais</label>
+<p class="font-body-md text-body-md font-medium text-primary">financeiro@dogwasher.com.br</p>
+</div>
+</div>
+</section>
+<!-- Métodos de Pagamento Section -->
+<section>
+<div class="flex justify-between items-center mb-3">
+<h2 class="font-title-lg text-title-lg text-primary">Métodos Salvos</h2>
+<button class="font-label-md text-label-md text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                    Novo
+                </button>
+</div>
+<div class="space-y-3">
+<!-- Card 1 -->
+<div class="bento-card rounded-xl p-4 flex items-center gap-4 relative overflow-hidden">
+<div class="w-12 h-8 bg-primary rounded flex items-center justify-center text-white font-bold text-[10px]">
+                        VISA
+                    </div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-medium text-primary">Visa Platinum • 8821</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Expira em 08/28</p>
+</div>
+<div class="px-2 py-1 bg-surface-container rounded font-label-sm text-label-sm text-on-surface">Padrão</div>
+</div>
+<!-- Card 2 -->
+<div class="bento-card rounded-xl p-4 flex items-center gap-4 border-dashed opacity-70">
+<div class="w-12 h-8 bg-[#ff5f00] rounded flex items-center justify-center text-white font-bold text-[10px]">
+                        MASTER
+                    </div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-medium text-primary">Mastercard • 4012</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Expira em 11/25</p>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+</div>
+</section>
+<!-- Configurações Adicionais Section -->
+<section>
+<h2 class="font-title-lg text-title-lg text-primary mb-3">Preferências de Repasse</h2>
+<div class="bento-card rounded-xl divide-y divide-surface-container">
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md font-medium text-primary">Frequência de Repasse</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Semanal (Toda segunda-feira)</p>
+</div>
+<span class="material-symbols-outlined text-outline">tune</span>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md font-medium text-primary">Split de Taxas Automático</p>
+<p class="font-label-sm text-label-sm text-secondary font-bold">Ativado</p>
+</div>
+<div class="w-12 h-6 bg-secondary rounded-full relative p-1 cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full ml-auto"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Badge -->
+<div class="flex flex-col items-center justify-center pt-4 pb-8 space-y-2 opacity-50">
+<span class="material-symbols-outlined text-outline">shield_lock</span>
+<p class="font-label-sm text-label-sm text-center">Ambiente 100% criptografado e seguro.<br/>Certificação PCI DSS Compliance.</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-surface-container-highest shadow-[0_-4px_20px_rgba(7,17,30,0.05)] md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-90 duration-150 p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-90 duration-150 p-2" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Financeiro</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-90 duration-150 p-2" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Extrato</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-2 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Perfil</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for toggle switch
+        document.querySelectorAll('.bg-secondary.rounded-full').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const dot = this.querySelector('div');
+                if(this.classList.contains('bg-secondary')) {
+                    this.classList.remove('bg-secondary');
+                    this.classList.add('bg-outline-variant');
+                    dot.classList.remove('ml-auto');
+                } else {
+                    this.classList.add('bg-secondary');
+                    this.classList.remove('bg-outline-variant');
+                    dot.classList.add('ml-auto');
+                }
+            });
+        });
+
+        // Simple ripple effect or active state handling
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('opacity-80');
+            });
+            card.addEventListener('touchend', function() {
+                this.classList.remove('opacity-80');
+            });
+        });
+    </script>
+</body></html>

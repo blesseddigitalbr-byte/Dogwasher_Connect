@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Remuneração e Condições - PetConnect</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e1e3e4",
+                    "secondary-fixed": "#ffddb8",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#000000",
+                    "on-tertiary-container": "#75859d",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "secondary": "#855300",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-surface": "#191c1d",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-container": "#684000",
+                    "on-primary-container": "#7b8495",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#d3e4fe",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fa",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary-container": "#0b1c30",
+                    "tertiary": "#000000",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-fixed": "#2a1700",
+                    "error-container": "#ffdad6",
+                    "outline": "#75777c",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-error": "#ffffff",
+                    "primary-container": "#121c29",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#121c29",
+                    "outline-variant": "#c5c6cc",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "surface": "#f8f9fa",
+                    "on-primary-fixed-variant": "#3e4756"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "container-max": "1280px",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50 bg-primary dark:bg-primary-container shadow-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<img alt="PetConnect Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADLtQNY2_NcBzdDFcDBFpDuWyj_LZF2WUIQTC69_IqDRFlQHOh6Lu-bddwQ6mq40TivbmHUNdSA3OOtSbDPmTDDICrNbiBniQcEOpQ3R-Qornw0ROer4fdWwCYXDMfOq2YvZdHVyBvjd5PKRFYa3UUdJlWiSBndOUNXgiJfKENvsRMag4PQdokdP77erQQBOYJgd7lmpXXA9PNPP9ZRfzorpgFOS7t_KcirBDMzid7wTyRmokwovYS_c5kq52NgM669g"/>
+<span class="font-display text-headline-lg font-bold text-on-primary dark:text-on-primary-container">PetConnect</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-secondary-container dark:text-secondary-fixed border-b-2 border-secondary-container pb-1" href="#">Opportunities</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">My Units</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Professionals</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Payments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-on-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-lg font-label-md hover:opacity-90 active:scale-95 transition-all">
+                Create Opportunity
+            </button>
+</div>
+</header>
+<main class="flex max-w-container-max mx-auto px-margin-desktop py-stack-lg gap-gutter">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full p-stack-md sticky left-0 w-64 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline">
+<div class="mb-stack-lg">
+<h2 class="font-display text-title-lg font-bold text-primary dark:text-on-surface">PetCorp HQ</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Administrator</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-high dark:bg-surface-variant text-primary font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md">Workforce</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md">Financial</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<button class="mt-stack-lg bg-primary text-on-primary py-3 rounded-lg font-label-md hover:bg-on-primary-container transition-all">
+                New Request
+            </button>
+</aside>
+<!-- Main Content Canvas -->
+<section class="flex-1 max-w-4xl">
+<header class="mb-stack-lg">
+<div class="flex items-center gap-2 text-outline mb-2">
+<span class="font-label-md">Nova Oportunidade</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Remuneração e Condições</span>
+</div>
+<h1 class="font-display text-headline-lg text-primary">Remuneração e Condições</h1>
+<p class="text-on-surface-variant font-body-md mt-2">Defina os valores e benefícios para esta oportunidade. Profissionais qualificados buscam remunerações competitivas.</p>
+</header>
+<!-- Piso Mínimo Alert -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-4 rounded-xl flex items-start gap-4 mb-stack-lg border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-primary">info</span>
+<div class="flex-1">
+<p class="font-label-md font-bold">Alerta de Mercado</p>
+<p class="text-label-md">Para serviços de banho e tosa em São Paulo, o piso sugerido é de R$ 120,00 por período de 4 horas para atrair profissionais Tier 1.</p>
+</div>
+</div>
+<!-- Bento Grid Form -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Financials Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<h3 class="font-title-lg text-primary">Valores Principais</h3>
+</div>
+<div class="space-y-stack-md">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-1">Valor da Oportunidade (R$)</label>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg p-3 text-primary font-bold focus:ring-2 focus:ring-secondary-container focus:border-secondary outline-none transition-all" id="base_value" placeholder="0,00" type="number"/>
+<span class="text-[12px] text-outline mt-1 block">Valor bruto a ser pago pelo estabelecimento.</span>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-1">Deslocamento (R$)</label>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg p-3 text-primary focus:border-primary outline-none" placeholder="Opcional" type="number"/>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-1">Alimentação (R$)</label>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg p-3 text-primary focus:border-primary outline-none" placeholder="Opcional" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Conditions Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">timer</span>
+<h3 class="font-title-lg text-primary">Logística e Intervalos</h3>
+</div>
+<div class="space-y-stack-md">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-1">Intervalo de Descanso</label>
+<select class="w-flex bg-surface-container border border-outline-variant rounded-lg p-3 w-full text-primary focus:border-primary outline-none appearance-none">
+<option>Sem intervalo</option>
+<option>15 minutos</option>
+<option selected="">30 minutos</option>
+<option>1 hora</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-1">Alimentação no Local?</label>
+<div class="flex gap-4 mt-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 text-secondary focus:ring-secondary" name="food" type="radio"/>
+<span class="font-label-md group-hover:text-primary transition-colors">Sim, inclusa</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="w-4 h-4 text-secondary focus:ring-secondary" name="food" type="radio"/>
+<span class="font-label-md group-hover:text-primary transition-colors">Não inclusa</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary/Composition Card -->
+<div class="md:col-span-2 bg-primary text-on-primary rounded-xl p-stack-lg shadow-lg relative overflow-hidden">
+<!-- Subtle pattern background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md">Composição do Investimento</h3>
+<p class="text-on-primary/60 font-body-md">Resumo detalhado dos custos da oportunidade.</p>
+</div>
+<div class="text-right">
+<span class="text-on-primary/60 font-label-md block">TOTAL A INVESTIR</span>
+<span class="font-display text-headline-lg text-secondary-container" id="total_display">R$ 0,00</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-on-primary/10">
+<div class="flex flex-col">
+<span class="text-on-primary/60 font-label-md">Repasse Profissional</span>
+<span class="font-title-lg" id="pro_value">R$ 0,00</span>
+<span class="text-[12px] opacity-60">Líquido para o parceiro</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-primary/60 font-label-md">Taxa PetConnect (15%)</span>
+<span class="font-title-lg" id="platform_fee">R$ 0,00</span>
+<span class="text-[12px] opacity-60">Infraestrutura e Seguro</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-primary/60 font-label-md">Benefícios Adicionais</span>
+<span class="font-title-lg" id="extra_value">R$ 0,00</span>
+<span class="text-[12px] opacity-60">Auxílio transporte/alimentação</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="mt-stack-lg flex justify-between items-center pt-stack-lg border-t border-outline-variant">
+<button class="flex items-center gap-2 text-primary font-bold hover:translate-x-[-4px] transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Voltar</span>
+</button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg border border-primary text-primary font-bold hover:bg-surface-container-low transition-all">
+                        Salvar Rascunho
+                    </button>
+<button class="px-10 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-bold shadow-sm hover:shadow-md active:scale-95 transition-all">
+                        Próxima Etapa
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar for Mobile -->
+<footer class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(7,17,30,0.05)] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-[10px]">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-[10px]">My Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</footer>
+<script>
+        // Simple composition calculator logic
+        const baseInput = document.getElementById('base_value');
+        const proValue = document.getElementById('pro_value');
+        const platformFee = document.getElementById('platform_fee');
+        const totalDisplay = document.getElementById('total_display');
+
+        baseInput.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value) || 0;
+            const fee = val * 0.15;
+            const pro = val - fee;
+            
+            proValue.innerText = `R$ ${pro.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            platformFee.innerText = `R$ ${fee.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            totalDisplay.innerText = `R$ ${val.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        });
+
+        // Hover interactions for cards
+        const cards = document.querySelectorAll('.bg-surface-container-lowest');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('shadow-md', 'border-secondary-container');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('shadow-md', 'border-secondary-container');
+            });
+        });
+    </script>
+</body></html>

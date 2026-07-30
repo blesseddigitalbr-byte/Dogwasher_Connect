@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel da Oportunidade - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#555f6f",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#bdc7d9",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-primary-fixed": "#121c29",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#855300",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-variant": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#0b1c30",
+                        "secondary-container": "#fea619",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "secondary-fixed": "#ffddb8",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "surface-bright": "#f8f9fa",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "primary-container": "#121c29",
+                        "background": "#f8f9fa",
+                        "on-primary-container": "#7b8495",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "tertiary-fixed": "#d3e4fe",
+                        "outline": "#75777c",
+                        "on-tertiary-container": "#75859d",
+                        "on-surface-variant": "#44474c",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#684000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-lg": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .bento-item-span {
+            grid-column: span 2;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+        .progress-ring {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-20 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-2">
+<img alt="Dog Washer Connect Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH5CFgJxjgsbEVq6i_4SG-HbobSDIdorttI6BVQ6qwtRzBks68RBJ6_gVVg8GX5e89TX6U5ZRyH0AnauLjnvPqEyurI4Td2EPeDXROtYq54zf7ivW8C1PChY5tE2UHtTAXR66z7IKU6_G5z-00MiNvNmteH3htXDGUbud8V4mthyK8rRo1u6eXtlK8TZFmTq4YLmQALKGM3ehuFwy9XGd-s6UVd_i6lMhq_BKFVNbF4IHpLf0kIqGWnI6AtDGMY7SsPQ"/>
+<span class="font-display text-headline-md font-bold text-primary">DWC</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-secondary hover:bg-surface-container-high p-2 rounded-full transition-colors">notifications</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label-sm">JD</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-20 px-margin-mobile">
+<!-- Welcome & Status -->
+<section class="mb-stack-md">
+<h1 class="font-headline-md text-headline-md text-primary mb-1">Trabalho Ativo</h1>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-info text-secondary font-label-sm gap-1 animate-pulse" style="background-color: #E0F2FE; color: #0369A1;">
+<span class="w-2 h-2 rounded-full bg-[#0369A1]"></span>
+                    Em andamento
+                </span>
+<span class="text-outline font-label-sm">Ref: #JOB-88219</span>
+</div>
+</section>
+<!-- Dynamic Timer & Progress Bento Box -->
+<div class="bento-grid mb-stack-md">
+<!-- Time Transpired Card -->
+<div class="glass-card p-stack-md rounded-xl flex flex-col justify-between shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<div>
+<span class="font-label-sm text-outline uppercase tracking-wider">Tempo Decorrido</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1" id="timer-elapsed">01:42:15</h2>
+</div>
+<div class="mt-4 flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-label-sm">Iniciado às 14:00</span>
+</div>
+</div>
+<!-- Remaining Circle Progress -->
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center justify-center shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<div class="relative flex items-center justify-center">
+<svg class="w-24 h-24">
+<circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="progress-ring text-secondary-container" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-label-sm text-primary">Restam</span>
+<span class="font-bold text-lg">17m</span>
+</div>
+</div>
+<span class="font-label-sm text-outline mt-2 text-center">Período Previsto: 2h</span>
+</div>
+<!-- Client Info -->
+<div class="bento-item-span glass-card p-stack-md rounded-xl flex items-center gap-4 shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<div class="w-16 h-16 rounded-lg bg-cover bg-center overflow-hidden" data-alt="A portrait of a friendly-looking golden retriever sitting patiently in a bright, modern pet grooming salon. The background is minimalist with high-end steel equipment and clean white tiles, conveying a professional and clinical yet welcoming atmosphere. The lighting is soft and even, highlighting the dog's golden fur against a neutral color palette of whites and warm wood tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHkOs5splTjOczDeCyU-E5e8NF0iQSMjv6fa4ltUQbrKXgYjpDwElSwM8lus4zISiEkolj1PoZ7KgwKDWdO1FTohp5w7pvGjLtSCqYEh2q1ftH728k0zotxQpzULRtCvabAYJcVMAUg-OQFPiVLmFiMu033BBK-BDhsl5ZlAhyZz98Pe6xcKDIMmd4iHV_MAI2QTNRD1LI1XwQoqihyRU8aCmdv7vK0qIu_tow_yOrfnnOMBsg-SDN')"></div>
+<div class="flex-grow">
+<h3 class="font-title-lg text-title-lg text-primary">Max (Golden Retriever)</h3>
+<p class="font-body-md text-outline">Proprietária: Mariana Silva</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+<span class="font-label-sm text-outline">Pet Shop Premium - Setor Sul</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Cards -->
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="text-left">
+<span class="font-label-md block text-primary">Registrar Ocorrência</span>
+<span class="font-label-sm text-outline">Reporte incidentes ou comportamentos</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">more_time</span>
+</div>
+<div class="text-left">
+<span class="font-label-md block text-primary">Solicitar Extensão</span>
+<span class="font-label-sm text-outline">Adicione mais 15, 30 ou 60 minutos</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+<!-- Finish Task CTA -->
+<div class="mt-stack-lg">
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-headline-md rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center justify-center gap-2" style="background-color: #F59E0B; color: #07111E;">
+<span class="material-symbols-outlined">task_alt</span>
+                Finalizar Trabalho
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-outline transition-all hover:text-secondary-fixed-variant" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Oportunidades</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm">Meus Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all hover:text-secondary-fixed-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Footer (Only relevant links for mobile) -->
+<footer class="w-full py-stack-lg px-margin-mobile flex flex-col items-center gap-stack-md bg-surface-container-highest border-t border-outline-variant mt-auto">
+<span class="font-display text-title-lg text-primary">DWC Connect</span>
+<div class="flex gap-4">
+<a class="font-label-sm text-outline hover:text-secondary" href="#">Suporte</a>
+<span class="text-outline-variant">|</span>
+<a class="font-label-sm text-outline hover:text-secondary" href="#">FAQ</a>
+<span class="text-outline-variant">|</span>
+<a class="font-label-sm text-outline hover:text-secondary" href="#">Termos</a>
+</div>
+<p class="font-label-sm text-outline text-center">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+</footer>
+<script>
+        // Micro-interaction for timer
+        let seconds = 3600 + 42 * 60 + 15; // Starting point for demo 01:42:15
+        const timerElement = document.getElementById('timer-elapsed');
+
+        setInterval(() => {
+            seconds++;
+            const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+            const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            timerElement.textContent = `${h}:${m}:${s}`;
+        }, 1000);
+
+        // Hover/Active states logic already handled via Tailwind classes
+    </script>
+</body></html>

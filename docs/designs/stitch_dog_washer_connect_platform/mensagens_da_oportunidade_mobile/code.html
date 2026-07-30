@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mensagens da Oportunidade - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#30363c",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "surface-variant": "#d4e4fc",
+                    "on-primary-container": "#86a0cd",
+                    "secondary-fixed": "#d9e3f9",
+                    "on-surface-variant": "#43474e",
+                    "surface-tint": "#455f88",
+                    "surface": "#f8f9ff",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed": "#dde3eb",
+                    "background": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#596376",
+                    "secondary": "#555f71",
+                    "primary": "#002045",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-container": "#d6e0f6",
+                    "outline": "#74777f",
+                    "on-background": "#0d1c2e",
+                    "on-secondary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-container": "#1a365d",
+                    "on-tertiary-fixed": "#161c22",
+                    "on-surface": "#0d1c2e",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary": "#1b2127",
+                    "surface-container-high": "#dce9ff",
+                    "surface-dim": "#ccdbf4",
+                    "outline-variant": "#c4c6cf",
+                    "surface-container-highest": "#d4e4fc",
+                    "inverse-primary": "#adc7f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 23px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5eeff;
+            z-index: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-lg py-sm w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">arrow_back</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Mensagens</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80">help</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80">account_circle</span>
+</div>
+</header>
+<!-- Opportunity Brief Header -->
+<section class="bg-surface-container-low px-lg py-md">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Oportunidade #8421</span>
+<div class="flex items-center gap-xs px-sm py-xs bg-secondary-container rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-secondary-container">Em Andamento</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-cover bg-center border border-outline-variant" data-alt="Close up photography of a friendly Golden Retriever puppy looking at the camera with soft natural lighting and a clean, high-end professional pet studio background. The style is modern corporate, crisp, and high contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAb0JbNEUMm31L1lB62GK7dsmJrGbdB15qV014nZYcl2r67CTkpvLaWPqrvu9N82dFKLhGrfZnEYx_1EaIAt5Xo1C4ESvpkqL3wKcanN7JoZikhlwKGGEUqssj2wdPdQscuwd2OoEFL5wAuqxWtiQ-SlNJOUrYtJcxMxqZVrYbqJAkGw4xweXqqPym7YTOlmJKxpQWbU71e_lff8VV_UPKeee_5NSYhIOeI8AMRSZA4xMqKgfE7JLtB')"></div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Max (Banho &amp; Tosa)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Rua das Palmeiras, 120 • 14:30 - 16:00</p>
+</div>
+</div>
+</section>
+<!-- Timeline Content -->
+<main class="flex-1 relative px-lg py-xl overflow-y-auto">
+<div class="timeline-line"></div>
+<div class="space-y-lg relative z-10">
+<!-- Timeline Item: Access -->
+<div class="flex gap-md group">
+<div class="mt-xs bg-primary text-on-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined">vpn_key</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant p-md rounded-lg shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-primary">ACESSO</span>
+<span class="font-label-md text-label-md text-outline">14:25</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Entrada Confirmada</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                        O prestador solicitou acesso via portaria. Morador autorizou a entrada às 14:24.
+                    </p>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-md text-label-md">Status: Concluído</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item: Timing -->
+<div class="flex gap-md group">
+<div class="mt-xs bg-tertiary-container text-on-tertiary-container w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant p-md rounded-lg shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant">TEMPO</span>
+<span class="font-label-md text-label-md text-outline">14:40</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Início do Serviço</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                        Check-in realizado com sucesso. O cronômetro do banho foi iniciado.
+                    </p>
+<div class="flex items-center gap-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">pending</span>
+<span class="font-label-md text-label-md">Status: Em Progresso</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item: Extension (Urgent) -->
+<div class="flex gap-md group">
+<div class="mt-xs bg-error-container text-on-error-container w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-sm border-l-4 border-error">
+<span class="material-symbols-outlined">subdirectory_arrow_left</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest border border-error-container p-md rounded-lg shadow-sm border-l-4 border-error transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-error">EXTENSÃO</span>
+<span class="font-label-md text-label-md text-error">15:15</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Solicitação de Tempo Extra</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                        O prestador solicitou +15 min devido a embaraço severo nos pelos do Max. Aguardando aprovação.
+                    </p>
+<div class="flex gap-sm">
+<button class="flex-1 bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">Aprovar</button>
+<button class="flex-1 border border-outline text-on-surface-variant py-sm rounded-lg font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all">Recusar</button>
+</div>
+</div>
+</div>
+<!-- Timeline Item: Photos -->
+<div class="flex gap-md group">
+<div class="mt-xs bg-secondary-container text-on-secondary-container w-12 h-12 rounded-lg flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined">photo_camera</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant p-md rounded-lg shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-on-secondary-container">REGISTRO</span>
+<span class="font-label-md text-label-md text-outline">15:20</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-sm">Fotos do Atendimento</h3>
+<div class="grid grid-cols-2 gap-sm mb-md">
+<div class="aspect-square rounded-lg bg-cover bg-center border border-outline-variant" data-alt="High quality professional photography of a Golden Retriever being gently bathed in a modern pet grooming facility. Warm, clean lighting, focus on water droplets and dog's happy expression. Corporate aesthetic, high-efficiency feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCROolgbRjitJvaXn5QcEh6IXr0aoOBUlHCzaEhQh7Dh0X9fUU3kLcPhismmpGr45KFmljl1X2bB7HZyjgS0khO8xGWyc2-ZaczVQDVZfTbi7CB9coblaJ0tnguql9WP78Qpg0tePCWBGo5B5LO1V8o9mBe2c4s2QtcpKPd5F1nszEhES7LSLODeMms5CnZdkyrN_EPcCeqvUbK-hxufUC2Y7a2IGqYFxEWfRqM73rvKymFRCSxW3Gd')"></div>
+<div class="aspect-square rounded-lg bg-cover bg-center border border-outline-variant" data-alt="Detailed close up of professional dog grooming equipment like scissors and combs lying on a pristine white surface, next to a clean Golden Retriever. High key lighting, minimalist and authoritative professional vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCO88ub8UDkTjTvmXFs5C9VF8tS5wTfno5eQuBNPg862DWCEC8AiaMnDt93c2_Zow-ooS8Yu_MTIAfTAvlcn1w83Vb56K-KFOQtG6Vf8noNksS72M5AXHNSAc1xxVU3ljMYkk927bHAi7Wzkv4D7pcRXg1uRnrgb_N2aDo-gCP9Rh_t8dHFT4isAVDWGgSNLrhgt6CIFZb7TmKvhGmVzXDpCisQ6iUiyUgbPTzGqFov1oe9-ap7FNnn')"></div>
+</div>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[18px]">cloud_done</span>
+<span class="font-label-md text-label-md">Sincronizado</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="sticky bottom-0 bg-surface px-lg py-md border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-title-md text-title-md flex items-center justify-center gap-md hover:opacity-90 active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined">send</span>
+            Nova Atualização Estruturada
+        </button>
+<!-- Mobile Navigation Mimic (Optional context) -->
+<nav class="flex justify-between items-center py-xs md:hidden">
+<div class="flex flex-col items-center gap-xs text-on-surface-variant px-sm py-xs">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center gap-xs text-primary font-bold bg-secondary-container rounded-lg px-sm py-xs">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-md text-label-md">Mensagens</span>
+</div>
+<div class="flex flex-col items-center gap-xs text-on-surface-variant px-sm py-xs">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Finanças</span>
+</div>
+<div class="flex flex-col items-center gap-xs text-on-surface-variant px-sm py-xs">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Ajustes</span>
+</div>
+</nav>
+</div>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.active\\:scale-\\[0\\.98\\]').forEach(card => {
+            card.addEventListener('touchstart', () => card.classList.add('scale-[0.98]'));
+            card.addEventListener('touchend', () => card.classList.remove('scale-[0.98]'));
+        });
+    </script>
+</body></html>

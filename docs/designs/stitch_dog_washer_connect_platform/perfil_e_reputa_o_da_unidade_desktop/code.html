@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetConnect - Perfil da Unidade &amp; Reputação</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "primary-container": "#121c29",
+                    "on-surface": "#191c1d",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed": "#d9e3f6",
+                    "on-primary-fixed": "#121c29",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#edeeef",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "outline-variant": "#c5c6cc",
+                    "on-surface-variant": "#44474c",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f8f9fa",
+                    "surface": "#f8f9fa",
+                    "tertiary-container": "#0b1c30",
+                    "on-secondary-container": "#684000",
+                    "background": "#f8f9fa",
+                    "on-background": "#191c1d",
+                    "tertiary": "#000000",
+                    "secondary": "#855300",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#bdc7d9",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "outline": "#75777c",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "on-primary-container": "#7b8495",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-container": "#75859d",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-container": "#fea619",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-md": "1rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "body-md": ["Outfit"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid #E2E8F0; }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .stat-line { height: 4px; border-radius: 2px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50 bg-primary dark:bg-primary-container shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-display text-headline-lg font-bold text-on-primary dark:text-on-primary-container">PetConnect</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Opportunities</a>
+<a class="font-label-md text-label-md text-secondary-container dark:text-secondary-fixed border-b-2 border-secondary-container pb-1" href="#">My Units</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Professionals</a>
+<a class="font-label-md text-label-md text-on-primary/80 dark:text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Payments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-secondary-container text-on-secondary-fixed px-4 py-2 rounded-lg font-label-md text-label-md font-bold transition-all active:scale-95 duration-100">Create Opportunity</button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-primary cursor-pointer">account_circle</span>
+</div>
+</div>
+</header>
+<main class="flex min-h-screen">
+<!-- SideNavBar (Contextual) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 sticky left-0 p-stack-md border-r border-outline-variant bg-surface">
+<div class="mb-8 flex items-center gap-3">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="Corporate professional logo of a high-end pet care facility with clean typography and minimalist icon. The lighting is crisp and the aesthetic is premium and institutional, using deep blacks and amber accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_OViCBTgumbNdGfvH-V5O6DmpeiXlTf49pZ8VA9cF6rc8Qlefo5Dmt-UL39W206U-ZY0yHaSz4OrnFebWuAlufRBcWUa7v0nHrj_YPrcQL7tNUObJrl754er9bBljYtpbjH6bRCS2EYFJbBu1mpsbrow41eNRcVRU1vu83L3OMMBTVb7Tz2lR8I52DIdWB0_saFPKRTpQO0ypJdtqv1tI15zgnPLOJwx5zFNPjIJTAhW2bq1lhvii"/>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">PetCorp HQ</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrator</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-surface-container-high text-primary font-bold rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Unit Reputation</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Workforce</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Financial</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold">New Request</button>
+</div>
+</aside>
+<!-- Page Content -->
+<div class="flex-1 px-margin-desktop py-stack-lg overflow-y-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-start mb-stack-lg">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<h1 class="font-headline-lg text-headline-lg text-primary">Unidade Jardins - Flagship</h1>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 bg-primary-container text-on-primary-fixed text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">verified</span> Unidade Verificada
+                            </span>
+<span class="flex items-center gap-1 bg-secondary-container text-on-secondary-fixed text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">stars</span> Estabelecimento Qualificado
+                            </span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                        Referência em medicina veterinária de alta complexidade e hospitalidade pet. Monitoramento 24h e infraestrutura de ponta validada por especialistas.
+                    </p>
+</div>
+<div class="text-right">
+<div class="text-[48px] font-bold text-primary leading-none">4.9</div>
+<div class="flex justify-end gap-1 text-secondary-container mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Baseado em 1.240 avaliações de profissionais</p>
+</div>
+</div>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-12 gap-gutter mb-stack-lg">
+<!-- Transparency Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-lg text-title-lg text-primary">Transparência</h3>
+<span class="material-symbols-outlined text-primary">visibility</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span>Clareza nos Processos</span>
+<span class="font-bold">98%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 98%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span>Comunicação Interna</span>
+<span class="font-bold">92%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+<p class="mt-6 font-body-md text-body-md text-on-surface-variant italic">"A unidade mantém registros impecáveis e fluxos de trabalho documentados."</p>
+</div>
+<!-- Professional Respect Card -->
+<div class="col-span-12 md:col-span-4 bg-primary text-on-primary p-6 rounded-xl shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-lg text-title-lg">Respeito Profissional</h3>
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<div class="text-[40px] font-bold mb-2">Excelente</div>
+<p class="font-body-md text-body-md opacity-80">
+                            Nível de satisfação dos profissionais independentes quanto ao tratamento, suporte e infraestrutura oferecida durante os plantões.
+                        </p>
+<div class="mt-6 inline-flex items-center gap-2 bg-on-primary/10 px-3 py-1 rounded-full text-label-sm font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12% este mês
+                        </div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">verified_user</span>
+</div>
+</div>
+<!-- Structure & Tech Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<h3 class="font-title-lg text-title-lg text-primary mb-4">Estrutura &amp; Tecnologia</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 rounded-lg text-center">
+<span class="material-symbols-outlined text-primary mb-1">medical_services</span>
+<div class="font-label-sm text-label-sm uppercase opacity-60">Equipamentos</div>
+<div class="font-title-lg text-title-lg font-bold">Ponta</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg text-center">
+<span class="material-symbols-outlined text-primary mb-1">speed</span>
+<div class="font-label-sm text-label-sm uppercase opacity-60">Agilidade</div>
+<div class="font-title-lg text-title-lg font-bold">9/10</div>
+</div>
+</div>
+<div class="mt-6 flex items-center gap-3">
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Portrait of a professional veterinarian in a modern clinic setting, bright lighting, high-end professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKVoTpd-FwMhnfCJTPfQACE76EQeaYZT8lbBrHUSnon_HX8XriJWMSUvT1k15oxUQWl06DKyHAXSTuaw-tPmjHP4yu6z3zgEEiY6VlM_g3uDJNdI0Lk0Z_tBQr8-hQoyqZHJb3mZ9bWhTUVzqF_p7pywQWZgJCI8FPrGfhKGdvwWYO4r98KyVfKQWbOpLHt-4FJ_ubI78acjhUzbcTx0x6atVEMEM4hBHAczDaCrBIUEe6r5I-fud-"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Portrait of a pet care specialist, smiling, corporate photography style, minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ZAVJqAgk6nnhRDeXgTUbBoS2cPfZtcCxkeSKlpmVKUHIl7YOKvdMNMYgA-SXxjJGhNwIvFmdpXDC7zXvIWzXBUARL1FL98AQs_D8NptlOnI6eQEyALJhkGobo1S7LDAXEvgYPRrv-PhPssEtl7eoeW9QYgevJeER955IfnZWyB-MR-0aJ4lggFK86uQ9hkCLVdWEtHtz4fxgSyTQR_qn4xfRYKuWq5U-K1DMvz61IomOkhsOlvkm"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Professional dog trainer portrait, clean look, high-key lighting, modern studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB08pJQm6d2wcnMztSC6RcVtK6Vl3mFtc1yhhq5vETQ-x9SOgY5zrX1yjU_Eb8lKE6zNC5SVBIA3vpmArIBfRPLuXQyRa0k9-4zY62BrA8vE5lsZ8fPz7smXxevvrXB4Z0JphtDHWJg9a0bT2iUEdDeGQm50uNna5w4dc98Qyo2wz9f_NtPzH11y1AEgha8BnhqCaEp5RNL-sB9xoYlHqjbs2d5ueYdfnf0WViGmx_pPCAAm5wXrMdz"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+85 profissionais recomendam</span>
+</div>
+</div>
+</div>
+<!-- Reputation Evolution Section -->
+<div class="grid grid-cols-12 gap-gutter items-stretch">
+<!-- Evolution Graph Placeholder -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Evolução da Reputação</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Histórico semestral de feedback</p>
+</div>
+<select class="bg-surface border-outline-variant rounded-lg text-label-md py-1 px-4">
+<option>Últimos 6 meses</option>
+<option>Últimos 12 meses</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 relative">
+<!-- Simplified Visual Graph Representation -->
+<div class="absolute inset-0 border-b border-outline-variant"></div>
+<div class="flex-1 bg-surface-container-high rounded-t-lg transition-all hover:bg-secondary-container group relative" style="height: 70%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.2</div>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-t-lg transition-all hover:bg-secondary-container group relative" style="height: 75%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.4</div>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-t-lg transition-all hover:bg-secondary-container group relative" style="height: 82%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.6</div>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-t-lg transition-all hover:bg-secondary-container group relative" style="height: 80%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.5</div>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-t-lg transition-all hover:bg-secondary-container group relative" style="height: 88%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.8</div>
+</div>
+<div class="flex-1 bg-primary rounded-t-lg transition-all hover:bg-secondary-container group relative" style="height: 95%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.9</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-label-sm text-on-surface-variant font-medium">
+<span>JAN</span><span>FEV</span><span>MAR</span><span>ABR</span><span>MAI</span><span>JUN</span>
+</div>
+</div>
+<!-- Recent Recommendations -->
+<div class="col-span-12 md:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant">
+<h4 class="font-label-md text-label-md font-bold text-primary mb-4 uppercase tracking-wider">Principais Elogios</h4>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 bg-secondary-container/20 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-container">clean_hands</span>
+</div>
+<div>
+<div class="font-label-md text-label-md font-bold">Higiene Impecável</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Citado em 92% das avaliações recentes.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-10 h-10 bg-secondary-container/20 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-container">support_agent</span>
+</div>
+<div>
+<div class="font-label-md text-label-md font-bold">Suporte Operacional</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Citado em 88% das avaliações recentes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary-container">workspace_premium</span>
+<span class="font-label-md text-label-md font-bold uppercase">Meta de Qualidade</span>
+</div>
+<p class="font-body-md text-body-md opacity-90 mb-4">Faltam apenas 12 avaliações 5 estrelas para o selo de Elite.</p>
+<button class="w-full py-2 bg-on-primary text-primary rounded-lg font-label-sm text-label-sm font-bold">Ver Requisitos</button>
+</div>
+</div>
+</div>
+<!-- Transparency Log -->
+<div class="mt-stack-lg bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md text-primary">Relatório de Transparência</h3>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1">
+                        Baixar PDF <span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+<th class="pb-4 font-semibold">Métrica de Auditoria</th>
+<th class="pb-4 font-semibold">Status</th>
+<th class="pb-4 font-semibold">Última Validação</th>
+<th class="pb-4 font-semibold text-right">Performance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<tr class="group">
+<td class="py-4 font-label-md text-label-md font-bold">Pagamentos a Profissionais</td>
+<td class="py-4">
+<span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase">No Prazo</span>
+</td>
+<td class="py-4 font-label-sm text-label-sm text-on-surface-variant">Hoje, 09:45</td>
+<td class="py-4 text-right font-bold text-primary">100%</td>
+</tr>
+<tr class="group">
+<td class="py-4 font-label-md text-label-md font-bold">Disponibilidade de EPIs</td>
+<td class="py-4">
+<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase">Validado</span>
+</td>
+<td class="py-4 font-label-sm text-label-sm text-on-surface-variant">Ontem, 18:20</td>
+<td class="py-4 text-right font-bold text-primary">98.2%</td>
+</tr>
+<tr class="group">
+<td class="py-4 font-label-md text-label-md font-bold">Manutenção de Equipamentos</td>
+<td class="py-4">
+<span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase">Manutenção</span>
+</td>
+<td class="py-4 font-label-sm text-label-sm text-on-surface-variant">02 Mai, 2024</td>
+<td class="py-4 text-right font-bold text-primary">94.5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface border-t border-outline-variant shadow-[0_-4px_20px_rgba(7,17,30,0.05)]">
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm-mobile">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm-mobile">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm-mobile">Insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm-mobile">Profile</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+                setTimeout(() => el.classList.remove('scale-95'), 150);
+            });
+        });
+
+        // Simple Fade-in effect for cards
+        window.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.grid > div');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            });
+        });
+    </script>
+</body></html>

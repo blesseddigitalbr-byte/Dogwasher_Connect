@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tipo de Oportunidade | PetConnect</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#75859d",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "surface-tint": "#555f6f",
+                        "on-secondary-container": "#684000",
+                        "on-primary-container": "#7b8495",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0b1c30",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed": "#2a1700",
+                        "error-container": "#ffdad6",
+                        "outline": "#75777c",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-error": "#ffffff",
+                        "primary-container": "#121c29",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary-fixed": "#d9e3f6",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#121c29",
+                        "outline-variant": "#c5c6cc",
+                        "on-surface-variant": "#44474c",
+                        "inverse-primary": "#bdc7d9",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm-mobile": ["11px", { "lineHeight": "14px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .option-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top AppBar (Simplified for Linear Journey as per mandate) -->
+<header class="sticky top-0 z-50 bg-surface px-margin-mobile h-16 flex items-center justify-between shadow-sm">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex-1 flex justify-center">
+<img alt="PetConnect Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsG85nvPCJQ6Z6WdXZX8FctPMuBcAPaT5KeMq-9MKy-KLL02ihszOEP9hoc3p3Wf5PdJR6baYlizZq0jhQcnH2LUfRpW5150Enmtkhd3bY5CPfAZkhbkfXDqi3CghW-nKIwr3Sh4CKRrPDqmmzHeJ8e_mXIUKFZKY8imycPaRqH1gqGlfDhVI7-kKstrWZbI1kR0Q1ODn3mg-OBKJhkVWuJGVNGzdChAfC-XE5Nf89AmY05T73BjsTBw4JIDVtxQxCLA"/>
+</div>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</header>
+<main class="max-w-md mx-auto px-margin-mobile pt-stack-lg">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">Tipo de Apoio</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Selecione a modalidade de colaboração necessária para sua unidade pet.</p>
+</section>
+<!-- Opportunity Type Grid (Asymmetric High-end Layout) -->
+<div class="space-y-stack-md">
+<!-- Option Card: Diária -->
+<button class="option-card w-full text-left bg-surface-container-lowest border border-outline-variant p-gutter rounded-xl flex items-center gap-4 hover:border-secondary-container group">
+<div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl">calendar_today</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Diária</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Ideal para picos pontuais de demanda.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary-container">chevron_right</span>
+</button>
+<!-- Option Card: Meio Período -->
+<button class="option-card w-full text-left bg-surface-container-lowest border border-outline-variant p-gutter rounded-xl flex items-center gap-4 hover:border-secondary-container group">
+<div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl">schedule</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Meio Período</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Turnos flexíveis de 4 a 6 horas.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary-container">chevron_right</span>
+</button>
+<!-- Option Card: Período Integral -->
+<button class="option-card w-full text-left bg-surface-container-lowest border border-outline-variant p-gutter rounded-xl flex items-center gap-4 hover:border-secondary-container group">
+<div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl">work_history</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Período Integral</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Cobertura completa para o dia todo.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary-container">chevron_right</span>
+</button>
+<!-- Option Card: Emergencial -->
+<button class="option-card w-full text-left bg-surface-container-lowest border border-outline-variant p-gutter rounded-xl flex items-center gap-4 hover:border-secondary-container group">
+<div class="w-14 h-14 rounded-lg bg-error-container flex items-center justify-center flex-shrink-0 group-hover:bg-error transition-colors">
+<span class="material-symbols-outlined text-on-error-container group-hover:text-on-error text-2xl">priority_high</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Emergencial</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Substituição imediata por falta.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary-container">chevron_right</span>
+</button>
+<!-- Option Card: Projeto Específico -->
+<button class="option-card w-full text-left bg-surface-container-lowest border border-outline-variant p-gutter rounded-xl flex items-center gap-4 hover:border-secondary-container group">
+<div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl">event_available</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Projeto Específico</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Eventos, mutirões de banho ou campanhas.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary-container">chevron_right</span>
+</button>
+</div>
+<!-- Descriptive Help Card -->
+<section class="mt-stack-lg p-stack-md bg-secondary-fixed rounded-xl border border-secondary-container/20">
+<div class="flex items-start gap-stack-sm">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">info</span>
+<p class="font-label-md text-label-md text-on-secondary-fixed-variant leading-relaxed">
+                    Dica: Unidades PetConnect que utilizam Diárias Recorrentes têm 40% mais chances de atrair profissionais Prime.
+                </p>
+</div>
+</section>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-surface shadow-[0_-4px_20px_rgba(7,17,30,0.05)] md:hidden">
+<button class="w-full h-14 bg-primary text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            Próximo Passo
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Navigation suppression check: Since this is a task-focused flow (selecting opportunity type), global navigation is suppressed to focus on the journey. -->
+<script>
+        // Micro-interaction: Active state visual feedback for selection
+        const cards = document.querySelectorAll('.option-card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Clear active states
+                cards.forEach(c => {
+                    c.classList.remove('border-primary', 'bg-surface-container-high');
+                    c.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                });
+                // Set current active
+                card.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+                card.classList.add('border-primary', 'bg-surface-container-high');
+            });
+        });
+    </script>
+</body></html>
