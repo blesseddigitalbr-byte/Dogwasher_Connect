@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<title>Central de Notificações - Dog Washer Connect</title>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#30363c",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#223144",
+                        "surface-variant": "#d4e4fc",
+                        "on-primary-container": "#86a0cd",
+                        "secondary-fixed": "#d9e3f9",
+                        "on-surface-variant": "#43474e",
+                        "surface-tint": "#455f88",
+                        "surface": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-fixed": "#dde3eb",
+                        "background": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#596376",
+                        "secondary": "#555f71",
+                        "primary": "#002045",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-container": "#d6e0f6",
+                        "outline": "#74777f",
+                        "on-background": "#0d1c2e",
+                        "on-secondary-fixed": "#121c2c",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#e5eeff",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "primary-container": "#1a365d",
+                        "on-tertiary-fixed": "#161c22",
+                        "on-surface": "#0d1c2e",
+                        "on-tertiary-container": "#989fa6",
+                        "on-primary-fixed": "#001b3c",
+                        "tertiary": "#1b2127",
+                        "surface-container-high": "#dce9ff",
+                        "surface-dim": "#ccdbf4",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-highest": "#d4e4fc",
+                        "inverse-primary": "#adc7f7",
+                        // Brand Specific Overrides for Teal/Golden
+                        "brand-teal": "#008080",
+                        "brand-gold": "#FFD700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "container-max": "1440px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Outfit"],
+                        "title-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "display-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
+        
+        .notification-card {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .notification-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<!-- Applying Shared Component: TopAppBar Logic -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-lg py-sm w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary p-xs hover:bg-surface-container-low rounded-full transition-colors">
+                arrow_back
+            </button>
+<img alt="Dog Washer Connect Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGkWlRfZG5slsNgj7pfVKNFl-2tZeu-hYKC813S1IhOrA7wHBBXtBWUXURpFxtgYu_7s5X67t3rklafnCp044KgeyfBk24smmNs7ODm8OVCxXxw7OQwh3hziPD5ryzjEv_TXWmKwZ_Zz2gQRq1IjZWBIUhIr4lUdluvue1tHSv6dZ6FPFBKR5L74srT7uOR9uHsqWtkvtuBdZt7rYL5PjsOWyftTYoWlj3N3vmr6PowWyrs5h-LMMrW6oWgvr6gf8szA"/>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Central</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary p-xs cursor-pointer hover:bg-surface-container-low transition-colors">
+                search
+            </button>
+<button class="material-symbols-outlined text-primary p-xs cursor-pointer hover:bg-surface-container-low transition-colors">
+                more_vert
+            </button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow px-md py-md space-y-md max-w-lg mx-auto w-full">
+<!-- Filter Row -->
+<div class="flex items-center gap-sm overflow-x-auto pb-sm no-scrollbar">
+<button class="px-md py-xs bg-primary text-on-primary font-label-md text-label-md rounded-full whitespace-nowrap shadow-sm">
+                Todas
+            </button>
+<button class="px-md py-xs bg-surface-container-high text-on-surface-variant font-label-md text-label-md rounded-full whitespace-nowrap hover:bg-surface-variant transition-colors">
+                Agendamentos
+            </button>
+<button class="px-md py-xs bg-surface-container-high text-on-surface-variant font-label-md text-label-md rounded-full whitespace-nowrap hover:bg-surface-variant transition-colors">
+                Financeiro
+            </button>
+<button class="px-md py-xs bg-surface-container-high text-on-surface-variant font-label-md text-label-md rounded-full whitespace-nowrap hover:bg-surface-variant transition-colors">
+                Suporte
+            </button>
+<button class="material-symbols-outlined bg-surface-container-high text-on-surface-variant p-xs rounded-full">
+                tune
+            </button>
+</div>
+<!-- Section Title: Today -->
+<div class="flex justify-between items-center mt-lg mb-sm">
+<h2 class="font-title-md text-title-md text-primary">Hoje</h2>
+<button class="text-primary font-label-md text-label-md hover:underline">Limpar tudo</button>
+</div>
+<!-- Notification List -->
+<div class="space-y-sm">
+<!-- Notification Item 1: Priority Amber (Agendamento) -->
+<div class="notification-card bg-white border border-outline-variant rounded-xl p-md flex gap-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-gold"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-gold fill-icon">calendar_today</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg text-on-background">Novo Agendamento</h3>
+<span class="font-label-sm text-label-sm text-outline">10:45</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-xs line-clamp-2">
+                        O Golden Retriever "Rex" foi agendado para banho e tosa às 14:30.
+                    </p>
+<div class="flex gap-sm mt-sm">
+<span class="px-sm py-[2px] bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase tracking-wider">Pendente</span>
+</div>
+</div>
+</div>
+<!-- Notification Item 2: Priority Teal (Operacional) -->
+<div class="notification-card bg-white border border-outline-variant rounded-xl p-md flex gap-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-teal"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-teal fill-icon">check_circle</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg text-on-background">Serviço Concluído</h3>
+<span class="font-label-sm text-label-sm text-outline">09:15</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-xs line-clamp-2">
+                        O banho de "Mel" foi finalizado com sucesso. O cliente já foi notificado.
+                    </p>
+</div>
+</div>
+<!-- Notification Item 3: Messaging -->
+<div class="notification-card bg-white border border-outline-variant rounded-xl p-md flex gap-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white fill-icon">forum</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg text-on-background">Nova Mensagem</h3>
+<span class="font-label-sm text-label-sm text-outline">08:30</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-xs italic">
+                        "Oi! Podem usar um shampoo neutro no Bob?"
+                    </p>
+</div>
+</div>
+</div>
+<!-- Section Title: Yesterday -->
+<div class="flex justify-between items-center mt-xl mb-sm">
+<h2 class="font-title-md text-title-md text-primary">Ontem</h2>
+</div>
+<div class="space-y-sm opacity-80">
+<!-- Notification Item 4: Critical Red (Financeiro/Aviso) -->
+<div class="notification-card bg-surface-container-low border border-outline-variant rounded-xl p-md flex gap-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error fill-icon">error</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg text-on-background">Pagamento Falhou</h3>
+<span class="font-label-sm text-label-sm text-outline">Ontem</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-xs line-clamp-2">
+                        A transação do serviço #9822 foi recusada pela operadora.
+                    </p>
+</div>
+</div>
+<!-- Notification Item 5: Neutral -->
+<div class="notification-card bg-surface-container-low border border-outline-variant rounded-xl p-md flex gap-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">update</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg text-on-background">Sistema Atualizado</h3>
+<span class="font-label-sm text-label-sm text-outline">Ontem</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-xs line-clamp-2">
+                        A versão 2.4.0 foi instalada. Novos filtros de busca disponíveis.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<!-- Following Shared Component: BottomNavBar intent for Mobile -->
+<nav class="sticky bottom-0 w-full bg-surface-container-lowest border-t border-outline-variant px-lg py-sm flex justify-between items-center md:hidden z-50">
+<button class="flex flex-col items-center gap-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Painel</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">pets</span>
+<span class="font-label-sm text-label-sm">Pets</span>
+</button>
+<!-- Active Tab: Central/Notifications -->
+<button class="flex flex-col items-center gap-xs text-primary transition-colors">
+<span class="material-symbols-outlined fill-icon">notifications</span>
+<span class="font-label-sm text-label-sm font-bold">Alertas</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Caixa</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Ajustes</span>
+</button>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.notification-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.add('bg-surface-container-low');
+                setTimeout(() => {
+                    card.classList.remove('bg-surface-container-low');
+                }, 1000);
+            });
+        });
+    </script>
+</body></html>

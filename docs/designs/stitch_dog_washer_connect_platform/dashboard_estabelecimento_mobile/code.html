@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Dog Washer Connect</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#121c29",
+                    "outline": "#75777c",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "secondary": "#855300",
+                    "surface": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-surface": "#191c1d",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-primary-container": "#7b8495",
+                    "on-secondary-container": "#684000",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container": "#edeeef",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-tint": "#555f6f",
+                    "on-surface-variant": "#44474c",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "secondary-container": "#fea619",
+                    "inverse-primary": "#bdc7d9",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-container": "#75859d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      .ambient-shadow {
+        shadow-[0px_4px_20px_rgba(7,17,30,0.05)];
+      }
+      body {
+        background-color: #F9FAFB;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="pets">pets</span>
+<h1 class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-secondary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="hidden md:flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm text-label-sm">Unidade Verificada</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Welcome & Primary Action -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-stack-lg gap-stack-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg">Bem-vindo, Pet Shop Central</h2>
+<p class="text-on-surface-variant font-body-md mt-1">Sua unidade está <span class="text-secondary font-bold">Ativa</span> e pronta para operar.</p>
+</div>
+<button class="bg-secondary-container hover:bg-[#E2930B] text-on-secondary-container px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 font-label-md">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                Publicar Oportunidade
+            </button>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Trabalhos do Dia (Check-in Status) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="calendar_today">calendar_today</span>
+                        Trabalhos do Dia
+                    </h3>
+<span class="text-label-sm font-label-sm text-outline">12 de Outubro</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a dog groomer smiling warmly in a bright, modern pet clinic. The person is wearing a clean branded apron. High-key lighting and minimalist white background with subtle wooden accents. Professional photography style with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEREauZ14N9kwCdsSenry_YsnxlWuSwb4XysgXZoUOyLmG-L66c6X39QdtHZa25lpjhLQkbzncStWovnh6QprOlg6P8jQZt5uifx6kQVuEEzFV2jE8uHtO9IltqLeTy3MbzRMIdKE14oIGQxO3Eno3PinkQnFvOVKQTCBceTZ7Xi-R0TRePneQrzuRMzhjB_PXTvIsmZVqoi34PkVirtXrhK4bIhP7QT2GFA9raACrdieV43pfZaBf"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Ricardo Silva</p>
+<p class="text-label-sm text-on-surface-variant">Banho e Tosa • 08:00 - 17:00</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-label-sm">Check-in realizado</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of a cheerful female pet care specialist. She is wearing a modern teal uniform in a well-lit pet shop setting. Soft ambient lighting, clean lines, and a high-end corporate feel. The image is crisp and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpkR1tKrDR_tj3j_M6az0e0u_CQqcam-BlygUpJP_CEAaLdD-plm5-5LIIrjqlCpSMDreGbSdGnRZcavfr3S2-2ne5JpnkIAR-uUx91ehIDrhUkRdkcL6Rkvb6ymFm3LVZQkNrAhneZ9JJdrJEeSY7LQFp25wEFv67xooWznhBB_8k6gEHhjSQ28zUyjdR0j7eEWIQZCP97FT0BoD_oDM2dH0GUW9NOwOLNoIczuaHrHZY3B0SesI7"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Ana Luísa</p>
+<p class="text-label-sm text-on-surface-variant">Assistente Veterinário • 09:00 - 18:00</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-label-sm italic">Aguardando Chegada</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ocorrências Operacionais (Critical Info) -->
+<div class="md:col-span-4 bg-error-container/10 border border-error-container rounded-xl p-6">
+<h3 class="font-title-lg text-title-lg text-on-error-container flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+                    Ocorrências
+                </h3>
+<div class="bg-white p-4 rounded-lg border border-error-container shadow-sm">
+<p class="text-label-sm font-bold text-error mb-1">Atraso de Profissional</p>
+<p class="text-body-md text-on-surface-variant">Marcos Oliveira reportou atraso de 15min por trânsito.</p>
+<div class="mt-4 flex gap-2">
+<button class="text-label-sm font-bold text-on-primary-fixed-variant hover:underline">Ignorar</button>
+<button class="text-label-sm font-bold text-error hover:underline">Ver Detalhes</button>
+</div>
+</div>
+</div>
+<!-- Candidatos em Análise -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-lg text-title-lg">Candidatos</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-[10px] font-bold">4 NOVOS</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-3 pb-4 border-b border-outline-variant last:border-0 last:pb-0">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young professional pet sitter in a minimalist outdoor urban setting. Bright, natural lighting. Professional vibe with clean aesthetic and neutral colors. Corporate modern style for a recruitment dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARQ9WKaqD1z7DKsbmBc7HwNyyTItFl-QZ9T0M3bTgJQJTiz9P2SejUWHfFbHRthYuSSoi4GWzLfLXaDZoecTmMKg7qBy8uSKt_V4d8DJcbCZcp36NqOpkWFtzsTN_zHav6Jf1YngjdpjvGqsEZm5IdIwafVR6PAtYZOYhWuPw_Y7DAi5TwTRUrxjzVN88pF-ED-P3QEFOcB2bggMYhFq9RJ3VUdMt_xZW8XWn4omDWEzRN1ilW6Wom"/>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-bold">Carla Mendes</p>
+<p class="text-label-sm text-outline">Groomer Jr. • 4.8★</p>
+</div>
+<button class="text-secondary hover:bg-secondary-container/20 p-1 rounded transition-all">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+</button>
+</div>
+<div class="flex gap-3 pb-4 border-b border-outline-variant last:border-0 last:pb-0">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Headshot of a smiling male veterinarian in a clean white lab coat. High-key studio lighting, modern minimalist professional background. Trustworthy and competent appearance. High contrast and clean composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJN35GIdeRsAI6u1DHw4MQfboIq9OPPaSkYZVfpOdpDOgJPD2GP9ThrOsG8KrZjvXiTsSd05aDy7i0N5QbiLKibk9tXkxsxMkrL4YhnANfYVbb_kVEVqw6q0osFXVTXkZseBCVHpGNZxuKa5mRXrZtr6hSsx804AgxJrlqjMpb_rXv-GdCNLbab_CluXJqlOrHZCFJwmgoZcZywbjZqz-_WLEFb6PwttrvoPNndv73-7-tQTpJRHeS"/>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-bold">Tiago Rocha</p>
+<p class="text-label-sm text-outline">Vet Assist • 5.0★</p>
+</div>
+<button class="text-secondary hover:bg-secondary-container/20 p-1 rounded transition-all">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+</button>
+</div>
+</div>
+<button class="w-full mt-4 py-2 text-label-sm text-outline-variant border border-dashed border-outline-variant rounded-lg hover:border-secondary hover:text-secondary transition-all">Ver todos candidatos</button>
+</div>
+<!-- Oportunidades Abertas -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(7,17,30,0.05)] overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="campaign">campaign</span>
+                        Oportunidades Abertas
+                    </h3>
+<a class="text-label-sm text-secondary font-bold hover:underline" href="#">Ver todas</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-surface border border-outline-variant rounded-xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded text-[10px] font-bold">URGENTE</span>
+<span class="text-label-sm font-bold text-secondary">R$ 150/dia</span>
+</div>
+<p class="font-label-md text-on-surface">Banhista Senior</p>
+<p class="text-label-sm text-on-surface-variant mt-1">Data: Amanhã, 13 Out</p>
+</div>
+<div class="mt-4 flex items-center justify-between text-outline text-[12px]">
+<span>3 Candidatos</span>
+<span class="material-symbols-outlined text-sm" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+<div class="p-4 bg-surface border border-outline-variant rounded-xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-outline rounded text-[10px] font-bold">PROGRAMADO</span>
+<span class="text-label-sm font-bold text-secondary">R$ 120/dia</span>
+</div>
+<p class="font-label-md text-on-surface">Auxiliar de Canil</p>
+<p class="text-label-sm text-on-surface-variant mt-1">Data: Segunda, 16 Out</p>
+</div>
+<div class="mt-4 flex items-center justify-between text-outline text-[12px]">
+<span>1 Candidato</span>
+<span class="material-symbols-outlined text-sm" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagamentos da Semana -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="payments">payments</span>
+                    Pagamentos da Semana
+                </h3>
+<div class="flex items-end gap-4 mb-6">
+<div>
+<p class="text-label-sm text-outline">Total provisionado</p>
+<p class="font-headline-md text-headline-md">R$ 1.250,00</p>
+</div>
+<div class="mb-1 text-label-sm text-on-tertiary-fixed-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+                        12% vs anterior
+                    </div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-label-md">
+<span class="text-on-surface-variant">Concluídos</span>
+<span class="font-bold">R$ 800,00</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[65%]"></div>
+</div>
+<div class="flex justify-between items-center text-label-md">
+<span class="text-on-surface-variant">Aguardando validação</span>
+<span class="font-bold">R$ 450,00</span>
+</div>
+</div>
+</div>
+<!-- Avaliações Pendentes -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0px_4px_20px_rgba(7,17,30,0.05)]">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="star">star</span>
+                    Avaliações Pendentes
+                </h3>
+<div class="flex flex-col gap-4">
+<div class="p-4 bg-surface border-l-4 border-secondary rounded-r-lg">
+<p class="text-label-md font-bold">Avalie o trabalho de Ricardo Silva</p>
+<p class="text-label-sm text-on-surface-variant">Turno de ontem finalizado às 17:15</p>
+<div class="flex gap-1 mt-3">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-secondary" data-icon="star">star</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-secondary" data-icon="star">star</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-secondary" data-icon="star">star</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-secondary" data-icon="star">star</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-secondary" data-icon="star">star</span>
+</div>
+</div>
+<div class="p-4 bg-surface border-l-4 border-outline-variant rounded-r-lg">
+<p class="text-label-md font-bold">Avalie o trabalho de Marina Souza</p>
+<p class="text-label-sm text-on-surface-variant">Turno de 10/10 finalizado às 18:00</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest border-t border-outline-variant mb-16 md:mb-0">
+<p class="font-body-md text-on-surface text-label-sm">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-stack-md">
+<a class="font-label-sm text-label-sm text-outline hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-label-sm text-outline hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-label-sm text-outline hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-surface-container-lowest shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Oportunidades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm">Meus Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for ratings
+        document.querySelectorAll('.material-symbols-outlined[data-icon="star"]').forEach((star, index, array) => {
+            star.addEventListener('click', () => {
+                const parent = star.parentElement;
+                const starsInParent = parent.querySelectorAll('.material-symbols-outlined');
+                const clickedIndex = Array.from(starsInParent).indexOf(star);
+                
+                starsInParent.forEach((s, i) => {
+                    if (i <= clickedIndex) {
+                        s.style.fontVariationSettings = "'FILL' 1";
+                        s.classList.replace('text-outline', 'text-secondary');
+                    } else {
+                        s.style.fontVariationSettings = "'FILL' 0";
+                        s.classList.replace('text-secondary', 'text-outline');
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

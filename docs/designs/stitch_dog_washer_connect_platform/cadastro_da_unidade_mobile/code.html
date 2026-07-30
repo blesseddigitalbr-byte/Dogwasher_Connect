@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro da Unidade - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-active { color: var(--tw-secondary); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e1e3e4; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar (JSON) -->
+<header class="flex justify-between items-center px-4 py-4 w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">pets</span>
+<h1 class="font-display text-headline-md text-primary">Dog Washer Connect</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80">notifications</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of a business administrator in a modern office environment, soft daylighting, high-end photography style with shallow depth of field, corporate and trustworthy mood, wearing smart casual attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIgnlZ8bsrSHKEnTQf0lakV2MObysRBDc1b7mhck8PaMjNoyUSYcZBtI7_StXX-foEaSg8Hp2JeS3sIFIqIRahi-D4dnzs-K8dHT_66i_-r-NX8C_0cc2LsaCSGud2W_HPt3opXKwM8-FMFZl66t8HLS_Knc6P1R_bxsV1icreueUlx0ho1g_JK9-RxdLH2uIDm495WMAiT3CodA_Oma4K-yJxmbzsiwZOMYlBlFqs2_8VT5HJ4HEO"/>
+</div>
+</div>
+</header>
+<!-- Main Content: Mobile Vertical Flow -->
+<main class="flex-1 pb-32">
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container px-margin-mobile py-4 sticky top-[64px] z-40">
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-secondary">Passo 2 de 5: Cadastro da Unidade</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">40% concluído</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[40%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Validation Alert -->
+<div class="px-margin-mobile py-4">
+<div class="bg-blue-50 border border-blue-100 rounded-xl p-4 flex gap-3">
+<span class="material-symbols-outlined text-info text-blue-600">info</span>
+<p class="font-body-md text-body-md text-blue-800">
+<strong>Validação Necessária:</strong> Os dados da unidade serão validados em até 24h úteis para liberação de agendamentos.
+                </p>
+</div>
+</div>
+<form class="px-margin-mobile flex flex-col gap-8">
+<!-- Section 1: Dados Básicos -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Dados da Unidade</h2>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Nome da Unidade</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Ex: Matriz Pinheiros" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">CNPJ / CPF</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="00.000.000/0000-00" type="text"/>
+</div>
+</div>
+</section>
+<!-- Section 2: Localização -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Endereço</h2>
+</div>
+<div class="w-full aspect-video rounded-xl overflow-hidden relative border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="A detailed aerial view of a clean modern city street layout, minimalist map style with soft muted colors, focused on the Pinheiros district, premium technological interface feel, light mode aesthetic." data-location="Sao Paulo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBONyTHO_E6miGKeGhQn0-0fVnR5D_dD93P32GwCECDttyolstE5ir4kd4lgpu3tdn36GjoNeIcXQxfeGQ5K7DaSgSeLeo7ROFMTa0y1Nv0HG-QPDInumVYpCLwaK_uW-iOyM1Dc0sShPHixhIgVKe-t0rzBn792zSvD1Jo4jsVxGk7M5R9Vp5L0kKnm4flwlkNDHXhvwBgIA7kC3zomGsNftjoVB5txUVe_xinQ71i6T82nO5nPSNc')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<div class="absolute bottom-3 left-3 bg-surface px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+<span class="font-label-sm text-label-sm">Confirmar no mapa</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5 col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">CEP</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="00000-000" type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-secondary font-label-md" type="button">Buscar</button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Rua / Avenida</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface-container-low" readonly="" type="text" value="Rua dos Pinheiros"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Número</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="123" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Complemento</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Ex: Loja 2" type="text"/>
+</div>
+</div>
+</section>
+<!-- Section 3: Infraestrutura -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Capacidade e Estrutura</h2>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg">Banhadeiras</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Número de estações de banho</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 rounded-full border border-outline flex items-center justify-center active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-headline-md text-headline-md w-4 text-center">2</span>
+<button class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg">Estações de Secagem</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Número de sopradores/secadores</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 rounded-full border border-outline flex items-center justify-center active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-headline-md text-headline-md w-4 text-center">4</span>
+<button class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<label class="font-label-md text-label-md text-on-surface-variant">Fotos da Unidade (Mínimo 3)</label>
+<div class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+<div class="min-w-[120px] h-32 rounded-lg bg-surface-container-high border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-2 active:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">add_a_photo</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Adicionar</span>
+</div>
+<div class="min-w-[120px] h-32 rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Professional wide-angle photograph of a bright, minimalist dog washing station with white ceramic tiles, stainless steel tubs, and warm wooden accents. The atmosphere is upscale, clean, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEF7MFeWVuzmkz_XH8eoZjv8S9FmydTscWr3tyWDiycz9FzSpcRhlxRxDcWqwGQ2IihenoFG4PlaijLsvh22T6oZXrg0YQn92hGlx0pQBL5zyREEd3j5oVoGk9RXWPQsOmFf9cG9R03jXRHQ-szcMroddw75RS7rReRSX_aixwcK02PB-hqWfuUz4_jVw1wEcUxtJAPn7BsglXnqPWAalHdduvdxsBKd2VplvXGDX8U3nQrLg1TueZ"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-error text-on-error rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<div class="min-w-[120px] h-32 rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Close-up detail shot of grooming equipment neatly organized on a sleek black workstation in a professional pet spa. High-end lighting creates sharp reflections on metallic surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr_sQEAjb8soJo-OFS4d74lUkMdV1i3gR5mnZtCvBo8pU215_zTA_2jrcgJeZ1IApdH0K-5LVBSXLSYTPtiusD2IvgFL-m8wmWtU3S3jKn3GjTXAxo7kZjFf8tzDjs2RU_StDqmZS2I32gOfq3jOW5_6nxRpXPcw8hXTG2_Zj5ORuKLEvGKLf9kjy3ZWHKzLwTrLvC26iWej5XaqSL2IQoWE5QDJR_NZT62W8z0osqtVH9SaMYQ6Mf"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-error text-on-error rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</form>
+</main>
+<!-- Bottom Actions Container -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant px-margin-mobile py-6 flex flex-col gap-4 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex gap-4">
+<button class="flex-1 h-14 rounded-xl border border-primary text-primary font-title-lg flex items-center justify-center active:scale-95 transition-transform">
+                Salvar Rascunho
+            </button>
+<button class="flex-1 h-14 rounded-xl bg-secondary text-on-secondary font-title-lg flex items-center justify-center active:scale-95 transition-transform shadow-sm">
+                Continuar
+                <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</button>
+</div>
+<div class="flex justify-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center max-w-[280px]">Ao prosseguir, você concorda com os termos de verificação de unidade.</p>
+</div>
+</div>
+<!-- BottomNavBar (JSON Shell Integration for App Flow) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-[60] flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant hidden">
+<!-- Hidden during this specific transactional form flow per instructions to suppress on Task-Focused pages -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-3 py-1">
+<span class="material-symbols-outlined">store</span>
+<span class="font-label-sm text-label-sm">Units</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for input focus effects
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+                input.parentElement.style.transition = 'transform 0.2s ease';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

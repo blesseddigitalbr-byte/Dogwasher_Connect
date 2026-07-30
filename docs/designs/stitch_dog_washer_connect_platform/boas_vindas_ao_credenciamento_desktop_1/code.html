@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastre seu estabelecimento | Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.8); }
+        .step-inactive { opacity: 0.4; }
+        .step-active { opacity: 1; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex justify-between items-center px-margin-desktop py-4 w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flat no shadows">
+<div class="font-display text-headline-md text-primary dark:text-inverse-primary">
+            Dog Washer Connect
+        </div>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer active:opacity-80" href="#">Help</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer active:opacity-80" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center">
+<!-- Progress Stepper (Contextual for Onboarding) -->
+<section class="w-full max-w-4xl px-margin-mobile md:px-0 py-stack-lg">
+<div class="flex items-center justify-between relative mb-8">
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -z-10 transform -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-[11%] h-[2px] bg-secondary-container -z-10 transform -translate-y-1/2 transition-all duration-500"></div>
+<!-- 9 Steps -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md text-label-md shadow-sm">1</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">2</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">3</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">4</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">5</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">6</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">7</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">8</div>
+</div>
+<div class="flex flex-col items-center gap-2 step-inactive">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md">9</div>
+</div>
+</div>
+<p class="text-center font-label-md text-label-md text-on-surface-variant">Etapa 1 de 9: Boas-vindas ao Credenciamento</p>
+</section>
+<!-- Content Canvas -->
+<div class="container-max w-full px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-gutter items-center py-stack-lg">
+<!-- Hero Illustration/Atmosphere (Asymmetric) -->
+<div class="md:col-span-5 order-2 md:order-1 relative rounded-xl overflow-hidden aspect-square md:aspect-auto md:h-[500px] shadow-sm bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105" data-alt="A sophisticated, high-end professional photography of a modern pet grooming facility interior. The aesthetic is clean, minimalist, and corporate, featuring stainless steel equipment, polished concrete floors, and warm oak wood accents. Soft, diffused natural light floods the space, creating a serene and premium atmosphere. The color palette consists of neutral whites, cool grays, and warm amber tones, reflecting a state-of-the-art technological environment for pet care." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDt6bJoJpzSF0L2U8B7jJ_ksv8UuJ8rqeAQtQ5o119gKLKw5OmAtnZD8r2OCxUrgLkpXI7dJAF4W_fydjZzqdG5qC5fuSsflPv_fuBNv9EIF6_-y9WKyzTgysuoLBh-C446Vxd5-99jCypruTGpoL0RL7siB1U8BQq_6QsLAIaZ8Vh-Oq_hkkuf2SEKmY3ttSKr7R4aTtM8KpY3t-MzIIGGjFKBLMzphhoBFz_sBKHTfy5G4mrN7IY6')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 glass-panel p-4 rounded-lg border border-white/20">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container">verified_user</span>
+</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface mb-0.5">Selo Connect Intelligence</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Garantia de qualidade e excelência técnica.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Onboarding Content -->
+<div class="md:col-span-7 order-1 md:order-2 flex flex-col justify-center">
+<div class="max-w-2xl">
+<span class="inline-block px-3 py-1 bg-primary-container text-on-primary-fixed-variant font-label-sm text-label-sm rounded-full mb-4">CREDENCIAMENTO INSTITUCIONAL</span>
+<h1 class="font-display text-display text-primary mb-6 leading-tight">Cadastre seu estabelecimento</h1>
+<div class="space-y-6 mb-10">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            Seja bem-vindo ao portal de expansão do Dog Washer Connect. Iniciamos agora o processo de análise técnica para integrar sua rede ao nosso ecossistema de elite.
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low border border-outline-variant rounded-lg flex gap-3">
+<span class="material-symbols-outlined text-secondary">apartment</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Gestão de Unidades</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Estruture múltiplas filiais sob uma única governança digital.</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low border border-outline-variant rounded-lg flex gap-3">
+<span class="material-symbols-outlined text-secondary">hub</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Rede de Qualidade</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Conecte-se aos melhores estabelecimentos do setor pet.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary-container text-on-secondary-container font-title-lg text-title-lg px-8 py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-all active:scale-95 shadow-sm">
+                            Começar cadastro
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-2 border-primary text-primary font-title-lg text-title-lg px-8 py-4 rounded-lg hover:bg-surface-container transition-all active:scale-95">
+                            Salvar e continuar depois
+                        </button>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined">info</span>
+<p class="font-label-md text-label-md">O tempo estimado para conclusão é de 15 minutos. Seus dados são processados com criptografia institucional.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Shared Component - Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-3 py-1">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface opacity-90 transition-transform active:scale-95">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface opacity-90 transition-transform active:scale-95">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface opacity-90 transition-transform active:scale-95">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const originalText = btn.innerText;
+                if(btn.innerText.includes('Começar')) {
+                    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Carregando...';
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central da Conta - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#07111E",
+                        "secondary": "#5f6368",
+                        "brand-gold": "#FFB800",
+                        "brand-orange": "#E67E22",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#0d1c2e",
+                        "outline-variant": "#e0e0e0",
+                        "secondary-container": "#f0f4f9",
+                        "surface-container-low": "#ffffff",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Outfit", "sans-serif"],
+                        "headline-lg": ["Outfit", "sans-serif"],
+                        "body-md": ["Outfit", "sans-serif"],
+                        "body-lg": ["Outfit", "sans-serif"],
+                        "label-md": ["Outfit", "sans-serif"],
+                        "title-md": ["Outfit", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f1f3f4;
+            color: #0d1c2e;
+            font-family: 'Outfit', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- Fixed Sidebar (Azul-Petróleo #07111E) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#07111E] text-white flex flex-col z-50">
+<div class="p-lg flex flex-col items-center border-b border-white/10">
+<img alt="Dog Washer Connect" class="w-24 h-auto mb-2 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtYoYwrmYE0Wh96ZHlY_5huKHA_B0tkNqgE7wVslVQYdVBzhDih2WTQbuRSY8Scf9A9TO5mhBZiGtnNEZLBWIXDUM-wtk6gAJ9oAe8gxKHTBoCRaDUqju29DRx1hHqDTYZi5arCp8-QWHxY5iRu2RxJnregsObF54GPtWaiUv-W_C1p_uUdpW41_Swdvyg8zUAI7REFvkfT8kpXs52_rJSwf6kIdwjfaSQesycPK_9eu5GinheiIBUUZio4hz5trY9QQ"/>
+<span class="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase">Connect Dashboard</span>
+</div>
+<nav class="flex-1 px-md py-lg flex flex-col gap-sm overflow-y-auto custom-scroll">
+<a class="flex items-center gap-md px-md py-sm text-white/70 hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-white/70 hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-label-md text-label-md">Rede</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-white/70 hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+<span class="font-label-md text-label-md">Operações</span>
+</a>
+<!-- Active State: Conta (Orange style from reference) -->
+<a class="flex items-center gap-md px-md py-sm bg-brand-gold text-[#07111E] rounded-lg font-bold shadow-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Conta</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-white/70 hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="finance">payments</span>
+<span class="font-label-md text-label-md">Financeiro</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-white/70 hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Relatórios</span>
+</a>
+</nav>
+<div class="p-md mt-auto border-t border-white/10">
+<div class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-white/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined !text-sm" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Suporte</span>
+</a>
+<div class="flex items-center gap-sm px-md py-sm">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-[10px] font-bold text-white/40 uppercase">System Active</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto custom-scroll flex flex-col bg-[#f1f3f4]">
+<!-- Header -->
+<header class="h-16 sticky top-0 bg-white border-b border-outline-variant px-lg flex items-center justify-between z-40">
+<div class="flex items-center gap-sm text-on-surface-variant font-medium text-sm">
+<span class="opacity-50">Portal</span>
+<span class="material-symbols-outlined !text-sm">chevron_right</span>
+<span class="opacity-50">Configurações</span>
+<span class="material-symbols-outlined !text-sm">chevron_right</span>
+<span class="text-primary font-bold">Minha Conta</span>
+</div>
+<div class="flex items-center gap-lg">
+<!-- Search/Filter like reference -->
+<div class="hidden md:flex items-center gap-md bg-surface-container-low border border-outline-variant px-sm py-1 rounded-lg">
+<span class="material-symbols-outlined !text-md text-on-surface-variant" data-icon="location_on">location_on</span>
+<select class="bg-transparent border-none focus:ring-0 text-sm font-bold text-primary">
+<option>São Paulo - Central</option>
+</select>
+</div>
+<div class="flex items-center gap-md border-l pl-lg border-outline-variant">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<div class="flex items-center gap-sm cursor-pointer group">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-primary leading-tight">Ricardo Oliveira</p>
+<p class="text-[10px] text-on-surface-variant">Admin Master</p>
+</div>
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant group-hover:border-brand-gold transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaItAR8aqdhWNXvUVAr4EGARRKkSKrLEz6BKBYs7xtMlhJmwsIbQQbKn8y7o586_-fpzk_ZbR9ONZ1csl-yMUABL6JmJlRIifUy_uEXqxKQuh4jHjjM7N0hDR3XG5df6oPFPK1d-37y2cN2hAI6eoyBVlkA8T9zyIwbhijXyspcw1f-8Be7UWGqjUT9bNuQrHaZtMPF3mmfZ8an9kaZcllf7qUf_5oBCY-b31773BywL1XwdXXo4dX"/>
+</div>
+</div>
+</div>
+</header>
+<div class="p-lg max-w-7xl mx-auto w-full space-y-lg">
+<!-- Page Title Section -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Central da Conta</h1>
+<p class="text-on-surface-variant">Gerencie suas informações de acesso e preferências de segurança.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-outline-variant bg-white text-primary rounded-lg font-bold text-sm flex items-center gap-xs hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined !text-md">file_download</span> Exportar Logs
+                </button>
+<button class="px-md py-sm bg-brand-gold text-[#07111E] rounded-lg font-bold text-sm flex items-center gap-xs hover:bg-brand-orange transition-colors">
+<span class="material-symbols-outlined !text-md">add</span> Novo Perfil
+                </button>
+</div>
+</div>
+<!-- Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Main Profile Card -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- Data Display -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-brand-gold">badge</span>
+                            Informações Cadastrais
+                        </h3>
+<button class="text-brand-orange font-bold text-sm hover:underline">Editar Perfil</button>
+</div>
+<div class="p-lg">
+<div class="flex flex-col md:flex-row gap-xl">
+<div class="flex flex-col items-center gap-md">
+<div class="relative group">
+<img alt="Profile" class="w-32 h-32 rounded-xl object-cover border-4 border-surface shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHJqlyljtUCTi8hYg9n4jNpWzgYJZzJrwDV-S6pwcIVCa8aWbQ2-YllVpc5Lw4Tjm30tkL_nGAZpeQ0-ZtxQmMGLABnGx7CkEOOMHZX1rdrSeoOOza8EkDXMS-i0sV0aF94-JFrVwMG88KehQM8sd_6hl7AO-Gm-lBzCCkPNZugKzQhXsEH15d_pHathRISAW0NDWhHrf0A_orKWrcZsQ6LWNHRtBEaBJu-GBGa3XIQ-n3j63rr9d3"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-white">photo_camera</span>
+</div>
+</div>
+<span class="px-sm py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase tracking-wider">Conta Verificada</span>
+</div>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-lg gap-y-md">
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase">Nome Completo</label>
+<p class="font-body-lg text-primary font-semibold">Ricardo Silva Oliveira</p>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase">E-mail Principal</label>
+<p class="font-body-lg text-primary font-semibold">ricardo.oliveira@empresa.com.br</p>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase">Telefone de Contato</label>
+<p class="font-body-lg text-primary font-semibold">+55 (11) 98877-6655</p>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase">ID do Usuário</label>
+<p class="font-body-lg text-primary font-semibold">#DWC-99421</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Notifications/Timeline area -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-primary">Log de Alterações Recentes</h3>
+<div class="flex items-center gap-sm bg-surface-container-low px-sm py-1 rounded border border-outline-variant">
+<span class="material-symbols-outlined !text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs" placeholder="Filtrar logs..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface text-[10px] font-bold uppercase text-on-surface-variant border-b border-outline-variant">
+<tr>
+<th class="px-lg py-sm">Timestamp</th>
+<th class="px-lg py-sm">Evento</th>
+<th class="px-lg py-sm">Descrição</th>
+<th class="px-lg py-sm text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr>
+<td class="px-lg py-md text-xs text-on-surface-variant">14:45:02</td>
+<td class="px-lg py-md font-bold text-xs">PERM_UPDATE</td>
+<td class="px-lg py-md text-xs">Alterou privilégios do perfil 'Franqueado'</td>
+<td class="px-lg py-md text-right">
+<span class="bg-green-50 text-green-700 text-[10px] font-bold px-sm py-0.5 rounded border border-green-200">SUCCESS</span>
+</td>
+</tr>
+<tr>
+<td class="px-lg py-md text-xs text-on-surface-variant">13:58:45</td>
+<td class="px-lg py-md font-bold text-xs">AUTH_FAIL</td>
+<td class="px-lg py-md text-xs">Múltiplas falhas de login detectadas</td>
+<td class="px-lg py-md text-right">
+<span class="bg-red-50 text-red-700 text-[10px] font-bold px-sm py-0.5 rounded border border-red-200">ALERT</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Side Cards -->
+<div class="lg:col-span-4 space-y-lg">
+<!-- Security Card like reference -->
+<div class="bg-white border border-outline-variant rounded-xl p-lg shadow-sm">
+<h4 class="font-title-md text-title-md text-primary flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-brand-gold">security</span>
+                        Score de Segurança
+                    </h4>
+<div class="flex flex-col items-center py-md">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle cx="64" cy="64" fill="none" r="56" stroke="#f1f3f4" stroke-width="8"></circle>
+<circle cx="64" cy="64" fill="none" r="56" stroke="#FFB800" stroke-dasharray="351.8" stroke-dashoffset="88" stroke-width="8"></circle>
+</svg>
+<span class="absolute text-3xl font-bold text-primary">75%</span>
+</div>
+<div class="mt-md text-center">
+<p class="font-bold text-primary">Proteção Avançada</p>
+<p class="text-xs text-on-surface-variant mt-1">Ative o MFA para atingir o nível máximo de segurança.</p>
+</div>
+</div>
+<button class="w-full mt-lg py-sm bg-brand-gold text-[#07111E] rounded-lg font-bold text-sm shadow-sm hover:shadow-md transition-all">
+                        Reforçar Segurança
+                    </button>
+</div>
+<!-- Sessions Card -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-md text-sm font-bold text-primary">Sessões Ativas</h3>
+<button class="text-red-600 text-[10px] font-bold uppercase hover:underline">Sair de todas</button>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-md flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container-low border border-outline-variant rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">laptop_mac</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-primary">MacBook Pro 14"</p>
+<p class="text-[10px] text-brand-orange font-bold uppercase">Sessão Atual</p>
+</div>
+</div>
+<div class="p-md flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container-low border border-outline-variant rounded flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-primary">iPhone 15 Pro</p>
+<p class="text-[10px] text-on-surface-variant">São Paulo • Há 2 horas</p>
+</div>
+<button class="p-1 text-on-surface-variant hover:text-red-500">
+<span class="material-symbols-outlined !text-sm">logout</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto p-lg border-t border-outline-variant bg-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-[11px] font-medium text-on-surface-variant">
+                © 2024 Dog Washer Connect • Sistema de Gestão Operacional
+            </p>
+<div class="flex gap-lg text-[11px] font-bold text-primary">
+<a class="hover:text-brand-orange uppercase tracking-wider" href="#">Políticas</a>
+<a class="hover:text-brand-orange uppercase tracking-wider" href="#">Documentação</a>
+<a class="hover:text-brand-orange uppercase tracking-wider" href="#">Suporte</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+    document.querySelectorAll('a, button').forEach(elem => {
+        elem.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') e.preventDefault();
+        });
+    });
+</script>
+</body></html>

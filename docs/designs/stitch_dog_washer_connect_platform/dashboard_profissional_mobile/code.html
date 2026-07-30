@@ -1,0 +1,361 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dog Washer Connect - Dashboard do Profissional</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#121c29",
+                    "outline": "#75777c",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "secondary": "#855300",
+                    "surface": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-surface": "#191c1d",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-primary-container": "#7b8495",
+                    "on-secondary-container": "#684000",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container": "#edeeef",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-tint": "#555f6f",
+                    "on-surface-variant": "#44474c",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "secondary-container": "#fea619",
+                    "inverse-primary": "#bdc7d9",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-container": "#75859d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24 md:pb-0 pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-10 h-20 bg-surface dark:bg-on-primary-fixed border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[32px]">pets</span>
+<h1 class="font-display text-headline-md font-bold text-primary dark:text-primary-fixed">Dog Washer Connect</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex flex-col items-end mr-4">
+<span class="font-label-md text-label-md text-on-surface">Olá, Ricardo Silva</span>
+<span class="flex items-center gap-1 text-[12px] font-semibold text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Ativo
+                </span>
+</div>
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a smiling male dog washer in a clean, modern pet grooming studio. He is wearing a professional black apron. The lighting is bright and high-end, reflecting a premium service environment with soft-focus pet grooming tools in the background. Minimalist and corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBAQ5PZfyrjb7wbr4EX2H8mb4gMHUsvyxGmwXSlh8k6fghfzfMyhxiN-W3KSHKNn2gp75Gmv420m56-cfpwikJtIjOeA3znsjHrx1DLhZh-mKcsvfyDwc5dQxlJI0h878oozZ0sZRqebBwjSJs4gvvBubDGGwvGW20vOUrF0q2Oxurar_4OaKqZQEh-eiR1Y_qivNsRmorEU25GPW2UDBBk6BgmO9W1pe6SVLaFs6WeGXIiTR1jhYU">
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-4 md:px-10 py-8">
+<!-- Welcome & Toggle Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Dashboard Profissional</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Gerencie suas oportunidades e agenda de serviços.</p>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant italic md:mr-4">Você define sua disponibilidade e horários de trabalho.</p><div class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface">Disponibilidade: <strong class="text-secondary" id="status-text">Ativado</strong></span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="availability-toggle" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-container"></div>
+</label>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Earnings Card (Hero style) -->
+<div class="col-span-full md:col-span-4 glass-card p-6 rounded-xl flex flex-col justify-between hover:shadow-lg transition-all">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Remuneração Prevista</span>
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<h3 class="font-display text-headline-lg text-primary">R$ 4.250,00</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 flex items-center gap-1">
+<span class="text-secondary font-bold">+12%</span> em relação ao mês anterior
+                    </p>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant">
+<button class="w-full py-2 bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 transition-all">Ver Extrato Detalhado</button>
+</div>
+</div>
+<!-- Next Contracted Period (Countdown) -->
+<div class="col-span-full md:col-span-5 glass-card p-6 rounded-xl border-l-4 border-l-secondary-container">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-lg text-title-lg text-primary">Próximo Serviço</h3>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded-full">Em 2h 15m</span>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Exterior of a premium, modern pet shop called 'Puppy Palace' with clean architectural lines, large glass windows, and a minimalist black sign. The setting is a bright urban street during a clear day with high-end corporate lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4hbp5oW-NUEPxp8_59qmqFp76iC6-m6cmfZTEYKQHljb8rGj485kGU_oM902eX6YPyb3tUZrNT3Eo65aXw5hLvt4T9n_BvZ4zE0EOgj9bw2PrERY0ZYZDALgwsmWOWTLn3lm4fnarceuQsU8shrw7TRf9AqaAh5IGKjBiAgSYceXMe-GudvPG2tHG_rui2C1qAdL1GaTBSKR9p2ODTxL6uDQTcEjSVqc7jLhJMwgsTb0Vdeg3ng1T">
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md text-primary">Puppy Palace - Unidade Jardins</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Banho e Tosa Profissional</p>
+<div class="flex items-center gap-2 mt-2 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            14:00 - 18:00
+                        </div>
+</div>
+</div>
+<div class="mt-6 flex gap-2">
+<button class="flex-1 border border-primary text-primary py-2 rounded-lg font-label-md hover:bg-surface-container transition-all">Ver Rota</button>
+<button class="flex-1 bg-secondary text-on-secondary py-2 rounded-lg font-label-md hover:opacity-90 transition-all">Check-in/out</button>
+</div>
+</div>
+<!-- Rating Card -->
+<div class="col-span-full md:col-span-3 glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="font-label-md text-label-md text-on-surface-variant mb-2">Minhas Avaliações</span>
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-display text-[40px] font-bold text-primary">4.9</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Baseado em 124 serviços</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-4 overflow-hidden">
+<div class="bg-secondary-container h-full w-[94%]"></div>
+</div>
+<button class="mt-4 text-secondary font-label-sm hover:underline">Ver feedbacks</button>
+</div>
+<!-- Pending Actions -->
+<div class="col-span-full glass-card border-none bg-primary-container p-6 rounded-xl text-on-primary">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="flex items-center gap-4">
+<div class="bg-error-container p-3 rounded-full">
+<span class="material-symbols-outlined text-error">priority_high</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg">Ações Pendentes</h3>
+<p class="font-body-md opacity-80">Sua conta entrará em modo de revisão em 3 dias se os documentos não forem atualizados.</p>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-2 bg-white text-primary-container rounded-lg font-label-md font-bold hover:bg-surface-variant transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+                            Enviar Certificado
+                        </button>
+</div>
+</div>
+</div>
+<!-- Opportunities Feed -->
+<div class="col-span-full md:col-span-8 space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-primary">Oportunidades Próximas</h3>
+<button class="text-secondary font-label-md flex items-center gap-1">Filtrar <span class="material-symbols-outlined text-[18px]">filter_list</span></button>
+</div>
+<div class="space-y-4">
+<!-- Opp 1 -->
+<div class="bg-white p-5 rounded-xl border border-outline-variant hover:border-secondary transition-all cursor-pointer group">
+<div class="flex flex-col md:flex-row justify-between gap-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-secondary">store</span>
+</div>
+<div>
+<p class="font-title-lg text-title-lg text-primary">Pet Shop Estrela</p>
+<div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Pinheiros, SP</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">calendar_today</span> Amanhã, 08:00</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">payments</span> R$ 180,00/período</span>
+</div>
+</div>
+</div>
+<button class="px-6 py-2 bg-secondary text-on-secondary rounded-lg font-label-md group-hover:scale-105 transition-transform">Candidatar-se</button>
+</div>
+</div>
+<!-- Opp 2 -->
+<div class="bg-white p-5 rounded-xl border border-outline-variant hover:border-secondary transition-all cursor-pointer group">
+<div class="flex flex-col md:flex-row justify-between gap-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-secondary">pets</span>
+</div>
+<div>
+<p class="font-title-lg text-title-lg text-primary">Cuidado Canino Express</p>
+<div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Vila Madalena, SP</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">calendar_today</span> 24 Abr, 09:00</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">payments</span> R$ 220,00/período</span>
+</div>
+</div>
+</div>
+<button class="px-6 py-2 bg-secondary text-on-secondary rounded-lg font-label-md group-hover:scale-105 transition-transform">Candidatar-se</button>
+</div>
+</div>
+</div>
+</div>
+<!-- My Applications -->
+<div class="col-span-full md:col-span-4 space-y-6">
+<h3 class="font-headline-md text-headline-md text-primary">Minhas Candidaturas</h3>
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-primary">Banho &amp; Brilho Ltda</span>
+<span class="text-[12px] text-outline">Enviada há 2 horas</span>
+</div>
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant text-[11px] font-bold rounded uppercase">Pendente</span>
+</div>
+<div class="p-4 border-b border-outline-variant flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-primary">Hospital Pet Care</span>
+<span class="text-[12px] text-outline">Enviada há 1 dia</span>
+</div>
+<span class="px-2 py-1 bg-blue-100 text-blue-700 text-[11px] font-bold rounded uppercase">Em Análise</span>
+</div>
+<div class="p-4 flex items-center justify-between bg-surface-container-low">
+<button class="w-full text-center font-label-sm text-secondary py-1">Ver todas (8)</button>
+</div>
+</div>
+<!-- Profile Status Mini Card -->
+<div class="bg-surface-container-high p-4 rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">verified_user</span>
+</div>
+<div>
+<p class="font-label-md text-primary">Perfil Verificado</p>
+<p class="text-[12px] text-on-surface-variant">Sua documentação está em dia para este mês.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-4 bg-surface-container-highest dark:bg-primary-container border-t border-outline-variant mt-12 mb-16 md:mb-0">
+<p class="font-label-sm text-label-sm text-on-surface dark:text-on-primary-fixed-variant">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-surface-container-lowest dark:bg-on-primary-fixed shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] rounded-t-xl"><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">home</span><span class="text-[10px] font-label-sm">Início</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">explore</span><span class="text-[10px] font-label-sm">Oportunidades</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">assignment</span><span class="text-[10px] font-label-sm">Candidaturas</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">calendar_month</span><span class="text-[10px] font-label-sm">Agenda</span></a><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-2 py-1 scale-90 transition-transform" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span><span class="text-[10px] font-label-sm">Trabalhos</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">star</span><span class="text-[10px] font-label-sm">Avaliações</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">payments</span><span class="text-[10px] font-label-sm">Financeiro</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">person</span><span class="text-[10px] font-label-sm">Perfil</span></a><a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined">help</span><span class="text-[10px] font-label-sm">Suporte</span></a></nav>
+<script>
+        const toggle = document.getElementById('availability-toggle');
+        const statusText = document.getElementById('status-text');
+
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                statusText.textContent = 'Ativado';
+                statusText.classList.remove('text-outline');
+                statusText.classList.add('text-secondary');
+            } else {
+                statusText.textContent = 'Pausado';
+                statusText.classList.remove('text-secondary');
+                statusText.classList.add('text-outline');
+            }
+        });
+
+        // Add micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousedown', () => card.style.transform = 'scale(0.98)');
+            card.addEventListener('mouseup', () => card.style.transform = 'scale(1)');
+            card.addEventListener('mouseleave', () => card.style.transform = 'scale(1)');
+        });
+    </script>
+
+
+</body></html>

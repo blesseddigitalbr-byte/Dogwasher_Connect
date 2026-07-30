@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Avaliação da Unidade - Dog Washer Connect</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "primary-container": "#121c29",
+                    "on-surface": "#191c1d",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed": "#d9e3f6",
+                    "on-primary-fixed": "#121c29",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#edeeef",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "outline-variant": "#c5c6cc",
+                    "on-surface-variant": "#44474c",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f8f9fa",
+                    "surface": "#f8f9fa",
+                    "tertiary-container": "#0b1c30",
+                    "on-secondary-container": "#684000",
+                    "background": "#f8f9fa",
+                    "on-background": "#191c1d",
+                    "tertiary": "#000000",
+                    "secondary": "#855300",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#bdc7d9",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "outline": "#75777c",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "on-primary-container": "#7b8495",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-container": "#75859d",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-container": "#fea619",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-md": "1rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "body-md": ["Outfit"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .star-active {
+        font-variation-settings: 'FILL' 1;
+        color: #fea619;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface border-b border-outline-variant shadow-sm transition-all duration-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="pets">pets</span>
+<h1 class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors duration-200">
+<span class="material-symbols-outlined text-secondary" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile max-w-container-max mx-auto">
+<!-- Invitation/Context Section -->
+<section class="mb-stack-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A clean and professional pet grooming salon interior with bright lighting, white modern workstations, and high-end pet bathing equipment. The aesthetic is corporate and modern, featuring neutral tones and a minimalist design. Professional lighting highlights the sleek surfaces and organized environment, conveying safety and premium care for pets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfjbpmkTEVeTZcxolm0Qgjp7XTwEa31gIQUaafapU-EQVGU-3y93nhyVsZG3Mhbyvo1DEZ1uBSeqeRxY9P5nRibiQggqYYYk9q56uqrl_BC7wAdslEs16NsQ_KkTeKFvYxLCo5VSS1MaETvxVc-G0B1iunKYv2CxMNZwym4me9R8Ceea5vHxmn15r2-NyiEOtMJpQSMFrMAzFHuyKP5TFBx8jNqKAECVOCssaEJ-g_tZMDBlFjx51J"/>
+</div>
+<div>
+<p class="font-label-sm text-secondary uppercase tracking-wider">Trabalho Concluído</p>
+<h2 class="font-headline-md text-primary">Pet Spa Vila Mariana</h2>
+<p class="font-body-md text-on-surface-variant">Unidade visitada em 24 de Maio</p>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    Sua experiência é fundamental para mantermos a qualidade da nossa rede. Como foi trabalhar nesta unidade?
+                </p>
+</div>
+</section>
+<!-- Evaluation Form -->
+<section class="space-y-stack-md">
+<!-- Criteria 1: Fotos vs Realidade -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-title-lg text-primary">Correspondência das fotos</h3>
+<span class="material-symbols-outlined text-outline" data-icon="photo_camera">photo_camera</span>
+</div>
+<p class="font-label-md text-on-surface-variant mb-4">O ambiente físico é fiel ao que foi apresentado no anúncio?</p>
+<div class="flex justify-between px-2">
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 1)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 2)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 3)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 4)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 5)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+</div>
+</div>
+<!-- Criteria 2: Estrutura -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-title-lg text-primary">Estrutura disponível</h3>
+<span class="material-symbols-outlined text-outline" data-icon="handyman">handyman</span>
+</div>
+<p class="font-label-md text-on-surface-variant mb-4">Qualidade e funcionamento dos equipamentos e insumos.</p>
+<div class="flex justify-between px-2">
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 1)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 2)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 3)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 4)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 5)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+</div>
+</div>
+<!-- Criteria 3: Autonomia -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-title-lg text-primary">Respeito à autonomia</h3>
+<span class="material-symbols-outlined text-outline" data-icon="psychology">psychology</span>
+</div>
+<p class="font-label-md text-on-surface-variant mb-4">Você teve liberdade técnica para realizar seu trabalho profissional?</p>
+<div class="flex justify-between px-2">
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 1)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 2)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 3)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 4)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 5)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+</div>
+</div>
+<!-- Criteria 4: Remuneração -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-title-lg text-primary">Cumprimento da remuneração</h3>
+<span class="material-symbols-outlined text-outline" data-icon="payments">payments</span>
+</div>
+<p class="font-label-md text-on-surface-variant mb-4">O valor e prazos acordados foram respeitados integralmente?</p>
+<div class="flex justify-between px-2">
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 1)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 2)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 3)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 4)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+<button class="group flex flex-col items-center gap-1" onclick="rate(this, 5)">
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-secondary-container transition-colors" data-icon="star">star</span>
+</button>
+</div>
+</div>
+<!-- Comment Field -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm">
+<label class="font-title-lg text-primary block mb-3" for="feedback">Observações adicionais</label>
+<textarea class="w-full bg-surface-bright border border-outline-variant rounded-lg p-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline-variant" id="feedback" placeholder="Ex: A recepção foi muito prestativa ou a mesa 3 precisa de manutenção." rows="3"></textarea>
+</div>
+</section>
+<!-- Submit Button -->
+<div class="mt-8 mb-12">
+<button class="w-full h-14 bg-secondary-container text-on-secondary-container font-bold text-lg rounded-xl flex items-center justify-center gap-2 hover:scale-[0.98] active:scale-95 transition-all shadow-md">
+<span>Enviar Avaliação</span>
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+<button class="w-full mt-4 py-3 text-secondary font-label-md hover:underline">Pular avaliação por enquanto</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] rounded-t-xl md:hidden">
+<div class="flex flex-col items-center justify-center text-outline transition-all hover:text-secondary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Oportunidades</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm">Meus Jobs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline transition-all hover:text-secondary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</div>
+</nav>
+<script>
+        function rate(element, score) {
+            const container = element.parentElement;
+            const stars = container.querySelectorAll('.material-symbols-outlined');
+            
+            stars.forEach((star, index) => {
+                if (index < score) {
+                    star.style.fontVariationSettings = "'FILL' 1";
+                    star.classList.remove('text-outline-variant');
+                    star.classList.add('text-secondary-container');
+                } else {
+                    star.style.fontVariationSettings = "'FILL' 0";
+                    star.classList.add('text-outline-variant');
+                    star.classList.remove('text-secondary-container');
+                }
+            });
+
+            // Haptic-like feedback animation
+            element.classList.add('scale-125');
+            setTimeout(() => element.classList.remove('scale-125'), 150);
+        }
+
+        // Handle Scroll Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('h-16', 'bg-white/95', 'backdrop-blur-md');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.remove('h-16', 'bg-white/95', 'backdrop-blur-md');
+                header.classList.add('h-20');
+            }
+        });
+    </script>
+</body></html>

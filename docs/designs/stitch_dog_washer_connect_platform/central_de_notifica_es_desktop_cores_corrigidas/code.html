@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Notificações | Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#30363c",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "surface-variant": "#d4e4fc",
+                    "on-primary-container": "#86a0cd",
+                    "secondary-fixed": "#d9e3f9",
+                    "on-surface-variant": "#43474e",
+                    "surface-tint": "#455f88",
+                    "surface": "#f8f9ff",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed": "#dde3eb",
+                    "background": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#596376",
+                    "secondary": "#555f71",
+                    "primary": "#1a365d",
+                    "primary-dark": "#07111e",
+                    "accent": "#f59e0b", /* Orange/Gold for highlights */
+                    "on-accent": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-container": "#d6e0f6",
+                    "outline": "#74777f",
+                    "on-background": "#0d1c2e",
+                    "on-secondary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-container": "#1a365d",
+                    "on-tertiary-fixed": "#161c22",
+                    "on-surface": "#0d1c2e",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary": "#1b2127",
+                    "surface-container-high": "#dce9ff",
+                    "surface-dim": "#ccdbf4",
+                    "outline-variant": "#c4c6cf",
+                    "surface-container-highest": "#d4e4fc",
+                    "inverse-primary": "#adc7f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f8f9ff; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c4c6cf; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-lg py-sm w-full bg-primary-dark border-b border-white/10 shadow-lg">
+<div class="flex items-center gap-md">
+<img alt="Dog Washer Connect Logo" class="h-10 w-10 object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnAHq6myoPnMe4dEPLsYWuLTE2ehx_mQB6y9_eBkfpJR6wsr7w0PD72cWDY-MQobki29518yu1m83z4m0o6sC29PIduB46bGTmfwWlZ9cFE6Nxk5VXSQ9HFmwbUFcIy5vJfTEv0Ij099pzbsbATR0T8WuoaG1glF_Q_vFcR0WxvGFYvVv8h-vt3TRjn3WKZOdAXwdPZCdT0ZUpeylw-VTHd_nsjeeIahWe_OqNE9RCmXzADNNSGbluTfgm0g4CWxdXeA"/>
+<span class="font-headline-lg text-headline-lg text-white tracking-tight">Dog Washer Connect</span>
+</div>
+<div class="flex-1 max-w-xl mx-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/50 group-focus-within:text-white transition-colors">search</span>
+<input class="w-full bg-white/10 border border-white/20 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:border-white focus:ring-1 focus:ring-white text-body-md text-white placeholder:text-white/40" placeholder="Pesquisar notificações..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="flex items-center gap-sm cursor-pointer hover:bg-white/10 p-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="text-label-md text-white hidden md:block">Admin</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-64px)] w-64 fixed left-0 top-16 p-md gap-sm bg-primary border-r border-white/5">
+<div class="mb-lg">
+<p class="text-label-sm text-white/40 uppercase px-2 mb-2">Administração</p>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-md p-3 text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-3 bg-white/10 text-white font-bold rounded-lg transition-all active:scale-95 shadow-sm border-l-4 border-accent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-label-md">Notificações</span>
+</a>
+<a class="flex items-center gap-md p-3 text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-label-md">Mensagens</span>
+</a>
+<a class="flex items-center gap-md p-3 text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-label-md">Financeiro</span>
+</a>
+<a class="flex items-center gap-md p-3 text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md">Configurações</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto pt-md border-t border-white/10">
+<button class="w-full flex items-center justify-center gap-2 bg-accent text-primary-dark py-3 rounded-lg font-label-md shadow-lg hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="font-bold">Novo Chamado</span>
+</button>
+<nav class="mt-md flex flex-col gap-1">
+<a class="flex items-center gap-md p-3 text-white/60 hover:bg-white/10 rounded-lg text-label-md" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Documentação</span>
+</a>
+<a class="flex items-center gap-md p-3 text-error hover:bg-error/10 rounded-lg text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sair do Sistema</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 p-lg bg-background">
+<!-- Header Section -->
+<div class="flex flex-col gap-md mb-lg">
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Central de Notificações</h1>
+<p class="text-body-lg text-on-surface-variant">Gerencie todos os alertas e atualizações operacionais em um só lugar.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-2 px-md py-2 border border-primary text-primary rounded-lg text-label-md hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Marcar todas como lidas</span>
+</button>
+<button class="flex items-center gap-2 px-md py-2 border border-outline text-on-surface-variant rounded-lg text-label-md hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>Limpar Filtros</span>
+</button>
+</div>
+</div>
+<!-- Tabs Filter Bar -->
+<div class="flex items-center gap-xs overflow-x-auto pb-2 custom-scrollbar">
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-primary text-white font-label-md border border-primary">Todas</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Oportunidades</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Candidaturas</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Convites</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Execução</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Financeiro</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Avaliações</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Documentos</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Suporte</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-white hover:bg-surface-container transition-colors text-on-surface-variant font-label-md border border-outline-variant">Sistema</button>
+</div>
+</div>
+<!-- Notifications List -->
+<div class="flex flex-col gap-md">
+<!-- High Priority Card -->
+<div class="bg-white border-l-4 border-error border-y border-r border-outline-variant p-md flex items-start gap-md group hover:bg-surface-container-low transition-all shadow-sm">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="bg-error-container text-on-error-container text-label-sm px-2 py-0.5 rounded-full uppercase tracking-widest font-bold">Crítico</span>
+<span class="text-label-md text-on-surface-variant font-semibold">Financeiro • Pagamento em atraso</span>
+</div>
+<span class="text-label-md text-outline">Hoje, 09:42</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Fatura de Assinatura não Processada</h3>
+<p class="text-body-md text-on-surface-variant max-w-3xl">A tentativa de cobrança para a renovação do seu plano profissional falhou. Por favor, verifique seus dados de pagamento para evitar suspensão temporária do acesso.</p>
+<div class="flex gap-sm mt-sm">
+<button class="bg-accent text-primary-dark px-4 py-2 rounded-lg text-label-md font-bold hover:opacity-90 transition-opacity shadow-sm">Atualizar Pagamento</button>
+<button class="text-primary hover:bg-surface-container px-4 py-2 rounded-lg text-label-md transition-colors">Ignorar</button>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-2 text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Opportunity Card -->
+<div class="bg-white border-l-4 border-accent border-y border-r border-outline-variant p-md flex items-start gap-md group hover:bg-surface-container-low transition-all shadow-sm">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="bg-accent text-primary-dark text-label-sm px-2 py-0.5 rounded-full uppercase tracking-widest font-bold">Oportunidade</span>
+<span class="text-label-md text-on-surface-variant font-semibold">Candidaturas • Novo Candidato</span>
+</div>
+<span class="text-label-md text-outline">Ontem, 16:20</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Nova candidatura para "Dog Walker Premium - Centro"</h3>
+<p class="text-body-md text-on-surface-variant max-w-3xl">O profissional Ricardo S. enviou uma candidatura para a vaga disponível. Ele possui 4.9 estrelas e mais de 100 lavagens concluídas.</p>
+<div class="flex gap-sm mt-sm">
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-label-md hover:bg-primary-dark transition-opacity">Ver Perfil</button>
+<button class="text-primary hover:bg-surface-container px-4 py-2 rounded-lg text-label-md transition-colors">Marcar como lida</button>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-2 text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Normal Info Card -->
+<div class="bg-white border-l-4 border-outline-variant border-y border-r border-outline-variant p-md flex items-start gap-md group hover:bg-surface-container-low transition-all shadow-sm opacity-90">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container text-on-surface-variant text-label-sm px-2 py-0.5 rounded-full uppercase tracking-widest font-bold">Info</span>
+<span class="text-label-md text-on-surface-variant font-semibold">Avaliações • Novo Feedback</span>
+</div>
+<span class="text-label-md text-outline">22 Out, 14:05</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Você recebeu uma avaliação de 5 estrelas</h3>
+<p class="text-body-md text-on-surface-variant max-w-3xl">A cliente Maria Clara avaliou positivamente a última execução. "O Max voltou muito cheiroso e feliz, recomendo demais!"</p>
+<div class="flex gap-sm mt-sm">
+<button class="text-primary hover:bg-surface-container px-4 py-2 rounded-lg text-label-md transition-colors">Responder</button>
+</div>
+</div>
+<button class="opacity-100 p-2 text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined text-primary">done_all</span>
+</button>
+</div>
+</div>
+<!-- Footer Pagination -->
+<footer class="mt-xl flex items-center justify-between py-md border-t border-outline-variant">
+<p class="text-label-md text-on-surface-variant">Exibindo 3 de 42 notificações</p>
+<div class="flex items-center gap-sm">
+<button class="p-2 border border-outline-variant rounded-lg text-outline cursor-not-allowed">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white text-label-md shadow-sm">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant text-label-md">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant text-label-md">3</button>
+<span class="w-10 h-10 flex items-center justify-center text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant text-label-md">8</button>
+</div>
+<button class="p-2 border border-outline-variant rounded-lg text-primary hover:bg-surface-container">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+    // Simple tab switching visual feedback
+    const tabs = document.querySelectorAll('.flex.overflow-x-auto button');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => {
+                t.classList.remove('bg-primary', 'text-white');
+                t.classList.add('bg-white', 'text-on-surface-variant');
+            });
+            tab.classList.remove('bg-white', 'text-on-surface-variant');
+            tab.classList.add('bg-primary', 'text-white');
+        });
+    });
+</script>
+</body></html>

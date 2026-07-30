@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Handoff para Desenvolvimento - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#ccdbf4",
+                    "on-secondary-fixed": "#121c2c",
+                    "outline": "#74777f",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "tertiary-fixed": "#dde3eb",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "on-surface-variant": "#43474e",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#d4e4fc",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-primary-container": "#86a0cd",
+                    "on-background": "#0d1c2e",
+                    "primary-container": "#1a365d",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#455f88",
+                    "tertiary-container": "#30363c",
+                    "secondary-fixed": "#d9e3f9",
+                    "primary-fixed-dim": "#adc7f7",
+                    "outline-variant": "#c4c6cf",
+                    "inverse-primary": "#adc7f7",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "tertiary": "#1b2127",
+                    "surface-container-low": "#eff4ff",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-high": "#dce9ff",
+                    "primary": "#002045",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed": "#001b3c",
+                    "secondary-container": "#d6e0f6",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed": "#001b3c",
+                    "secondary-container": "#d6e0f6",
+                    "surface-container-highest": "#d4e4fc",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "surface": "#f8f9ff",
+                    "on-surface": "#0d1c2e",
+                    "on-secondary-container": "#596376",
+                    "on-tertiary-container": "#989fa6",
+                    "surface-container": "#e5eeff",
+                    "on-tertiary-fixed": "#161c22",
+                    "secondary": "#555f71",
+                    "on-primary-fixed-variant": "#2d476f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "xl": "40px"
+            },
+            "fontFamily": {
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "display-lg": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f8f9ff; font-family: 'Outfit', sans-serif; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); border: 1px solid #E2E8F0; }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        .bento-item { border-radius: 4px; border: 1px solid #E2E8F0; background: white; padding: 24px; }
+    </style>
+</head>
+<body class="text-on-background pb-32">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 border-b border-outline-variant bg-primary">
+<div class="flex justify-between items-center px-lg py-sm max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm"><img alt="Dog Washer Connect" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUyGssR8uv7Jv7e_SQ3XKIQRkX9FHHqb7ZIEKzgcsyEHn_gfatbFbaauKpWLTwSJpYGGj0_667igqd_C-JsGWHrt0nsD-_YkC-IJhwG6ocnlhrSM0dBnZ3-RIBYD6OWAgMrhPVdOGz3pYIx1ZNv5BgUx0sGOtpVYp5WPvPj0ci-bmsgtP_C5Ee10IO7rxUNnTmVE8c7O0pB1mJMe5Bv43BwCaqNy9EaoECu_3cs-qqPL-kIg_uuHIgt_nqSxAxfr2aQQ"/><span class="font-display-lg text-display-lg text-on-primary">Dog Washer Connect</span></div>
+<span class="px-sm py-xs bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg">v2.4.0-STABLE</span>
+</div>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="border-b-2 border-primary pb-1 font-title-md text-title-md text-on-primary border-on-primary" href="#">Handoff</a>
+<a class="text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-low transition-colors px-2 rounded text-on-primary" href="#">API Docs</a>
+<a class="text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-low transition-colors px-2 rounded text-on-primary" href="#">Assets</a>
+<button class="text-on-primary px-lg py-sm rounded-lg font-title-md text-title-md flex items-center gap-sm cursor-pointer active:opacity-80 bg-[#f59e0b]">
+<span class="material-symbols-outlined">download</span>
+                    Export PDF
+                </button>
+</nav>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg mt-xl">
+<!-- Welcome Section -->
+<section class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg mb-sm text-primary">Handoff para Desenvolvimento</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Guia técnico definitivo consolidando arquitetura de navegação, segurança, fluxos financeiros e regras operacionais críticas para a implementação do sistema Dog Washer Connect.</p>
+</section>
+<div class="bento-grid">
+<!-- 1. Mapa de Telas e Rotas -->
+<div class="bento-item col-span-12 lg:col-span-8 overflow-hidden relative">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-title-md text-title-md flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined text-primary">map</span>
+                        Mapa de Telas e Rotas (Ref: DOCUMENT_146)
+                    </h2>
+<span class="font-label-md text-label-md bg-secondary-container px-sm py-xs rounded">REACT_ROUTER_V6</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<p class="font-label-md text-label-md text-primary mb-xs">/dashboard</p>
+<p class="font-body-md text-body-md font-bold mb-base">Dashboard Operacional</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Home principal com KPIs em tempo real e lista de banhos do dia.</p>
+</div>
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<p class="font-label-md text-label-md text-primary mb-xs">/bookings/:id</p>
+<p class="font-body-md text-body-md font-bold mb-base">Detalhes do Agendamento</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Visualização 360 do serviço, logs de alteração e chat com proprietário.</p>
+</div>
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<p class="font-label-md text-label-md text-primary mb-xs">/clients/manage</p>
+<p class="font-body-md text-body-md font-bold mb-base">Gestão de Clientes</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CRUD de proprietários e histórico médico dos pets vinculados.</p>
+</div>
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<p class="font-label-md text-label-md text-primary mb-xs">/financials/ledger</p>
+<p class="font-body-md text-body-md font-bold mb-base">Conciliação Financeira</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Relatórios de faturamento, repasses e integração com Stripe.</p>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant">
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-outline mb-sm">Auth Guards Required</p>
+<div class="flex gap-sm">
+<span class="px-sm py-1 bg-error-container text-on-error-container text-[10px] rounded font-bold italic">PROTECTED_ROUTE</span>
+<span class="px-sm py-1 bg-surface-variant text-on-surface-variant text-[10px] rounded font-bold italic">RBAC_ENABLED</span>
+</div>
+</div>
+</div>
+<!-- 2. Matriz de Permissões -->
+<div class="bento-item col-span-12 lg:col-span-4 bg-primary text-on-primary">
+<h2 class="font-title-md text-title-md mb-lg flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined">security</span>
+                    Matriz de Permissões (RBAC)
+                </h2>
+<div class="space-y-md">
+<div class="flex justify-between items-center border-b border-on-primary/20 pb-sm">
+<span class="font-body-md text-body-md">Admin Geral</span>
+<span class="material-symbols-outlined text-tertiary-fixed">rule</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-primary/20 pb-sm">
+<span class="font-body-md text-body-md">Operador Financeiro</span>
+<span class="material-symbols-outlined text-secondary-fixed">payments</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-primary/20 pb-sm">
+<span class="font-body-md text-body-md">Groomer / Lavador</span>
+<span class="material-symbols-outlined text-primary-fixed">pet_supplies</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-primary/20 pb-sm">
+<span class="font-body-md text-body-md">Atendimento (CS)</span>
+<span class="material-symbols-outlined text-secondary-fixed">support_agent</span>
+</div>
+</div>
+<div class="mt-lg p-md bg-primary-container rounded border border-on-primary/10">
+<p class="font-label-sm text-label-sm text-on-primary-container italic">"Acesso denegado deve sempre retornar 403 Custom UI."</p>
+</div>
+</div>
+<!-- 3. Guia de Status e Cores -->
+<div class="bento-item col-span-12 lg:col-span-5">
+<h2 class="font-title-md text-title-md mb-lg flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined text-primary">palette</span>
+                    Status &amp; Visual Tokens
+                </h2>
+<div class="space-y-sm">
+<div class="flex items-center gap-md p-sm hover:bg-surface-container transition-all">
+<div class="w-4 h-4 rounded-full bg-[#14b8a6]"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-primary">Normal / Concluído</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">#14B8A6 - Teal-500</p>
+</div>
+</div>
+<div class="flex items-center gap-md p-sm hover:bg-surface-container transition-all">
+<div class="w-4 h-4 rounded-full bg-[#f59e0b]"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-primary">Aguardando / Warning</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">#F59E0B - Amber-500</p>
+</div>
+</div>
+<div class="flex items-center gap-md p-sm hover:bg-surface-container transition-all">
+<div class="w-4 h-4 rounded-full bg-[#ef4444]"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-primary">Crítico / Erro</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">#EF4444 - Red-500</p>
+</div>
+</div>
+<div class="flex items-center gap-md p-sm hover:bg-surface-container transition-all">
+<div class="w-4 h-4 rounded-full bg-[#002045]"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-primary">Primary Brand</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">#002045 - Navy Blue</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Regras de Negócio Críticas -->
+<div class="bento-item col-span-12 lg:col-span-7">
+<h2 class="font-title-md text-title-md mb-lg flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined text-primary">gavel</span>
+                    Regras de Negócio Críticas
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div>
+<p class="font-label-md text-label-md text-primary font-bold mb-xs uppercase">Financeiro</p>
+<ul class="font-body-md text-body-md space-y-xs list-disc ml-4 text-on-surface-variant">
+<li>Processamento via Stripe Connect.</li>
+<li>Taxa de cancelamento: 20% se &lt; 2h.</li>
+<li>Retenção de impostos automatizada.</li>
+</ul>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold mb-xs uppercase">Geolocalização</p>
+<ul class="font-body-md text-body-md space-y-xs list-disc ml-4 text-on-surface-variant">
+<li>Check-in obrigatório via GPS (radius 50m).</li>
+<li>Tracking em tempo real durante o banho.</li>
+<li>API Google Maps para rotas otimizadas.</li>
+</ul>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold mb-xs uppercase">Privacidade (LGPD)</p>
+<ul class="font-body-md text-body-md space-y-xs list-disc ml-4 text-on-surface-variant">
+<li>Criptografia AES-256 para dados sensíveis.</li>
+<li>Anonimização de logs após 90 dias.</li>
+<li>Consentimento explícito para push notifications.</li>
+</ul>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold mb-xs uppercase">Operacional</p>
+<ul class="font-body-md text-body-md space-y-xs list-disc ml-4 text-on-surface-variant">
+<li>Limite de 3 cães por lavador simultâneo.</li>
+<li>Validação de vacinas via OCR.</li>
+<li>Assinatura digital no checkout.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 5. Checklist de Consistência -->
+<div class="bento-item col-span-12 border-dashed border-2 border-primary/20 bg-surface-container-low">
+<h2 class="font-title-md text-title-md mb-lg flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined text-primary">checklist</span>
+                    Checklist de Consistência Final (DoR)
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<label class="flex items-center gap-md p-md bg-white rounded cursor-pointer border border-outline-variant hover:border-primary transition-all">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md">Responsividade validada (Breakpoints 375px / 1440px)</span>
+</label>
+<label class="flex items-center gap-md p-md bg-white rounded cursor-pointer border border-outline-variant hover:border-primary transition-all">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md">Acessibilidade WCAG 2.1 AA (Contraste e Alt-text)</span>
+</label>
+<label class="flex items-center gap-md p-md bg-white rounded cursor-pointer border border-outline-variant hover:border-primary transition-all">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md">Estados de Erro e Loading (Skeletons) implementados</span>
+</label>
+<label class="flex items-center gap-md p-md bg-white rounded cursor-pointer border border-outline-variant hover:border-primary transition-all">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md">Sanitização de Inputs (SQL Injection &amp; XSS)</span>
+</label>
+<label class="flex items-center gap-md p-md bg-white rounded cursor-pointer border border-outline-variant hover:border-primary transition-all">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md">Integração com Sentry para monitoramento de erros</span>
+</label>
+<label class="flex items-center gap-md p-md bg-white rounded cursor-pointer border border-outline-variant hover:border-primary transition-all">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md">Validar limites de Payload para imagens de pets</span>
+</label>
+</div>
+</div>
+<!-- Technical Illustration -->
+<div class="col-span-12 mt-xl relative h-[400px] rounded-xl overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, high-tech isometric workspace of a software developer showing multiple monitors with lines of code, architectural diagrams of a pet service application, and a laptop. The lighting is cool-toned with professional blues and greys. The environment looks organized, sleek, and minimalist, emphasizing precision and modern corporate development culture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB86ZlH21-pMUVWHgT94Txp_D8Dw7gsTyLuMGOHiLMg_zVQLdWftUEzOL_Q3X_H_Jqv4iVFEieFdINPYHu22dno-V3vC-iXPZVNvYyak01iFR5n_qikSSWx4x6E2LBRFnQLPgcFl256Uezo069A886ish2vOVZeSBHQncV8ddjmEF2syiOwfcO-Q2WZprioU2LlY7ItQW71W63feMp8SmEJrQtU2fIqGRg50Xs7b7gtKUifUL4CNhWU')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-xl">
+<p class="text-on-primary font-headline-lg text-headline-lg">Estrutura de Dados &amp; Performance</p>
+<p class="text-on-primary/80 font-body-lg text-body-lg max-w-2xl">Lembre-se: O sistema deve suportar picos de 5.000 requisições/minuto durante horários nobres de agendamento (finais de semana).</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="max-w-container-max mx-auto px-lg mt-xl py-lg border-t border-outline-variant flex justify-between items-center text-on-surface-variant">
+<div class="flex gap-md items-center">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-label-md text-label-md">Ready for Sprint Deployment</span>
+</div>
+<div class="flex gap-lg">
+<span class="font-label-md text-label-md">Design Lead: @system_arch</span>
+<span class="font-label-md text-label-md">Approved: 2023-11-20</span>
+</div>
+</footer>
+<!-- Side Navigation Bar (Hidden on Mobile) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-screen w-64 border-r border-outline-variant flex-col p-md gap-sm z-40 pt-24 bg-primary">
+<div class="mb-lg">
+<p class="font-title-md text-title-md font-bold text-on-primary">Navigation Shell</p>
+<p class="font-label-md text-label-md text-on-surface-variant text-on-primary">Docs Index</p>
+</div>
+<a class="flex items-center gap-sm p-sm bg-primary-container text-on-primary-container font-bold rounded-xl transition-all duration-200 ease-in-out text-on-primary bg-white/10" href="#">
+<span class="material-symbols-outlined text-on-primary">dashboard</span>
+<span class="font-label-md text-label-md text-on-primary">Arquitetura</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out text-on-primary" href="#">
+<span class="material-symbols-outlined text-on-primary">settings_remote</span>
+<span class="font-label-md text-label-md text-on-primary">Endpoints API</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out text-on-primary" href="#">
+<span class="material-symbols-outlined text-on-primary">store</span>
+<span class="font-label-md text-label-md text-on-primary">Frontend Kit</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out text-on-primary" href="#">
+<span class="material-symbols-outlined text-on-primary">person_pin</span>
+<span class="font-label-md text-label-md text-on-primary">Auth Matrix</span>
+</a>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out text-on-primary" href="#">
+<span class="material-symbols-outlined text-on-primary">help</span>
+<span class="font-label-md text-label-md text-on-primary">Wiki Help</span>
+</a>
+<div class="p-sm mt-sm bg-surface-variant rounded-lg">
+<p class="font-label-sm text-label-sm font-bold text-on-primary">System Status: Active</p>
+</div>
+</div>
+</aside>
+<script>
+        // Simple micro-interaction for the checklist
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if(this.checked) {
+                    this.parentElement.classList.add('opacity-50', 'bg-surface-container-lowest');
+                    this.parentElement.classList.remove('bg-white');
+                } else {
+                    this.parentElement.classList.remove('opacity-50', 'bg-surface-container-lowest');
+                    this.parentElement.classList.add('bg-white');
+                }
+            });
+        });
+    </script>
+</body></html>

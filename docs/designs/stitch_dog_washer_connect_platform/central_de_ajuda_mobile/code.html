@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Ajuda | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#30363c",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "surface-variant": "#d4e4fc",
+                    "on-primary-container": "#86a0cd",
+                    "secondary-fixed": "#d9e3f9",
+                    "on-surface-variant": "#43474e",
+                    "surface-tint": "#455f88",
+                    "surface": "#f8f9ff",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed": "#dde3eb",
+                    "background": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#596376",
+                    "secondary": "#555f71",
+                    "primary": "#002045",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-container": "#d6e0f6",
+                    "outline": "#74777f",
+                    "on-background": "#0d1c2e",
+                    "on-secondary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-container": "#1a365d",
+                    "on-tertiary-fixed": "#161c22",
+                    "on-surface": "#0d1c2e",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary": "#1b2127",
+                    "surface-container-high": "#dce9ff",
+                    "surface-dim": "#ccdbf4",
+                    "outline-variant": "#c4c6cf",
+                    "surface-container-highest": "#d4e4fc",
+                    "inverse-primary": "#adc7f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<!-- Applying Shared Component: TopAppBar logic -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-md py-sm w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<button class="p-xs active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Central de Ajuda</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-xs">help</span>
+</div>
+</header>
+<main class="flex-1 p-md space-y-md">
+<!-- Search Section -->
+<div class="relative w-full group">
+<div class="absolute inset-y-0 left-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-xl pr-md py-md bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Como podemos ajudar?" type="text"/>
+</div>
+<!-- Quick Access: Protocolos -->
+<div class="bento-card bg-primary-container p-md rounded-xl flex items-center justify-between cursor-pointer group active:opacity-90">
+<div class="flex items-center gap-md">
+<div class="bg-on-primary-container p-sm rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-white text-body-lg">Meus Protocolos</span>
+<span class="font-label-md text-on-primary-container text-sm">Acompanhe seus chamados em aberto</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-primary-container transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Support Categories Grid -->
+<section class="space-y-sm">
+<h2 class="font-label-md text-label-md text-outline uppercase tracking-widest px-xs">Categorias</h2>
+<div class="grid grid-cols-1 gap-sm">
+<!-- Category 1 -->
+<div class="bento-card bg-white border border-outline-variant p-md rounded-lg flex items-center gap-md hover:bg-surface-container-low active:bg-surface-container transition-colors cursor-pointer">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-body-lg text-on-surface">Minha Conta</p>
+<p class="font-body-md text-on-surface-variant text-sm">Perfil, senha e segurança</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<!-- Category 2 -->
+<div class="bento-card bg-white border border-outline-variant p-md rounded-lg flex items-center gap-md hover:bg-surface-container-low active:bg-surface-container transition-colors cursor-pointer">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-body-lg text-on-surface">Pagamentos e Cobrança</p>
+<p class="font-body-md text-on-surface-variant text-sm">Assinaturas, faturas e métodos</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<!-- Category 3 -->
+<div class="bento-card bg-white border border-outline-variant p-md rounded-lg flex items-center gap-md hover:bg-surface-container-low active:bg-surface-container transition-colors cursor-pointer">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="pets">pets</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-body-lg text-on-surface">Agendamentos</p>
+<p class="font-body-md text-on-surface-variant text-sm">Lavagens, cancelamentos e reagendamento</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<!-- Category 4 -->
+<div class="bento-card bg-white border border-outline-variant p-md rounded-lg flex items-center gap-md hover:bg-surface-container-low active:bg-surface-container transition-colors cursor-pointer">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-body-lg text-on-surface">Problemas Técnicos</p>
+<p class="font-body-md text-on-surface-variant text-sm">Erros no app e conectividade</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Featured Article Card -->
+<section class="space-y-sm pt-md">
+<h2 class="font-label-md text-label-md text-outline uppercase tracking-widest px-xs">Artigos em Destaque</h2>
+<div class="relative h-48 rounded-xl overflow-hidden group cursor-pointer active:opacity-95 shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10"></div>
+<div class="w-full h-full" data-alt="A professional high-key photograph of a clean, modern dog grooming facility with stainless steel equipment and soft cyan lighting. The aesthetic is clinical yet friendly, emphasizing the Dog Washer Connect brand colors of deep navy and white. The composition focuses on a high-tech digital interface being used by a professional in a pristine environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDz1iXPtNk86KC_x9kRlbTpuQ8yUkSE1aBjlml9GFMYSZKvRL2n4OhCsYgJXlHENyzqGfIXSvdvwX8vFNcTejzWdm8SPtcMPqVo8bF3V6ZkBKsV3CeVBIaQdXy9NwbfesUGyKCja2tzTPMXH2Iv9JtZjqf_0r2fDNVGCW99LJfjh7Rr5aN52HDghNwh5NE1q5l7cYBcEHSLdtrHvqWJUnPwD695-A_gQuN8Pyutv-y5Szud7B3QwnXn')"></div>
+<div class="absolute bottom-md left-md right-md z-20 text-white">
+<span class="bg-secondary-container text-on-secondary-container text-xs px-sm py-xs rounded-full font-label-md mb-xs inline-block">NOVO</span>
+<p class="font-title-md text-headline-lg-mobile leading-tight">Guia Completo: Como otimizar sua rota de atendimento</p>
+</div>
+</div>
+</section>
+<!-- Support CTA -->
+<div class="pt-lg pb-xl space-y-md text-center">
+<p class="font-body-md text-on-surface-variant">Não encontrou o que procurava?</p>
+<button class="w-full bg-primary text-white py-md rounded-lg font-title-md flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">forum</span>
+                Falar com Atendente
+            </button>
+<p class="font-label-md text-outline">Tempo médio de espera: 5 min</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar - Mobile -->
+<!-- Using logic from Shared Components: SideNavBar context but as Bottom Nav for Mobile -->
+<nav class="sticky bottom-0 bg-surface border-t border-outline-variant flex justify-around items-center py-sm px-sm z-50">
+<div class="flex flex-col items-center gap-xs cursor-pointer text-on-surface-variant active:opacity-70">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-[10px]">Início</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-on-surface-variant active:opacity-70">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-md text-[10px]">Chat</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-primary bg-secondary-container px-md py-sm rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="font-label-md text-[10px] font-bold">Ajuda</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-on-surface-variant active:opacity-70">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-[10px]">Financeiro</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer text-on-surface-variant active:opacity-70">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-[10px]">Ajustes</span>
+</div>
+</nav>
+<script>
+        // Simple search interactivity
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+
+        // Ripples/Feedback for bento cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.97)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

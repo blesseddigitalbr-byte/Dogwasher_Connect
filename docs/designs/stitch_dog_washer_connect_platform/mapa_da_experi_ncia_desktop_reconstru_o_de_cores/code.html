@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mapa da Experiência - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0d1c2e",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#dce9ff",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#ccdbf4",
+                        "primary-fixed-dim": "#adc7f7",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#86a0cd",
+                        "on-background": "#0d1c2e",
+                        "surface-tint": "#455f88",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline": "#74777f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#dde3eb",
+                        "tertiary": "#1b2127",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "tertiary-container": "#30363c",
+                        "inverse-surface": "#223144",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "outline-variant": "#c4c6cf",
+                        "primary": "#002045",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "on-surface-variant": "#43474e",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "secondary-fixed": "#d9e3f9",
+                        "secondary": "#555f71",
+                        "surface-container-highest": "#d4e4fc",
+                        "secondary-container": "#d6e0f6",
+                        "primary-container": "#1a365d",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed": "#121c2c",
+                        "on-secondary-container": "#596376",
+                        "on-tertiary-container": "#989fa6",
+                        "surface-variant": "#d4e4fc",
+                        "surface-container": "#e5eeff",
+                        "surface-bright": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#161c22",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "inst-blue": "#07111E",
+                        "inst-gold": "#f57c00",
+                        "inst-green": "#2e7d32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Outfit"],
+                        "title-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "display-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .connector-line {
+            position: absolute;
+            z-index: 0;
+            stroke: #94a3b8;
+            stroke-dasharray: 4;
+            fill: none;
+        }
+        .canvas-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .canvas-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-background selection:bg-secondary-container">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen w-64 left-0 top-0 fixed bg-inst-blue text-white p-md gap-sm z-50">
+<div class="mb-xl px-sm">
+<div class="flex flex-col items-center gap-sm mb-xs">
+<img alt="Logo Dog Washer Connect" class="w-32 h-auto mb-2 invert brightness-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwGVQ0oug_N0qLkIP-1SV8VHq1NMEIOWOYSGvcASrxEpb_lS57A1KmnUgE8cKcmZHCo58fV2HIRQDqdv1jkea58fkTeujiE3KU2x04scuyYkfgzky7_yIzg1OJIw_tvzHvr_VrZAutbONUU5bqS-h2Q7lCq8Y1Uh5eOxxCc46byvnUeOdFlZJ0iq19ohCLJxND1aMbhadCYzFxN8enshBWkHJ-TNy9XKqVkZkqz-iAOuUd21owraWJ-aHWZKdRe-v9Qg"/>
+</div>
+<p class="text-[10px] text-surface-dim/60 font-bold uppercase tracking-wider text-center">Enterprise Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Home</span>
+</a>
+<a class="flex items-center gap-md p-sm bg-inst-gold text-white font-bold rounded-xl shadow-sm" href="#">
+<span class="material-symbols-outlined">settings_remote</span>
+<span class="font-label-md">Operações</span>
+</a>
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">store</span>
+<span class="font-label-md">Estabelecimento</span>
+</a>
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="font-label-md">Profissional</span>
+</a>
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-md">Admin</span>
+</a>
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md">Relatórios</span>
+</a>
+</nav>
+<div class="pt-md border-t border-white/10 space-y-1">
+<div class="px-sm mb-sm">
+<span class="text-[10px] font-bold text-inst-gold uppercase flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-inst-gold animate-pulse"></span>
+                    Sistema Ativo
+                </span>
+</div>
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Ajuda</span>
+</a>
+<a class="flex items-center gap-md p-sm text-surface-variant hover:bg-white/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md">Suporte</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-white border-b border-outline-variant flex justify-between items-center px-lg py-sm lg:ml-64 lg:w-[calc(100%-16rem)]">
+<div class="flex items-center gap-md">
+<span class="font-display-lg text-title-md font-bold text-primary">Mapa da Experiência</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-title-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="font-title-md text-sm text-primary border-b-2 border-primary pb-1" href="#">Agendamentos</a>
+<a class="font-title-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Clientes</a>
+<a class="font-title-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Financeiro</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors">settings</button>
+<button class="bg-inst-gold text-white px-md py-sm rounded font-label-md flex items-center gap-xs shadow-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">add</span>
+                Nova Reserva
+            </button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant ring-1 ring-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd88-IeopaW9POb4E_hfYNMqkWvsprWoLxvN5XzpLyY25t6eX75HzxfHJ9uPtBCKPjUF2s3nq8dH25mi3IWuBx-JAIsvTUi0_rm2wya9qrRo4iSTUfnFzp668DBN21i8aofGj4m8FY7uOAKyj_99wdlY2tNEqzN6_VL0rtP5uZiVZOdjjlktMxvSgT0kmAFbIxu_pCH0DkUoI96Z9b1VUZ931zfZYTNXPrf1qfw44pr7PDe8qhHRtZ"/>
+</div>
+</div>
+</header>
+<main class="lg:ml-64 p-lg max-w-container-max mb-24">
+<div class="flex justify-between items-start mb-xl">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-sm">Fluxo Operacional</h1>
+<p class="text-on-surface-variant max-w-2xl">Blueprint detalhado da jornada do Washer Connect, do onboarding à fidelização regional.</p>
+</div>
+<!-- Legend -->
+<div class="bg-white p-md rounded-lg border border-outline-variant flex gap-lg shadow-sm">
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-inst-gold"></span>
+<span class="font-label-md text-label-md">Ação Prioritária</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-inst-green"></span>
+<span class="font-label-md text-label-md">Etapa Concluída</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md">Ponto de Decisão</span>
+</div>
+</div>
+</div>
+<!-- Experience Canvas Grid -->
+<div class="blueprint-grid border border-outline-variant rounded-xl overflow-hidden relative min-h-[800px] bg-white">
+<!-- Column Headers -->
+<div class="grid grid-cols-4 border-b border-outline-variant bg-surface-container-low/30 sticky top-0 z-10 backdrop-blur-sm">
+<div class="p-md text-center border-r border-outline-variant">
+<span class="font-title-md text-primary uppercase tracking-widest text-[12px] font-bold">Área Pública</span>
+</div>
+<div class="p-md text-center border-r border-outline-variant">
+<span class="font-title-md text-primary uppercase tracking-widest text-[12px] font-bold">Profissional</span>
+</div>
+<div class="p-md text-center border-r border-outline-variant">
+<span class="font-title-md text-primary uppercase tracking-widest text-[12px] font-bold">Estabelecimento</span>
+</div>
+<div class="p-md text-center">
+<span class="font-title-md text-primary uppercase tracking-widest text-[12px] font-bold">Administração</span>
+</div>
+</div>
+<!-- Content Area -->
+<div class="grid grid-cols-4 min-h-[700px] relative">
+<!-- SVG Connectors Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40">
+<path class="connector-line" d="M 220 120 L 420 120" stroke-width="2"></path>
+<path class="connector-line" d="M 500 160 L 500 280" stroke-width="2"></path>
+<path class="connector-line" d="M 550 320 L 750 320" stroke-width="2"></path>
+<path class="connector-line" d="M 850 360 L 1050 360" stroke-width="2"></path>
+</svg>
+<!-- ÁREA PÚBLICA -->
+<div class="p-lg space-y-xl border-r border-outline-variant relative">
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-inst-gold">person_add</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Cadastro</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Preenchimento de dados básicos e anexação de certificados pet.</p>
+<div class="mt-md flex justify-between items-center">
+<span class="bg-inst-gold/10 text-inst-gold px-xs py-[2px] rounded text-[10px] font-bold">START</span>
+<span class="text-[10px] text-outline italic">App Mobile</span>
+</div>
+</div>
+</div>
+<!-- PROFISSIONAL -->
+<div class="p-lg space-y-xl border-r border-outline-variant relative">
+<div class="canvas-card bg-surface-container-low border-2 border-primary/20 border-dashed rounded-lg p-md shadow-sm relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Aprovação</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Validação de antecedentes e verificação técnica regional.</p>
+<div class="mt-md border-t border-outline-variant pt-sm flex gap-xs">
+<span class="material-symbols-outlined text-xs text-inst-green" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-[10px] text-inst-green font-bold uppercase">Liberado para Job</span>
+</div>
+</div>
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10 mt-12">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-inst-gold">notification_important</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Oportunidade</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Push notification de demanda disponível em raio de 5km.</p>
+<button class="mt-md w-full bg-primary text-white py-xs rounded text-[11px] font-bold hover:bg-primary-container transition-colors">Aceitar Job</button>
+</div>
+</div>
+<!-- ESTABELECIMENTO -->
+<div class="p-lg space-y-xl border-r border-outline-variant relative">
+<div class="canvas-card bg-white border-l-4 border-l-inst-gold border border-outline-variant rounded-lg p-md shadow-sm relative z-10 mt-24">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-inst-gold">pets</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Execução</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Lavagem técnica e secagem no local. Check-in obrigatório.</p>
+<div class="mt-md space-y-xs">
+<div class="h-1 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-inst-gold w-3/4"></div>
+</div>
+<span class="text-[10px] text-outline">75% concluído</span>
+</div>
+</div>
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-inst-green" style="font-variation-settings: 'FILL' 1;">payments</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Pagamento</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Processamento via Gateway. Split automático Washer/Loja.</p>
+<div class="mt-md flex items-center justify-between">
+<span class="text-[14px] font-bold text-inst-green">R$ 84,90</span>
+<span class="material-symbols-outlined text-xs text-outline">lock</span>
+</div>
+</div>
+</div>
+<!-- ADMINISTRAÇÃO -->
+<div class="p-lg space-y-xl relative">
+<div class="canvas-card bg-white border border-outline-variant rounded-lg p-md shadow-sm relative z-10 mt-32">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-inst-gold">star</span>
+<h3 class="font-title-md text-sm font-bold text-primary">Avaliação</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Feedback 360º entre cliente, estabelecimento e Washer.</p>
+<div class="flex gap-xs mt-sm text-inst-gold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+<div class="canvas-card bg-primary text-white rounded-lg p-md shadow-md relative z-10">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-inst-gold">auto_graph</span>
+<h3 class="font-title-md text-sm font-bold">Fidelização</h3>
+</div>
+<p class="text-xs opacity-80">Análise de recorrência e liberação de bônus por produtividade.</p>
+<div class="mt-md text-right border-t border-white/20 pt-sm">
+<span class="text-[10px] font-bold uppercase text-inst-gold tracking-widest">Loop Operacional</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Stats -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-white p-md rounded-lg border border-outline-variant flex items-center gap-md shadow-sm">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">speed</span>
+</div>
+<div>
+<span class="block font-label-md text-outline">Lead Time Médio</span>
+<span class="text-title-md font-bold text-primary">42 min</span>
+</div>
+</div>
+<div class="bg-white p-md rounded-lg border border-outline-variant flex items-center gap-md shadow-sm">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-inst-green">thumb_up</span>
+</div>
+<div>
+<span class="block font-label-md text-outline">NPS do Fluxo</span>
+<span class="text-title-md font-bold text-primary">8.9</span>
+</div>
+</div>
+<div class="bg-white p-md rounded-lg border border-outline-variant flex items-center gap-md shadow-sm">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-inst-gold">warning</span>
+</div>
+<div>
+<span class="block font-label-md text-outline">Gargalo</span>
+<span class="text-title-md font-bold text-primary">Check-in Loja</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-md pb-md pt-sm bg-white border-t border-outline-variant shadow-lg z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm uppercase mt-1">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-inst-gold text-white rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm uppercase mt-1">Reservas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm uppercase mt-1">Clientes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-sm uppercase mt-1">Mais</span>
+</a>
+</nav>
+<script>
+        document.querySelectorAll('.canvas-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if(!card.classList.contains('bg-primary')) {
+                    card.style.borderColor = '#f57c00';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                if(!card.classList.contains('bg-primary')) {
+                    card.style.borderColor = '';
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetOps Central - Dashboard Administrativo</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Chart.js for data visualization -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fea619",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "outline": "#75777c",
+                    "surface": "#f8f9fa",
+                    "on-secondary-container": "#684000",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#000000",
+                    "on-primary-container": "#7b8495",
+                    "outline-variant": "#c5c6cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#2a1700",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary": "#855300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Outfit', sans-serif;
+            color: #191c1d;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e1e3e4;
+            border-radius: 10px;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+<!-- Shell: SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface border-r border-outline-variant flex flex-col py-gutter px-stack-md z-50">
+<div class="mb-10">
+<h1 class="font-headline-md text-headline-md font-bold text-secondary">PetOps Central</h1>
+<p class="font-body-md text-on-surface-variant opacity-70">Administrative Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1 overflow-y-auto custom-scrollbar">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-colors text-secondary font-bold border-r-4 border-secondary hover:bg-surface-container-high active:opacity-80" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-colors text-on-surface-variant hover:bg-surface-container-high active:opacity-80" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md">Approvals</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-colors text-on-surface-variant hover:bg-surface-container-high active:opacity-80" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md">Units</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-colors text-on-surface-variant hover:bg-surface-container-high active:opacity-80" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-body-md">Incidents</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-colors text-on-surface-variant hover:bg-surface-container-high active:opacity-80" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md">Professionals</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-colors text-on-surface-variant hover:bg-surface-container-high active:opacity-80 mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+<button class="mt-8 bg-secondary text-white py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity font-label-md">
+<span class="material-symbols-outlined">add</span>
+            New Report
+        </button>
+</aside>
+<!-- Shell: TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface border-b border-outline-variant shadow-sm flex items-center justify-between px-margin-desktop z-40">
+<div class="flex items-center gap-8">
+<h2 class="font-title-lg text-title-lg font-black text-secondary">PetOps Backoffice</h2>
+<nav class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary duration-200 transition-all" href="#">Queue</a>
+<a class="font-label-md text-label-md text-secondary font-semibold border-b-2 border-secondary pb-2" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary duration-200 transition-all" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-label-md focus:outline-none focus:border-secondary w-64" placeholder="Procurar profissional ou ID..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors">help_outline</button>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full font-label-md hover:brightness-95 transition-all">Verify Documents</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-outline-variant">
+<img class="w-full h-full object-cover" data-alt="High-end professional portrait of a tech company administrator in a clean minimalist office setting, soft corporate lighting, premium depth of field, wearing professional neutral business attire, bright and airy light mode atmosphere with teal and gold accents in the blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgtJmuHDMu3HW4ouPpYUST1XV7uJEc8XWO0lIS3RjRvWr9pJX3JKrO7ZnkULC_iRnXGQyCsiRnYZ_cJkAWUGMLbfObRUyfue3joAKN5_XBaY51AtO-Clj-dudqpRZsH6zQ6I7MwCCN---ELbnThm1fCxkZrQ1qmELNOqGalMn_St5iOGWF14xNdA3Ikg7SAIednBMlbNRU5QLrCwjvEf4UR3IIsNKaSPL5JZmB3OZ1bmdqjF4AqFiq"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-margin-desktop h-[calc(100vh-4rem)] overflow-y-auto custom-scrollbar">
+<!-- Welcome & Date Area -->
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary">Visão Executiva</h3>
+<p class="font-body-md text-on-surface-variant">Dashboard atualizado em tempo real • 24 de Outubro, 2023</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg font-label-md text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    Últimos 30 dias
+                </button>
+<button class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg font-label-md text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Exportar Relatório
+                </button>
+</div>
+</div>
+<!-- Metric Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-stack-md mb-stack-lg">
+<!-- Active Profs -->
+<div class="bg-white p-gutter rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-fixed rounded-lg text-secondary">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<span class="text-green-600 font-label-sm flex items-center gap-1">+12% <span class="material-symbols-outlined text-sm">trending_up</span></span>
+</div>
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-wider">Profissionais Ativos</h4>
+<div class="font-display text-primary mt-1">1,482</div>
+</div>
+<!-- In Analysis -->
+<div class="bg-white p-gutter rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-50 rounded-lg text-blue-600">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-wider">Em Análise</h4>
+<div class="font-display text-primary mt-1">184</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-4 overflow-hidden">
+<div class="bg-blue-500 h-full w-[65%]"></div>
+</div>
+</div>
+<!-- Units -->
+<div class="bg-white p-gutter rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-green-50 rounded-lg text-green-600">
+<span class="material-symbols-outlined">domain</span>
+</div>
+</div>
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-wider">Unidades Totais</h4>
+<div class="font-display text-primary mt-1">42</div>
+</div>
+<!-- Incidents -->
+<div class="bg-white p-gutter rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error-container rounded-lg text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="text-error font-label-sm flex items-center gap-1">+4 <span class="material-symbols-outlined text-sm">priority_high</span></span>
+</div>
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-wider">Ocorrências</h4>
+<div class="font-display text-primary mt-1">08</div>
+</div>
+<!-- Financial Divergence -->
+<div class="bg-white p-gutter rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-50 rounded-lg text-amber-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-wider">Divergências</h4>
+<div class="font-display text-primary mt-1">R$ 4.2k</div>
+</div>
+</div>
+<!-- Main Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-stack-lg">
+<!-- Growth Chart -->
+<div class="lg:col-span-2 bg-white p-gutter rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-title-lg text-title-lg text-primary">Crescimento da Rede</h4>
+<select class="bg-surface-container border-none text-label-md rounded-lg focus:ring-secondary transition-all">
+<option>Por Mês</option>
+<option>Por Trimestre</option>
+</select>
+</div>
+<div class="h-64 relative">
+<canvas id="growthChart"></canvas>
+</div>
+</div>
+<!-- Fill Rate -->
+<div class="bg-white p-gutter rounded-xl border border-outline-variant shadow-sm flex flex-col">
+<h4 class="font-title-lg text-title-lg text-primary mb-6">Taxa de Preenchimento</h4>
+<div class="flex-1 flex flex-col justify-center items-center gap-6">
+<div class="relative w-40 h-40">
+<!-- Simulated Circular Progress -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-secondary transition-all duration-1000" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="66" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-display font-display leading-none">85%</span>
+<span class="text-label-sm text-on-surface-variant">Global</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 w-full">
+<div class="text-center p-3 rounded-lg bg-surface-container-low">
+<div class="text-label-sm text-on-surface-variant">São Paulo</div>
+<div class="font-title-lg text-secondary">92%</div>
+</div>
+<div class="text-center p-3 rounded-lg bg-surface-container-low">
+<div class="text-label-sm text-on-surface-variant">Rio</div>
+<div class="font-title-lg text-secondary">78%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Critical Tasks & Incidents -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Pending Critical Actions -->
+<div class="bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-gutter border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<h4 class="font-title-lg text-title-lg text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-600">timer</span>
+                        Pendências Críticas
+                    </h4>
+<span class="bg-error-container text-error text-label-sm px-2 py-0.5 rounded-full">6 Urgentes</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-4 hover:bg-surface-container transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">description</span>
+</div>
+<div>
+<div class="font-label-md font-bold text-primary">Análise de CRM #9482</div>
+<div class="text-label-sm text-on-surface-variant">Unidade Vila Mariana • Expira em 2h</div>
+</div>
+</div>
+<button class="bg-primary text-on-primary text-label-sm px-4 py-2 rounded transition-all opacity-0 group-hover:opacity-100">Analisar</button>
+</div>
+<div class="p-4 hover:bg-surface-container transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">verified_user</span>
+</div>
+<div>
+<div class="font-label-md font-bold text-primary">Vetting Profissional: Dr. Ricardo</div>
+<div class="text-label-sm text-on-surface-variant">Background Check Pendente • 4h atrasado</div>
+</div>
+</div>
+<button class="bg-primary text-on-primary text-label-sm px-4 py-2 rounded transition-all opacity-0 group-hover:opacity-100">Verificar</button>
+</div>
+<div class="p-4 hover:bg-surface-container transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+</div>
+<div>
+<div class="font-label-md font-bold text-primary">Aprovação de Reembolso #1022</div>
+<div class="text-label-sm text-on-surface-variant">Unidade Curitiba • Aguardando financeiro</div>
+</div>
+</div>
+<button class="bg-primary text-on-primary text-label-sm px-4 py-2 rounded transition-all opacity-0 group-hover:opacity-100">Aprovar</button>
+</div>
+</div>
+</div>
+<!-- Security Incidents -->
+<div class="bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-gutter border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<h4 class="font-title-lg text-title-lg text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-error">security</span>
+                        Incidentes de Segurança
+                    </h4>
+</div>
+<div class="p-gutter space-y-4">
+<div class="bg-error-container/10 border border-error/20 p-4 rounded-lg flex gap-4">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<span class="font-label-md font-bold text-error">Tentativa de Acesso Negado</span>
+<span class="text-label-sm text-on-surface-variant">Agora mesmo</span>
+</div>
+<p class="text-label-md text-on-surface-variant mt-1 leading-relaxed">IP 192.168.1.1 tried to bypass admin auth in node_02.</p>
+<div class="mt-2 flex gap-3">
+<button class="text-label-sm font-bold text-error underline">Bloquear IP</button>
+<button class="text-label-sm font-bold text-on-surface-variant">Ignorar</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-lg flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<span class="font-label-md font-bold text-primary">Ocorrência Médica #22</span>
+<span class="text-label-sm text-on-surface-variant">32 min atrás</span>
+</div>
+<p class="text-label-md text-on-surface-variant mt-1 leading-relaxed">Intercorrência reportada na unidade Jardins durante procedimento padrão.</p>
+<div class="mt-2">
+<button class="text-label-sm font-bold text-secondary">Ver Prontuário</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Data and Chart initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+            
+            // Premium Chart.js configuration
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out'],
+                    datasets: [{
+                        label: 'Novas Unidades',
+                        data: [12, 19, 15, 22, 28, 25, 34, 38, 41, 42],
+                        borderColor: '#855300',
+                        backgroundColor: 'rgba(133, 83, 0, 0.05)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointRadius: 0,
+                        pointHoverRadius: 6
+                    }, {
+                        label: 'Profissionais',
+                        data: [500, 620, 780, 850, 1100, 1250, 1340, 1400, 1450, 1482],
+                        borderColor: '#121c29',
+                        backgroundColor: 'transparent',
+                        tension: 0.4,
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            align: 'end',
+                            labels: {
+                                boxWidth: 8,
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    family: 'Outfit',
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            bodyColor: '#666',
+                            borderColor: '#e1e3e4',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0,0,0,0.03)'
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Outfit',
+                                    size: 11
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Outfit',
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Simple interactive micro-animations for cards
+        document.querySelectorAll('.rounded-xl').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

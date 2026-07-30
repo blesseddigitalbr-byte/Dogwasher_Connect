@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Extensão de Período - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#2e3132",
+                      "surface-tint": "#555f6f",
+                      "error": "#ba1a1a",
+                      "surface-container": "#edeeef",
+                      "on-secondary-fixed": "#2a1700",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#bdc7d9",
+                      "surface": "#f8f9fa",
+                      "on-surface": "#191c1d",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#d9e3f6",
+                      "inverse-on-surface": "#f0f1f2",
+                      "surface-container-low": "#f3f4f5",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "on-primary-fixed": "#121c29",
+                      "tertiary": "#000000",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#855300",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-variant": "#e1e3e4",
+                      "surface-dim": "#d9dadb",
+                      "tertiary-container": "#0b1c30",
+                      "secondary-container": "#fea619",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#3e4756",
+                      "secondary-fixed": "#ffddb8",
+                      "primary-fixed-dim": "#bdc7d9",
+                      "surface-bright": "#f8f9fa",
+                      "primary": "#000000",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#191c1d",
+                      "surface-container-high": "#e7e8e9",
+                      "outline-variant": "#c5c6cc",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "primary-container": "#121c29",
+                      "background": "#f8f9fa",
+                      "on-primary-container": "#7b8495",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "tertiary-fixed": "#d3e4fe",
+                      "outline": "#75777c",
+                      "on-tertiary-container": "#75859d",
+                      "on-surface-variant": "#44474c",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#684000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "1.5rem",
+                      "margin-mobile": "1rem",
+                      "stack-lg": "2rem",
+                      "margin-desktop": "2.5rem",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1rem",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Outfit"],
+                      "label-md": ["Outfit"],
+                      "label-sm": ["Outfit"],
+                      "display": ["Outfit"],
+                      "body-md": ["Outfit"],
+                      "title-lg": ["Outfit"],
+                      "headline-lg": ["Outfit"],
+                      "body-lg": ["Outfit"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Outfit', sans-serif;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            transition: all 0.2s ease;
+        }
+        .backdrop-blur-custom {
+            backdrop-filter: blur(8px);
+            background-color: rgba(25, 28, 29, 0.4);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-on-surface">
+<!-- Top App Bar (Shared Component Style) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-20 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-2">
+<img alt="Logo Dog Washer Connect" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6kH2XDRlyt0XqB9Hjcv4hp9DguzeHHOk09AUv7Sk8VZPo5FlCjLZsmMznNU5ZPv_4MH-uFEmJzIMcrWUcNPkfYlzQ3GWjpO2pK5YZ3jOEVRmdGr72NmG5BXKRerjWMeFUj7LJBi7psIQSUQGmpNczzy88jCQdEP3dirsuuBZvHKmepfX4EL2Px9GV31MzQJ1N8LIpaisinrei5wYjtIVeqS-VPBbtsKHH6U0Xwtardc28U1ShHdAXZD0aBocmH3uXLg"/>
+<span class="font-display text-headline-md font-bold text-primary">Dog Washer</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-secondary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas (Background Simulation) -->
+<main class="pt-24 pb-20 px-margin-mobile">
+<div class="flex flex-col gap-stack-md">
+<!-- Mock Background Content to simulate being "inside" the app -->
+<div class="bento-card p-4 rounded-xl flex items-center justify-between">
+<div>
+<p class="font-label-sm text-outline">Status do Job</p>
+<p class="font-title-lg text-secondary">Em Andamento</p>
+</div>
+<div class="bg-secondary-container/20 p-3 rounded-full">
+<span class="material-symbols-outlined text-secondary">hourglass_top</span>
+</div>
+</div>
+<div class="bento-card p-4 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">person</span>
+</div>
+<div>
+<h3 class="font-label-md text-on-surface">Pet Shop Amigo Fiel</h3>
+<p class="font-label-sm text-outline">Vila Mariana, SP</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/30">
+<p class="font-label-sm text-outline">Início</p>
+<p class="font-label-md">09:00</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/30">
+<p class="font-label-sm text-outline">Término Previsto</p>
+<p class="font-label-md">13:00</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- PROPOSED EXTENSION MODAL OVERLAY -->
+<div class="fixed inset-0 z-[60] flex items-end md:items-center justify-center p-0 md:p-4" id="extension-modal">
+<!-- Backdrop -->
+<div class="absolute inset-0 backdrop-blur-custom"></div>
+<!-- Modal Content -->
+<div class="relative bg-surface-container-lowest w-full max-w-lg rounded-t-[2rem] md:rounded-3xl shadow-[0px_-8px_40px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col transform transition-transform duration-300">
+<!-- Handle for mobile visual -->
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full mx-auto mt-4 md:hidden"></div>
+<div class="p-margin-mobile md:p-8 flex flex-col gap-6">
+<!-- Header -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">more_time</span>
+<span class="font-label-sm uppercase tracking-wider font-bold">Solicitação de Extensão</span>
+</div>
+<h2 class="font-headline-md text-on-surface">Novo período proposto</h2>
+</div>
+<!-- Proposed Changes Bento -->
+<div class="grid grid-cols-1 gap-3">
+<!-- Time Change Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-outline">Duração Adicional</span>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm">+ 60 min</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-outline">Atual</span>
+<span class="font-title-lg text-outline line-through">13:00</span>
+</div>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-secondary">Novo Término</span>
+<span class="font-title-lg text-on-surface font-bold">14:00</span>
+</div>
+</div>
+</div>
+<!-- Value Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<div>
+<p class="font-label-sm text-outline">Valor Adicional</p>
+<p class="font-title-lg text-on-surface font-bold">R$ 45,00</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-outline">Total do Job</p>
+<p class="font-label-md text-on-surface">R$ 185,00</p>
+</div>
+</div>
+<!-- Reason Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30">
+<p class="font-label-sm text-outline mb-2">Motivo da Extensão</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-outline shrink-0">info</span>
+<p class="font-body-md text-on-surface-variant italic">
+                                "Houve um aumento inesperado na demanda de banhos para finalização de expediente. Precisamos de apoio extra por mais uma hora."
+                            </p>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 mt-4 safe-bottom">
+<button class="w-full bg-[#F59E0B] text-[#07111E] h-14 rounded-xl font-bold font-label-md flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all" onclick="handleAccept()">
+<span class="material-symbols-outlined">check_circle</span>
+                        Aceitar Extensão
+                    </button>
+<button class="w-full border-2 border-primary text-primary h-14 rounded-xl font-bold font-label-md flex items-center justify-center gap-2 active:bg-surface-container-high transition-all" onclick="handleDecline()">
+                        Recusar e Encerrar no Horário
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Success Feedback (Hidden by default) -->
+<div class="fixed top-24 left-1/2 -translate-x-1/2 z-[70] hidden" id="feedback-toast">
+<div class="bg-primary-container text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3">
+<span class="material-symbols-outlined text-[#F59E0B]">check_circle</span>
+<span class="font-label-md">Período estendido com sucesso!</span>
+</div>
+</div>
+<script>
+        function handleAccept() {
+            const modal = document.getElementById('extension-modal');
+            const toast = document.getElementById('feedback-toast');
+            
+            // Interaction effect
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            modal.style.transform = 'translateY(100%)';
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                toast.classList.remove('hidden');
+                toast.classList.add('flex');
+                
+                // Refresh data simulation
+                console.log('Período estendido aceito.');
+            }, 300);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.classList.add('hidden'), 500);
+            }, 3000);
+        }
+
+        function handleDecline() {
+            if(confirm('Deseja realmente recusar a extensão? O job será encerrado no horário original (13:00).')) {
+                const modal = document.getElementById('extension-modal');
+                modal.style.transform = 'translateY(100%)';
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        }
+    </script>
+</body></html>

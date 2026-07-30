@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Ajuda | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#30363c",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#223144",
+                    "surface-variant": "#d4e4fc",
+                    "on-primary-container": "#86a0cd",
+                    "secondary-fixed": "#d9e3f9",
+                    "on-surface-variant": "#43474e",
+                    "surface-tint": "#455f88",
+                    "surface": "#f8f9ff",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed": "#dde3eb",
+                    "background": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#596376",
+                    "secondary": "#555f71",
+                    "primary": "#1a365d",
+                    "brand-dark": "#07111e",
+                    "brand-accent": "#f59e0b", /* Orange/Gold for CTAs */
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-container": "#d6e0f6",
+                    "outline": "#74777f",
+                    "on-background": "#07111e",
+                    "on-secondary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-container": "#1a365d",
+                    "on-tertiary-fixed": "#161c22",
+                    "on-surface": "#07111e",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary": "#1b2127",
+                    "surface-container-high": "#dce9ff",
+                    "surface-dim": "#ccdbf4",
+                    "outline-variant": "#c4c6cf",
+                    "surface-container-highest": "#d4e4fc",
+                    "inverse-primary": "#adc7f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Outfit"],
+                    "title-md": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
+        .glass-effect { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-white border-r border-outline-variant p-md gap-sm z-50">
+<div class="flex items-center gap-sm mb-lg">
+<img alt="Logo" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Ar9ucXA_cHW_UiQiezJkALU--Yj7UNKI-HeOzzlzAHWVrjzEtwvoOZsfgZUisnsOU1QDRfS3DwpDXWPv2TmAp7_S-q37r45VIPivXoXqw9wMvrQ5s7nrqC3y47ZSBgNN_Pf1t6-GEQ-bI4oD_rbMLixoAZRb49ebwwUz5ve--NpK2pZ5GWRqr_kJmI3rs7iXu5J_1hWK2gJ74ZmdyEC2rdKDtNaZT1XMHO1LM0bm_1kCpo8HMz7rDx08jl7tBPTb2Q"/>
+<span class="font-headline-lg text-title-md text-primary font-bold tracking-tight">Admin Portal</span>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">forum</span>
+<span class="font-label-md text-label-md">Messaging</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary text-on-primary font-bold rounded-lg cursor-pointer shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">payments</span>
+<span class="font-label-md text-label-md">Finances</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md space-y-xs">
+<button class="w-full mb-md bg-brand-accent text-brand-dark py-sm px-md rounded-lg font-bold flex items-center justify-center gap-sm active:scale-95 transition-transform shadow-md">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                Novo Chamado
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-error hover:bg-error-container/10 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-lg py-sm w-full bg-white border-b border-outline-variant">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-xl">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-sm pl-xl pr-md focus:ring-2 focus:ring-primary focus:outline-none text-body-md transition-all" placeholder="Como podemos ajudar você hoje?" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md ml-lg">
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-brand-accent rounded-full"></span>
+</button>
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+</button>
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-xs pr-md rounded-full transition-colors">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+<span class="font-label-md hidden lg:block text-brand-dark">Admin User</span>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="p-lg">
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-xs">Central de Ajuda</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Encontre respostas rápidas para suas dúvidas operacionais ou acompanhe seus chamados em aberto.</p>
+</div>
+<!-- Category Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-md mb-xl">
+<!-- Card 1 -->
+<div class="bg-white border border-outline-variant p-lg rounded-xl hover:shadow-lg hover:border-primary transition-all cursor-pointer group">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<h3 class="font-title-md text-title-md mb-xs text-brand-dark">Cadastro</h3>
+<p class="text-body-md text-on-surface-variant">Dúvidas sobre ativação de conta, verificação e dados bancários.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-outline-variant p-lg rounded-xl hover:shadow-lg hover:border-primary transition-all cursor-pointer group">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<h3 class="font-title-md text-title-md mb-xs text-brand-dark">Oportunidades</h3>
+<p class="text-body-md text-on-surface-variant">Como aceitar serviços, roteirização e cancelamentos de última hora.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-outline-variant p-lg rounded-xl hover:shadow-lg hover:border-primary transition-all cursor-pointer group">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="font-title-md text-title-md mb-xs text-brand-dark">Pagamentos</h3>
+<p class="text-body-md text-on-surface-variant">Prazos de recebimento, extratos e comissões do Dog Washer Connect.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-outline-variant p-lg rounded-xl hover:shadow-lg hover:border-primary transition-all cursor-pointer group">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">security</span>
+</div>
+<h3 class="font-title-md text-title-md mb-xs text-brand-dark">Segurança</h3>
+<p class="text-body-md text-on-surface-variant">Reportar incidentes, suporte em emergências e políticas de uso.</p>
+</div>
+</div>
+<!-- Dual Section Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Recent Protocols -->
+<div class="lg:col-span-7">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-title-md text-title-md flex items-center gap-sm text-brand-dark">
+<span class="material-symbols-outlined text-primary">history</span>
+                            Protocolos Recentes
+                        </h2>
+<button class="text-primary font-label-md hover:underline">Ver todos</button>
+</div>
+<div class="space-y-sm">
+<!-- Protocol Item 1 -->
+<div class="flex items-center justify-between p-md bg-white border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-2 h-2 rounded-full bg-brand-accent"></div>
+<div>
+<h4 class="font-label-md text-body-md text-brand-dark">#DW-9821 - Erro no repasse Semanal</h4>
+<p class="text-label-sm text-outline">Atualizado há 2 horas</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-brand-accent/10 text-brand-dark text-label-sm rounded uppercase tracking-wider font-bold">Em Aberto</span>
+</div>
+<!-- Protocol Item 2 -->
+<div class="flex items-center justify-between p-md bg-white border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-2 h-2 rounded-full bg-teal-500"></div>
+<div>
+<h4 class="font-label-md text-body-md text-brand-dark">#DW-9744 - Problema técnico com GPS</h4>
+<p class="text-label-sm text-outline">Resolvido ontem</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-teal-100 text-teal-800 text-label-sm rounded uppercase tracking-wider font-bold">Resolvido</span>
+</div>
+<!-- Protocol Item 3 -->
+<div class="flex items-center justify-between p-md bg-white border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<div>
+<h4 class="font-label-md text-body-md text-brand-dark">#DW-9610 - Alteração de Documentação</h4>
+<p class="text-label-sm text-outline">Atualizado há 3 dias</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-red-100 text-red-800 text-label-sm rounded uppercase tracking-wider font-bold">Crítico</span>
+</div>
+</div>
+</div>
+<!-- FAQ & Knowledge Base -->
+<div class="lg:col-span-5">
+<h2 class="font-title-md text-title-md mb-lg flex items-center gap-sm text-brand-dark">
+<span class="material-symbols-outlined text-primary">quiz</span>
+                        Dúvidas Frequentes (FAQ)
+                    </h2>
+<div class="space-y-md">
+<details class="group bg-white rounded-lg border border-outline-variant transition-all">
+<summary class="flex items-center justify-between p-md cursor-pointer list-none">
+<span class="font-label-md text-body-md text-brand-dark">Como altero minha conta bancária?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-md pt-0 text-body-md text-on-surface-variant border-t border-outline-variant/30">
+                                Para alterar seus dados bancários, acesse Configurações &gt; Finanças &gt; Dados de Repasse. Lembre-se que a conta deve ser da mesma titularidade do CPF cadastrado.
+                            </div>
+</details>
+<details class="group bg-white rounded-lg border border-outline-variant transition-all">
+<summary class="flex items-center justify-between p-md cursor-pointer list-none">
+<span class="font-label-md text-body-md text-brand-dark">Qual o prazo para recebimento?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-md pt-0 text-body-md text-on-surface-variant border-t border-outline-variant/30">
+                                O repasse é realizado semanalmente todas as terças-feiras, referente aos serviços concluídos e validados na semana anterior (Segunda a Domingo).
+                            </div>
+</details>
+<details class="group bg-white rounded-lg border border-outline-variant transition-all">
+<summary class="flex items-center justify-between p-md cursor-pointer list-none">
+<span class="font-label-md text-body-md text-brand-dark">O cliente não apareceu, o que fazer?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-md pt-0 text-body-md text-on-surface-variant border-t border-outline-variant/30">
+                                Aguarde 15 minutos no local. Se o cliente não comparecer, registre o No-Show no app enviando uma foto da fachada. Você receberá 50% do valor base.
+                            </div>
+</details>
+</div>
+<!-- Call to Action Card -->
+<div class="mt-lg p-lg bg-primary rounded-xl text-on-primary relative overflow-hidden shadow-lg">
+<div class="relative z-10">
+<h3 class="font-title-md text-title-md mb-sm text-white">Não encontrou o que precisava?</h3>
+<p class="text-body-md opacity-90 mb-md text-surface-container-low">Nossos especialistas estão online de Segunda a Sábado das 08h às 20h.</p>
+<button class="bg-brand-accent text-brand-dark px-lg py-sm rounded-lg font-bold hover:brightness-110 transition-all active:scale-95">Falar com Suporte</button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-[120px] opacity-10 rotate-12">support_agent</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="p-lg mt-xl bg-white border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex items-center gap-md">
+<img alt="Logo Footer" class="w-8 h-8 opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjA3e2CmJHOLpH88wn78fVDbOL3vDzSNdcimXeGTR5LgSQDLwPxYES8ByYg5kE_p0xSUDszgCUso-9k4aHNCIgB6LAPQAWqL2MtWqHw_CkyvhssIk-t5YtqmMQBwufgg8kz5ZaBxI5nehXnhkW1lwpnqH9lHWFwy42yb6-IkC-Sod100jYxGk81OWX6tLkUXE9TJU6IDDIFo4moCUx8Fv9rcxBuJghX6762c_ErZK7oAJuRTdhfJVoHslEAQJ6CN9zzw"/>
+<p class="text-label-sm text-outline">© 2024 Dog Washer Connect - Sistema de Gestão Operacional</p>
+</div>
+<div class="flex gap-lg">
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Termos de Uso</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Política de Privacidade</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Status do Sistema</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Floating Chat Toggle -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-brand-accent text-brand-dark rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform group z-50">
+<span class="material-symbols-outlined text-[28px] group-hover:hidden">chat</span>
+<span class="material-symbols-outlined text-[28px] hidden group-hover:block">forum</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-teal-400 border-2 border-white rounded-full"></div>
+</button>
+<script>
+        // Micro-interaction: Search focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('scale-[1.02]');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('scale-[1.02]');
+            });
+        }
+
+        // Simple Detail Toggles animation logic
+        document.querySelectorAll('details').forEach((el) => {
+            el.addEventListener('toggle', (e) => {
+                if (el.open) {
+                    document.querySelectorAll('details').forEach((otherEl) => {
+                        if (otherEl !== el) otherEl.open = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

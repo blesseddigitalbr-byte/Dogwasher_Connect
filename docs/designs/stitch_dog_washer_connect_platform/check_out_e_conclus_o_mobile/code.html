@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Check-out | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#555f6f",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#bdc7d9",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-primary-fixed": "#121c29",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#855300",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-variant": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#0b1c30",
+                        "secondary-container": "#fea619",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "secondary-fixed": "#ffddb8",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "surface-bright": "#f8f9fa",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "primary-container": "#121c29",
+                        "background": "#f8f9fa",
+                        "on-primary-container": "#7b8495",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "tertiary-fixed": "#d3e4fe",
+                        "outline": "#75777c",
+                        "on-tertiary-container": "#75859d",
+                        "on-surface-variant": "#44474c",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#684000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-lg": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+        .bento-item {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-item:active {
+            transform: scale(0.98);
+        }
+        .swipe-action {
+            background: linear-gradient(90deg, #FEA619 0%, #F59E0B 100%);
+        }
+        /* Custom map mask for design feel */
+        .map-mask {
+            mask-image: radial-gradient(circle, black 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+<!-- Top Navigation Anchor (Transactional Suppression) -->
+<!-- As per rule, we use TopAppBar logic but ensure it feels transactional -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-20 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-3">
+<img alt="Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyS-z65S97knizlKmX9sZa67DR0Z1lNC6tNMvfQk0DcSntzHCiffZKzdtustAB9H9fCK3qj2KdYmq-KjRdsp0gmGEqkQ-67LB7kEcvwqEPxObMCId5dW-WmVnIHAZNyJECZc_mIpOmetFlfipquXlxf25-9pLLQiVXpbCM1UoZh5HkvIk5jCRnE66TeIaiiYp4UVAUWIdJG5II1b66AQ4IWSlTfbPjI8tyKu1Ygz9ZABmfkfkO9QljcDyC_Ex6v3bhBA"/>
+<span class="font-display text-headline-md font-bold text-primary">Check-out</span>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<main class="pt-24 px-4 max-w-md mx-auto space-y-6">
+<!-- Success/Confirmation Hero Section -->
+<section class="text-center py-6 animate-in fade-in slide-in-from-top-4 duration-700">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Serviço Concluído</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Revise o resumo das atividades realizadas para o Pet.</p>
+</section>
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Time Card -->
+<div class="col-span-1 glass-card p-4 rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-secondary text-2xl mb-2">schedule</span>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Duração Total</p>
+<p class="font-headline-md text-headline-md text-primary">01:45h</p>
+</div>
+</div>
+<!-- Earnings Card -->
+<div class="col-span-1 glass-card p-4 rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-secondary text-2xl mb-2">payments</span>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Valor Estimado</p>
+<p class="font-headline-md text-headline-md text-primary">R$ 85,00</p>
+</div>
+</div>
+<!-- Activities List (Full Width) -->
+<div class="col-span-2 glass-card p-5 rounded-xl">
+<h3 class="font-title-lg text-title-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">checklist</span>
+                    Atividades Realizadas
+                </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">done</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Banho Completo</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Shampoo hipoalergênico e condicionador.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">done</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Secagem e Escovação</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Eliminação de subpelo e desembaraço.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">done</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Limpeza de Ouvidos</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Remoção de excesso de cera e umidade.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Geolocation Confirmation Card -->
+<div class="glass-card overflow-hidden rounded-xl">
+<div class="p-5">
+<h3 class="font-title-lg text-title-lg text-primary mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+                    Validação de Local
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Confirmado via GPS no endereço do parceiro.</p>
+</div>
+<div class="h-40 w-full relative">
+<!-- Map Placeholder -->
+<div class="w-full h-full bg-surface-container-highest flex items-center justify-center" data-location="São Paulo, Brazil" style="">
+<div class="flex flex-col items-center opacity-40">
+<span class="material-symbols-outlined text-4xl">map</span>
+<span class="text-xs font-label-sm">Mapa de Geolocalização Ativo</span>
+</div>
+</div>
+<!-- Location Pin Overlay -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low flex items-center justify-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Assinatura Digital Verificada</span>
+</div>
+</div>
+<!-- Feedback / Notes (Optional but professional) -->
+<div class="glass-card p-5 rounded-xl">
+<label class="block font-label-md text-label-md text-primary mb-2">Observações Adicionais (Opcional)</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="Ex: O pet estava um pouco agitado no início..." rows="3"></textarea>
+</div>
+</main>
+<!-- Final Action Shell (Sticky Bottom) -->
+<footer class="fixed bottom-0 left-0 w-full p-4 bg-surface-container-lowest shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] md:hidden">
+<button class="w-full h-14 swipe-action rounded-xl flex items-center justify-center gap-3 active:scale-95 transition-all shadow-lg group" id="final-checkout-btn">
+<span class="font-label-md text-on-secondary-fixed font-bold text-lg">FINALIZAR E ENVIAR RESUMO</span>
+<span class="material-symbols-outlined text-on-secondary-fixed group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</footer>
+<!-- Success Modal Overlay (Hidden by default) -->
+<div class="fixed inset-0 z-[100] bg-primary/40 backdrop-blur-md hidden flex items-center justify-center p-6" id="success-overlay">
+<div class="bg-surface rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl scale-90 opacity-0 transition-all duration-300" id="success-modal">
+<div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-5xl">task_alt</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Check-out Realizado!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">O resumo foi enviado para o estabelecimento e sua agenda foi atualizada.</p>
+<button class="w-full py-3 bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 transition-opacity">
+                VOLTAR AO INÍCIO
+            </button>
+</div>
+</div>
+<script>
+        // Micro-interaction for final checkout
+        const checkoutBtn = document.getElementById('final-checkout-btn');
+        const overlay = document.getElementById('success-overlay');
+        const modal = document.getElementById('success-modal');
+
+        checkoutBtn.addEventListener('click', () => {
+            // Simulate processing
+            checkoutBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span>`;
+            checkoutBtn.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('scale-90', 'opacity-0');
+                    modal.classList.add('scale-100', 'opacity-100');
+                }, 50);
+            }, 1200);
+        });
+
+        // Close modal and redirect simulation
+        overlay.querySelector('button').addEventListener('click', () => {
+             window.location.reload(); // In a real app, this would navigate to dashboard
+        });
+    </script>
+</body></html>

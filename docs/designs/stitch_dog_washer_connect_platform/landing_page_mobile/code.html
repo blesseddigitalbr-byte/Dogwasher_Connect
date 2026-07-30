@@ -1,0 +1,409 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dog Washer Connect | Excelência em Banho e Tosa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#121c29",
+                        "outline": "#75777c",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "secondary": "#855300",
+                        "surface": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-secondary-fixed": "#2a1700",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-container": "#7b8495",
+                        "on-secondary-container": "#684000",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#ffddb8",
+                        "surface-tint": "#555f6f",
+                        "on-surface-variant": "#44474c",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-container": "#121c29",
+                        "tertiary-container": "#0b1c30",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-container": "#fea619",
+                        "inverse-primary": "#bdc7d9",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d9e3f6",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-container": "#75859d",
+                        "brand-deep": "#07111E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "container-max": "1280px",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-split-hover:hover {
+            flex-grow: 1.5;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-secondary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface dark:bg-on-primary-fixed border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<img alt="Dog Washer Connect Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKNHEQZmAJkSZfRmlThsuYG4h-Lbmv6rfO405Irae6aGBtUI9_S5csJwqHzOF6GkULDSf7J0xOqm8j5NjQZCJbbriB_VHaE2l3n7WIKlwKi_7qQ9l9kYhX-rAxDDGCDibjK2PIl5Ep-mqon9CKkqud8wvuckHs8n5YLihCMS-Z3FrK1ZVlh7GTtREBGokvf5Vli4AUbELi_NyfDsgwWplbcikWrTkJupcRooE8dDJoN1okAyp1Cvi3xSnGIFV5obTgvg">
+<span class="font-display text-headline-md font-bold text-primary dark:text-primary-fixed">Dog Washer Connect</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#beneficios">Benefícios</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#geolocation">Localização</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#faq">FAQ</a>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:scale-95 transition-all">Entrar</button>
+</nav>
+<div class="md:hidden flex items-center" x-data="{ open: false }"><button @click="open = !open" class="text-on-surface p-2"><span class="material-symbols-outlined text-3xl">menu</span></button><div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-full" class="fixed inset-0 z-[60] bg-surface flex flex-col p-margin-mobile" style="display: none;"><div class="flex justify-between items-center mb-8"><div class="flex items-center gap-3"><img alt="Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKNHEQZmAJkSZfRmlThsuYG4h-Lbmv6rfO405Irae6aGBtUI9_S5csJwqHzOF6GkULDSf7J0xOqm8j5NjQZCJbbriB_VHaE2l3n7WIKlwKi_7qQ9l9kYhX-rAxDDGCDibjK2PIl5Ep-mqon9CKkqud8wvuckHs8n5YLihCMS-Z3FrK1ZVlh7GTtREBGokvf5Vli4AUbELi_NyfDsgwWplbcikWrTkJupcRooE8dDJoN1okAyp1Cvi3xSnGIFV5obTgvg"><span class="font-display text-title-lg font-bold text-primary">Dog Washer Connect</span></div><button @click="open = false" class="text-on-surface"><span class="material-symbols-outlined text-3xl">close</span></button></div><nav class="flex flex-col gap-6 overflow-y-auto pb-8"><a href="#" class="font-title-lg text-brand-deep border-b border-outline-variant pb-2">A Rede</a><a href="#" class="font-title-lg text-brand-deep border-b border-outline-variant pb-2">Para Estabelecimentos</a><a href="#" class="font-title-lg text-brand-deep border-b border-outline-variant pb-2">Para Profissionais</a><a href="#beneficios" class="font-title-lg text-brand-deep border-b border-outline-variant pb-2">Como Funciona</a><a href="#geolocation" class="font-title-lg text-brand-deep border-b border-outline-variant pb-2">Segurança</a><a href="#faq" class="font-title-lg text-brand-deep border-b border-outline-variant pb-2">FAQ</a><div class="mt-4 flex flex-col gap-4"><button class="w-full py-4 rounded-xl border border-primary font-label-md text-primary">Entrar</button><button class="w-full py-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md font-bold">Criar conta</button></div></nav></div></div>
+</header>
+<main class="pt-20">
+<!-- Hero Section: Split Interaction -->
+<section class="relative h-[85vh] flex flex-col md:flex-row overflow-hidden bg-brand-deep transition-all duration-1000 opacity-100 translate-y-0">
+<!-- Left Side: Contratar -->
+<div class="group relative flex-1 flex flex-col items-center justify-center p-stack-lg transition-all duration-700 ease-in-out hero-split-hover border-r border-white/5 bg-cover bg-center" data-alt="A premium pet grooming salon interior with high-end stainless steel equipment, soft warm lighting, and a minimalist architectural feel. The atmosphere is sophisticated and professional, reflecting a top-tier establishment ready to hire expert staff. The color palette is dominated by deep blues and polished silver highlights." style="background-image: linear-gradient(rgba(7, 17, 30, 0.8), rgba(7, 17, 30, 0.8)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3qCjh0FbmdLnvuXHtccob0VtUIzJfQhqSkKmhFGdCsHZokjb3yxRMM4j4oxfOSFADi7eqXSMNop-VTuVmp9HIPENvoXbVuya8b1DxO0tj9NxQdeKmdX9rKeIwo6UN5wRPukvAPcKJSyue9TMdavqffpgj8WSoMzL0NE1BEIb2QuiBUTR6CUM37-ayQ8WhoJFlmsrnJANO4CWnTehU_uz5kqgtDiP9fIBnCIXFE4WQtiKHVelYbisu')">
+<div class="z-10 text-center max-w-md">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-4 block">Para Estabelecimentos</span>
+<h1 class="font-display text-headline-lg md:text-display text-white mb-6">Contratar Profissionais</h1>
+<p class="font-body-md text-body-md text-outline-variant mb-8">Encontre groomers qualificados e certificados para o seu pet shop com agilidade e segurança técnica.</p>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-label-md text-label-md hover:scale-105 transition-transform flex items-center gap-2 mx-auto">
+                        Anunciar Vagas
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Side: Oportunidades -->
+<div class="group relative flex-1 flex flex-col items-center justify-center p-stack-lg transition-all duration-700 ease-in-out hero-split-hover bg-cover bg-center" data-alt="A focused professional dog groomer working with precision on a well-groomed golden retriever in a modern, brightly lit studio. The professional is wearing a sleek apron and uses professional tools, conveying expertise and independence. The scene is shot with a shallow depth of field, highlighting the quality and autonomy of the work." style="background-image: linear-gradient(rgba(7, 17, 30, 0.85), rgba(7, 17, 30, 0.85)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPETNDyEnuaEJJdko5qDIw11OB4Yrv0Vw1pMiIOOFD5qxRvBl5oYtaPj-D5fXAWvXzjrvlWmVv3ed9msqElQ5Vzp7YyL6AFtqQc5WEjtZ7WnmPC62VyBPf58l527Np8B_yum6LURUqtXkUpgfPd56_v04is7eTcBH_1hLwVettRQpjCf8tAenTRea9Ec4QESekvqdNteSmooAKmSaFhQ6SFgzRN2gfK5_zU9TCSnWHateNJYcvbcHR')">
+<div class="z-10 text-center max-w-md">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-4 block">Para Profissionais</span>
+<h2 class="font-display text-headline-lg md:text-display text-white mb-6">Encontrar Oportunidades</h2>
+<p class="font-body-md text-body-md text-outline-variant mb-8">Gerencie sua carreira, escolha seus horários e conecte-se aos melhores estabelecimentos da região.</p>
+<button class="border border-white text-white px-8 py-4 rounded-xl font-label-md text-label-md hover:bg-white hover:text-brand-deep transition-all flex items-center gap-2 mx-auto">
+                        Ver Oportunidades
+                        <span class="material-symbols-outlined">work</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Partner Logos -->
+<section class="py-12 bg-surface-container-low border-b border-outline-variant transition-all duration-1000 opacity-100 translate-y-0">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<p class="text-center font-label-sm text-label-sm text-outline mb-8 uppercase tracking-tighter">Estabelecimentos de Elite já Conectados</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+<!-- Generic high-end logo representations -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">pets</span>
+<span class="font-display font-bold text-xl">PETLUX</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">spa</span>
+<span class="font-display font-bold text-xl">GroomingStudio</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">verified</span>
+<span class="font-display font-bold text-xl">PureWash</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">hotel</span>
+<span class="font-display font-bold text-xl">BarkResort</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Bento Grid -->
+<section class="py-24 bg-white transition-all duration-1000 opacity-100 translate-y-0" id="beneficios">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display text-headline-lg md:text-display mb-4 text-brand-deep">Excelência Bilateral</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Nossa plataforma foi desenhada para elevar o padrão operacional do mercado pet através de tecnologia e confiança.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Autonomia (Professional) -->
+<div class="md:col-span-8 group overflow-hidden rounded-2xl bg-surface-container-low p-stack-lg border border-outline-variant hover:border-secondary transition-all">
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">timer</span>
+<h3 class="font-title-lg text-title-lg text-brand-deep mb-3">Autonomia &amp; Flexibilidade</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Profissionais definem sua própria agenda. Escolha turnos e dias que se encaixam na sua rotina, garantindo equilíbrio entre vida pessoal e carreira de sucesso.</p>
+</div>
+<div class="flex-1 w-full h-48 bg-cover bg-center rounded-xl" data-alt="A clean digital interface showing a calendar scheduling tool for professional pet groomers. The design is minimalist, using white and soft gray tones with amber accents. It shows available time slots and booking confirmations, representing freedom and organized autonomy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrmel7K4nsVHvCkAR2_OCh9JIysEmrBl2oWZjUbj9TDHiQD5-tHvE5MkR_IbpYM40b4KRLBicRUjHbNhLUnAujbJ4wil9E9hWWJCoeHmOMQ_KkW0i2krkDJZb3j-Y6aWX2ptxmgd1pD12jUBJF4X0uliMf6_XPCVwjG_K7ajvJQRByganU1RuS1YuWy6Sp7FfBOIKKXJ5lbzuHS27Y8x7SIQPw_YiynG6_u8ticlStPigxi8_FZpDi')"></div>
+</div>
+</div>
+<!-- Quality (Establishment) -->
+<div class="md:col-span-4 group bg-brand-deep p-stack-lg rounded-2xl flex flex-col justify-between hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-secondary-fixed text-5xl">award_star</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-white mb-3">Qualidade Técnica</h3>
+<p class="font-body-md text-body-md text-outline-variant">Acesso a especialistas avaliados. Reduza o turnover e garanta o padrão de tosa que seus clientes exigem.</p>
+</div>
+</div>
+<!-- Speed (General) -->
+<div class="md:col-span-4 group bg-surface-container-highest p-stack-lg rounded-2xl border border-outline-variant flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-5xl">bolt</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-brand-deep mb-3">Agilidade Operacional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Substituições rápidas e contratações em poucos cliques para não deixar sua banheira vazia.</p>
+</div>
+</div>
+<!-- Verified Profiles (The Badge) -->
+<div class="md:col-span-8 group glass-card p-stack-lg rounded-2xl flex flex-col md:flex-row items-center gap-8 shadow-sm">
+<div class="w-32 h-32 flex-shrink-0 bg-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-6xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-brand-deep mb-3">Perfis Verificados &amp; Certificados</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cada profissional passa por uma curadoria técnica e documental. Analisamos portfólio, certificados e referências para garantir que apenas o melhor entre em seu estabelecimento.</p>
+<div class="mt-4 flex gap-2">
+<span class="bg-success-container text-success px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Background Check</span>
+<span class="bg-info-container text-info px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Portfolio Reviewed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Geolocation & Reputation Section -->
+<section class="py-24 bg-surface-container-lowest overflow-hidden transition-all duration-1000 opacity-0 translate-y-10" id="geolocation">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<h2 class="font-display text-headline-lg md:text-display text-brand-deep mb-6">Conexão por Proximidade e Reputação</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Nossa inteligência logística mapeia os melhores profissionais ao redor do seu CEP. O sistema de reputação bilateral garante que bons profissionais encontrem bons ambientes de trabalho.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary">distance</span>
+</div>
+<div>
+<h4 class="font-title-lg text-brand-deep">Geolocalização Ativa</h4>
+<p class="text-on-surface-variant">Otimização de rotas para o profissional e prontidão para o estabelecimento.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary">star_half</span>
+</div>
+<div>
+<h4 class="font-title-lg text-brand-deep">Avaliações Reais</h4>
+<p class="text-on-surface-variant">Feedback técnico detalhado após cada dia de trabalho realizado.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sophisticated interactive digital map of a modern city at night, featuring glowing data points and connection lines in amber and teal. Small icons representing pet shops and groomers are visible, showing a high-tech network of professional services. The style is data-driven and premium, with high contrast and clean UI elements." data-location="São Paulo, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDb_kraMNQjG6Ny1yxBblz4wPqou53OOpw9NOzD9QTC4hwMX99NPWfSwH48wKcK344cwFN0WKboZ3pWk1wH0mCslqDCQObi6aW5TbSf4wxKYrF3vneS7Y5oYV9ZlO2mVx8MxMXGdB-c9riplmct-Isice06Kr4Cd4duAAWMOExdUEEH3yc9x6atX39GRGPLoVBChlokEkKg-1nYIlzMScNi6OKajlsGey5Irzea1CyPhXFDGex6G75k')"></div>
+</div>
+<!-- Floating Review Card -->
+<div class="absolute -bottom-8 -left-8 glass-card p-6 rounded-2xl shadow-xl max-w-xs animate-bounce" style="animation-duration: 3s">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant"></div>
+<div>
+<p class="font-label-md text-brand-deep">PetShop Vila Nova</p>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+</div>
+<p class="text-sm italic text-on-surface-variant">"O profissional foi extremamente pontual e a qualidade do corte Teddy Bear foi impecável. Recomendo!"</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-white transition-all duration-1000 opacity-0 translate-y-10" id="faq">
+<div class="max-w-3xl mx-auto px-margin-mobile">
+<h2 class="font-display text-headline-lg text-center text-brand-deep mb-12">Perguntas Frequentes</h2>
+<div class="space-y-4">
+<details class="group border border-outline-variant rounded-xl overflow-hidden transition-all hover:border-secondary">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-title-lg text-brand-deep">
+                            Como funciona o pagamento?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                            O pagamento é processado via plataforma de forma segura após a confirmação da realização do job pelo estabelecimento. Profissionais recebem via transferência instantânea.
+                        </div>
+</details>
+<details class="group border border-outline-variant rounded-xl overflow-hidden transition-all hover:border-secondary">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-title-lg text-brand-deep">
+                            É necessário ter MEI para participar?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                            Sim, para garantir a conformidade fiscal e a segurança jurídica de ambas as partes, exigimos que o profissional atue como prestador de serviços independente.
+                        </div>
+</details>
+<details class="group border border-outline-variant rounded-xl overflow-hidden transition-all hover:border-secondary">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-title-lg text-brand-deep">
+                            Quais documentos são necessários?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                            RG/CNH, comprovante de residência, certificados de cursos de banho e tosa e fotos de trabalhos autorais para composição do portfólio.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-brand-deep relative overflow-hidden transition-all duration-1000 opacity-0 translate-y-10">
+<div class="absolute inset-0 opacity-10">
+
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile text-center">
+<h2 class="font-display text-display text-white mb-6">Pronto para elevar o seu nível profissional?</h2>
+<p class="font-body-lg text-body-lg text-outline-variant mb-10 max-w-2xl mx-auto">Junte-se à maior rede de conexão técnica do mercado pet brasileiro. Cadastre-se agora e comece em menos de 24h.</p>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-full font-label-md text-label-md font-bold hover:scale-105 transition-transform">Cadastrar como Profissional</button>
+<button class="border border-white text-white px-10 py-5 rounded-full font-label-md text-label-md font-bold hover:bg-white hover:text-brand-deep transition-all">Cadastrar Estabelecimento</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest dark:bg-primary-container border-t border-outline-variant">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="flex items-center gap-2">
+<img alt="Logo Gray" class="h-6 w-6 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA50aBmMMz1tFm5fTucqV9jaC-lLoLlwAxeJa7jQkg6GQxQIYFJg-Mm5jWjYco3kejIW6eyfFd1bv99a_7qRBbaY6f3Wkxo1b0q_Di97DVJDc0CGK0RuEZDtgYZsYEIHJp_Bt4u3X2luJMCHlnIMLqmKt2dUDGvhRsEHwmEXPD9XSxQjvMdDH7rq0VNg2JNd2fPAP4KAYvWvXlnb6mQIb_U6VZzDY3UDmSd6xjxeUkxmtY5vDACNLo6qDe0MvExqOelg">
+<span class="font-display text-title-lg text-primary">Dog Washer Connect</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline dark:text-outline-variant">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-label-sm text-outline dark:text-outline-variant hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<!-- Mobile Bottom Nav (Destination Suppression Check: Only for App levels, but UI request suggests Landing. This would be suppressed per rules if it's purely landing, but I will include as per predicted components for reference) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-surface-container-lowest dark:bg-on-primary-fixed shadow-[0px_-4px_20px_rgba(7,17,30,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Oportunidades</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm">Meus Jobs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</div>
+</nav>
+<script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Smooth scroll adjustment for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

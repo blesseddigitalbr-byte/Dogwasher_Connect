@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Onboarding Experiência</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#7b8495",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-container": "#edeeef",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "primary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-container": "#75859d",
+                    "tertiary-fixed": "#d3e4fe",
+                    "secondary": "#855300",
+                    "outline-variant": "#c5c6cc",
+                    "primary-container": "#121c29",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-secondary-container": "#684000",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-low": "#f3f4f5",
+                    "secondary-container": "#fea619",
+                    "tertiary": "#000000",
+                    "surface": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "background": "#f8f9fa",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#121c29",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed": "#2a1700",
+                    "tertiary-container": "#0b1c30",
+                    "surface-bright": "#f8f9fa",
+                    "outline": "#75777c",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-card.selected {
+            border-color: #000000;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+        }
+        .level-pill.active {
+            background-color: #fea619;
+            color: #07111E;
+            border-color: #fea619;
+        }
+        .transition-all {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Top Navigation Suppression: Not rendered per instructions for transactional onboarding -->
+<main class="flex-grow flex flex-col items-center justify-start py-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[720px] w-full">
+<!-- Step Indicator -->
+<div class="mb-stack-lg">
+<div class="flex items-center justify-between mb-stack-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Step 3: Experiência</span>
+<span class="font-label-md text-label-md text-primary">60% Concluído</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[60%] transition-all duration-700"></div>
+</div>
+</div>
+<!-- Header Section -->
+<header class="mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Serviços Realizados</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Selecione as especialidades que você domina e defina seu nível de senioridade em cada uma delas.</p>
+</header>
+<!-- Services Grid -->
+<div class="space-y-gutter">
+<!-- Service Item 1: Banho Técnico -->
+<div class="service-card bg-surface-container-lowest border border-outline-variant p-5 rounded-xl transition-all cursor-pointer group" id="service-banho">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-[.selected]:bg-secondary-container">
+<span class="material-symbols-outlined text-[28px]">bathtub</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Banho Técnico</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Higiene profunda e controle de odores.</p>
+</div>
+</div>
+<div class="flex items-center h-6">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="check-banho" onclick="toggleService('service-banho')" type="checkbox"/>
+</div>
+</div>
+<div class="hidden animate-fade-in" id="levels-banho">
+<p class="font-label-sm text-label-sm text-outline mb-2">SELECIONE O NÍVEL:</p>
+<div class="flex flex-wrap gap-2">
+<button class="level-pill-banho px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('banho', 'dev')">Em desenvolvimento</button>
+<button class="level-pill-banho px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('banho', 'apto')">Apto</button>
+<button class="level-pill-banho px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('banho', 'exp')">Experiente</button>
+<button class="level-pill-banho px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('banho', 'spec')">Especialista</button>
+</div>
+</div>
+</div>
+<!-- Service Item 2: Tosa Máquina -->
+<div class="service-card bg-surface-container-lowest border border-outline-variant p-5 rounded-xl transition-all cursor-pointer group" id="service-tosa-maq">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-[.selected]:bg-secondary-container">
+<span class="material-symbols-outlined text-[28px]">content_cut</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Tosa Máquina</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Corte uniforme para diferentes pelagens.</p>
+</div>
+</div>
+<div class="flex items-center h-6">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="check-tosa-maq" onclick="toggleService('service-tosa-maq')" type="checkbox"/>
+</div>
+</div>
+<div class="hidden" id="levels-tosa-maq">
+<p class="font-label-sm text-label-sm text-outline mb-2">SELECIONE O NÍVEL:</p>
+<div class="flex flex-wrap gap-2">
+<button class="level-pill-tosa-maq px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('tosa-maq', 'dev')">Em desenvolvimento</button>
+<button class="level-pill-tosa-maq px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('tosa-maq', 'apto')">Apto</button>
+<button class="level-pill-tosa-maq px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('tosa-maq', 'exp')">Experiente</button>
+<button class="level-pill-tosa-maq px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('tosa-maq', 'spec')">Especialista</button>
+</div>
+</div>
+</div>
+<!-- Service Item 3: Higiene Bucal -->
+<div class="service-card bg-surface-container-lowest border border-outline-variant p-5 rounded-xl transition-all cursor-pointer group" id="service-bucal">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-[.selected]:bg-secondary-container">
+<span class="material-symbols-outlined text-[28px]">dentistry</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Higiene Bucal</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Escovação e aplicação de produtos específicos.</p>
+</div>
+</div>
+<div class="flex items-center h-6">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="check-bucal" onclick="toggleService('service-bucal')" type="checkbox"/>
+</div>
+</div>
+<div class="hidden" id="levels-bucal">
+<p class="font-label-sm text-label-sm text-outline mb-2">SELECIONE O NÍVEL:</p>
+<div class="flex flex-wrap gap-2">
+<button class="level-pill-bucal px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('bucal', 'dev')">Em desenvolvimento</button>
+<button class="level-pill-bucal px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('bucal', 'apto')">Apto</button>
+<button class="level-pill-bucal px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('bucal', 'exp')">Experiente</button>
+<button class="level-pill-bucal px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('bucal', 'spec')">Especialista</button>
+</div>
+</div>
+</div>
+<!-- Service Item 4: Hidratação de Pelos -->
+<div class="service-card bg-surface-container-lowest border border-outline-variant p-5 rounded-xl transition-all cursor-pointer group" id="service-hidra">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-[.selected]:bg-secondary-container">
+<span class="material-symbols-outlined text-[28px]">spa</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Hidratação de Pelos</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Tratamentos cosméticos e reconstrução capilar.</p>
+</div>
+</div>
+<div class="flex items-center h-6">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="check-hidra" onclick="toggleService('service-hidra')" type="checkbox"/>
+</div>
+</div>
+<div class="hidden" id="levels-hidra">
+<p class="font-label-sm text-label-sm text-outline mb-2">SELECIONE O NÍVEL:</p>
+<div class="flex flex-wrap gap-2">
+<button class="level-pill-hidra px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('hidra', 'dev')">Em desenvolvimento</button>
+<button class="level-pill-hidra px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('hidra', 'apto')">Apto</button>
+<button class="level-pill-hidra px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('hidra', 'exp')">Experiente</button>
+<button class="level-pill-hidra px-3 py-1.5 rounded-full border border-outline-variant font-label-md text-label-md hover:border-primary transition-all" onclick="setLevel('hidra', 'spec')">Especialista</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-stack-lg flex flex-col md:flex-row items-center gap-stack-md pt-stack-md">
+<button class="w-full md:w-auto px-10 h-14 bg-secondary-container text-primary font-label-md text-label-md rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-sm">
+                    Continuar
+                </button>
+<button class="w-full md:w-auto px-10 h-14 bg-transparent border border-primary text-primary font-label-md text-label-md rounded-xl hover:bg-surface-container-low transition-all">
+                    Voltar
+                </button>
+</div>
+<!-- Decorative Info Card -->
+<div class="mt-stack-lg p-stack-md bg-tertiary-fixed rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed">verified_user</span>
+<p class="font-label-md text-label-md text-on-tertiary-fixed-variant">
+                    Níveis de senioridade ajudam o algoritmo a conectar você com os jobs que melhor se adequam ao seu perfil técnico.
+                </p>
+</div>
+</div>
+</main>
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest border-t border-outline-variant">
+<div class="font-display text-title-lg text-primary">Dog Washer Connect</div>
+<p class="text-outline font-label-sm text-label-sm">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-4">
+<a class="text-outline hover:text-secondary font-label-sm text-label-sm transition-colors" href="#">Termos de Uso</a>
+<a class="text-outline hover:text-secondary font-label-sm text-label-sm transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<script>
+        function toggleService(id) {
+            const card = document.getElementById(id);
+            const levelSection = document.getElementById('levels-' + id.split('-')[1]);
+            const checkbox = card.querySelector('input[type="checkbox"]');
+            
+            if (checkbox.checked) {
+                card.classList.add('selected');
+                levelSection.classList.remove('hidden');
+            } else {
+                card.classList.remove('selected');
+                levelSection.classList.add('hidden');
+                // Reset levels when unchecking
+                const pills = card.querySelectorAll('.level-pill-' + id.split('-')[1]);
+                pills.forEach(p => p.classList.remove('active'));
+            }
+        }
+
+        function setLevel(service, level) {
+            const pills = document.querySelectorAll('.level-pill-' + service);
+            pills.forEach(pill => pill.classList.remove('active'));
+            
+            // Find the clicked pill
+            const event = window.event;
+            const clickedElement = event.currentTarget;
+            clickedElement.classList.add('active');
+        }
+
+        // Add event listeners to card bodies to toggle checkboxes
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Prevent toggle if clicking a level button or the checkbox itself
+                if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT') {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                    toggleService(this.id);
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Revisão do Cadastro - Dog Washer Connect</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-collapse .collapse-content {
+            max-height: 1000px;
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
+        .collapse-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .rotate-icon {
+            transition: transform 0.3s ease;
+        }
+        .active-collapse .rotate-icon {
+            transform: rotate(180deg);
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface mb-20">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center px-4 py-4 w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<h1 class="font-display text-headline-md text-primary dark:text-inverse-primary">Dog Washer Connect</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">account_circle</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="px-4 py-6 max-w-lg mx-auto">
+<!-- Header -->
+<header class="mb-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Passo Final</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Revisão do Cadastro</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Confira todos os dados informados antes de enviar para aprovação oficial do estabelecimento.</p>
+</header>
+<!-- Summary Cards (Collapsible) -->
+<div class="space-y-4">
+<!-- Section: Informações Pessoais -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group active-collapse" id="section-1">
+<button class="w-full flex items-center justify-between p-4 focus:outline-none" onclick="toggleCollapse('section-1')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">person</span>
+<span class="font-title-lg text-title-lg text-on-surface">Informações Pessoais</span>
+<span class="material-symbols-outlined text-emerald-600 text-sm">check_circle</span>
+</div>
+<span class="material-symbols-outlined rotate-icon text-on-surface-variant">expand_more</span>
+</button>
+<div class="collapse-content px-4">
+<div class="grid grid-cols-1 gap-4 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Nome Completo</p>
+<p class="font-body-md text-body-md text-on-surface">Ricardo Oliveira Santos</p>
+</div>
+<button class="text-secondary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Editar
+                            </button>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant">CPF</p>
+<p class="font-body-md text-body-md text-on-surface">123.456.789-00</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Data de Nascimento</p>
+<p class="font-body-md text-body-md text-on-surface">15/05/1988</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Unidade e Endereço -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden" id="section-2">
+<button class="w-full flex items-center justify-between p-4 focus:outline-none" onclick="toggleCollapse('section-2')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">store</span>
+<span class="font-title-lg text-title-lg text-on-surface">Unidade e Local</span>
+<span class="material-symbols-outlined text-emerald-600 text-sm">check_circle</span>
+</div>
+<span class="material-symbols-outlined rotate-icon text-on-surface-variant">expand_more</span>
+</button>
+<div class="collapse-content px-4">
+<div class="grid grid-cols-1 gap-4 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Unidade Selecionada</p>
+<p class="font-body-md text-body-md text-on-surface">Pet Shop Premium - Jardins</p>
+</div>
+<button class="text-secondary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Editar
+                            </button>
+</div>
+<div class="w-full h-32 rounded-lg mb-2 overflow-hidden border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean and modern digital map visualization showing a pin over a high-end commercial district in São Paulo. The map uses a minimalist corporate style with soft grays and blues, highlighting streets with subtle lines. A vibrant amber-colored marker indicates the pet shop location. The lighting is bright and clear, emphasizing a professional and reliable tech interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARMNW5-FT_Wv2ajVhS82McBIROhvgMD85ujq2lMw_A8FtDzZlIKkvyGmFCCuCosqrOzHYDtyPmVlcPPPmSHIOXNnFSwyMg38kZqwvePOdc79vHDi2nf8WirnjjlrMkDdGdNsIeqMbaRBVzV13WgADgi-Cgl2A0ZgaTBl5-3BkmE4GOhrqspuLWp2YSwDVLTqO92A5mX9UPcw25SzBaQovacldydy_XZNPcs2WNTgah7lHLmOgp8uLa')"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Documentação -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden" id="section-3">
+<button class="w-full flex items-center justify-between p-4 focus:outline-none" onclick="toggleCollapse('section-3')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">description</span>
+<span class="font-title-lg text-title-lg text-on-surface">Documentação</span>
+<span class="material-symbols-outlined text-error text-sm">error</span>
+</div>
+<span class="material-symbols-outlined rotate-icon text-on-surface-variant">expand_more</span>
+</button>
+<div class="collapse-content px-4">
+<div class="grid grid-cols-1 gap-4 pt-2">
+<div class="p-3 bg-surface-container-low rounded-lg border-l-4 border-error flex justify-between items-center">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Certificado de Especialista</p>
+<p class="font-body-md text-body-md text-error">Arquivo não enviado ou ilegível</p>
+</div>
+<button class="bg-secondary text-on-secondary px-3 py-1.5 rounded-lg font-label-md text-label-md">Enviar</button>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg flex justify-between items-center">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Identidade (RG/CNH)</p>
+<p class="font-body-md text-body-md text-emerald-600 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check</span> Verificado
+                                </p>
+</div>
+<button class="text-secondary font-label-md text-label-md">Substituir</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Checklists Requirements -->
+<section class="mt-10">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4">Requisitos para Ativação</h3>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-sm" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Validar e-mail corporativo</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-sm" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Fotos da unidade aprovadas</p>
+</div>
+<div class="flex items-center gap-3 opacity-60">
+<div class="w-6 h-6 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-sm" style="font-variation-settings: 'wght' 700;">close</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Upload do certificado técnico</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-sm" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Aceite dos termos de uso</p>
+</div>
+</div>
+</section>
+<!-- Final Call to Action -->
+<div class="mt-10 mb-8">
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-headline-md text-headline-md shadow-lg active:scale-95 transition-transform">
+                Finalizar Cadastro
+            </button>
+<p class="text-center mt-4 font-label-md text-label-md text-on-surface-variant">Ao finalizar, seus dados serão analisados em até 48h úteis.</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-3 py-1">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        function toggleCollapse(id) {
+            const element = document.getElementById(id);
+            const isClosing = element.classList.contains('active-collapse');
+            
+            // Close all first if desired (optional)
+            // document.querySelectorAll('.active-collapse').forEach(el => el.classList.remove('active-collapse'));
+
+            if (isClosing) {
+                element.classList.remove('active-collapse');
+            } else {
+                element.classList.add('active-collapse');
+            }
+        }
+    </script>
+</body></html>

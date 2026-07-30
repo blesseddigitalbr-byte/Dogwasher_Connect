@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pagamento Confirmado - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#684000",
+                    "background": "#f8f9fa",
+                    "outline-variant": "#c5c6cc",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "tertiary-container": "#0b1c30",
+                    "outline": "#75777c",
+                    "on-surface-variant": "#44474c",
+                    "on-background": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary": "#000000",
+                    "primary": "#000000",
+                    "primary-fixed": "#d9e3f6",
+                    "on-surface": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fea619",
+                    "secondary": "#855300",
+                    "on-primary-fixed": "#121c29",
+                    "inverse-surface": "#2e3132",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#2a1700",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-tint": "#555f6f",
+                    "on-tertiary-container": "#75859d",
+                    "surface-container-highest": "#e1e3e4",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary-container": "#7b8495",
+                    "success": "#22C55E",
+                    "on-success": "#FFFFFF"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "2rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Outfit"],
+                    "display": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .check-animation {
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .success-glow {
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
+<!-- Confirmation Canvas -->
+<main class="w-full max-w-[480px] px-margin-mobile pt-16 pb-32 flex flex-col items-center">
+<!-- Animated Success Icon -->
+<div class="relative w-24 h-24 mb-stack-lg flex items-center justify-center">
+<div class="absolute inset-0 bg-success/10 rounded-full animate-ping"></div>
+<div class="relative w-20 h-20 bg-success rounded-full flex items-center justify-center check-animation success-glow">
+<span class="material-symbols-outlined text-on-success text-5xl" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<!-- Headline -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Pagamento Confirmado</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                A transação foi processada com sucesso e os fundos já estão vinculados à ordem.
+            </p>
+</div>
+<!-- Remuneração Protegida Badge -->
+<div class="bg-secondary-container/20 border border-secondary/20 rounded-xl px-4 py-3 flex items-center gap-3 mb-stack-lg w-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="font-label-md text-label-md text-on-secondary-container font-bold">Remuneração Protegida</p>
+<p class="font-label-sm text-label-sm text-on-secondary-container/80">Valor garantido pelo protocolo de segurança.</p>
+</div>
+</div>
+<!-- Opportunity Summary Card -->
+<div class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm mb-stack-lg">
+<div class="p-stack-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Resumo da Operação</span>
+<span class="font-label-sm text-label-sm text-success bg-success/10 px-2 py-1 rounded">Liquidado</span>
+</div>
+<div class="p-stack-md space-y-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional studio photograph of a golden retriever being groomed with soft lighting in a high-end pet establishment. The environment is minimalist and clean, with neutral colors like white and slate grey, reflecting a premium corporate pet care aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCamEJYhigSc3ITK2hHcDazchBrCmQMdPT29MOQcBL2Pk48oQmEkP23qznn45ty6FpmI8ntBQsSXwUoKgIRb1LSSHc7Err_kepx8CNGvdK4rBYBOP1jD_QB6_wf6SRYSnYrQKAID0klaB9Nfbp5lxTgLd33PQQA_BV-Kl8LWL9XVsywcoySwM7XGOdMYjR_BPdPDXuTxiLrd3qlNEi2cHYCNyamdP6L6hK7XO0LeivTDa2vntp-YmiG"/>
+</div>
+<div class="flex-1">
+<p class="font-title-lg text-title-lg text-primary">Banho &amp; Tosa Premium</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Agendamento #DW-98234</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/30">
+<div>
+<p class="font-label-sm text-label-sm text-outline">Valor Total</p>
+<p class="font-title-lg text-title-lg text-primary">R$ 145,00</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Data</p>
+<p class="font-body-md text-body-md text-primary">Hoje, 14:30</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-outline mb-1">Método de Pagamento</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">credit_card</span>
+<p class="font-body-md text-body-md text-primary">Cartão de Crédito •••• 4421</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Explanation Text -->
+<div class="w-full px-4 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Este valor já está provisionado e será liberado para o profissional assim que a lavagem for concluída e confirmada pelo sistema.
+            </p>
+</div>
+<!-- Action Area -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile bg-gradient-to-t from-background via-background to-transparent pt-12">
+<div class="max-w-[480px] mx-auto flex flex-col gap-3">
+<button class="w-full h-14 bg-primary text-on-primary font-label-md text-label-md rounded-xl shadow-md active:scale-95 transition-transform flex items-center justify-center gap-2">
+                    Visualizar Recibo
+                    <span class="material-symbols-outlined text-sm">receipt_long</span>
+</button>
+<button class="w-full h-14 border border-outline text-primary font-label-md text-label-md rounded-xl active:bg-surface-container-low transition-colors">
+                    Voltar para o Dashboard
+                </button>
+</div>
+</div>
+</main>
+<!-- Success Decoration (Confetti simulation with CSS) -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
+<div class="absolute top-[-10%] left-[10%] w-2 h-2 bg-secondary rounded-full opacity-20 animate-bounce" style="animation-delay: 0.1s;"></div>
+<div class="absolute top-[20%] right-[15%] w-3 h-3 bg-primary rounded-full opacity-10 animate-pulse"></div>
+<div class="absolute bottom-[40%] left-[5%] w-2 h-2 bg-success rounded-full opacity-20 animate-bounce" style="animation-delay: 0.5s;"></div>
+<div class="absolute top-[60%] right-[10%] w-4 h-4 bg-secondary-container rounded-full opacity-15"></div>
+</div>
+<script>
+        // Micro-interaction for the "Visualize Receipt" button
+        document.querySelector('button').addEventListener('click', () => {
+            console.log('Generating receipt view...');
+            // In a real app, this would navigate to a receipt details page
+        });
+
+        // Toggle Dark Mode (Optional utility for testing)
+        // document.documentElement.classList.toggle('dark');
+    </script>
+</body></html>

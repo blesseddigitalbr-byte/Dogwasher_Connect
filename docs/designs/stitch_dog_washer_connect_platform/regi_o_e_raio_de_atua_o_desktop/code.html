@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+        body {
+            background-color: #F8F9FA;
+            color: #191C1D;
+            overflow-x: hidden;
+        }
+        .custom-range::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #F59E0B;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .custom-range::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7b8495",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "on-tertiary-container": "#75859d",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "primary-container": "#121c29",
+                        "secondary-container": "#fea619",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "outline": "#75777c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body-md">
+<!-- TopAppBar Fragment (Simplified for Onboarding) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">pets</span>
+<span class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<span class="font-label-md text-on-surface-variant">Etapa 7 de 10</span>
+<div class="w-48 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[70%] transition-all duration-500"></div>
+</div>
+</div>
+<button class="flex items-center gap-2 font-label-md text-outline hover:text-primary transition-colors">
+            Sair
+            <span class="material-symbols-outlined">logout</span>
+</button>
+</header>
+<main class="pt-20 min-h-screen flex flex-col md:flex-row">
+<!-- Sidebar Controls Canvas -->
+<section class="w-full md:w-[450px] lg:w-[500px] xl:w-[600px] p-margin-mobile md:p-margin-desktop flex flex-col justify-center bg-surface z-10">
+<div class="max-w-md mx-auto w-full space-y-stack-lg">
+<header class="space-y-stack-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary leading-tight">Sua base de operação</h1>
+<p class="font-body-md text-on-surface-variant">Defina a cidade e o raio de quilômetros que você deseja atender. Isso nos ajudará a filtrar as melhores oportunidades para sua agenda.</p>
+</header>
+<!-- Configuration Cards -->
+<div class="space-y-stack-md">
+<!-- City Input -->
+<div class="space-y-stack-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block">Cidade Principal</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-md" placeholder="Ex: Rio de Janeiro, RJ" type="text" value="São Paulo, SP"/>
+</div>
+</div>
+<!-- Radius Slider -->
+<div class="p-stack-md bg-white border border-outline-variant rounded-xl space-y-stack-md">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant">Raio de Atuação</label>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-sm" id="radius-value">15 km</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer custom-range" id="radius-slider" max="50" min="1" type="range" value="15"/>
+<div class="flex justify-between text-[10px] text-outline font-label-sm uppercase tracking-wider">
+<span>1 km</span>
+<span>25 km</span>
+<span>50 km</span>
+</div>
+</div>
+<!-- Preferences -->
+<div class="space-y-stack-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block">Preferências de Deslocamento</label>
+<div class="grid grid-cols-2 gap-stack-sm">
+<button class="flex items-center gap-3 p-3 border-2 border-primary bg-surface-container-lowest rounded-xl text-left transition-all group">
+<span class="material-symbols-outlined text-primary">directions_car</span>
+<div class="flex flex-col">
+<span class="font-label-md text-primary">Veículo Próprio</span>
+<span class="text-[11px] text-on-surface-variant">Maior alcance</span>
+</div>
+</button>
+<button class="flex items-center gap-3 p-3 border border-outline-variant hover:border-outline bg-white rounded-xl text-left transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">directions_bike</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Bicicleta / Patinete</span>
+<span class="text-[11px] text-on-surface-variant">Raio curto</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Transport Warning -->
+<div class="flex gap-3 p-4 bg-surface-container-low rounded-lg border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary">info</span>
+<p class="text-label-md text-on-surface-variant">
+                            Você escolheu um raio de 15km. Recomendamos o uso de veículo motorizado para garantir a pontualidade nos atendimentos.
+                        </p>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-stack-md">
+<button class="font-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Voltar
+                    </button>
+<button class="px-8 py-3 bg-[#F59E0B] text-[#07111E] font-label-md font-bold rounded-lg shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2">
+                        Próximo Passo
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Dynamic Map Canvas -->
+<section class="flex-grow relative h-[400px] md:h-auto overflow-hidden">
+<!-- Map Simulation Background -->
+<div class="absolute inset-0 z-0" data-location="São Paulo" style="">
+<div class="w-full h-full grayscale opacity-40 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&amp;fit=crop&amp;q=80&amp;w=2000')] bg-cover bg-center"></div>
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+<!-- Interactive Layer Overlay -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- Range Indicator Visual -->
+<div class="w-64 h-64 border-4 border-secondary-container/50 bg-secondary-container/10 rounded-full flex items-center justify-center transition-all duration-300 relative" id="visual-radius">
+<div class="w-4 h-4 bg-primary rounded-full shadow-lg relative z-10"></div>
+<!-- Pulses -->
+<div class="absolute w-full h-full border border-secondary-container rounded-full animate-ping opacity-20"></div>
+<!-- Floating Badge -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 bg-primary text-white px-3 py-1 rounded-full font-label-sm shadow-xl flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">my_location</span>
+                        Área Selecionada
+                    </div>
+</div>
+</div>
+<!-- Floating Map Controls -->
+<div class="absolute bottom-margin-desktop right-margin-desktop flex flex-col gap-2 pointer-events-auto">
+<div class="glass-panel p-2 rounded-lg flex flex-col gap-2">
+<button class="p-2 hover:bg-surface-container rounded transition-colors text-primary">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="h-[1px] bg-outline-variant mx-1"></div>
+<button class="p-2 hover:bg-surface-container rounded transition-colors text-primary">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="glass-panel p-3 rounded-full hover:bg-surface-container transition-colors text-primary shadow-lg">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Aesthetic Gradient Overlays -->
+<div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-surface to-transparent hidden md:block"></div>
+</section>
+</main>
+<!-- Contextual Footer (As per JSON structure but adapted for Onboarding) -->
+<footer class="w-full py-stack-md px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface border-t border-outline-variant mt-auto">
+<p class="font-label-sm text-outline">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-stack-lg">
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">Ajuda</a>
+</div>
+</footer>
+<script>
+        const slider = document.getElementById('radius-slider');
+        const radiusValue = document.getElementById('radius-value');
+        const visualRadius = document.getElementById('visual-radius');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            radiusValue.innerText = `${val} km`;
+            
+            // Adjust visual size of circle (min scale 2rem, max scale 90% of container)
+            const newScale = 2 + (val / 50) * 12; 
+            visualRadius.style.width = `${newScale}rem`;
+            visualRadius.style.height = `${newScale}rem`;
+        });
+
+        // Toggle animation for selection buttons
+        const preferenceButtons = document.querySelectorAll('.grid button');
+        preferenceButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                preferenceButtons.forEach(b => {
+                    b.classList.remove('border-primary', 'bg-surface-container-lowest');
+                    b.classList.add('border-outline-variant', 'bg-white');
+                    b.querySelector('span').classList.remove('text-primary');
+                    b.querySelector('span').classList.add('text-outline');
+                    b.querySelector('.font-label-md').classList.remove('text-primary');
+                    b.querySelector('.font-label-md').classList.add('text-on-surface');
+                });
+                btn.classList.add('border-primary', 'bg-surface-container-lowest');
+                btn.classList.remove('border-outline-variant', 'bg-white');
+                btn.querySelector('span').classList.remove('text-outline');
+                btn.querySelector('span').classList.add('text-primary');
+                btn.querySelector('.font-label-md').classList.remove('text-on-surface');
+                btn.querySelector('.font-label-md').classList.add('text-primary');
+            });
+        });
+    </script>
+</body></html>

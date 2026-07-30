@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#121c29",
+                        "outline": "#75777c",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c5c6cc",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "secondary": "#855300",
+                        "surface": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-secondary-fixed": "#2a1700",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-container": "#7b8495",
+                        "on-secondary-container": "#684000",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#ffddb8",
+                        "surface-tint": "#555f6f",
+                        "on-surface-variant": "#44474c",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-container": "#121c29",
+                        "tertiary-container": "#0b1c30",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-container": "#fea619",
+                        "inverse-primary": "#bdc7d9",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d9e3f6",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-container": "#75859d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "container-max": "1280px",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "display": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        /* Custom deep teal branding style */
+        .brand-teal-bg {
+            background-color: #0b2d35; /* Deep corporate teal */
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-x-hidden">
+<!-- Left Decorative Column (Desktop) -->
+<div class="hidden lg:flex lg:w-1/2 brand-teal-bg relative overflow-hidden items-center justify-center p-12">
+<!-- Abstract Atmospheric Background (Generated via CSS) -->
+<div class="absolute inset-0 opacity-10">
+<div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-secondary-container blur-3xl"></div>
+<div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-on-primary-container blur-3xl"></div>
+<div class="absolute bottom-0 right-0 w-[500px] h-[500px] border border-outline-variant/20 rounded-full"></div>
+</div>
+<div class="relative z-10 text-center max-w-md">
+<img alt="Dog Washer Connect Logo" class="w-32 h-32 mx-auto mb-8 rounded-xl shadow-xl border-4 border-secondary-container/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw-7urrbeW4YjWtBGyjCs_wiKgGYtc_2Hegd-3a7M6Tio41mZJIOSuTkylaEOKv8Z7QymaHPolzre8TH5QxyfoPRPyXSnGzhaJdbKojVfz09CqdV2pJiWgGQLW9xcF0ME3sQk8AXAN40kpl-JoHi6Bo2oQ_qJiSaMcuz2wad5DXOugQu0v0QiBodVJDMYPIIKFXQY-rP7ybNXdVh5ApyXTB0OGcxTfnq_W-sMDazPLDPqk7vf3nB4yRagFRAnzDbd_8Q"/>
+<h1 class="font-display text-display text-on-primary mb-4 leading-tight">Potencialize seu talento pet.</h1>
+<p class="font-body-lg text-body-lg text-outline-variant">A plataforma líder para profissionais de banho e tosa que buscam excelência e conexão com os melhores estabelecimentos.</p>
+</div>
+</div>
+<!-- Main Login Canvas -->
+<main class="w-full lg:w-1/2 flex flex-col justify-center items-center p-margin-mobile md:p-margin-desktop bg-surface">
+<div class="w-full max-w-md">
+<!-- Mobile Logo (Visible only on small screens) -->
+<div class="lg:hidden flex justify-center mb-8">
+<img alt="Dog Washer Connect Logo" class="w-20 h-20 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp896yhew0J1K6BojNufDBZTR7coHQH3lJeK3x9jLJwlKQA6_kmAlZfnfLu1lju0tZrOriq8_3VHCTvG_Y6Bc4yShcQKy79EtEJW6nb8KpNpx8hetJ5AbIDZacA7vup6FaWq99cR40xgxC5bQX36xJ7CZKyMzIC46S9oBjea1OiPuKqHZKCcK8nIAd6BaVKrk40bjLK2MXP1ez3cxxLGkE8Y2OfnczrNt8Nj2eFKadgMGaUUzZw5hR6vmC0mR2PcPCSw"/>
+</div>
+<!-- Header Section -->
+<div class="mb-stack-lg text-center lg:text-left">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Bem-vindo de volta</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Entre com seus dados para gerenciar seus agendamentos.</p>
+</div>
+<!-- Social Login Options -->
+<div class="grid grid-cols-2 gap-gutter mb-stack-lg">
+<button class="flex items-center justify-center gap-stack-sm py-3 px-4 rounded-lg border border-outline-variant hover:bg-surface-container-high transition-all duration-200">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M12 5.04c1.74 0 3.3.6 4.53 1.77l3.39-3.39C17.85 1.41 15.15 0 12 0 7.31 0 3.32 2.67 1.34 6.6l3.92 3.04C6.21 7.19 8.89 5.04 12 5.04z" fill="#EA4335"></path>
+<path d="M23.49 12.27c0-.8-.07-1.56-.19-2.27H12v4.31h6.45c-.28 1.48-1.12 2.74-2.38 3.59l3.72 2.88c2.17-2 3.7-4.94 3.7-8.51z" fill="#4285F4"></path>
+<path d="M5.26 14.36c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09L1.34 7.14C.49 8.63 0 10.27 0 12s.49 3.37 1.34 4.86l3.92-3.5z" fill="#34A853"></path>
+<path d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.72-2.88c-1.09.73-2.49 1.16-4.22 1.16-3.11 0-5.79-2.15-6.74-5.04l-3.92 3.04C3.32 21.33 7.31 24 12 24z" fill="#FBBC05"></path>
+</svg>
+<span class="font-label-md text-label-md">Google</span>
+</button>
+<button class="flex items-center justify-center gap-stack-sm py-3 px-4 rounded-lg border border-outline-variant hover:bg-surface-container-high transition-all duration-200">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M17.05 20.28c-.98.95-2.05 1.71-3.21 1.71-1.16 0-1.53-.71-2.91-.71-1.38 0-1.8.69-2.91.71-1.11.02-2.31-.83-3.29-1.78C2.71 18.25 1.25 15.17 1.25 12.11c0-3.09 1.93-4.72 3.8-4.72 1.05 0 1.93.64 2.65.64.71 0 1.78-.71 3.05-.71 1.05 0 2.37.45 3.14 1.41-2.48 1.47-2.07 4.83.43 5.95-.91 2.27-2.14 4.54-3.27 5.6zM12.03 7.25c-.02-2.23 1.83-4.07 4.07-4.09.02 2.23-1.83 4.07-4.07 4.09z" fill="currentColor"></path>
+</svg>
+<span class="font-label-md text-label-md">Apple</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="relative flex items-center mb-stack-lg">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 font-label-sm text-label-sm text-outline">ou utilize seu e-mail</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Login Form -->
+<form action="#" class="space-y-stack-md" method="POST">
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="email_cpf">E-mail ou CPF</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 bg-surface-container-lowest" id="email_cpf" name="email_cpf" placeholder="seu@email.com ou 000.000.000-00" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="password">Senha</label>
+<a class="font-label-sm text-label-sm text-secondary hover:underline" href="#">Esqueci minha senha</a>
+</div>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 bg-surface-container-lowest" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-lg" id="password-toggle-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="pt-stack-md">
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200" type="submit">
+                        Entrar na Plataforma
+                    </button>
+</div>
+</form>
+<!-- Footer Links -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Não tem conta? 
+                    <a class="text-secondary font-bold hover:underline transition-colors" href="#">Cadastre-se</a>
+</p>
+</div>
+</div>
+<!-- System Footer -->
+<footer class="mt-auto pt-stack-lg">
+<p class="font-label-sm text-label-sm text-outline text-center">
+                © 2024 Dog Washer Connect - Profissionais Independentes
+            </p>
+<div class="flex justify-center gap-stack-md mt-2">
+<a class="font-label-sm text-label-sm text-outline hover:text-secondary transition-colors" href="#">Suporte</a>
+<span class="text-outline-variant">•</span>
+<a class="font-label-sm text-label-sm text-outline hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+</div>
+</footer>
+</main>
+<!-- Visual Interactive Script -->
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('password-toggle-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.innerText = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.innerText = 'visibility';
+            }
+        }
+
+        // Simple animation logic for inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.closest('.space-y-1').classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.closest('.space-y-1').classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

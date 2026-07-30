@@ -1,0 +1,370 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Inventário e Auditoria de Telas - Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#596376",
+                        "on-tertiary-container": "#989fa6",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "error": "#ba1a1a",
+                        "on-background": "#0d1c2e",
+                        "secondary": "#555f71",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-container": "#d6e0f6",
+                        "background": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#455f88",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#86a0cd",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "surface-container": "#e5eeff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#121c2c",
+                        "primary-container": "#1a365d",
+                        "tertiary-fixed": "#dde3eb",
+                        "outline-variant": "#c4c6cf",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-variant": "#d4e4fc",
+                        "surface-container-high": "#dce9ff",
+                        "on-surface": "#0d1c2e",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed": "#161c22",
+                        "tertiary": "#1b2127",
+                        "secondary-fixed": "#d9e3f9",
+                        "inverse-surface": "#223144",
+                        "error-container": "#ffdad6",
+                        "outline": "#74777f",
+                        "surface-bright": "#f8f9ff",
+                        "primary": "#002045",
+                        "on-primary-fixed": "#001b3c",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-container-highest": "#d4e4fc",
+                        "tertiary-container": "#30363c",
+                        "inverse-primary": "#adc7f7",
+                        "surface-dim": "#ccdbf4",
+                        "on-surface-variant": "#43474e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "8px",
+                        "container-max": "1440px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "display-lg": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "title-md": ["Outfit"],
+                        "headline-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c4c6cf;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #74777f;
+        }
+        .sidebar-teal {
+            background-color: #07111E;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-hidden flex h-screen">
+<!-- SideNavBar (Authority: Shared Components JSON + Custom Requirement) -->
+<aside class="sidebar-teal w-64 flex-col h-full hidden lg:flex py-stack-lg px-stack-md shrink-0">
+<div class="px-6 py-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-fixed-dim rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">pets</span>
+</div>
+<div>
+<h1 class="font-display text-headline-sm font-black text-on-primary-fixed text-[20px]">Financeiro</h1>
+<p class="font-label-md text-label-md text-on-tertiary-container">Gestão Institucional</p>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Visão Geral</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary text-on-secondary rounded-lg font-semibold shadow-md" href="#">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-label-md text-label-md">Divergências</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Configuração de Taxas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Contas a Receber</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-tertiary-fixed-variant hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Contas a Pagar</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-6 border-t border-white/10 space-y-1">
+<button class="w-full mb-4 py-2 px-4 bg-primary text-white font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">file_download</span>
+                Exportar Relatório
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-on-tertiary-fixed-variant hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Suporte</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-tertiary-fixed-variant hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar (Authority: Shared Components JSON) -->
+<header class="bg-surface border-b border-outline-variant h-16 flex items-center justify-between px-8 shrink-0 z-10 shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Inventário e Auditoria de Telas</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-6 text-on-surface-variant font-label-md">
+<a class="hover:text-secondary-fixed-dim transition-colors" href="#">Dashboard</a>
+<a class="hover:text-secondary-fixed-dim transition-colors" href="#">Extratos</a>
+<a class="hover:text-secondary-fixed-dim transition-colors" href="#">Pagamentos</a>
+<a class="hover:text-secondary-fixed-dim transition-colors" href="#">Conciliação</a>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="flex items-center gap-2 ml-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional business headshot of a corporate manager in a high-density office setting. The person is smiling warmly, wearing a clean charcoal suit against a softly blurred background of architectural glass and minimalist interior design. The lighting is crisp and modern, matching a professional light-mode aesthetic with soft teal and blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7sUboXOc0HzRtYnfSMWHqlR2nC3KFBNtX5v6sRwqnFXaoU7O8CdWp_Onsw3XX_4-qkXqh-y8vnpdILmuopzcL6_GRW84-ymvmpy4NHacAo95DfgD-AuiXwb1TJdJAbmUwG9-2eRLJsqKNsPCZEXYBd9qe6MZBR4C6sZM3gTTUH520gwHqAVfxNLJfRQGZCPJzovRhxNlMlKexTeUA9uVmvcycGjbUzI55e7nnnt9WjUaJRT1mzG-O">
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold hidden md:block">Gestor DW</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 overflow-y-auto p-8 space-y-6">
+<!-- Filters Card -->
+<div class="bg-white border border-outline-variant rounded-lg p-6 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex flex-wrap items-center gap-4">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Módulo</label>
+<select class="form-select w-48 h-10 border-outline-variant rounded-lg text-body-md focus:ring-primary focus:border-primary">
+<option>Todos os Módulos</option>
+<option>Institucional</option>
+<option>Onboarding</option>
+<option>Acesso</option>
+<option>Operacional</option>
+<option>Governança</option>
+<option>Configurações</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Classificação</label>
+<select class="form-select w-48 h-10 border-outline-variant rounded-lg text-body-md focus:ring-primary focus:border-primary">
+<option>Todas</option>
+<option>ESSENCIAL</option>
+<option>COMPLEMENTAR</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Status</label>
+<select class="form-select w-48 h-10 border-outline-variant rounded-lg text-body-md focus:ring-primary focus:border-primary">
+<option>Todos os Status</option>
+<option>APROVADA</option>
+<option>ARQUIVADA</option>
+<option>FUTURA</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-center">
+<button class="bg-white border border-outline px-4 py-2 text-primary font-label-md rounded-lg flex items-center gap-2 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                            Limpar Filtros
+                        </button>
+<button class="bg-primary text-white px-6 py-2 text-primary font-label-md rounded-lg flex items-center gap-2 hover:bg-opacity-90 transition-all shadow-md">
+<span class="material-symbols-outlined text-[20px]">search</span>
+                            Pesquisar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Inventory Table Card -->
+<div class="bg-white border border-outline-variant rounded-lg shadow-sm overflow-hidden flex flex-col">
+<div class="px-6 py-4 border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                        Registros do Inventário
+                    </h3>
+<span class="font-label-md text-label-md px-3 py-1 bg-surface-container text-on-secondary-container rounded-full">5 Telas Mapeadas</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr style="transform: scale(1); z-index: 1;">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Código</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Nome da Tela</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Perfil</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Módulo</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Resolução</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Classificação</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Status</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant text-center">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant"><tr class="hover:bg-surface-container-lowest transition-colors"><td class="px-6 py-4 font-label-md text-primary">PUB_01</td><td class="px-6 py-4 font-semibold">Landing Page Institucional</td><td class="px-6 py-4">Público</td><td class="px-6 py-4">Institucional</td><td class="px-6 py-4"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">desktop_windows</span> Desktop</span></td><td class="px-6 py-4"><span class="px-2 py-1 bg-emerald-100 text-emerald-800 font-label-sm rounded uppercase">ESSENCIAL</span></td><td class="px-6 py-4"><span class="flex items-center gap-1.5 text-emerald-700 font-semibold"><span class="w-2 h-2 bg-emerald-500 rounded-full"></span> APROVADA</span></td><td class="px-6 py-4 text-center"><button class="text-primary hover:bg-surface-container rounded p-1 transition-colors"><span class="material-symbols-outlined">visibility</span></button></td></tr><tr class="hover:bg-surface-container-lowest transition-colors"><td class="px-6 py-4 font-label-md text-primary">PRO_04</td><td class="px-6 py-4 font-semibold">Dashboard do Profissional</td><td class="px-6 py-4">Profissional</td><td class="px-6 py-4">Operacional</td><td class="px-6 py-4"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">smartphone</span> Mobile</span></td><td class="px-6 py-4"><span class="px-2 py-1 bg-emerald-100 text-emerald-800 font-label-sm rounded uppercase">ESSENCIAL</span></td><td class="px-6 py-4"><span class="flex items-center gap-1.5 text-emerald-700 font-semibold"><span class="w-2 h-2 bg-emerald-500 rounded-full"></span> APROVADA</span></td><td class="px-6 py-4 text-center"><button class="text-primary hover:bg-surface-container rounded p-1 transition-colors"><span class="material-symbols-outlined">visibility</span></button></td></tr><tr class="hover:bg-surface-container-lowest transition-colors"><td class="px-6 py-4 font-label-md text-primary">EST_12</td><td class="px-6 py-4 font-semibold">Gestão de Agendamentos</td><td class="px-6 py-4">Estabelecimento</td><td class="px-6 py-4">Operacional</td><td class="px-6 py-4"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">desktop_windows</span> Desktop</span></td><td class="px-6 py-4"><span class="px-2 py-1 bg-emerald-100 text-emerald-800 font-label-sm rounded uppercase">ESSENCIAL</span></td><td class="px-6 py-4"><span class="flex items-center gap-1.5 text-emerald-700 font-semibold"><span class="w-2 h-2 bg-emerald-500 rounded-full"></span> APROVADA</span></td><td class="px-6 py-4 text-center"><button class="text-primary hover:bg-surface-container rounded p-1 transition-colors"><span class="material-symbols-outlined">visibility</span></button></td></tr><tr class="hover:bg-surface-container-lowest transition-colors"><td class="px-6 py-4 font-label-md text-primary">ADM_02</td><td class="px-6 py-4 font-semibold">Painel de Controle Global</td><td class="px-6 py-4">Administração</td><td class="px-6 py-4">Governança</td><td class="px-6 py-4"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">desktop_windows</span> Desktop</span></td><td class="px-6 py-4"><span class="px-2 py-1 bg-emerald-100 text-emerald-800 font-label-sm rounded uppercase">ESSENCIAL</span></td><td class="px-6 py-4"><span class="flex items-center gap-1.5 text-emerald-700 font-semibold"><span class="w-2 h-2 bg-emerald-500 rounded-full"></span> APROVADA</span></td><td class="px-6 py-4 text-center"><button class="text-primary hover:bg-surface-container rounded p-1 transition-colors"><span class="material-symbols-outlined">visibility</span></button></td></tr><tr class="hover:bg-surface-container-lowest transition-colors"><td class="px-6 py-4 font-label-md text-primary">FIN_08</td><td class="px-6 py-4 font-semibold">Relatório de Repasses</td><td class="px-6 py-4">Financeiro</td><td class="px-6 py-4">Financeiro</td><td class="px-6 py-4"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">desktop_windows</span> Desktop</span></td><td class="px-6 py-4"><span class="px-2 py-1 bg-amber-100 text-amber-800 font-label-sm rounded uppercase">COMPLEMENTAR</span></td><td class="px-6 py-4"><span class="flex items-center gap-1.5 text-blue-600 font-semibold"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> EM REVISÃO</span></td><td class="px-6 py-4 text-center"><button class="text-primary hover:bg-surface-container rounded p-1 transition-colors"><span class="material-symbols-outlined">visibility</span></button></td></tr></tbody>
+</table>
+</div>
+<!-- Pagination (Simple) -->
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<p class="font-label-md text-label-md text-on-surface-variant">Exibindo 5 de 5 registros</p>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded bg-white text-on-surface disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded bg-primary text-white font-label-md">1</button>
+<button class="px-3 py-1 rounded hover:bg-surface-container transition-colors font-label-md">2</button>
+<button class="px-3 py-1 rounded hover:bg-surface-container transition-colors font-label-md">3</button>
+<button class="p-2 border border-outline-variant rounded bg-white text-on-surface">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Insights (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white border border-outline-variant rounded-lg p-6 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Taxa de Aprovação</span>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
+</div>
+<div>
+<h4 class="text-headline-lg font-bold text-primary">92.4%</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">+3.2% vs. mês anterior</p>
+</div>
+</div>
+<div class="bg-white border border-outline-variant rounded-lg p-6 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Telas em Revisão</span>
+<span class="material-symbols-outlined text-amber-500">pending_actions</span>
+</div>
+<div>
+<h4 class="text-headline-lg font-bold text-primary">04</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Aguardando feedback técnico</p>
+</div>
+</div>
+<div class="bg-white border border-outline-variant rounded-lg p-6 shadow-sm flex flex-col justify-between border-l-4 border-l-primary">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Próxima Milestone</span>
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+</div>
+<div>
+<h4 class="text-title-md font-bold text-on-surface">Handoff Mobile V4</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Estimativa: 12 Nov 2024</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer (Authority: Shared Components JSON) -->
+<footer class="bg-surface-bright border-t border-outline-variant py-4 px-8 flex flex-col md:flex-row justify-between items-center shrink-0">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">© 2024 Dog Washer Connect - Gestão Financeira Profissional</p>
+<div class="flex gap-6 mt-2 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Políticas de Taxas</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacidade</a>
+</div>
+<div class="hidden lg:block">
+<span class="font-display text-label-md font-bold text-primary">Dog Washer Connect</span>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'scale(1.002)';
+                row.style.zIndex = '10';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'scale(1)';
+                row.style.zIndex = '1';
+            });
+        });
+
+        // Simple filter logic placeholder
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => {
+            select.addEventListener('change', (e) => {
+                console.log(`Filtrando por ${e.target.value}`);
+                // In a real app, this would trigger an API call or filter the DOM list
+            });
+        });
+    </script>
+
+
+</body></html>

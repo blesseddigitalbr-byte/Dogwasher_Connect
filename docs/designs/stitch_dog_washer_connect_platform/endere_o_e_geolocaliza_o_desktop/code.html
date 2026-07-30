@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Endereço e Geolocalização</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body { background-color: #f8f9fa; color: #191c1d; -webkit-font-smoothing: antialiased; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .map-container { position: relative; overflow: hidden; border-radius: 0.75rem; border: 1px solid #c5c6cc; transition: all 0.3s ease; }
+      .marker-pulse { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); pointer-events: none; }
+      .custom-checkbox:checked { background-color: #855300; border-color: #855300; }
+      .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border: 1px solid rgba(197, 198, 204, 0.3); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar (Mobile: hidden, Desktop: flex) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 py-stack-lg px-stack-md border-r border-outline-variant bg-surface-container-low dark:bg-tertiary-container shadow-sm fixed left-0 top-0">
+<div class="mb-10 px-4">
+<h1 class="font-headline-md text-headline-md text-on-surface">Onboarding</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Setup in progress</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<!-- Individual Nav Item -->
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">business</span>
+<span>Company Info</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">store</span>
+<span>Units</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">construction</span>
+<span>Structure</span>
+</div>
+<!-- ACTIVE ITEM: Photography/Location (Mapping based on user context) -->
+<div class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-semibold font-label-md text-label-md">
+<span class="material-symbols-outlined">photo_camera</span>
+<span>Photography</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span>Documents</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4 flex flex-col gap-2">
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Mobile: flex, Desktop: hidden) -->
+<header class="flex lg:hidden justify-between items-center px-margin-mobile py-4 w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+<span class="font-display text-headline-md text-primary">Dog Washer Connect</span>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 pb-24 lg:pb-0 min-h-screen">
+<!-- Dashboard Header -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 border-b border-outline-variant bg-white">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Localização da Unidade</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Etapa 4 de 5: Defina o endereço exato para que os clientes encontrem sua loja.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-md text-label-md cursor-pointer hover:opacity-90 transition-opacity">Save Progress</span>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Address Form -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Dados de Endereço</h3>
+</div>
+<div class="space-y-4">
+<!-- CEP Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">CEP</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-0 font-body-md text-body-md transition-all" placeholder="00000-000" type="text"/>
+<button class="absolute right-3 top-2.5 text-secondary hover:underline font-label-md text-label-md">Buscar</button>
+</div>
+</div>
+<!-- Logradouro -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Logradouro</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-0 font-body-md text-body-md" placeholder="Ex: Rua das Flores" type="text"/>
+</div>
+<!-- Numero e Bairro -->
+<div class="grid grid-cols-3 gap-4">
+<div class="col-span-1 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Número</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-0 font-body-md text-body-md" placeholder="123" type="text"/>
+</div>
+<div class="col-span-2 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Bairro</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-0 font-body-md text-body-md" placeholder="Centro" type="text"/>
+</div>
+</div>
+<!-- Cidade e UF -->
+<div class="grid grid-cols-4 gap-4">
+<div class="col-span-3 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Cidade</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-0 font-body-md text-body-md" placeholder="São Paulo" type="text"/>
+</div>
+<div class="col-span-1 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">UF</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-0 font-body-md text-body-md" placeholder="SP" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Status Indicator Card -->
+<div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-600 mt-0.5">info</span>
+<div>
+<p class="font-label-md text-label-md text-blue-800 font-bold">Endereço Localizado</p>
+<p class="font-label-sm text-label-sm text-blue-700">O marcador no mapa foi posicionado automaticamente. Ajuste se necessário.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Map -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="map-container flex-1 min-h-[450px] bg-slate-200">
+<!-- Mock Map Background -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center grayscale-[20%] opacity-90" data-alt="A highly detailed overhead satellite view of a vibrant city block in São Paulo, Brazil. The map shows organized streets, green urban parks, and modern commercial buildings with clean architectural lines. In the center, a bright orange pin marks a specific location. The aesthetic is clean, professional, and corporate, with a soft daylight lighting effect that highlights urban textures." data-location="São Paulo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBONyTHO_E6miGKeGhQn0-0fVnR5D_dD93P32GwCECDttyolstE5ir4kd4lgpu3tdn36GjoNeIcXQxfeGQ5K7DaSgSeLeo7ROFMTa0y1Nv0HG-QPDInumVYpCLwaK_uW-iOyM1Dc0sShPHixhIgVKe-t0rzBn792zSvD1Jo4jsVxGk7M5R9Vp5L0kKnm4flwlkNDHXhvwBgIA7kC3zomGsNftjoVB5txUVe_xinQ71i6T82nO5nPSNc')">
+</div>
+<!-- Animated Marker -->
+<div class="marker-pulse">
+<div class="relative flex flex-col items-center">
+<div class="absolute -top-12 bg-primary text-on-primary px-3 py-1 rounded-md text-xs font-bold whitespace-nowrap shadow-xl">
+                                    Arraste para ajustar
+                                    <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rotate-45"></div>
+</div>
+<span class="material-symbols-outlined text-secondary text-5xl drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="w-6 h-6 bg-secondary/30 rounded-full animate-ping absolute bottom-1"></div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-4 top-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white rounded-lg shadow-md flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface">add</span>
+</button>
+<button class="w-10 h-10 bg-white rounded-lg shadow-md flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface">remove</span>
+</button>
+</div>
+<div class="absolute left-4 bottom-4 glass-card p-3 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">my_location</span>
+<span class="font-label-md text-label-md">Usar minha localização atual</span>
+</div>
+</div>
+<!-- Confirmation Checkbox -->
+<div class="flex items-start gap-3 p-2">
+<input class="mt-1 w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary cursor-pointer" id="confirm-map" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface-variant cursor-pointer select-none" for="confirm-map">
+                            Confirmo que o marcador está posicionado exatamente sobre a entrada do estabelecimento.
+                        </label>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-12 flex items-center justify-between border-t border-outline-variant pt-8">
+<button class="flex items-center gap-2 px-6 h-12 border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Voltar
+                </button>
+<button class="flex items-center gap-2 px-8 h-12 bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-lg hover:opacity-90 active:scale-95 transition-all shadow-md">
+                    Próximo Passo
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span>Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-3 py-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span>Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined">grid_view</span>
+<span>Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined">fact_check</span>
+<span>Review</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+                input.style.transition = 'all 0.2s ease';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Simple mock map interaction toggle
+        const mapContainer = document.querySelector('.map-container');
+        mapContainer.addEventListener('mousedown', () => {
+            mapContainer.style.cursor = 'grabbing';
+        });
+        mapContainer.addEventListener('mouseup', () => {
+            mapContainer.style.cursor = 'default';
+        });
+    </script>
+</body></html>

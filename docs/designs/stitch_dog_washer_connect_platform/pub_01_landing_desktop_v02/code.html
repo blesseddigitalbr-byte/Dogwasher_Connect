@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PUB_01_Landing_Desktop_v02 - Dog Washer Connect</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#07111E',
+              darker: '#040B14',
+              orange: '#EE8844',
+              accent: '#F2994A',
+            }
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #07111E;
+      color: #FFFFFF;
+    }
+    .text-gradient-orange {
+      background: linear-gradient(90deg, #EE8844, #F2994A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-navy {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-brand-navy/80 backdrop-blur-md border-b border-white/5">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo -->
+<div class="flex items-center gap-2" data-purpose="logo-container">
+<div class="w-10 h-10 bg-brand-orange rounded flex items-center justify-center font-bold text-brand-navy">DW</div>
+<div class="leading-none">
+<span class="block font-bold text-sm tracking-widest uppercase">Dog Washer</span>
+<span class="block font-light text-xs tracking-wider text-brand-orange uppercase">Connect</span>
+</div>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8 text-[10px] uppercase font-semibold tracking-widest">
+<a class="hover:text-brand-orange transition-colors" href="#">A Rede</a>
+<a class="hover:text-brand-orange transition-colors" href="#">Para Estabelecimentos</a>
+<a class="hover:text-brand-orange transition-colors" href="#">Para Profissionais</a>
+<a class="hover:text-brand-orange transition-colors" href="#">Como Funciona</a>
+<a class="hover:text-brand-orange transition-colors" href="#">Segurança</a>
+<a class="hover:text-brand-orange transition-colors" href="#">FAQ</a>
+</nav>
+<!-- Auth Buttons -->
+<div class="flex items-center gap-6">
+<a class="text-xs font-semibold hover:text-brand-orange transition-colors" href="#">Entrar</a>
+<a class="bg-brand-orange hover:bg-brand-accent text-brand-navy px-6 py-2.5 rounded-lg text-xs font-bold transition-all transform hover:scale-105" href="#">
+          Criar conta
+        </a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-40 pb-24 px-6 overflow-hidden">
+<!-- Background Decor -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-brand-orange/5 to-transparent pointer-events-none"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8">
+        Quando falta um profissional,<br/>
+        sua <span class="text-brand-orange">operação não precisa parar.</span>
+</h1>
+<p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+        Conectamos pet shops a profissionais qualificados para atendimentos sob demanda, garantindo que sua agenda continue cheia e seus clientes sempre satisfeitos.
+      </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-brand-orange hover:bg-brand-accent text-brand-navy px-8 py-4 rounded-xl font-bold transition-all">
+          Quero contratar profissionais
+        </button>
+<button class="w-full sm:w-auto border border-brand-orange/40 hover:border-brand-orange text-brand-orange px-8 py-4 rounded-xl font-bold transition-all">
+          Quero encontrar oportunidades
+        </button>
+</div>
+</div>
+<!-- Hero Cards -->
+<div class="max-w-7xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="card-navy p-8 rounded-2xl">
+<div class="w-8 h-8 rotate-45 border-2 border-brand-orange mb-6 flex items-center justify-center">
+<div class="w-2 h-2 bg-brand-orange"></div>
+</div>
+<h3 class="text-xl font-bold mb-4">Padrão Dog Washer</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Profissionais que passam por curadoria rigorosa, garantindo qualidade técnica e postura ética em cada atendimento.</p>
+</div>
+<div class="card-navy p-8 rounded-2xl">
+<div class="w-8 h-8 mb-6 flex items-center justify-center bg-brand-orange/10 rounded">
+<svg class="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4">Presença registrada</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Check-in e check-out via geolocalização e QR Code, garantindo transparência total sobre o tempo de trabalho realizado.</p>
+</div>
+<div class="card-navy p-8 rounded-2xl">
+<div class="w-8 h-8 mb-6 flex items-center justify-center text-brand-orange">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4">Reputação bilateral</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Sistema de notas para ambos os lados. Os melhores profissionais e estabelecimentos ganham destaque na rede.</p>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: Institutional -->
+<section class="py-24 bg-brand-darker/50 text-center px-6 border-y border-white/5">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold mb-8">Formalizando parcerias, profissionalizando o mercado</h2>
+<p class="text-gray-400 leading-relaxed">A Dog Washer Connect não é apenas um mural de vagas. Somos uma plataforma que estabelece regras claras e processos seguros para que a relação entre estabelecimentos e freelancers seja justa, profissional e produtiva.</p>
+</div>
+</section>
+<!-- END: Institutional -->
+<!-- BEGIN: BusinessSection -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 space-y-8">
+<span class="inline-block bg-brand-orange/10 text-brand-orange text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded">Para Estabelecimentos</span>
+<h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Sua equipe completa,<br/>sempre que precisar.</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<div class="mt-1 text-brand-orange"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></div>
+<div>
+<h4 class="font-bold mb-1">Profissionais Qualificados</h4>
+<p class="text-sm text-gray-400">Acesso a uma base de profissionais com experiência comprovada.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="mt-1 text-brand-orange"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></div>
+<div>
+<h4 class="font-bold mb-1">Seleção Transparente</h4>
+<p class="text-sm text-gray-400">Veja o histórico, avaliações e especialidades antes de aceitar.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="mt-1 text-brand-orange"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></div>
+<div>
+<h4 class="font-bold mb-1">Controle Operacional</h4>
+<p class="text-sm text-gray-400">Registro de presença digital e histórico de diárias centralizado.</p>
+</div>
+</li>
+</ul>
+<button class="bg-brand-orange hover:bg-brand-accent text-brand-navy px-8 py-3 rounded-lg font-bold transition-all text-sm">
+          Cadastrar meu Pet Shop
+        </button>
+</div>
+<div class="flex-1 w-full">
+<img alt="Pet Shop Profissional" class="rounded-2xl shadow-2xl w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDhA9iR0_-YoM40dHCqbl_Yk2neEUk7sDY5gXjmO3tL4YNIsmew-y2jufBS6rOj4Zokf6gvgAzzUkID4dWZ25zXMatvFNeXpn1DN6Q8VUeCArc7NNBhfakWTAf0wJfXkrFCKgKGx2ugqI1PD_C6XDDYmePrRq7GWbQURa6cJEygWvxO0cg1nxXKrmsbnEPWEm6DFSub8RVskWemkIwOQzjILZI8D-1lHywbJeDAffNr3vohur6HX0IAjAfwMo2rsM_BA"/>
+</div>
+</div>
+</section>
+<!-- END: BusinessSection -->
+<!-- BEGIN: ProfessionalSection -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="flex flex-col-reverse lg:flex-row items-center gap-16">
+<div class="flex-1 w-full">
+<img alt="Profissional Autônomo" class="rounded-2xl shadow-2xl w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG82YDvlNVrqIHmLAa_ab2fRsPqqVwFRGC8VViXjimvkhPdil4IQcfwtinIgW1eHlExf8MYutbInVaB8fr6XYhXOjuAd36LsbAjUjxbTYU7iEvMgg_GtH4eWalr_6rJJOwNwIrqNfxpt5Oh7N0dFw-0dsKazCZ8seEOLGCNhPMOQGnuwb9QX-0AUn5H5jKWDJ9ao8wjkGNpAWXjyqz9paaSCVWxISYKwGLiCRqfjZCIbK61VKoVjEOFo4yNd2F40HJvg"/>
+</div>
+<div class="flex-1 space-y-8">
+<span class="inline-block bg-brand-orange/10 text-brand-orange text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded">Para Profissionais</span>
+<h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Liberdade e reconhecimento para sua carreira.</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<div class="mt-1 text-brand-orange"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></div>
+<div>
+<h4 class="font-bold mb-1">Formação Reconhecida</h4>
+<p class="text-sm text-gray-400">Valorizamos seu preparo e técnica frente ao mercado.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="mt-1 text-brand-orange"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></div>
+<div>
+<h4 class="font-bold mb-1">Oportunidades Próximas</h4>
+<p class="text-sm text-gray-400">Encontre trabalhos na sua região com geolocalização inteligente.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="mt-1 text-brand-orange"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></div>
+<div>
+<h4 class="font-bold mb-1">Transparência Total</h4>
+<p class="text-sm text-gray-400">Saiba o valor e as condições antes mesmo de se candidatar.</p>
+</div>
+</li>
+</ul>
+<button class="border border-brand-orange/40 hover:border-brand-orange text-brand-orange px-8 py-3 rounded-lg font-bold transition-all text-sm">
+          Criar meu Perfil Profissional
+        </button>
+</div>
+</div>
+</section>
+<!-- END: ProfessionalSection -->
+<!-- BEGIN: ConfidenceGrid -->
+<section class="py-24 bg-brand-darker/30 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Confiança Operacional</h2>
+<p class="text-gray-400">Tecnologia e curadoria humana para um ambiente de trabalho seguro.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-purpose="security-grid">
+<!-- Card 1 -->
+<div class="card-navy p-10 rounded-2xl text-center group hover:bg-brand-orange/5 transition-colors">
+<div class="w-10 h-10 border border-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-1.5 h-1.5 bg-brand-orange rounded-full"></div>
+</div>
+<h3 class="font-bold mb-3">Perfis Validados</h3>
+<p class="text-xs text-gray-400 leading-relaxed">Documentação e referências checadas criteriosamente pela nossa equipe.</p>
+</div>
+<!-- Card 2 -->
+<div class="card-navy p-10 rounded-2xl text-center group hover:bg-brand-orange/5 transition-colors">
+<div class="w-10 h-10 border border-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-1.5 h-1.5 bg-brand-orange rounded-full"></div>
+</div>
+<h3 class="font-bold mb-3">Fotos do Local</h3>
+<p class="text-xs text-gray-400 leading-relaxed">O profissional visualiza as instalações antes de aceitar o trabalho.</p>
+</div>
+<!-- Card 3 -->
+<div class="card-navy p-10 rounded-2xl text-center group hover:bg-brand-orange/5 transition-colors">
+<div class="w-10 h-10 border border-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-1.5 h-1.5 bg-brand-orange rounded-full"></div>
+</div>
+<h3 class="font-bold mb-3">Geolocalização</h3>
+<p class="text-xs text-gray-400 leading-relaxed">Rastreamento de presença para segurança de todos os envolvidos.</p>
+</div>
+<!-- Card 4 -->
+<div class="card-navy p-10 rounded-2xl text-center group hover:bg-brand-orange/5 transition-colors">
+<div class="w-10 h-10 border border-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-1.5 h-1.5 bg-brand-orange rounded-full"></div>
+</div>
+<h3 class="font-bold mb-3">Avaliação Bilateral</h3>
+<p class="text-xs text-gray-400 leading-relaxed">Feedbacks reais que regulam o comportamento e a qualidade da rede.</p>
+</div>
+<!-- Card 5 -->
+<div class="card-navy p-10 rounded-2xl text-center group hover:bg-brand-orange/5 transition-colors">
+<div class="w-10 h-10 border border-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-1.5 h-1.5 bg-brand-orange rounded-full"></div>
+</div>
+<h3 class="font-bold mb-3">Histórico Digital</h3>
+<p class="text-xs text-gray-400 leading-relaxed">Todas as interações e diárias ficam registradas para consulta futura.</p>
+</div>
+<!-- Card 6 -->
+<div class="card-navy p-10 rounded-2xl text-center group hover:bg-brand-orange/5 transition-colors">
+<div class="w-10 h-10 border border-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-1.5 h-1.5 bg-brand-orange rounded-full"></div>
+</div>
+<h3 class="font-bold mb-3">Curadoria Ativa</h3>
+<p class="text-xs text-gray-400 leading-relaxed">Nossa equipe atua para garantir que apenas bons parceiros permaneçam.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ConfidenceGrid -->
+<!-- BEGIN: TestimonialFooter -->
+<section class="py-24 text-center px-6">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Bons profissionais também escolhem onde trabalhar</h2>
+<p class="text-gray-400 mb-10">Nossa rede identifica e destaca estabelecimentos que oferecem boas condições de trabalho, infraestrutura adequada e respeito profissional.</p>
+<div class="flex justify-center gap-1 text-brand-orange">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+</div>
+</section>
+<!-- END: TestimonialFooter -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-brand-darker pt-20 pb-10 px-6 border-t border-white/5">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6" data-purpose="footer-logo">
+<div class="w-10 h-10 bg-brand-orange rounded flex items-center justify-center font-bold text-brand-navy text-sm">DW</div>
+<div class="leading-none">
+<span class="block font-bold text-xs tracking-widest uppercase">Dog Washer</span>
+<span class="block font-light text-[10px] tracking-wider text-brand-orange uppercase">Connect</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 leading-relaxed">Transformando a conexão entre talentos e pet shops através de transparência e profissionalismo.</p>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Plataforma</h4>
+<ul class="space-y-4 text-sm text-gray-400">
+<li><a class="hover:text-brand-orange transition-colors" href="#">A Rede</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Como Funciona</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Segurança</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Suporte</h4>
+<ul class="space-y-4 text-sm text-gray-400">
+<li><a class="hover:text-brand-orange transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Central de Ajuda</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Privacidade</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">News</h4>
+<div class="flex flex-col gap-4">
+<input class="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" placeholder="Seu melhor e-mail" type="email"/>
+<button class="bg-brand-orange text-brand-navy font-bold py-3 rounded-lg text-sm transition-opacity hover:opacity-90">Inscrever</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-10 border-t border-white/5 flex flex-col md:row items-center justify-between gap-6 text-[10px] text-gray-600 uppercase tracking-widest">
+<p>© 2024 Dog Washer Connect. Todos os direitos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

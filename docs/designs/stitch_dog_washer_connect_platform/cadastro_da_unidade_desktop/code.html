@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Cadastro da Unidade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid #E2E8F0; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden min-h-screen flex">
+<!-- SideNavBar (The Anchor) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 py-stack-lg px-stack-md border-r border-outline-variant bg-surface-container-low dark:bg-tertiary-container shadow-sm z-50">
+<div class="mb-10 px-4">
+<h1 class="font-headline-md text-headline-md text-on-surface">Onboarding</h1>
+<p class="text-on-surface-variant font-label-md text-label-md">Setup in progress</p>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-md text-label-md">Company Info</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-semibold cursor-pointer">
+<span class="material-symbols-outlined">store</span>
+<span class="font-label-md text-label-md">Units</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">construction</span>
+<span class="font-label-md text-label-md">Structure</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">photo_camera</span>
+<span class="font-label-md text-label-md">Photography</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest dark:hover:bg-on-tertiary-container/20 transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Documents</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-6 space-y-2">
+<div class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-highest transition-all rounded-lg cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 min-h-screen pb-24 lg:pb-0">
+<!-- TopNavBar (The Anchor) -->
+<header class="flex justify-between items-center px-6 lg:px-margin-desktop py-4 w-full sticky top-0 z-40 bg-surface border-b border-outline-variant backdrop-blur-md">
+<div class="flex items-center gap-4">
+<span class="font-display text-headline-md text-primary">Dog Washer Connect</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4 items-center">
+<span class="font-body-md text-body-md text-on-surface-variant cursor-pointer hover:text-secondary transition-colors">Help</span>
+<span class="font-body-md text-body-md text-on-surface-variant cursor-pointer hover:text-secondary transition-colors">Support</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">Save Progress</button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full cursor-pointer transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Content Section -->
+<div class="max-w-container-max mx-auto px-6 lg:px-margin-desktop py-stack-lg">
+<!-- Hero Heading -->
+<div class="mb-12">
+<span class="text-secondary font-label-md text-label-md tracking-widest uppercase mb-2 block">Passo 3 de 5</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Conte sobre a unidade que receberá os profissionais</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">Cadastre os detalhes operacionais de cada unidade. Isso ajuda a garantir que os especialistas certos sejam alocados para o seu estabelecimento.</p>
+</div>
+<!-- Bento Layout for Units and Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Interactive Form (Main Task) -->
+<div class="lg:col-span-8">
+<div class="bg-white rounded-xl p-8 border border-outline-variant shadow-sm space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Unit Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Nome da Unidade</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-body-md" placeholder="Ex: Unidade Centro Premium" type="text"/>
+</div>
+<!-- Phone -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Telefone de Contato</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-body-md" placeholder="(11) 99999-9999" type="tel"/>
+</div>
+<!-- Manager -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Responsável Local</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-body-md" placeholder="Nome completo do gerente" type="text"/>
+</div>
+<!-- Capacity -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Capacidade média (Pets/dia)</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-body-md" placeholder="Ex: 15" type="number"/>
+</div>
+</div>
+<!-- Schedule & Days -->
+<div class="space-y-4">
+<label class="font-label-md text-label-md text-on-surface">Horário e Dias de funcionamento</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all">Seg</button>
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all">Ter</button>
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all">Qua</button>
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all">Qui</button>
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all">Sex</button>
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all bg-secondary-container text-on-secondary-container border-secondary">Sáb</button>
+<button class="px-4 py-2 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-secondary-container/10 hover:border-secondary transition-all">Dom</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg outline-none font-body-md text-body-md" type="time"/>
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg outline-none font-body-md text-body-md" type="time"/>
+</div>
+</div>
+<!-- Services -->
+<div class="space-y-4">
+<label class="font-label-md text-label-md text-on-surface">Serviços realizados na unidade</label>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+<label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-5 h-5 text-secondary border-outline-variant rounded focus:ring-secondary" type="checkbox"/>
+<span class="font-body-md text-body-md">Banho</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-5 h-5 text-secondary border-outline-variant rounded focus:ring-secondary" type="checkbox"/>
+<span class="font-body-md text-body-md">Tosa Higiênica</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-5 h-5 text-secondary border-outline-variant rounded focus:ring-secondary" type="checkbox"/>
+<span class="font-body-md text-body-md">Tosa Verão</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-5 h-5 text-secondary border-outline-variant rounded focus:ring-secondary" type="checkbox"/>
+<span class="font-body-md text-body-md">Hidratação</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-5 h-5 text-secondary border-outline-variant rounded focus:ring-secondary" type="checkbox"/>
+<span class="font-body-md text-body-md">Corte de Unha</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-5 h-5 text-secondary border-outline-variant rounded focus:ring-secondary" type="checkbox"/>
+<span class="font-body-md text-body-md">Adestramento</span>
+</label>
+</div>
+</div>
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-outline-variant">
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary py-4 rounded-xl font-headline-md text-headline-md hover:scale-[1.02] active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">add_circle</span>
+                                Adicionar nova unidade
+                            </button>
+<button class="flex-1 flex items-center justify-center gap-2 border border-primary text-primary py-4 rounded-xl font-headline-md text-headline-md hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+                                Duplicar dados
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right: Existing Units Preview (Cards) -->
+<div class="lg:col-span-4 space-y-6">
+<h3 class="font-title-lg text-title-lg text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">analytics</span>
+                        Suas Unidades (2)
+                    </h3>
+<div class="space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+<!-- Unit Card 1 -->
+<div class="bg-white border border-outline-variant rounded-xl p-5 hover:shadow-lg transition-shadow relative group">
+<div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">edit</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-error">delete</span>
+</div>
+<div class="flex items-start gap-4 mb-4">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">store</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary">Matriz Jardins</h4>
+<p class="text-on-surface-variant font-label-md text-label-md">Unidade de Referência</p>
+</div>
+</div>
+<div class="space-y-2 border-t border-outline-variant pt-4">
+<div class="flex justify-between text-body-md font-body-md">
+<span class="text-on-surface-variant">Capacidade:</span>
+<span class="text-on-surface">20 pets/dia</span>
+</div>
+<div class="flex justify-between text-body-md font-body-md">
+<span class="text-on-surface-variant">Serviços:</span>
+<span class="text-on-surface">8 tipos</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-bold rounded-full">ATIVO</span>
+</div>
+</div>
+</div>
+<!-- Unit Card 2 -->
+<div class="bg-white border border-outline-variant rounded-xl p-5 hover:shadow-lg transition-shadow relative group">
+<div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">edit</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-error">delete</span>
+</div>
+<div class="flex items-start gap-4 mb-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">location_city</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary">Express Vila Olímpia</h4>
+<p class="text-on-surface-variant font-label-md text-label-md">Em preenchimento</p>
+</div>
+</div>
+<div class="space-y-2 border-t border-outline-variant pt-4 opacity-50">
+<div class="flex justify-between text-body-md font-body-md">
+<span class="text-on-surface-variant">Capacidade:</span>
+<span class="text-on-surface">-</span>
+</div>
+<div class="flex justify-between text-body-md font-body-md">
+<span class="text-on-surface-variant">Serviços:</span>
+<span class="text-on-surface">-</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">PENDENTE</span>
+</div>
+</div>
+</div>
+<!-- Interactive Help Card -->
+<div class="bg-primary-container text-on-primary-container p-6 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-title-lg text-title-lg mb-2">Precisa de ajuda?</h4>
+<p class="text-on-primary-container/80 text-body-md font-body-md mb-4">Se você tem mais de 5 unidades, podemos realizar a importação em massa para você.</p>
+<button class="text-secondary-fixed-dim font-label-md text-label-md underline">Falar com suporte</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[100px]" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Action Footer -->
+<div class="mt-16 flex items-center justify-between py-6 border-t border-outline-variant">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Voltar para Etapa 2
+                </button>
+<button class="bg-secondary text-on-secondary px-10 py-4 rounded-xl font-headline-md text-headline-md hover:shadow-xl transition-all flex items-center gap-3">
+                    Próxima Etapa: Estrutura
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (The Anchor - Mobile only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-3 py-1">
+<span class="material-symbols-outlined">store</span>
+<span class="font-label-sm text-label-sm">Units</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for form controls
+        document.querySelectorAll('input, button').forEach(el => {
+            el.addEventListener('click', () => {
+                // Subtle haptic-like visual feedback could be added here
+            });
+        });
+
+        // Day selection toggle logic
+        document.querySelectorAll('.flex.flex-wrap.gap-2 button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('bg-secondary-container');
+                btn.classList.toggle('text-on-secondary-container');
+                btn.classList.toggle('border-secondary');
+            });
+        });
+    </script>
+</body></html>

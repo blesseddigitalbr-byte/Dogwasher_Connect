@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetOps Central - Configurações da Plataforma</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "surface-tint": "#555f6f",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-tertiary-container": "#75859d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fea619",
+                        "primary-fixed": "#d9e3f6",
+                        "background": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "inverse-primary": "#bdc7d9",
+                        "outline": "#75777c",
+                        "surface": "#f8f9fa",
+                        "on-secondary-container": "#684000",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#ffddb8",
+                        "on-primary-fixed": "#121c29",
+                        "tertiary-container": "#0b1c30",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "surface-variant": "#e1e3e4",
+                        "primary-container": "#121c29",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-dim": "#d9dadb",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f8f9fa",
+                        "primary": "#000000",
+                        "on-primary-container": "#7b8495",
+                        "outline-variant": "#c5c6cc",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed": "#2a1700",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#000000",
+                        "secondary": "#855300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "title-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "display": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        
+        /* Premium Ambient Shadow from Design System */
+        .ambient-shadow { box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05); }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface dark:bg-surface-container-low border-r border-outline-variant dark:border-outline h-screen w-64 fixed left-0 top-0 flex flex-col py-gutter px-stack-md z-50">
+<div class="mb-10 px-2">
+<h1 class="font-headline-md text-headline-md font-bold text-secondary dark:text-secondary-fixed">PetOps Central</h1>
+<p class="font-label-sm text-on-surface-variant">Administrative Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md text-body-md">Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md text-body-md">Units</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-body-md text-body-md">Incidents</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md text-body-md">Professionals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<button class="w-full bg-secondary text-on-primary py-3 rounded-lg font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                New Report
+            </button>
+<div class="mt-6 flex items-center gap-3 px-2">
+<img class="w-10 h-10 rounded-full bg-surface-container-highest object-cover" data-alt="Corporate headshot of a professional female administrator with a warm smile, wearing a modern charcoal blazer, set against a blurred high-end office background with clean architectural lines and soft morning light. The visual style is premium and corporate, following the PetOps design system aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4h7VmQ43_-cPNZqiEn13egFoPyhEi1QpaR00mEzuweaA1_cFzK37B6bc9LWfS22Zhx9rC_YpOVuPlTE10kbgZpw1pRc6qOWpOVGbi1BghWt85dxL2zILOeDRsh2OJyz6z_vlGplDrAb3qxjIE-lfc7J8JcC-PUYZFgoOW_Sav3Tr0dAspzY_F3cqiZM-y30xX5hFcgBN-g1l08paZJwD0PRDk1I0C2bxFgdbb4ndyYgvFjdf5Z1Wl"/>
+<div>
+<p class="font-label-md text-on-surface">Admin Profile</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Super Administrator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar Anchor -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline shadow-sm z-40 flex items-center justify-between px-margin-desktop">
+<div class="flex items-center gap-8">
+<span class="font-title-lg text-title-lg font-black text-secondary dark:text-secondary-fixed">PetOps Backoffice</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200 ease-in-out" href="#">Queue</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200 ease-in-out" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200 ease-in-out" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-lg border border-outline-variant bg-surface-container-low font-label-md w-64 focus:outline-none focus:border-secondary transition-colors" placeholder="Search parameters..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<button class="ml-4 bg-secondary-container text-on-secondary-container px-4 py-2 rounded-lg font-label-md hover:brightness-95 transition-all">
+                    Verify Documents
+                </button>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="mt-16 p-margin-desktop max-w-[1200px] mx-auto w-full">
+<div class="mb-10">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Configurações da Plataforma</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Gerencie parâmetros globais, regras de segurança e políticas de operação do ecossistema PetOps.</p>
+</div>
+<!-- Settings Grid: Bento Style -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Security & Eligibility Section -->
+<div class="col-span-12 lg:col-span-8 bg-white border border-outline-variant rounded-xl p-stack-lg ambient-shadow">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">security</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Segurança e Elegibilidade</h3>
+</div>
+<span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Crítico</span>
+</div>
+<div class="space-y-8">
+<!-- DWID Requirement -->
+<div class="flex items-start justify-between gap-4">
+<div class="max-w-md">
+<label class="font-label-md text-label-md text-on-surface block mb-1">Exigência de DWID (Digital Walker ID)</label>
+<p class="text-sm text-on-surface-variant">Obriga profissionais a terem identidade digital verificada via biometria para aceitar serviços premium.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<!-- Check-in Radius -->
+<div>
+<label class="font-label-md text-label-md text-on-surface block mb-2">Raio de Check-in (metros)</label>
+<div class="relative">
+<input class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="number" value="150"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">m</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 italic">Margem de erro permitida para início do serviço via GPS.</p>
+</div>
+<!-- Professional Rating Threshold -->
+<div>
+<label class="font-label-md text-label-md text-on-surface block mb-2">Score Mínimo de Reputação</label>
+<div class="relative">
+<input class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" step="0.1" type="number" value="4.5"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">/ 5.0</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 italic">Profissionais abaixo deste nível entram em período de revisão.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Rates & Fees Section -->
+<div class="col-span-12 lg:col-span-4 bg-white border border-outline-variant rounded-xl p-stack-lg ambient-shadow">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-secondary-fixed text-on-secondary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Taxas e Tarifas</h3>
+</div>
+<div class="space-y-6">
+<div>
+<label class="font-label-md text-label-md text-on-surface block mb-2">Taxa de Intermediação (%)</label>
+<div class="flex items-center gap-2">
+<input class="flex-1 accent-secondary" max="30" min="5" type="range" value="15"/>
+<span class="font-title-lg text-secondary w-10 text-right">15%</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant">
+<label class="font-label-md text-label-md text-on-surface block mb-3">Custos Fixos de Plataforma</label>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<span class="text-sm text-on-surface-variant">Taxa de Saque</span>
+<span class="font-bold text-on-surface">R$ 4,90</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<span class="text-sm text-on-surface-variant">Seguro Pet (por hora)</span>
+<span class="font-bold text-on-surface">R$ 1,20</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cancellation Policies -->
+<div class="col-span-12 lg:col-span-5 bg-white border border-outline-variant rounded-xl p-stack-lg ambient-shadow">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-tertiary-fixed text-on-tertiary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">event_busy</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Políticas de Cancelamento</h3>
+</div>
+<div class="space-y-4">
+<div class="p-4 border border-outline-variant rounded-lg hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-on-surface">Política Flexível</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary">check_circle</span>
+</div>
+<p class="text-xs text-on-surface-variant">Cancelamento grátis até 2 horas antes do início. Após isso, 50% de retenção.</p>
+</div>
+<div class="p-4 border border-secondary bg-secondary/5 rounded-lg cursor-pointer">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-secondary font-bold">Política Padrão (Ativa)</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-xs text-secondary/80">Cancelamento grátis até 24h. Entre 24h e 4h, retenção de 30%. Menos de 4h, retenção de 80%.</p>
+</div>
+<div class="p-4 border border-outline-variant rounded-lg opacity-60 hover:opacity-100 transition-opacity cursor-pointer group">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-on-surface">Política Rígida</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary">radio_button_unchecked</span>
+</div>
+<p class="text-xs text-on-surface-variant">Cancelamento sem reembolso após confirmação do profissional.</p>
+</div>
+</div>
+</div>
+<!-- Reputation & Algorithm Rules -->
+<div class="col-span-12 lg:col-span-7 bg-white border border-outline-variant rounded-xl p-stack-lg ambient-shadow">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-surface-container-highest text-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Regras de Algoritmo e Ranking</h3>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm text-secondary">star</span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Peso: Avaliação</span>
+</div>
+<input class="w-full bg-white border border-outline-variant rounded p-2 text-sm" type="number" value="60"/>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm text-secondary">history</span>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Peso: Fidelidade</span>
+</div>
+<input class="w-full bg-white border border-outline-variant rounded p-2 text-sm" type="number" value="40"/>
+</div>
+</div>
+<div class="p-5 border border-error/20 bg-error/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">lock</span>
+<h4 class="font-label-md text-error">Regras de Banimento Automático</h4>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">3 Ausências consecutivas (No-Show)</span>
+<span class="bg-error text-white px-2 py-0.5 rounded text-[10px]">BLOQUEIO 7 DIAS</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Denúncia de maus-tratos comprovada</span>
+<span class="bg-error text-white px-2 py-0.5 rounded text-[10px]">EXPULSÃO IMEDIATA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="mt-stack-lg border-t border-outline-variant pt-gutter flex justify-end gap-4">
+<button class="px-6 py-3 border border-on-surface text-on-surface rounded-lg font-label-md hover:bg-surface-container-low transition-colors">
+                    Descartar Alterações
+                </button>
+<button class="px-8 py-3 bg-primary text-on-primary rounded-lg font-label-md hover:bg-opacity-90 shadow-lg active:scale-95 transition-all">
+                    Publicar Novos Parâmetros
+                </button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto py-8 px-margin-desktop bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-[1200px] mx-auto flex justify-between items-center text-on-surface-variant font-label-sm">
+<div class="flex items-center gap-6">
+<span>© 2024 PetOps Central Ltd.</span>
+<a class="hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="hover:text-secondary transition-colors" href="#">Privacidade</a>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+<span>Sistema Operacional (v2.4.1-stable)</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Notification Toast (Micro-interaction mockup) -->
+<div class="fixed bottom-10 right-10 translate-y-24 opacity-0 transition-all duration-500 z-[100]" id="toast">
+<div class="bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
+<span class="material-symbols-outlined text-green-400">check_circle</span>
+<p class="font-label-md">Configurações atualizadas com sucesso para todas as unidades.</p>
+<button class="p-1 hover:bg-white/10 rounded-full transition-colors" onclick="hideToast()">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for the Publish button
+        const publishBtn = document.querySelector('button.bg-primary');
+        const toast = document.getElementById('toast');
+
+        function showToast() {
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(hideToast, 5000);
+        }
+
+        function hideToast() {
+            toast.classList.add('translate-y-24', 'opacity-0');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+        }
+
+        publishBtn.addEventListener('click', () => {
+            publishBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Processando...';
+            publishBtn.disabled = true;
+            
+            setTimeout(() => {
+                publishBtn.innerHTML = 'Publicar Novos Parâmetros';
+                publishBtn.disabled = false;
+                showToast();
+            }, 1500);
+        });
+
+        // Toggle state simulation
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const parent = this.closest('.bg-white');
+                if (this.checked) {
+                    console.log('Feature enabled');
+                } else {
+                    console.log('Feature disabled');
+                }
+            });
+        });
+    </script>
+</body></html>

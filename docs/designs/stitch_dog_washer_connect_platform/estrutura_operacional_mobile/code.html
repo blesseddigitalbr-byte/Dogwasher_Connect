@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estrutura Operacional - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffddb8",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#0b1c30",
+                    "on-background": "#191c1d",
+                    "inverse-primary": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#555f6f",
+                    "outline": "#75777c",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#855300",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "secondary-container": "#fea619",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-container": "#7b8495",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000",
+                    "on-primary-fixed": "#121c29",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000000",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-container": "#121c29",
+                    "on-surface-variant": "#44474c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "title-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-active .accordion-content {
+            max-height: 1000px;
+        }
+        .accordion-active .rotate-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-surface dark:bg-surface-dim flex justify-between items-center px-4 py-4 w-full sticky top-0 z-50 border-b border-outline-variant dark:border-outline">
+<h1 class="font-display text-headline-md text-primary dark:text-inverse-primary">Dog Washer Connect</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80">account_circle</span>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="px-margin-mobile py-stack-md">
+<!-- Page Header -->
+<header class="mb-stack-lg">
+<p class="font-label-md text-secondary font-semibold uppercase tracking-wider mb-1">Onboarding</p>
+<h2 class="font-headline-lg text-headline-lg text-primary">Estrutura Operacional</h2>
+<p class="font-body-md text-on-surface-variant mt-2">Gerencie os ativos necessários para o funcionamento do seu estabelecimento.</p>
+</header>
+<!-- Category: Equipments -->
+<section class="accordion-item accordion-active mb-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm" id="cat-equipments">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low active:bg-surface-container transition-colors" onclick="toggleAccordion('cat-equipments')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">construction</span>
+<span class="font-title-lg text-title-lg text-on-surface">Equipments</span>
+</div>
+<span class="material-symbols-outlined rotate-icon transition-transform text-outline">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="p-4 space-y-4">
+<!-- Item 1: Sopro e Secagem -->
+<div class="flex items-center justify-between p-3 bg-white border border-outline-variant rounded-lg">
+<div class="flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface">Soprador High-Power</h4>
+<p class="font-label-md text-on-surface-variant">2200W, Silencioso</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container rounded-full px-2 py-1">
+<button class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm active:scale-90 transition-transform"><span class="material-symbols-outlined text-body-md">remove</span></button>
+<span class="font-title-lg text-title-lg w-4 text-center">2</span>
+<button class="w-8 h-8 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full shadow-sm active:scale-90 transition-transform"><span class="material-symbols-outlined text-body-md">add</span></button>
+</div>
+</div>
+<!-- Item 2: Máquinas -->
+<div class="flex items-center justify-between p-3 bg-white border border-outline-variant rounded-lg">
+<div class="flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface">Máquina de Tosa A6</h4>
+<p class="font-label-md text-on-surface-variant">Lâmina #10 Inclusa</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container rounded-full px-2 py-1">
+<button class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm active:scale-90 transition-transform"><span class="material-symbols-outlined text-body-md">remove</span></button>
+<span class="font-title-lg text-title-lg w-4 text-center">3</span>
+<button class="w-8 h-8 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full shadow-sm active:scale-90 transition-transform"><span class="material-symbols-outlined text-body-md">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Environment -->
+<section class="accordion-item mb-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm" id="cat-environment">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low active:bg-surface-container transition-colors" onclick="toggleAccordion('cat-environment')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">store</span>
+<span class="font-title-lg text-title-lg text-on-surface">Environment</span>
+</div>
+<span class="material-symbols-outlined rotate-icon transition-transform text-outline">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="p-4 space-y-4">
+<div class="flex items-center justify-between p-3 bg-white border border-outline-variant rounded-lg">
+<div class="flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface">Banheiras Elevadas</h4>
+<p class="font-label-md text-on-surface-variant">Aço Inox AISI 304</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container rounded-full px-2 py-1">
+<button class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">remove</span></button>
+<span class="font-title-lg text-title-lg w-4 text-center">4</span>
+<button class="w-8 h-8 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">add</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-white border border-outline-variant rounded-lg">
+<div class="flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface">Mesas de Tosa</h4>
+<p class="font-label-md text-on-surface-variant">Pneumática, Antiderrapante</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container rounded-full px-2 py-1">
+<button class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">remove</span></button>
+<span class="font-title-lg text-title-lg w-4 text-center">6</span>
+<button class="w-8 h-8 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Supplies -->
+<section class="accordion-item mb-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm" id="cat-supplies">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low active:bg-surface-container transition-colors" onclick="toggleAccordion('cat-supplies')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+<span class="font-title-lg text-title-lg text-on-surface">Supplies</span>
+</div>
+<span class="material-symbols-outlined rotate-icon transition-transform text-outline">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="p-4 space-y-4">
+<div class="flex items-center justify-between p-3 bg-white border border-outline-variant rounded-lg">
+<div class="flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface">Shampoo Neutro 5L</h4>
+<p class="font-label-md text-on-surface-variant">Fragrância Suave</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container rounded-full px-2 py-1">
+<button class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">remove</span></button>
+<span class="font-title-lg text-title-lg w-4 text-center">12</span>
+<button class="w-8 h-8 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">add</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-white border border-outline-variant rounded-lg">
+<div class="flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface">Toalhas Higienizadas</h4>
+<p class="font-label-md text-on-surface-variant">Lote de 50 unidades</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container rounded-full px-2 py-1">
+<button class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">remove</span></button>
+<span class="font-title-lg text-title-lg w-4 text-center">8</span>
+<button class="w-8 h-8 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full shadow-sm"><span class="material-symbols-outlined text-body-md">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Summary Card -->
+<div class="mt-8 p-6 bg-tertiary-container text-on-tertiary rounded-2xl shadow-md border border-on-tertiary-container/20">
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Resumo da Estrutura</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+<p class="font-label-sm text-on-tertiary-container uppercase">Total Ativos</p>
+<p class="font-display text-headline-lg text-white">39</p>
+</div>
+<div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+<p class="font-label-sm text-on-tertiary-container uppercase">Categorias</p>
+<p class="font-display text-headline-lg text-white">03</p>
+</div>
+</div>
+<button class="w-full mt-6 bg-secondary-container text-on-secondary-container font-bold py-4 rounded-xl active:scale-95 transition-transform">
+                Salvar Estrutura
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined">format_list_numbered</span>
+<span class="font-label-sm text-label-sm">Steps</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-3 py-1 cursor-pointer">
+<span class="material-symbols-outlined">construction</span>
+<span class="font-label-sm text-label-sm">Structure</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</div>
+</nav>
+<script>
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            const isActive = element.classList.contains('accordion-active');
+            
+            // Close others if desired, but here we just toggle current
+            element.classList.toggle('accordion-active');
+        }
+
+        // Simple haptic feedback simulation for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+    </script>
+</body></html>

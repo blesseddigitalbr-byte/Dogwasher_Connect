@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dog Washer Connect - Disponibilidade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7b8495",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bdc7d9",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "on-tertiary-container": "#75859d",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary": "#855300",
+                        "outline-variant": "#c5c6cc",
+                        "primary-container": "#121c29",
+                        "secondary-fixed": "#ffddb8",
+                        "on-surface": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-secondary-container": "#684000",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#bdc7d9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#fea619",
+                        "tertiary": "#000000",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#555f6f",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed-variant": "#3e4756",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#121c29",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d9e3f6",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#2a1700",
+                        "tertiary-container": "#0b1c30",
+                        "surface-bright": "#f8f9fa",
+                        "outline": "#75777c",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { background-color: #000000; }
+        .step-inactive { background-color: #e1e3e4; }
+        
+        /* Custom Switch Styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #c5c6cc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: #fea619; }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        .bento-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .day-chip:hover {
+            border-color: #fea619;
+            color: #855300;
+        }
+        .day-chip.active {
+            background-color: #fea619;
+            color: #000000;
+            border-color: #fea619;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- Top Navigation (Suppressing shared TopAppBar for specialized onboarding view) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface px-margin-mobile md:px-margin-desktop h-20 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">pets</span>
+<span class="font-display text-headline-md font-bold text-primary">Dog Washer Connect</span>
+</div>
+<button class="text-on-surface-variant font-label-md transition-all hover:opacity-70">Sair</button>
+</header>
+<main class="flex-grow pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Onboarding Header & Progress -->
+<section class="mb-stack-lg flex flex-col items-center text-center">
+<div class="mb-stack-md">
+<span class="font-label-sm text-secondary uppercase tracking-widest">Step 5: Disponibilidade</span>
+<div class="flex gap-2 mt-2 justify-center">
+<div class="w-8 h-1 rounded-full step-active"></div>
+<div class="w-8 h-1 rounded-full step-active"></div>
+<div class="w-8 h-1 rounded-full step-active"></div>
+<div class="w-8 h-1 rounded-full step-active"></div>
+<div class="w-12 h-1 rounded-full step-active"></div>
+<div class="w-8 h-1 rounded-full step-inactive"></div>
+</div>
+</div>
+<h1 class="font-display text-headline-lg text-on-surface mb-2">Defina quando deseja receber oportunidades</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">
+                Escolha os dias e períodos que melhor se adaptam à sua rotina profissional. Você tem total liberdade de escolha.
+            </p>
+</section>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Configuration Area -->
+<div class="md:col-span-8 space-y-gutter">
+<!-- Week Selection Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md md:p-stack-lg rounded-xl bento-card">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">calendar_month</span>
+<h2 class="font-title-lg text-on-surface">Dias da Semana</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="day-chip active border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>SEG</span>
+</button>
+<button class="day-chip active border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>TER</span>
+</button>
+<button class="day-chip active border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>QUA</span>
+</button>
+<button class="day-chip active border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>QUI</span>
+</button>
+<button class="day-chip active border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>SEX</span>
+</button>
+<button class="day-chip border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>SAB</span>
+</button>
+<button class="day-chip border border-outline-variant px-5 py-3 rounded-lg font-label-md transition-all flex flex-col items-center min-w-[70px]" onclick="this.classList.toggle('active')">
+<span>DOM</span>
+</button>
+</div>
+</div>
+<!-- Periods Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md md:p-stack-lg rounded-xl bento-card">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<h2 class="font-title-lg text-on-surface">Períodos do Dia</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<label class="relative flex items-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container transition-all">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="flex items-center gap-3 w-full">
+<span class="material-symbols-outlined text-on-surface-variant">wb_sunny</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Manhã</span>
+<span class="text-xs text-on-surface-variant">08h às 12h</span>
+</div>
+</div>
+<div class="absolute right-4 w-4 h-4 rounded-full border-2 border-outline-variant peer-checked:bg-secondary peer-checked:border-secondary"></div>
+</label>
+<label class="relative flex items-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container transition-all">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="flex items-center gap-3 w-full">
+<span class="material-symbols-outlined text-on-surface-variant">light_mode</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Tarde</span>
+<span class="text-xs text-on-surface-variant">12h às 18h</span>
+</div>
+</div>
+<div class="absolute right-4 w-4 h-4 rounded-full border-2 border-outline-variant peer-checked:bg-secondary peer-checked:border-secondary"></div>
+</label>
+<label class="relative flex items-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container transition-all">
+<input class="hidden peer" type="checkbox"/>
+<div class="flex items-center gap-3 w-full">
+<span class="material-symbols-outlined text-on-surface-variant">bedtime</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Noite</span>
+<span class="text-xs text-on-surface-variant">18h às 22h</span>
+</div>
+</div>
+<div class="absolute right-4 w-4 h-4 rounded-full border-2 border-outline-variant peer-checked:bg-secondary peer-checked:border-secondary"></div>
+</label>
+</div>
+</div>
+<!-- Immediate Options -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+<div>
+<h3 class="font-label-md text-on-surface leading-tight">Disponibilidade Imediata</h3>
+<p class="text-[12px] text-on-surface-variant">Atender chamados de última hora</p>
+</div>
+</div>
+<label class="switch">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">history</span>
+<div>
+<h3 class="font-label-md text-on-surface leading-tight">Agenda Antecipada</h3>
+<p class="text-[12px] text-on-surface-variant">Receber jobs com 24h+ de antecedência</p>
+</div>
+</div>
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</div>
+</div>
+<!-- Contextual Info & Visual Anchor -->
+<div class="md:col-span-4 space-y-gutter">
+<!-- Highlight Box -->
+<div class="bg-primary-container text-on-primary p-stack-md rounded-xl shadow-lg border border-primary relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary-container mb-2" style="font-size: 32px;">verified_user</span>
+<p class="font-title-lg text-white mb-stack-sm">Informar disponibilidade não obriga você a aceitar nenhuma oportunidade.</p>
+<p class="font-body-md text-on-primary-container text-white/70">
+                            Nós apenas filtramos o que é relevante para o seu perfil. A decisão final é sempre sua.
+                        </p>
+</div>
+<!-- Subtle pattern background -->
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined" style="font-size: 120px;">info</span>
+</div>
+</div>
+<!-- Visual Asset / Card -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden">
+<div class="h-48 bg-cover bg-center" data-alt="A professional dog washer specialist smiling warmly in a minimalist, modern pet salon environment. The background is brightly lit with soft, high-key studio lights, emphasizing a clean and premium corporate atmosphere. The colors are dominated by white and charcoal grey, with subtle golden yellow accents that match the branding. The overall mood conveys trust, professionalism, and high-tech efficiency." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkoT3F1d50UC8UrA4zUSUUn1VeAq9Ziq9kZl7Nu1ZJgNWLvNLAExynQL-pBO7eVV1qvaYT4vWfcF2N9QSj4h9ohSVePxv28RW0UVmIZo5jlNflahvTTjcF6Iz47UQwm34w38m5aH02Ri50S7FOiG-oVT8rCZ4F-3iLPVClMmjzhKhu3AELIVY4P5dPGkJchKB8PJfGMrNGJy0e9D5Jd_UT-_x9Ugla6HRc8ESWw6ne-k6VB9gcZ2ja')"></div>
+<div class="p-stack-md">
+<h4 class="font-label-md text-on-surface mb-1">Flexibilidade Total</h4>
+<p class="text-[12px] text-on-surface-variant">Sua autonomia é nossa prioridade. Ajuste suas preferências a qualquer momento no seu perfil.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer for Actions -->
+<div class="mt-stack-lg pt-stack-md border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md order-2 md:order-1">
+<span class="material-symbols-outlined">arrow_back</span>
+                Voltar
+            </button>
+<div class="flex gap-4 w-full md:w-auto order-1 md:order-2">
+<button class="flex-1 md:flex-none border border-primary px-8 py-3 rounded-lg font-label-md text-primary hover:bg-surface-container transition-all">Pular por enquanto</button>
+<button class="flex-1 md:flex-none bg-secondary-container text-on-secondary-container px-12 py-3 rounded-lg font-label-md font-bold shadow-sm hover:scale-[1.02] active:scale-95 transition-all">Continuar</button>
+</div>
+</div>
+</main>
+<!-- Footer Component (Shared Anchor) -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md bg-surface-container-highest border-t border-outline-variant mt-auto">
+<p class="font-body-md text-on-surface text-center md:text-left">© 2024 Dog Washer Connect - Profissionais Independentes</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-outline hover:text-secondary transition-colors" href="#">Suporte</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions for the period checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const parent = this.closest('label');
+                if (parent) {
+                    if (this.checked) {
+                        parent.classList.add('bg-surface-container-high');
+                    } else {
+                        parent.classList.remove('bg-surface-container-high');
+                    }
+                }
+            });
+        });
+
+        // Toggle day selection
+        function toggleDay(btn) {
+            btn.classList.toggle('active');
+            if(btn.classList.contains('active')) {
+                btn.classList.remove('bg-transparent');
+                btn.classList.add('bg-secondary-container');
+            } else {
+                btn.classList.remove('bg-secondary-container');
+                btn.classList.add('bg-transparent');
+            }
+        }
+    </script>
+</body></html>

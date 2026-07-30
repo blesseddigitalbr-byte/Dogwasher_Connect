@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetOps Central - Dashboard Executivo</title>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "surface-tint": "#555f6f",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary-container": "#75859d",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fea619",
+                    "primary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "inverse-primary": "#bdc7d9",
+                    "outline": "#75777c",
+                    "surface": "#f8f9fa",
+                    "on-secondary-container": "#684000",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "secondary-fixed": "#ffddb8",
+                    "on-primary-fixed": "#121c29",
+                    "tertiary-container": "#0b1c30",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "surface-variant": "#e1e3e4",
+                    "primary-container": "#121c29",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9dadb",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#000000",
+                    "on-primary-container": "#7b8495",
+                    "outline-variant": "#c5c6cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#2a1700",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary": "#855300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "display": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(7, 17, 30, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar (Mobile Logic) -->
+<header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest flex items-center justify-between px-margin-mobile z-50 shadow-sm border-b border-outline-variant">
+<div class="flex items-center gap-stack-md">
+<span class="font-title-lg text-title-lg font-black text-secondary">PetOps Backoffice</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate administrator, looking directly at the camera with a confident and helpful expression. The background is a blurred high-tech pet care facility office with warm amber lighting and clean white walls. The photography style is sharp, premium, and uses a shallow depth of field to emphasize the subject's professional demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSGp_1HcJfa3CJZ_1cNMyBjPjMSrE7Nz4889fbcK-0vnmUOiSQ5ymCcpJT5ZVAXk51XeYSWPTy5NMxM13Z3tKx1CnuWFBc2kEfhTtB5T5y78EGfDSdkKIdZuVT442h0ClaQB_P3SrH1IQewnhhMMIcG-I98Fa0afhX4G7AcrRHpdG9vbjM22jXwRAa86KRXAei7nCW9Wnv_vZ7dNmoAzc2KhTB_gG0W3SYdvZm_Ctk6JL5ABLY_81o"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-margin-mobile max-w-lg mx-auto">
+<!-- Welcome Header -->
+<section class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md text-primary mb-1">Olá, Administrador</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Confira os indicadores de hoje e pendências críticas.</p>
+</section>
+<!-- Executive Metrics Bento-style Grid -->
+<section class="grid grid-cols-2 gap-stack-md mb-stack-lg">
+<!-- Large Revenue Card -->
+<div class="col-span-2 glass-card rounded-xl p-stack-md ambient-shadow flex flex-col justify-between h-32 border-l-4 border-secondary">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Volume Transacionado</span>
+<div class="font-headline-md text-headline-md font-bold text-primary mt-1">R$ 142.850,00</div>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-md">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.5% vs ontem</span>
+</div>
+</div>
+<!-- Active Professionals -->
+<div class="bg-surface-container-low rounded-xl p-stack-md border border-outline-variant flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary">badge</span>
+<div>
+<div class="font-title-lg text-title-lg font-bold">1,204</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Profissionais Ativos</span>
+</div>
+</div>
+<!-- Incidents Pending -->
+<div class="bg-surface-container-low rounded-xl p-stack-md border border-outline-variant flex flex-col gap-2">
+<span class="material-symbols-outlined text-error">report_problem</span>
+<div>
+<div class="font-title-lg text-title-lg font-bold text-error">08</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Incidentes Críticos</span>
+</div>
+</div>
+</section>
+<!-- Urgent Actions / Pending List -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-title-lg text-title-lg text-primary">Ações Urgentes</h2>
+<button class="font-label-md text-label-md text-secondary font-semibold">Ver tudo</button>
+</div>
+<div class="space-y-stack-md">
+<!-- Task Item 1: Verification -->
+<div class="bg-white rounded-xl p-stack-md border border-outline-variant flex items-center gap-stack-md shadow-sm active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">fact_check</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md font-bold text-primary">Validar Documentação</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Clínica VetCare - São Paulo</p>
+</div>
+<div class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full font-label-sm text-label-sm">Pendente</div>
+</div>
+<!-- Task Item 2: Blocked Account -->
+<div class="bg-white rounded-xl p-stack-md border border-outline-variant flex items-center gap-stack-md shadow-sm active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md font-bold text-primary">Conta Bloqueada</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Dr. Ricardo Silva (Suspeita)</p>
+</div>
+<div class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full font-label-sm text-label-sm">Bloqueado</div>
+</div>
+<!-- Task Item 3: Service Issue -->
+<div class="bg-white rounded-xl p-stack-md border border-outline-variant flex items-center gap-stack-md shadow-sm active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md font-bold text-primary">Falha de Pagamento</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Gateway Stripe - Erro API 500</p>
+</div>
+<div class="px-3 py-1 bg-error-container text-error rounded-full font-label-sm text-label-sm">Urgente</div>
+</div>
+</div>
+</section>
+<!-- Quick Activity Chart (Atmospheric SVG) -->
+<section class="mb-stack-lg bg-primary-container text-on-primary-container p-stack-md rounded-2xl overflow-hidden relative min-h-[160px] flex flex-col justify-between">
+<div class="z-10">
+<h3 class="font-title-lg text-title-lg font-bold text-white">Fluxo de Unidades</h3>
+<p class="font-label-sm text-label-sm text-on-primary-container/80">Monitoramento em tempo real</p>
+</div>
+<!-- Simple Decorative Chart Path -->
+<div class="absolute bottom-0 left-0 w-full opacity-30 h-24 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<path d="M0,80 C50,70 100,90 150,60 C200,30 250,50 300,20 C350,0 400,10 400,10 L400,100 L0,100 Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="z-10 flex items-center justify-between mt-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional woman wearing a stylish navy blue medical uniform. She has a warm smile, conveying trust and empathy. The lighting is bright and clean, characteristic of a high-end pet hospital environment with a blurred medical equipment background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7U0r0KpswkKaS0BzDEHcctX1V2rMdmrsGZB9W9j-50T5J1p0jlbThUtPzlqR70vmHt8ANfbFjCdN-tyMdeEYgWVmKc4hbjqJcZUflomP5VkK4Ubaeuq5IcaOx3Wg4hWn4a5vo2aLdkvmJOHhVlTa4O_8FbxtZ5z_y1HpwXkyQ0xxR850tEiHtWS3ZpGRKhihHQgjwzyVMbTgqFNqxOXDojX3spPvS4SLCbRbRPLWpEtsWFGSUws5g"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a male pet care manager in a sharp white shirt with a discrete logo. He looks focused and professional against a modern office backdrop with soft natural lighting and minimalist grey accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKt6nyw07yvf-9eMmdepmCKcWEUK65quWzo3upjI3ka6Cvl_dLTWaAlrSzIX1sbVJ_YFVzf5KnmgUTxrgd6yMxMaSAaS4U9y011MqerWBP2fS26itG8ALNQ5BcuzR-NfB67nxZrvkdmPpDyS2P8LfUhIO8380a8xTG60rFZzL5d_XGNCZhNeI8F75kuvrpr9tjuXqgd0kzo2fygRaCvXVmTKEPzatTHq9OhL4m_3ie6ZIrshUtUTPW"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-secondary flex items-center justify-center font-label-sm text-white">+12</div>
+</div>
+<button class="bg-secondary text-on-secondary font-label-md px-4 py-2 rounded-lg font-bold">Ver Mapa</button>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- Bottom Navigation Bar (The Anchor) -->
+<nav class="fixed bottom-0 left-0 right-0 h-20 bg-surface border-t border-outline-variant flex items-center justify-around px-2 z-50">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm font-bold">Dashboard</span>
+</a>
+<!-- Approvals -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-sm text-label-sm">Aprovações</span>
+</a>
+<!-- Units -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-sm text-label-sm">Unidades</span>
+</a>
+<!-- Professionals -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-label-sm text-label-sm">Equipe</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Ajustes</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for interaction feedback
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+
+        // Simple animation on scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(card => {
+            card.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

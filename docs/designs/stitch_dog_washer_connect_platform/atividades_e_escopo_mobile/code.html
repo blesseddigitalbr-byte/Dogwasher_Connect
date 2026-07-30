@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetConnect - Atividades</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .active-selection {
+            border-color: #855300;
+            background-color: #fea619;
+            color: #684000;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed": "#ffddb8",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#000000",
+                      "on-tertiary-container": "#75859d",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#edeeef",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "secondary": "#855300",
+                      "on-primary": "#ffffff",
+                      "on-background": "#191c1d",
+                      "on-surface": "#191c1d",
+                      "surface-tint": "#555f6f",
+                      "on-secondary-container": "#684000",
+                      "on-primary-container": "#7b8495",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#d3e4fe",
+                      "inverse-surface": "#2e3132",
+                      "surface-bright": "#f8f9fa",
+                      "inverse-on-surface": "#f0f1f2",
+                      "tertiary-container": "#0b1c30",
+                      "tertiary": "#000000",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#e7e8e9",
+                      "on-secondary-fixed": "#2a1700",
+                      "error-container": "#ffdad6",
+                      "outline": "#75777c",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "on-error": "#ffffff",
+                      "primary-container": "#121c29",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#d9dadb",
+                      "primary-fixed-dim": "#bdc7d9",
+                      "primary-fixed": "#d9e3f6",
+                      "background": "#f8f9fa",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "secondary-container": "#fea619",
+                      "surface-container-low": "#f3f4f5",
+                      "on-primary-fixed": "#121c29",
+                      "outline-variant": "#c5c6cc",
+                      "on-surface-variant": "#44474c",
+                      "inverse-primary": "#bdc7d9",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "surface": "#f8f9fa",
+                      "on-primary-fixed-variant": "#3e4756"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "1rem",
+                      "stack-lg": "2rem",
+                      "gutter": "1.5rem",
+                      "stack-sm": "0.5rem",
+                      "container-max": "1280px",
+                      "margin-desktop": "2.5rem",
+                      "margin-mobile": "1rem"
+              },
+              "fontFamily": {
+                      "title-lg": ["Outfit"],
+                      "display": ["Outfit"],
+                      "body-md": ["Outfit"],
+                      "label-sm": ["Outfit"],
+                      "headline-md": ["Outfit"],
+                      "headline-lg": ["Outfit"],
+                      "label-md": ["Outfit"],
+                      "body-lg": ["Outfit"]
+              },
+              "fontSize": {
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm-mobile": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- Header / Branding Area -->
+<header class="w-full pt-8 pb-4 px-margin-mobile flex flex-col items-center">
+<div class="w-24 h-24 mb-4">
+<img class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNE_K1NY7b0w7BezdHuye_tvw8gIx7C2bEN8_niz4IA4GdYnjuqJhMVRlzxON-kZkFoJcClxupv5OJllR3NlhnkUEobawCW0lHWxboxL2EhtDiqnZrlT8TtzaRX9LIau4eSm0MnLhi12wvmYPf1rtTOmjN0Mb6QKz9oX7nGRfFxPyqlm0hkRKXqZH5G_iMASUy-AMI_aA3jHQa3CIV1DbbD0G9-g0shRrxXQB5VbFVNGZXkqnPXPQvOoT8gXClTqPd5w"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Atividades</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-center opacity-80">Selecione os serviços realizados e adicione observações.</p>
+</header>
+<!-- Main Content -->
+<main class="px-margin-mobile flex flex-col gap-8">
+<!-- Selection List Section -->
+<section class="flex flex-col gap-stack-md">
+<div class="flex justify-between items-end mb-2">
+<h2 class="font-title-lg text-title-lg text-on-surface">Serviços</h2>
+<span class="font-label-md text-label-md text-secondary">Selecione todos que se aplicam</span>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<!-- Activity Item -->
+<button class="flex items-center justify-between p-4 rounded-xl glass-card transition-all duration-200 hover:shadow-md group" onclick="toggleService(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="wash">wash</span>
+</div>
+<div class="text-left">
+<span class="block font-title-lg text-title-lg leading-none">Banho Completo</span>
+<span class="text-label-md text-on-surface-variant opacity-60">Higienização e secagem</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant select-icon" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Activity Item -->
+<button class="flex items-center justify-between p-4 rounded-xl glass-card transition-all duration-200 hover:shadow-md group" onclick="toggleService(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
+</div>
+<div class="text-left">
+<span class="block font-title-lg text-title-lg leading-none">Tosa Higiênica</span>
+<span class="text-label-md text-on-surface-variant opacity-60">Corte padrão da raça</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant select-icon" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Activity Item -->
+<button class="flex items-center justify-between p-4 rounded-xl glass-card transition-all duration-200 hover:shadow-md group" onclick="toggleService(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="clean_hands">clean_hands</span>
+</div>
+<div class="text-left">
+<span class="block font-title-lg text-title-lg leading-none">Corte de Unhas</span>
+<span class="text-label-md text-on-surface-variant opacity-60">Acabamento e lixamento</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant select-icon" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Activity Item -->
+<button class="flex items-center justify-between p-4 rounded-xl glass-card transition-all duration-200 hover:shadow-md group" onclick="toggleService(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div class="text-left">
+<span class="block font-title-lg text-title-lg leading-none">Limpeza Auricular</span>
+<span class="text-label-md text-on-surface-variant opacity-60">Remoção de impurezas</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant select-icon" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</section>
+<!-- Observations Section -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-label-md text-label-md text-on-surface-variant" for="notes">Observações e Detalhes</label>
+<div class="relative">
+<textarea class="w-full p-4 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-secondary-container focus:border-secondary font-body-md text-on-surface placeholder:text-outline-variant transition-all outline-none" id="notes" placeholder="Ex: Pet agitado durante o secador, leve vermelhidão na orelha esquerda..." rows="4"></textarea>
+<div class="absolute bottom-3 right-3 text-outline-variant pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+</div>
+</div>
+</section>
+<!-- Action Section -->
+<section class="mt-4">
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-bold rounded-xl shadow-lg active:scale-95 duration-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+                Finalizar Atividade
+            </button>
+<button class="w-full py-4 mt-3 bg-transparent text-error font-label-md border border-error/20 rounded-xl">
+                Cancelar Registro
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(7,17,30,0.05)] border-t border-outline-variant rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm-mobile">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm-mobile">Atividades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleService(element) {
+            const icon = element.querySelector('.select-icon');
+            const isSelected = element.classList.contains('active-selection');
+            
+            if (isSelected) {
+                element.classList.remove('active-selection');
+                element.classList.remove('ring-2', 'ring-secondary');
+                icon.classList.replace('text-on-secondary-container', 'text-outline-variant');
+                icon.style.fontVariationSettings = "'FILL' 0";
+            } else {
+                element.classList.add('active-selection');
+                element.classList.add('ring-2', 'ring-secondary');
+                icon.classList.replace('text-outline-variant', 'text-on-secondary-container');
+                icon.style.fontVariationSettings = "'FILL' 1";
+                
+                // Haptic-like feedback animation
+                element.animate([
+                    { transform: 'scale(1)' },
+                    { transform: 'scale(0.98)' },
+                    { transform: 'scale(1)' }
+                ], {
+                    duration: 150,
+                    easing: 'ease-out'
+                });
+            }
+        }
+    </script>
+</body></html>

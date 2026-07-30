@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Privacidade | Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#07111E",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "tertiary-fixed": "#dde3eb",
+                    "tertiary": "#1b2127",
+                    "on-primary-fixed": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#F59E0B", /* Gold/Orange for active highlights */
+                    "outline": "#E5E7EB",
+                    "on-background": "#07111E",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#FEF3C7",
+                    "tertiary-container": "#30363c",
+                    "surface-dim": "#f3f4f6",
+                    "inverse-primary": "#adc7f7",
+                    "on-secondary-fixed-variant": "#3d4759",
+                    "inverse-on-surface": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#ffffff",
+                    "surface-variant": "#f9fafb",
+                    "surface-container-highest": "#f3f4f6",
+                    "on-primary-container": "#ffffff",
+                    "primary-container": "#07111E", /* Institutional Blue */
+                    "on-surface-variant": "#6B7280",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "error-container": "#ffdad6",
+                    "primary": "#07111E", /* Institutional Blue */
+                    "background": "#ffffff", /* Pure white */
+                    "secondary-fixed-dim": "#bdc7dc",
+                    "primary-fixed": "#07111E",
+                    "on-tertiary-fixed": "#161c22",
+                    "surface-container-low": "#f8f9fa", /* Off-white */
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#07111E",
+                    "surface-container-high": "#f3f4f6",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#ffffff",
+                    "outline-variant": "#E5E7EB",
+                    "on-tertiary-container": "#989fa6",
+                    "on-primary-fixed-variant": "#ffffff",
+                    "on-secondary-fixed": "#ffffff",
+                    "inverse-surface": "#07111E",
+                    "primary-fixed-dim": "#07111E",
+                    "secondary": "#F59E0B", /* Orange/Gold */
+                    "brand-gold": "#F59E0B"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "container-max": "1440px",
+                    "xl": "40px",
+                    "gutter": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "title-md": ["Outfit"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab { border-left: 4px solid #F59E0B; }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-primary border-b border-white/10">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<h1 class="font-display-lg text-display-lg font-bold text-white">Dog Washer Connect</h1>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-white/70 font-medium hover:text-white transition-colors" href="#">Visão Geral</a>
+<a class="text-white/70 font-medium hover:text-white transition-colors" href="#">Segurança</a>
+<a class="text-white font-bold border-b-2 border-brand-gold pb-1" href="#">Privacidade</a>
+<a class="text-white/70 font-medium hover:text-white transition-colors" href="#">Dados</a>
+</nav>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-white cursor-pointer active:opacity-80">notifications</span>
+<span class="material-symbols-outlined text-white cursor-pointer active:opacity-80">help</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly Brazilian dog grooming specialist in a bright, modern studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9diWY870PWCPsJ2YKFam2kpYC8pXK_-hwdzu1AXAd5Sd4in7skEG_fTtExMDJAah7prYf-_ZgNyIs2cb8HBsIOqo5OuPkGivc0BjFPf871Ivi2eWxhVzt6hqZ2TMOSfcL-bvz-ws2MZMbJb-wO3xXcyHgSzp_yaa6UVvCSFBvRhIb0MC23VPl4gnDSI8y5yJx8VbqrzT6SscC6pKO2CxpIkoYz6IBrXQ6KPRYgzvwULUotw1VhHlq"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto min-h-[calc(100vh-80px)]">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-primary border-r border-white/10 p-md flex flex-col gap-sm">
+<div class="mb-lg px-sm">
+<h2 class="font-headline-lg text-headline-lg font-bold text-white">Configurações</h2>
+<p class="font-label-md text-label-md text-white/60">Gerencie sua conta</p>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<button class="flex items-center gap-md p-md text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Conta</span>
+</button>
+<button class="flex items-center gap-md p-md text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-md text-label-md">Segurança</span>
+</button>
+<button class="flex items-center gap-md p-md bg-brand-gold text-primary rounded-lg font-bold transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-label-md text-label-md">Privacidade</span>
+</button>
+<button class="flex items-center gap-md p-md text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">database</span>
+<span class="font-label-md text-label-md">Gestão de Dados</span>
+</button>
+<button class="flex items-center gap-md p-md text-white/70 hover:bg-white/10 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">devices</span>
+<span class="font-label-md text-label-md">Sessões</span>
+</button>
+</nav>
+<div class="mt-auto border-t border-white/10 pt-md flex flex-col gap-xs">
+<button class="flex items-center gap-md p-sm text-white/60 hover:bg-white/10 rounded-lg transition-all">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Termos</span>
+</button>
+<button class="flex items-center gap-md p-sm text-white/60 hover:bg-white/10 rounded-lg transition-all">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md text-label-md">Suporte</span>
+</button>
+<div class="p-md mt-sm bg-brand-gold text-primary rounded-xl text-center font-bold cursor-pointer active:opacity-90">
+<span class="font-label-md text-label-md">Ajuda</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow p-xl overflow-y-auto bg-white">
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">Privacidade e Proteção de Dados (LGPD)</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                Seus dados são seu patrimônio. Aqui você controla como o Dog Washer Connect utiliza suas informações, gerencia sua visibilidade e exerce seus direitos legais de forma transparente.
+            </p>
+</div>
+<div class="bento-grid">
+<!-- Bento Block: Visibilidade do Perfil -->
+<section class="col-span-8 bg-white border border-outline rounded-xl p-lg">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h3 class="font-title-md text-title-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined">visibility</span>
+                            Controle de Visibilidade
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Defina o que outros usuários e prestadores podem ver.</p>
+</div>
+<span class="px-sm py-xs bg-brand-gold/10 text-brand-gold text-[10px] font-bold rounded-full uppercase tracking-wider">Ajustes Públicos</span>
+</div>
+<div class="space-y-md">
+<!-- Visibilidade Item -->
+<div class="flex items-center justify-between p-md border border-outline rounded-lg hover:border-brand-gold transition-colors cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface text-sm">Perfil Público na Busca</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs">Permite que banhistas encontrem você para enviar convites.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-gold"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-md border border-outline rounded-lg hover:border-brand-gold transition-colors cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface text-sm">Localização Aproximada</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs">Exibe apenas o bairro para otimizar rotas de serviço.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-gold"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Bento Block: Explicação Finalidades -->
+<section class="col-span-4 bg-primary text-white rounded-xl p-lg relative overflow-hidden">
+<div class="relative z-10 h-full flex flex-col">
+<h3 class="font-title-md text-title-md mb-md flex items-center gap-sm text-brand-gold">
+<span class="material-symbols-outlined">info</span>
+                        Por que pedimos dados?
+                    </h3>
+<p class="font-body-md text-body-md opacity-90 mb-lg">
+                        Utilizamos seus dados estritamente para garantir a segurança dos pets, processar pagamentos e coordenar a logística entre lavadores e donos.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-sm font-bold text-brand-gold hover:underline" href="#">
+                            Ler política simplificada
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Background Visual Element -->
+<div class="absolute -bottom-8 -right-8 opacity-5">
+<span class="material-symbols-outlined text-[160px]">verified_user</span>
+</div>
+</section>
+<!-- Bento Block: Gestão de Consentimentos -->
+<section class="col-span-12 bg-white border border-outline rounded-xl p-lg">
+<h3 class="font-title-md text-title-md text-primary mb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined">fact_check</span>
+                    Gerenciamento de Consentimentos Detalhados
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Consent Card -->
+<div class="p-md bg-surface-container-low border border-outline rounded-lg">
+<div class="flex justify-between mb-sm">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-[10px] text-primary font-bold">MARKETING</span>
+</div>
+<h4 class="font-title-md text-sm mb-xs">Comunicações de Ofertas</h4>
+<p class="text-xs text-on-surface-variant mb-md leading-relaxed">Envio de newsletters, descontos exclusivos e novidades da plataforma.</p>
+<div class="flex gap-sm">
+<button class="flex-1 py-xs bg-brand-gold text-primary text-[11px] rounded font-bold">ATIVADO</button>
+<button class="flex-1 py-xs border border-outline text-[11px] rounded font-medium hover:bg-surface-container-high transition-colors">DESATIVAR</button>
+</div>
+</div>
+<div class="p-md bg-surface-container-low border border-outline rounded-lg">
+<div class="flex justify-between mb-sm">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="text-[10px] text-primary font-bold">ANALÍTICO</span>
+</div>
+<h4 class="font-title-md text-sm mb-xs">Melhoria de Experiência</h4>
+<p class="text-xs text-on-surface-variant mb-md leading-relaxed">Uso anônimo de dados de navegação para otimizar o fluxo do aplicativo.</p>
+<div class="flex gap-sm">
+<button class="flex-1 py-xs bg-brand-gold text-primary text-[11px] rounded font-bold">ATIVADO</button>
+<button class="flex-1 py-xs border border-outline text-[11px] rounded font-medium hover:bg-surface-container-high transition-colors">DESATIVAR</button>
+</div>
+</div>
+<div class="p-md bg-surface-container-low border border-outline rounded-lg">
+<div class="flex justify-between mb-sm">
+<span class="material-symbols-outlined text-primary">share_reviews</span>
+<span class="text-[10px] text-primary font-bold">SOCIAL</span>
+</div>
+<h4 class="font-title-md text-sm mb-xs">Depoimentos Públicos</h4>
+<p class="text-xs text-on-surface-variant mb-md leading-relaxed">Permitir que suas avaliações de serviços sejam exibidas com seu nome real.</p>
+<div class="flex gap-sm">
+<button class="flex-1 py-xs border border-outline text-[11px] rounded font-medium hover:bg-surface-container-high transition-colors">ATIVAR</button>
+<button class="flex-1 py-xs bg-error text-on-error text-[11px] rounded font-bold">DESATIVADO</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Block: Direitos do Titular (LGPD) -->
+<section class="col-span-12 bg-white border border-outline rounded-xl p-lg">
+<div class="flex items-center gap-md mb-lg">
+<div class="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
+<span class="material-symbols-outlined text-2xl">gavel</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary">Solicitações de Direitos (LGPD)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Exerça o controle total sobre seus dados pessoais armazenados conosco.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<!-- Direito Action -->
+<div class="group p-md border border-outline rounded-xl hover:bg-primary hover:border-primary transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined text-primary group-hover:text-brand-gold mb-md transition-colors">download</span>
+<h4 class="font-title-md text-sm group-hover:text-white mb-xs transition-colors">Exportar Cópia</h4>
+<p class="text-[11px] text-on-surface-variant group-hover:text-white/70 transition-colors">Receba um JSON/PDF com todos os seus dados.</p>
+</div>
+<div class="group p-md border border-outline rounded-xl hover:bg-primary hover:border-primary transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined text-primary group-hover:text-brand-gold mb-md transition-colors">edit_note</span>
+<h4 class="font-title-md text-sm group-hover:text-white mb-xs transition-colors">Correção de Dados</h4>
+<p class="text-[11px] text-on-surface-variant group-hover:text-white/70 transition-colors">Solicite a alteração de informações incorretas.</p>
+</div>
+<div class="group p-md border border-outline rounded-xl hover:bg-primary hover:border-primary transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined text-primary group-hover:text-brand-gold mb-md transition-colors">flip_camera_ios</span>
+<h4 class="font-title-md text-sm group-hover:text-white mb-xs transition-colors">Anonimização</h4>
+<p class="text-[11px] text-on-surface-variant group-hover:text-white/70 transition-colors">Remova vínculos que identifiquem sua pessoa.</p>
+</div>
+<div class="group p-md border border-error/30 border-dashed rounded-xl hover:bg-error hover:border-error transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined text-error group-hover:text-white mb-md transition-colors">delete_forever</span>
+<h4 class="font-title-md text-sm group-hover:text-white mb-xs transition-colors">Exclusão Total</h4>
+<p class="text-[11px] text-on-surface-variant group-hover:text-white/70 transition-colors">Apague sua conta e todos os dados definitivamente.</p>
+</div>
+</div>
+</section>
+<!-- Status Card -->
+<section class="col-span-12 flex flex-col md:flex-row items-center justify-between p-lg bg-surface-container-low border border-outline rounded-xl">
+<div class="flex items-center gap-md mb-md md:mb-0">
+<div class="relative">
+<div class="w-4 h-4 bg-brand-gold rounded-full animate-ping absolute"></div>
+<div class="w-4 h-4 bg-brand-gold rounded-full relative"></div>
+</div>
+<div>
+<p class="font-title-md text-sm">Sua privacidade está otimizada</p>
+<p class="text-xs text-on-surface-variant">Última revisão realizada em 12 de Outubro de 2023.</p>
+</div>
+</div>
+<button class="px-lg py-md bg-brand-gold text-primary font-bold rounded hover:opacity-90 transition-all active:scale-95">
+                    Baixar Relatório de Impacto
+                </button>
+</section>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+    document.querySelectorAll('.group').forEach(el => {
+        el.addEventListener('click', () => {
+            const action = el.querySelector('h4').innerText;
+            alert(`Iniciando fluxo de solicitação: ${action}. Um e-mail de confirmação será enviado para sua segurança.`);
+        });
+    });
+
+    // Simple switch logic
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+            const status = e.target.checked ? 'ativada' : 'desativada';
+            console.log(`Configuração ${status} com sucesso.`);
+        });
+    });
+</script>
+</body></html>

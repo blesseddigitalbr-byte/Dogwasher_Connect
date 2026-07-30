@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central da Conta - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0d1c2e",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "tertiary-fixed": "#dde3eb",
+                        "tertiary": "#1b2127",
+                        "on-primary-fixed": "#001b3c",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#d6e0f6",
+                        "outline": "#74777f",
+                        "on-background": "#0d1c2e",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d9e3f9",
+                        "tertiary-container": "#30363c",
+                        "surface-dim": "#ccdbf4",
+                        "inverse-primary": "#adc7f7",
+                        "on-secondary-fixed-variant": "#3d4759",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#596376",
+                        "surface-variant": "#d4e4fc",
+                        "surface-container-highest": "#d4e4fc",
+                        "on-primary-container": "#86a0cd",
+                        "primary-container": "#1a365d",
+                        "on-surface-variant": "#43474e",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "error-container": "#ffdad6",
+                        "primary": "#002045",
+                        "background": "#f8f9ff",
+                        "secondary-fixed-dim": "#bdc7dc",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-fixed": "#161c22",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#455f88",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary-container": "#989fa6",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-secondary-fixed": "#121c2c",
+                        "inverse-surface": "#223144",
+                        "primary-fixed-dim": "#adc7f7",
+                        "secondary": "#555f71"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "container-max": "1440px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "title-md": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0d1c2e;
+            font-family: 'Outfit', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #c4c6cf;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-dim border-r border-outline-variant flex flex-col gap-sm p-md z-50">
+<div class="mb-lg px-sm">
+<h1 class="font-display-lg text-title-md font-bold text-primary">Dog Washer</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Central de Controle</p>
+</div>
+<div class="flex flex-col gap-xs">
+<!-- Active State: Conta -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg font-bold active:scale-95 duration-150 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Conta</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg active:scale-95 duration-150 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-md text-label-md">Segurança</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg active:scale-95 duration-150 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-label-md text-label-md">Privacidade</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg active:scale-95 duration-150 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-md text-label-md">Notificações</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg active:scale-95 duration-150 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-label-md text-label-md">Gestão de Dados</span>
+</a>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Termos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-md text-label-md">Suporte</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto custom-scroll flex flex-col">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<h2 class="font-title-md text-title-md text-primary font-bold">Visão Geral</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="hidden md:flex gap-md">
+<span class="text-primary font-bold border-b-2 border-primary pb-1 font-title-md text-label-md cursor-pointer">Visão Geral</span>
+<span class="text-on-surface-variant font-medium hover:text-primary-container transition-colors font-title-md text-label-md cursor-pointer">Segurança</span>
+<span class="text-on-surface-variant font-medium hover:text-primary-container transition-colors font-title-md text-label-md cursor-pointer">Privacidade</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-base text-on-surface-variant hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-base text-on-surface-variant hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male executive with a kind smile, set against a clean, neutral studio background. The lighting is soft and high-key, reflecting a modern corporate aesthetic with a polished, institutional feel. The overall mood is authoritative yet approachable, consistent with a high-end service management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaItAR8aqdhWNXvUVAr4EGARRKkSKrLEz6BKBYs7xtMlhJmwsIbQQbKn8y7o586_-fpzk_ZbR9ONZ1csl-yMUABL6JmJlRIifUy_uEXqxKQuh4jHjjM7N0hDR3XG5df6oPFPK1d-37y2cN2hAI6eoyBVlkA8T9zyIwbhijXyspcw1f-8Be7UWGqjUT9bNuQrHaZtMPF3mmfZ8an9kaZcllf7qUf_5oBCY-b31773BywL1XwdXXo4dX"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-lg max-w-6xl mx-auto w-full">
+<!-- Welcome Header -->
+<div class="mb-xl">
+<div class="flex items-center gap-sm mb-xs">
+<span class="px-sm py-xs bg-teal-100 text-teal-800 font-label-md text-label-sm rounded-full flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
+                        CONTA ATIVA
+                    </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-xs">Olá, Ricardo Oliveira</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Gerencie suas informações, segurança e privacidade em um só lugar.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Personal Info Card -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-lg">
+<h4 class="font-title-md text-title-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                                Dados Pessoais
+                            </h4>
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs hover:underline">
+                                Editar <span class="material-symbols-outlined !text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex flex-col md:flex-row gap-xl items-center">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full border-4 border-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male executive with a kind smile, set against a clean, neutral studio background. The lighting is soft and high-key, reflecting a modern corporate aesthetic with a polished, institutional feel. The overall mood is authoritative yet approachable, consistent with a high-end service management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHJqlyljtUCTi8hYg9n4jNpWzgYJZzJrwDV-S6pwcIVCa8aWbQ2-YllVpc5Lw4Tjm30tkL_nGAZpeQ0-ZtxQmMGLABnGx7CkEOOMHZX1rdrSeoOOza8EkDXMS-i0sV0aF94-JFrVwMG88KehQM8sd_6hl7AO-Gm-lBzCCkPNZugKzQhXsEH15d_pHathRISAW0NDWhHrf0A_orKWrcZsQ6LWNHRtBEaBJu-GBGa3XIQ-n3j63rr9d3"/>
+</div>
+<button class="absolute bottom-0 right-0 p-sm bg-primary text-white rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined !text-md" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-lg w-full">
+<div>
+<p class="font-label-md text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Nome Completo</p>
+<p class="font-body-lg text-body-lg font-semibold">Ricardo Silva Oliveira</p>
+</div>
+<div>
+<p class="font-label-md text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">E-mail Principal</p>
+<p class="font-body-lg text-body-lg font-semibold">ricardo.oliveira@empresa.com.br</p>
+</div>
+<div>
+<p class="font-label-md text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Telefone</p>
+<p class="font-body-lg text-body-lg font-semibold">+55 (11) 98877-6655</p>
+</div>
+<div>
+<p class="font-label-md text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Documento</p>
+<p class="font-body-lg text-body-lg font-semibold">***.442.108-**</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Level Card -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col">
+<h4 class="font-title-md text-title-md text-primary flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-amber-600" data-icon="security">security</span>
+                        Segurança
+                    </h4>
+<div class="flex-1 flex flex-col items-center justify-center text-center">
+<div class="w-24 h-24 rounded-full border-8 border-surface-container relative flex items-center justify-center mb-md">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-amber-500" cx="48" cy="48" fill="none" r="40" stroke="currentColor" stroke-dasharray="251" stroke-dashoffset="62" stroke-width="8"></circle>
+</svg>
+<span class="font-headline-lg text-headline-lg text-amber-600">75%</span>
+</div>
+<p class="font-body-md text-body-md font-semibold text-on-surface mb-xs">Proteção Alta</p>
+<p class="font-label-md text-label-md text-on-surface-variant px-md">Ative a autenticação em duas etapas para chegar a 100%.</p>
+</div>
+<button class="mt-lg w-full py-sm px-md bg-primary text-white rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all">
+                        Reforçar Segurança
+                    </button>
+</div>
+<!-- Privacy Settings Card -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-start mb-lg">
+<h4 class="font-title-md text-title-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+                            Privacidade do Perfil
+                        </h4>
+</div>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility">visibility</span>
+<div>
+<p class="font-body-md text-body-md font-semibold">Quem vê meu perfil</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Apenas conexões diretas</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="share">share</span>
+<div>
+<p class="font-body-md text-body-md font-semibold">Compartilhamento de Dados</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Limitado a fins operacionais</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Active Sessions Card -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-start mb-lg">
+<h4 class="font-title-md text-title-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="devices">devices</span>
+                            Sessões Ativas
+                        </h4>
+<button class="text-error font-label-md text-label-md flex items-center gap-xs hover:underline">
+                            Sair de todas
+                        </button>
+</div>
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="laptop_mac">laptop_mac</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">MacBook Pro 14" • São Paulo, BR</p>
+<p class="font-label-md text-label-md text-teal-600">Sessão atual</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="smartphone">smartphone</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">iPhone 15 Pro • São Paulo, BR</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Há 2 horas</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Notification Section -->
+<div class="mt-xl">
+<h4 class="font-title-md text-title-md text-primary mb-md">Notificações Recentes</h4>
+<div class="space-y-sm">
+<!-- High Priority -->
+<div class="bg-surface-container-lowest border border-outline-variant border-l-4 border-l-error rounded-lg p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<div>
+<p class="font-body-md text-body-md font-bold">Tentativa de login bloqueada</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Detectamos um acesso não usual vindo de Londres, UK.</p>
+</div>
+</div>
+<span class="font-label-md text-label-sm text-on-surface-variant">Agora mesmo</span>
+</div>
+<!-- Normal Priority -->
+<div class="bg-surface-container-lowest border border-outline-variant border-l-4 border-l-primary rounded-lg p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div>
+<p class="font-body-md text-body-md font-semibold">Atualização de Termos</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Nossa política de privacidade foi atualizada para o ciclo 2024.</p>
+</div>
+</div>
+<span class="font-label-md text-label-sm text-on-surface-variant">Ontem, 14:30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<footer class="mt-auto p-lg text-center border-t border-outline-variant bg-surface-container-lowest">
+<p class="font-label-md text-label-md text-on-surface-variant">
+                Dog Washer Connect © 2024 • Sistema de Gestão Operacional de Alta Precisão
+            </p>
+</footer>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('a, button').forEach(elem => {
+            elem.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        // Simple Fade In on load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 50);
+        });
+    </script>
+</body></html>

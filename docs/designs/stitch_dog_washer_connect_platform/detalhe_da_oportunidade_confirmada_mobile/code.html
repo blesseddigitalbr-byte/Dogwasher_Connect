@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Detalhe da Oportunidade - Dog Washer Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2e3132",
+                    "surface-tint": "#555f6f",
+                    "error": "#ba1a1a",
+                    "surface-container": "#edeeef",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#bdc7d9",
+                    "surface": "#f8f9fa",
+                    "on-surface": "#191c1d",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d9e3f6",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-low": "#f3f4f5",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-primary-fixed": "#121c29",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#855300",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-variant": "#e1e3e4",
+                    "surface-dim": "#d9dadb",
+                    "tertiary-container": "#0b1c30",
+                    "secondary-container": "#fea619",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#3e4756",
+                    "secondary-fixed": "#ffddb8",
+                    "primary-fixed-dim": "#bdc7d9",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "outline-variant": "#c5c6cc",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "primary-container": "#121c29",
+                    "background": "#f8f9fa",
+                    "on-primary-container": "#7b8495",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "tertiary-fixed": "#d3e4fe",
+                    "outline": "#75777c",
+                    "on-tertiary-container": "#75859d",
+                    "on-surface-variant": "#44474c",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#684000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "label-sm": ["Outfit"],
+                    "display": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "title-lg": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-20 bg-surface border-b border-outline-variant shadow-sm transition-all duration-300">
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors" onclick="window.history.back()">
+<span class="material-symbols-outlined text-secondary">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-display text-headline-md font-bold text-primary">Detalhe do Job</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: #88291-DW</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary">share</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary">notifications</span>
+</button>
+</div>
+</header>
+<main class="mt-20 pb-32">
+<!-- Hero Section: Status & Map -->
+<section class="relative w-full h-64 bg-surface-container overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center grayscale opacity-40" data-location="São Paulo, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAatMDgpKit59HPG-8Q9CEqqOCV0ifA68oNTDHckuldJizXakruSj99Yyhfxo6v2Y7tiOtw9BunYUsewV2YiE3kagjTyQmjVAD-aSsnK3-A2-Hdc942F2Pmwuq0dMMNbYNE-EleYuk_Ionl9GB-iFrQPqLbEzdwyDmZVFWjGTb5_jMG_IXZJtnQq8525WC7uRACgZPyUioN5c8uUqwAtUj2Ktzw1cYc7iiULlL-pTTaoPOB3-mJXgAr')"></div>
+<!-- Simulated UI Overlay for Map -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+</div>
+<!-- Unit Info Floating Card -->
+<div class="absolute bottom-4 left-margin-mobile right-margin-mobile z-10">
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-lg flex items-center gap-4">
+<img class="w-16 h-16 rounded-lg object-contain bg-surface p-1 border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP9Xe0bdqXCyzLxyKYZokEIDWcXDT9d_oznf4HtKQgRIoQYpz8bi1J1fGjpjR7T2h3e-Owu4eRRL4iDFRbeGpSwQ7zfqTQRjVHM_0nE3ZRRwnr35wClbcn8IKPs7cKV600jGTs5yNsrWekiQpowZacPsOz0uJQy0fQXbN-o15RgwyAW262ypArSQz-hjUDstTnNLqKTDiXR5PQY8ENKUIRhx8ztzUgXVsd7qrbGuF-bcsSEwOBnazVS5oRdrLzYgA8eQ"/>
+<div class="flex-1">
+<h1 class="font-headline-md text-headline-md text-primary leading-tight">Pet Estética Jardim</h1>
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            Vila Mariana, São Paulo - SP
+                        </p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase">
+                        Confirmado
+                    </div>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="px-margin-mobile mt-stack-md">
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 bg-primary text-on-primary py-4 rounded-xl font-label-md text-label-md shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined">directions</span>
+                    Abrir Rota
+                </button>
+<button class="flex items-center justify-center gap-2 border border-primary text-primary bg-surface-container-lowest py-4 rounded-xl font-label-md text-label-md active:scale-95 transition-all">
+<span class="material-symbols-outlined">call</span>
+                    Contatar Unidade
+                </button>
+</div>
+</section>
+<!-- Job Schedule Info -->
+<section class="px-margin-mobile mt-stack-lg">
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="bg-primary-container text-on-primary-fixed p-3 rounded-lg">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Data e Horário</p>
+<p class="font-title-lg text-title-lg text-primary">24 de Out, 09:00 - 18:00</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Valor Estimado</p>
+<p class="font-title-lg text-title-lg text-secondary font-bold">R$ 220,00</p>
+</div>
+</div>
+</section>
+<!-- Activities Checklist (Bento Style Card) -->
+<section class="px-margin-mobile mt-stack-lg">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Atividades &amp; Checklist</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 de 5 concluídas</span>
+</div>
+<div class="space-y-3">
+<!-- Checklist Item: Done -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl flex items-center gap-4">
+<div class="w-6 h-6 bg-secondary rounded flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface line-through opacity-60">Apresentação e Check-in na unidade</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">08:55</span>
+</div>
+<!-- Checklist Item: Done -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl flex items-center gap-4">
+<div class="w-6 h-6 bg-secondary rounded flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface line-through opacity-60">Conferência de insumos (shampoos, toalhas)</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:10</span>
+</div>
+<!-- Checklist Item: Pending/Active -->
+<div class="bg-surface-container-lowest border-2 border-secondary p-4 rounded-xl flex items-center gap-4 shadow-sm">
+<div class="w-6 h-6 border-2 border-secondary rounded flex items-center justify-center">
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface font-bold">Execução: Banhos agendados (Manhã)</p>
+<p class="text-xs text-on-surface-variant">Lulu da Pomerânia (Mel), Golden (Thor)</p>
+</div>
+<button class="bg-secondary text-on-secondary-container px-3 py-1 rounded-lg text-xs font-bold uppercase">Iniciar</button>
+</div>
+<!-- Checklist Item: Upcoming -->
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-xl flex items-center gap-4 opacity-70">
+<div class="w-6 h-6 border border-outline rounded"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Pausa para Almoço (60 min)</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+</div>
+</section>
+<!-- Unidade Detalhes & Regras -->
+<section class="px-margin-mobile mt-stack-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Informações da Unidade</h2>
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-highest rounded-xl p-4 border border-outline-variant">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">info</span>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Regras da Casa</p>
+<p class="text-sm text-on-surface-variant mt-1">Uso obrigatório de uniforme da plataforma e calçado fechado antiderrapante. Área de descanso disponível no mezanino.</p>
+</div>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<div class="flex-shrink-0 w-48 h-32 rounded-xl bg-cover bg-center border border-outline-variant" data-alt="A brightly lit, professional pet grooming station with stainless steel tubs, modern hydraulic tables, and organized shelves of professional shampoos. The interior is clean, predominantly white with light wood accents, reflecting a high-end dog washing facility. The atmosphere is professional, sterile yet welcoming, with soft morning light streaming through windows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaDg2OQqms1WdFusJXfHIPy3eKpriNrDEWI10G9DbI2hQiEqsou7tciXKTXhh-nStu0dLuukEQuvywOmMsqrCSa_IN2u5Rpv_3_eWk5sG6P6t17aKwdPnFmx3KfRZAPTyqhDvm9yamuSeIOdrjdFp3YgBxQ1b4RYcmpUqvbW3PBviVoli_WXVS0kN56twkWOZLbBojm3X6ffIt96tD23Q-UjUsIdIXqJCEPJytVP-LpDGp4BH3Xp_9')"></div>
+<div class="flex-shrink-0 w-48 h-32 rounded-xl bg-cover bg-center border border-outline-variant" data-alt="A comfortable and modern break room for pet professionals, featuring a small kitchenette, a clean wooden table with ergonomic chairs, and a coffee machine. The walls are decorated with minimal pet-themed art. Soft, warm lighting creates a relaxing atmosphere for staff breaks. The overall aesthetic is clean, professional, and corporate-modern." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxD8_cQEedcz5UY28pL6gOPzbnkj1JbXolQDtqIdELxAdbgM-tRxopN0G7wADywvkxm01Blwv21HCBjMjTxoYigX-kzAO5mOVQzLfvMBY702AImR03WFmbsYZ8Bet7ZMuvq5tO8AD9S9OrTYtfAEU-LEzA9ETJID6YuWtCcwBM4QVXoAJQju2muzYZ6shUWrU2RaxPeWPXrQ-xkqKcWp8S1ohbOSwFbn3MySJR9GGmpCLZvGxX8Q0K')"></div>
+</div>
+</div>
+</section>
+<!-- Fixed Footer Actions for Task -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant p-4 z-50 md:hidden safe-bottom">
+<div class="flex gap-3">
+<button class="flex-1 flex flex-col items-center justify-center py-2 text-outline">
+<span class="material-symbols-outlined">help</span>
+<span class="text-[10px] font-bold uppercase">Suporte</span>
+</button>
+<button class="flex-[3] bg-secondary text-on-secondary-container py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+                    Finalizar Expediente
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on this deep detail page per Shell Visibility Rule) -->
+<!-- The user is in a focused journey (Opportunity Detail), so we prioritize specific task actions -->
+<script>
+        // Micro-interaction for checklist items
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const checkbox = item.querySelector('.checkbox-ui');
+                checkbox.classList.toggle('bg-secondary');
+                // Logic for marking tasks could go here
+            });
+        });
+
+        // Floating Header Effect on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'h-16');
+                header.classList.remove('shadow-sm', 'h-20');
+            } else {
+                header.classList.add('shadow-sm', 'h-20');
+                header.classList.remove('shadow-md', 'h-16');
+            }
+        });
+    </script>
+</body></html>
