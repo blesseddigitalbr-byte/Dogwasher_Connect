@@ -176,6 +176,26 @@ export async function reviewApplication(formData: FormData) {
         updated_at: new Date().toISOString(),
       })
       .eq("id", opportunityId);
+
+    const { data: application } = await supabase
+      .from("opportunity_applications")
+      .select("id,professional_id,opportunities(establishment_id)")
+      .eq("id", applicationId)
+      .single();
+
+    const applicationOpportunity = Array.isArray(application?.opportunities)
+      ? application.opportunities[0]
+      : application?.opportunities;
+
+    if (application?.professional_id && applicationOpportunity?.establishment_id) {
+      await supabase.from("work_executions").insert({
+        opportunity_id: opportunityId,
+        application_id: application.id,
+        professional_id: application.professional_id,
+        establishment_id: applicationOpportunity.establishment_id,
+        status: "scheduled",
+      });
+    }
   }
 
   revalidatePath("/estabelecimento/oportunidades");
