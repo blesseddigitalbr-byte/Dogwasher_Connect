@@ -26,10 +26,10 @@ export function LoginForm() {
   }, [router, state.redirectTo]);
 
   return (
-    <form action={formAction} className="mt-9 flex flex-col gap-6">
+    <form action={formAction} className="mt-6 flex flex-col gap-4">
       <label className="block">
         <span className="text-sm font-bold text-[#dbc2b1]">E-mail ou Usuário</span>
-        <span className="mt-2 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#213145] px-4 py-3.5 text-[#d3e4fe] focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
+        <span className="mt-1.5 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#213145] px-4 py-3 text-[#d3e4fe] focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
           <span className="text-lg text-[#dbc2b1]" aria-hidden="true">
             ◇
           </span>
@@ -54,7 +54,7 @@ export function LoginForm() {
             Esqueci minha senha
           </Link>
         </span>
-        <span className="mt-2 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#213145] px-4 py-3.5 text-[#d3e4fe] focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
+        <span className="mt-1.5 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#213145] px-4 py-3 text-[#d3e4fe] focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
           <span className="text-lg text-[#dbc2b1]" aria-hidden="true">
             ▣
           </span>
@@ -83,7 +83,7 @@ export function LoginForm() {
         </p>
       )}
 
-      <Button type="submit" variant="secondary" className="mt-1 w-full py-4 text-base font-bold" disabled={pending}>
+      <Button type="submit" variant="secondary" className="mt-1 w-full py-3.5 text-base font-bold" disabled={pending}>
         {pending ? "Entrando..." : "Entrar  →"}
       </Button>
 

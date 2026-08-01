@@ -11,32 +11,32 @@ export default async function CriarContaPage({
   const defaultRole = perfil === "estabelecimento" ? "establishment_owner" : "professional";
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-[#031427] px-5 py-8">
-      <div className="w-full max-w-md rounded-lg border border-white/10 bg-[#061a2f] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.28)] md:p-6">
+    <div className="flex flex-1 items-center justify-center bg-[#031427] px-4 py-4 md:min-h-[calc(100vh-78px)] md:py-5">
+      <div className="w-full max-w-[420px] rounded-lg border border-white/10 bg-[#061a2f] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.24)] md:p-5">
         <Link
           href="/"
-          className="inline-flex items-center gap-3 text-lg font-bold text-[#d3e4fe] hover:text-[var(--dw-orange)]"
+          className="inline-flex items-center gap-2 text-sm font-bold text-[#d3e4fe] hover:text-[var(--dw-orange)]"
         >
           <span aria-hidden="true">←</span>
           Criar conta
         </Link>
 
-        <div className="mt-7 rounded-lg border border-[var(--dw-orange)]/35 bg-[#0b1c30] p-6">
+        <div className="mt-4 rounded-lg border border-[var(--dw-orange)]/35 bg-[#0b1c30] px-5 py-4 md:px-6 md:py-5">
           <div className="flex justify-center">
             <Image
               src="/logo-dog-washer-connect.png"
               alt="Dog Washer Connect"
-              width={72}
-              height={72}
+              width={150}
+              height={86}
               priority
-              className="h-[72px] w-[72px] rounded-md object-cover"
+              className="h-auto w-[132px] object-contain md:w-[150px]"
             />
           </div>
-          <h1 className="mt-6 text-center font-[var(--dw-font-display)] text-3xl font-bold text-[var(--dw-orange)]">
+          <h1 className="mt-4 text-center font-[var(--dw-font-display)] text-3xl font-bold text-[var(--dw-orange)] md:text-[2rem]">
             Criar conta
           </h1>
           <SignUpForm defaultRole={defaultRole} />
-          <p className="mt-8 text-center text-sm font-semibold text-[#d3e4fe]">
+          <p className="mt-5 text-center text-sm font-semibold text-[#d3e4fe]">
             Já tem conta?{" "}
             <Link href="/login" className="text-[var(--dw-orange)] hover:underline">
               Entrar
@@ -44,7 +44,7 @@ export default async function CriarContaPage({
           </p>
         </div>
 
-        <footer className="mt-8 text-center text-sm font-semibold text-[#d3e4fe]">
+        <footer className="mt-5 text-center text-xs font-semibold text-[#d3e4fe]">
           <div className="flex justify-center gap-6">
             <Link href="/termos" className="hover:text-[var(--dw-orange)]">
               Termos de Uso

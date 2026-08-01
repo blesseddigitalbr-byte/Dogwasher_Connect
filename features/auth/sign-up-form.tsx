@@ -30,10 +30,10 @@ export function SignUpForm({
   }, [router, state.redirectTo]);
 
   return (
-    <form action={formAction} className="mt-7 flex flex-col gap-5">
+    <form action={formAction} className="mt-5 flex flex-col gap-4 md:gap-3.5">
       <fieldset>
         <legend className="text-sm font-bold text-[#d3e4fe]">Você é:</legend>
-        <div className="mt-3 grid gap-3">
+        <div className="mt-2 grid gap-2">
           <RoleOption
             label="Profissional Dog Washer"
             value="professional"
@@ -68,7 +68,7 @@ export function SignUpForm({
         }
       />
 
-      <label className="flex items-start gap-3 text-sm font-semibold leading-5 text-[#d3e4fe]">
+      <label className="flex items-start gap-3 text-xs font-semibold leading-5 text-[#d3e4fe] md:text-[13px]">
         <input
           type="checkbox"
           name="acceptedTerms"
@@ -94,7 +94,7 @@ export function SignUpForm({
         </p>
       )}
 
-      <Button type="submit" variant="secondary" className="mt-2 w-full py-4 font-bold" disabled={pending}>
+      <Button type="submit" variant="secondary" className="mt-1 w-full py-3.5 font-bold" disabled={pending}>
         {pending ? "Criando conta..." : "Criar conta"}
       </Button>
     </form>
@@ -111,7 +111,7 @@ function RoleOption({
   defaultChecked: boolean;
 }) {
   return (
-    <label className="flex cursor-pointer items-center gap-3 rounded-md border border-[var(--dw-orange)]/40 bg-[#0b1c30] px-4 py-4 text-sm font-bold text-[#d3e4fe] transition-colors hover:border-[var(--dw-orange)] has-[:checked]:border-[var(--dw-orange)] has-[:checked]:bg-[#213145]">
+    <label className="flex cursor-pointer items-center gap-3 rounded-md border border-[var(--dw-orange)]/40 bg-[#0b1c30] px-4 py-3 text-sm font-bold text-[#d3e4fe] transition-colors hover:border-[var(--dw-orange)] has-[:checked]:border-[var(--dw-orange)] has-[:checked]:bg-[#213145]">
       <input
         type="radio"
         name="role"
@@ -138,7 +138,7 @@ function DarkField({
   return (
     <label className="block">
       <span className="text-sm font-bold text-[#d3e4fe]">{label}</span>
-      <span className="mt-2 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#0b1c30] px-4 py-3.5 focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
+      <span className="mt-1.5 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#0b1c30] px-4 py-3 focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
         <input
           id={inputId}
           className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#d3e4fe] outline-none placeholder:text-[#dbc2b1]/60"
