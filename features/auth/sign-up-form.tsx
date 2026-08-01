@@ -1,17 +1,20 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { signUp } from "@/features/auth/actions";
+import type { ActionResult } from "@/features/auth/actions";
 import { Button } from "@/components/ui/button";
 
-const initialState = { error: null as string | null };
+const initialState: ActionResult = { error: null };
 
 export function SignUpForm({
   defaultRole,
 }: {
   defaultRole: "professional" | "establishment_owner";
 }) {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [state, formAction, pending] = useActionState(
     async (_prev: typeof initialState, formData: FormData) => {
@@ -19,6 +22,12 @@ export function SignUpForm({
     },
     initialState
   );
+
+  useEffect(() => {
+    if (state.redirectTo) {
+      router.replace(state.redirectTo);
+    }
+  }, [router, state.redirectTo]);
 
   return (
     <form action={formAction} className="mt-7 flex flex-col gap-5">
