@@ -26,12 +26,12 @@ export function LoginForm() {
   }, [router, state.redirectTo]);
 
   return (
-    <form action={formAction} className="mt-6 flex flex-col gap-4">
+    <form action={formAction} className="flex flex-col gap-5">
       <label className="block">
-        <span className="text-sm font-bold text-[#dbc2b1]">E-mail ou Usuário</span>
-        <span className="mt-1.5 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#213145] px-4 py-3 text-[#d3e4fe] focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
-          <span className="text-lg text-[#dbc2b1]" aria-hidden="true">
-            ◇
+        <span className="text-sm font-bold text-[#44474c]">E-mail</span>
+        <span className="mt-2 flex items-center gap-3 rounded-lg border border-[#c5c6cc] bg-white px-4 py-3 text-[#191c1d] transition-all focus-within:border-[#121c29] focus-within:ring-2 focus-within:ring-[#fea619]/25">
+          <span className="text-lg text-[#75777c]" aria-hidden="true">
+            ✉
           </span>
           <input
             type="email"
@@ -39,23 +39,20 @@ export function LoginForm() {
             required
             autoComplete="email"
             placeholder="seu@email.com"
-            className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#d3e4fe] outline-none placeholder:text-[#dbc2b1]/70"
+            className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#191c1d] outline-none placeholder:text-[#75777c]/70"
           />
         </span>
       </label>
 
       <label className="block">
         <span className="flex items-center justify-between gap-4">
-          <span className="text-sm font-bold text-[#dbc2b1]">Senha</span>
-          <Link
-            href="/recuperar-senha"
-            className="text-sm font-bold text-[var(--dw-orange)] hover:underline"
-          >
+          <span className="text-sm font-bold text-[#44474c]">Senha</span>
+          <Link href="/recuperar-senha" className="text-sm font-bold text-[#855300] hover:underline">
             Esqueci minha senha
           </Link>
         </span>
-        <span className="mt-1.5 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#213145] px-4 py-3 text-[#d3e4fe] focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
-          <span className="text-lg text-[#dbc2b1]" aria-hidden="true">
+        <span className="mt-2 flex items-center gap-3 rounded-lg border border-[#c5c6cc] bg-white px-4 py-3 text-[#191c1d] transition-all focus-within:border-[#121c29] focus-within:ring-2 focus-within:ring-[#fea619]/25">
+          <span className="text-lg text-[#75777c]" aria-hidden="true">
             ▣
           </span>
           <input
@@ -64,12 +61,12 @@ export function LoginForm() {
             required
             autoComplete="current-password"
             placeholder="••••••••"
-            className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#d3e4fe] outline-none placeholder:text-[#dbc2b1]/70"
+            className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#191c1d] outline-none placeholder:text-[#75777c]/70"
           />
           <button
             type="button"
             onClick={() => setShowPassword((current) => !current)}
-            className="text-lg text-[#dbc2b1] transition-colors hover:text-[var(--dw-orange)]"
+            className="text-lg text-[#75777c] transition-colors hover:text-[#121c29]"
             aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
           >
             ◉
@@ -78,18 +75,23 @@ export function LoginForm() {
       </label>
 
       {state.error && (
-        <p className="rounded-md border border-red-400/30 bg-red-950/30 px-4 py-3 text-sm font-semibold text-red-200">
+        <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
           {state.error}
         </p>
       )}
 
-      <Button type="submit" variant="secondary" className="mt-1 w-full py-3.5 text-base font-bold" disabled={pending}>
-        {pending ? "Entrando..." : "Entrar  →"}
+      <Button
+        type="submit"
+        variant="secondary"
+        className="mt-1 w-full rounded-lg py-4 text-base font-black shadow-sm shadow-[#fea619]/20"
+        disabled={pending}
+      >
+        {pending ? "Entrando..." : "Entrar →"}
       </Button>
 
-      <p className="text-center text-sm font-semibold text-[#dbc2b1]">
+      <p className="text-center text-sm font-semibold text-[#44474c]">
         Ainda não tem conta?{" "}
-        <Link href="/criar-conta" className="text-[var(--dw-orange)] hover:underline">
+        <Link href="/criar-conta" className="text-[#855300] hover:underline">
           Criar conta
         </Link>
       </p>
