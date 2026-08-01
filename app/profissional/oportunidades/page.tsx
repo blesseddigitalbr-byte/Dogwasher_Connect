@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { PageShell } from "@/components/ui/page-shell";
 import { createClient } from "@/lib/supabase/server";
-
-const navItems = [
-  { href: "/profissional/dashboard", label: "Home", icon: "H" },
-  { href: "/profissional/oportunidades", label: "Vagas", icon: "V" },
-  { href: "/profissional/perfil", label: "Perfil", icon: "P" },
-  { href: "/profissional/onboarding", label: "Conta", icon: "C" },
-];
+import { professionalNavItems } from "@/features/professional/nav";
 
 export default async function ProfissionalOportunidadesPage() {
   const supabase = await createClient();
@@ -24,7 +18,7 @@ export default async function ProfissionalOportunidadesPage() {
     <PageShell
       title="Oportunidades disponíveis"
       subtitle="Encontre diárias publicadas por estabelecimentos validados e candidate-se com transparência."
-      navItems={navItems}
+      navItems={professionalNavItems}
     >
       <section className="grid gap-4">
         {opportunities?.length ? (

@@ -1,71 +1,171 @@
 import Link from "next/link";
 import { PageShell } from "@/components/ui/page-shell";
-import { Card } from "@/components/ui/card";
 
-const queues = [
+const adminNav = [
+  { href: "/admin/dashboard", label: "Admin", icon: "A" },
+  { href: "/admin/fila-profissionais", label: "Profissionais", icon: "P" },
+  { href: "/admin/fila-estabelecimentos", label: "Empresas", icon: "E" },
+  { href: "/admin/ocorrencias", label: "Ocorrências", icon: "O" },
+];
+
+const metrics = [
+  { label: "Trabalhos em andamento", value: "142", hint: "+12% vs ontem", tone: "good" },
+  { label: "Check-ins com exceção", value: "28", hint: "Urgente", tone: "danger" },
+  { label: "Receita 24h", value: "R$ 12.450", hint: "Meta 83% atingida", tone: "neutral" },
+  { label: "Ocorrências", value: "03", hint: "Requer atenção imediata", tone: "danger" },
+];
+
+const approvals = [
   {
-    href: "/admin/fila-profissionais",
-    title: "Fila de profissionais",
-    text: "Validar formação, identidade, área de atendimento e status de liberação.",
-    count: "0",
+    name: "Ricardo Mendes",
+    type: "Dog Walker Senior",
+    location: "São Paulo, SP",
+    status: "Aguardando validação",
   },
   {
-    href: "/admin/fila-estabelecimentos",
-    title: "Fila de estabelecimentos",
-    text: "Revisar documentos, fotos da unidade e condições de trabalho.",
-    count: "0",
+    name: "Pet Banho & Cia",
+    type: "Estabelecimento",
+    location: "Curitiba, PR",
+    status: "Pendente",
   },
-  {
-    href: "/admin/ocorrencias",
-    title: "Ocorrências",
-    text: "Acompanhar cancelamentos, no-show, disputas e bloqueios preventivos.",
-    count: "0",
-  },
+];
+
+const operations = [
+  { job: "#88219", title: "Banho + Tosa Higiênica", place: "Unidog Pet Palace", status: "Em execução" },
+  { job: "#88220", title: "Passeio 60min", place: "Pet Mais Golden", status: "A caminho" },
 ];
 
 export default function AdminDashboardPage() {
   return (
     <PageShell
-      title="Painel administrativo"
-      subtitle="Central de curadoria, qualidade operacional e reputação da rede."
+      title="Dashboard Admin"
+      subtitle="Visão consolidada de acessos, governança e pendências críticas do sistema."
+      navItems={adminNav}
     >
-      <div className="grid gap-5 md:grid-cols-3">
-        <Metric label="Cadastros pendentes" value="0" />
-        <Metric label="Parceiros ativos" value="0" />
-        <Metric label="Alertas abertos" value="0" />
+      <div className="mb-5 flex flex-col gap-3 md:flex-row md:justify-end">
+        <button className="rounded-xl border border-[#dbe3ef] bg-white px-4 py-2 text-xs font-black text-[#071426] shadow-sm">
+          Exportar Logs
+        </button>
+        <button className="rounded-xl bg-[var(--dw-orange)] px-4 py-2 text-xs font-black text-[#061426] shadow-sm shadow-[var(--dw-orange)]/20">
+          Novo Perfil
+        </button>
       </div>
 
-      <div className="mt-6 grid gap-5 lg:grid-cols-3">
-        {queues.map((queue) => (
-          <Link key={queue.href} href={queue.href}>
-            <Card className="h-full rounded-md transition-colors hover:border-[var(--dw-orange)]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-semibold text-[var(--dw-navy)]">{queue.title}</p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--dw-gray-500)]">{queue.text}</p>
-                </div>
-                <span className="rounded-full bg-[var(--dw-navy)] px-3 py-1 text-sm font-bold text-white">
-                  {queue.count}
-                </span>
-              </div>
-              <p className="mt-6 text-xs font-semibold uppercase text-[var(--dw-orange)]">
-                Abrir fila
-              </p>
-            </Card>
-          </Link>
+      <section className="grid gap-4 md:grid-cols-4">
+        {metrics.map((metric) => (
+          <MetricCard key={metric.label} {...metric} />
         ))}
-      </div>
+      </section>
+
+      <section className="mt-5 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-[18px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
+          <div className="flex flex-col gap-3 border-b border-[#e6edf5] pb-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-lg font-black text-[#071426]">Fila de Aprovação</h2>
+              <p className="text-sm text-[#637083]">Novos membros aguardando validação.</p>
+            </div>
+            <div className="flex gap-2">
+              <Link href="/admin/fila-profissionais" className="rounded-lg bg-[#f3f6fb] px-3 py-2 text-xs font-black text-[#071426]">
+                Profissionais
+              </Link>
+              <Link href="/admin/fila-estabelecimentos" className="rounded-lg bg-[#f3f6fb] px-3 py-2 text-xs font-black text-[#071426]">
+                Pet Shops
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-4 overflow-hidden rounded-2xl border border-[#e6edf5]">
+            {approvals.map((item) => (
+              <div key={item.name} className="grid gap-3 border-b border-[#e6edf5] p-4 last:border-b-0 md:grid-cols-[1fr_1fr_1fr_auto] md:items-center">
+                <div>
+                  <p className="font-black text-[#071426]">{item.name}</p>
+                  <p className="text-xs text-[#637083]">{item.location}</p>
+                </div>
+                <p className="text-sm text-[#071426]">{item.type}</p>
+                <span className="w-fit rounded-full bg-[#eef2ff] px-3 py-1 text-[10px] font-black uppercase text-[#4f46e5]">
+                  {item.status}
+                </span>
+                <div className="flex gap-2 text-xs font-black">
+                  <button className="text-[#071426]">Ver Docs</button>
+                  <button className="text-[var(--dw-orange-muted)]">Aprovar</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <aside className="rounded-[18px] bg-[#061426] p-5 text-white shadow-sm">
+          <p className="text-xs font-black uppercase tracking-wide text-white/55">Fluxo financeiro</p>
+          <h2 className="mt-3 text-3xl font-black">R$ 284.900</h2>
+          <p className="mt-1 text-xs text-white/55">Total processado no mês</p>
+          <div className="mt-6 rounded-2xl bg-white/7 p-4">
+            <p className="text-xs text-white/60">Repasses pendentes</p>
+            <p className="mt-1 text-xl font-black text-[var(--dw-orange)]">R$ 42.100</p>
+          </div>
+          <button className="mt-5 w-full rounded-xl bg-[var(--dw-orange)] px-4 py-3 text-sm font-black text-[#061426]">
+            Processar pagamentos em lote
+          </button>
+        </aside>
+      </section>
+
+      <section className="mt-5 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-[18px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
+          <h2 className="text-lg font-black text-[#071426]">Monitoramento em tempo real</h2>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {operations.map((operation) => (
+              <div key={operation.job} className="rounded-2xl border border-[#e6edf5] bg-[#f8fafc] p-4">
+                <p className="text-[10px] font-black uppercase text-[#637083]">Job {operation.job}</p>
+                <h3 className="mt-2 font-black text-[#071426]">{operation.title}</h3>
+                <p className="mt-1 text-xs text-[#637083]">{operation.place}</p>
+                <div className="mt-4 h-1.5 rounded-full bg-[#e6edf5]">
+                  <div className="h-full w-2/3 rounded-full bg-[var(--dw-orange)]" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Link href="/admin/ocorrencias" className="rounded-[18px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-black text-[#071426]">Ocorrências Ativas</h2>
+            <span className="rounded-full bg-red-50 px-3 py-1 text-[10px] font-black uppercase text-red-600">
+              3 alertas
+            </span>
+          </div>
+          <div className="mt-5 border-l-4 border-red-500 bg-red-50 p-4">
+            <p className="text-xs font-black uppercase text-red-700">Crítico · Atraso</p>
+            <p className="mt-2 text-sm leading-6 text-[#4d5b6f]">
+              Profissional não iniciou o job #88210 no horário previsto.
+            </p>
+            <div className="mt-3 flex gap-2">
+              <span className="rounded-lg bg-red-600 px-3 py-2 text-xs font-black text-white">Ligar p/ prof.</span>
+              <span className="rounded-lg border border-[#dbe3ef] bg-white px-3 py-2 text-xs font-black text-[#071426]">Ignorar</span>
+            </div>
+          </div>
+        </Link>
+      </section>
     </PageShell>
   );
 }
 
-function Metric({ label, value }: { label: string; value: string }) {
+function MetricCard({
+  label,
+  value,
+  hint,
+  tone,
+}: {
+  label: string;
+  value: string;
+  hint: string;
+  tone: string;
+}) {
   return (
-    <Card className="rounded-md">
-      <p className="text-xs font-semibold uppercase text-[var(--dw-gray-500)]">{label}</p>
-      <p className="mt-2 font-[var(--dw-font-display)] text-3xl font-semibold text-[var(--dw-navy)]">
-        {value}
+    <div className={["rounded-[18px] border bg-white p-5 shadow-sm", tone === "danger" ? "border-red-200" : "border-[#dbe3ef]"].join(" ")}>
+      <p className="text-[10px] font-black uppercase tracking-wide text-[#637083]">{label}</p>
+      <p className="mt-3 text-3xl font-black text-[#071426]">{value}</p>
+      <p className={["mt-2 text-xs font-black", tone === "danger" ? "text-red-600" : tone === "good" ? "text-emerald-600" : "text-[#637083]"].join(" ")}>
+        {hint}
       </p>
-    </Card>
+    </div>
   );
 }

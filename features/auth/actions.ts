@@ -4,7 +4,10 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signUpSchema, signInSchema } from "@/lib/validation/auth";
 
-export type ActionResult = { error: string } | { error: null };
+export type ActionResult = {
+  error: string | null;
+  redirectTo?: string;
+};
 
 /**
  * Cria o usuário no Supabase Auth + registro em public.users +
@@ -45,11 +48,13 @@ export async function signUp(formData: FormData): Promise<ActionResult> {
     return { error: authError?.message ?? "Não foi possível criar a conta." };
   }
 
-  redirect(
-    role === "professional"
-      ? "/profissional/onboarding"
-      : "/estabelecimento/onboarding"
-  );
+  return {
+    error: null,
+    redirectTo:
+      role === "professional"
+        ? "/profissional/onboarding"
+        : "/estabelecimento/onboarding",
+  };
 }
 
 export async function signIn(formData: FormData): Promise<ActionResult> {
@@ -75,14 +80,14 @@ export async function signIn(formData: FormData): Promise<ActionResult> {
     .eq("id", data.user.id)
     .single();
 
-  switch (userRow?.role) {
-    case "admin":
-      redirect("/admin/dashboard");
-    case "establishment_owner":
-      redirect("/estabelecimento/dashboard");
-    default:
-      redirect("/profissional/dashboard");
-  }
+  const redirectTo =
+    userRow?.role === "admin"
+      ? "/admin/dashboard"
+      : userRow?.role === "establishment_owner"
+        ? "/estabelecimento/dashboard"
+        : "/profissional/dashboard";
+
+  return { error: null, redirectTo };
 }
 
 export async function signOut() {

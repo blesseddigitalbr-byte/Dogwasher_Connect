@@ -128,3 +128,79 @@ export async function applyToOpportunity(
   revalidatePath(`/profissional/oportunidades/${opportunityId}`);
   redirect("/profissional/oportunidades");
 }
+
+export async function reviewApplication(formData: FormData) {
+  const supabase = await createClient();
+  const { data: authData } = await supabase.auth.getUser();
+
+  if (!authData.user) {
+    redirect("/login");
+  }
+
+  const applicationId = text(formData.get("application_id"));
+  const opportunityId = text(formData.get("opportunity_id"));
+  const decision = text(formData.get("decision"));
+
+  if (!applicationId || !opportunityId || !["accepted", "declined"].includes(decision)) {
+    redirect("/estabelecimento/oportunidades");
+  }
+
+  const { data: opportunity } = await supabase
+    .from("opportunities")
+    .select("id,establishment_id,establishments(owner_user_id)")
+    .eq("id", opportunityId)
+    .single();
+
+  const owner = Array.isArray(opportunity?.establishments)
+    ? opportunity.establishments[0]
+    : opportunity?.establishments;
+
+  if (!opportunity || owner?.owner_user_id !== authData.user.id) {
+    redirect("/estabelecimento/oportunidades");
+  }
+
+  await supabase
+    .from("opportunity_applications")
+    .update({
+      status: decision,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", applicationId)
+    .eq("opportunity_id", opportunityId);
+
+  if (decision === "accepted") {
+    await supabase
+      .from("opportunities")
+      .update({
+        status: "filled",
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", opportunityId);
+
+    const { data: application } = await supabase
+      .from("opportunity_applications")
+      .select("id,professional_id,opportunities(establishment_id)")
+      .eq("id", applicationId)
+      .single();
+
+    const applicationOpportunity = Array.isArray(application?.opportunities)
+      ? application.opportunities[0]
+      : application?.opportunities;
+
+    if (application?.professional_id && applicationOpportunity?.establishment_id) {
+      await supabase.from("work_executions").insert({
+        opportunity_id: opportunityId,
+        application_id: application.id,
+        professional_id: application.professional_id,
+        establishment_id: applicationOpportunity.establishment_id,
+        status: "scheduled",
+      });
+    }
+  }
+
+  revalidatePath("/estabelecimento/oportunidades");
+  revalidatePath(`/estabelecimento/oportunidades/${opportunityId}`);
+  revalidatePath("/profissional/agenda");
+  revalidatePath("/profissional/trabalhos");
+  redirect(`/estabelecimento/oportunidades/${opportunityId}`);
+}

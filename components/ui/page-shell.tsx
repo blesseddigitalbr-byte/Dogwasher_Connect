@@ -49,8 +49,8 @@ export function PageShell({
               className={[
                 "flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-black transition",
                 index === 0
-                  ? "bg-[var(--dw-orange)] text-[#061426]"
-                  : "text-white/78 hover:bg-white/8 hover:text-white",
+                  ? "bg-[var(--dw-orange)] text-[#061426] shadow-sm shadow-[var(--dw-orange)]/15"
+                  : "text-white/72 hover:bg-white/8 hover:text-white",
               ].join(" ")}
             >
               <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-current/20 text-xs">
@@ -115,7 +115,7 @@ export function PageShell({
                 className={[
                   "rounded-2xl border px-2 py-3 text-center text-[10px] font-black uppercase tracking-wide shadow-sm",
                   index === 0
-                    ? "border-[var(--dw-orange)] bg-[var(--dw-orange)] text-[#061426]"
+                    ? "border-[var(--dw-orange)] bg-[var(--dw-orange-soft)] text-[var(--dw-orange-muted)]"
                     : "border-[#dbe3ef] bg-white text-[#4d5b6f]",
                 ].join(" ")}
               >
