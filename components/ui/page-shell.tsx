@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import { signOut } from "@/features/auth/actions";
 
@@ -27,6 +30,10 @@ export function PageShell({
   children?: ReactNode;
   navItems?: NavItem[];
 }) {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-[#071426] md:flex">
       <aside className="hidden min-h-screen w-[270px] shrink-0 flex-col bg-[#061426] px-5 py-7 text-white md:flex">
@@ -42,13 +49,13 @@ export function PageShell({
         </Link>
 
         <nav className="mt-12 flex flex-col gap-2">
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={[
                 "flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-black transition",
-                index === 0
+                isActive(item.href)
                   ? "bg-[var(--dw-orange)] text-[#061426] shadow-sm shadow-[var(--dw-orange)]/15"
                   : "text-white/72 hover:bg-white/8 hover:text-white",
               ].join(" ")}
@@ -108,13 +115,13 @@ export function PageShell({
 
         <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-6 md:px-8 md:pb-10">
           <nav className="mb-5 grid grid-cols-4 gap-2 md:hidden">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={[
                   "rounded-2xl border px-2 py-3 text-center text-[10px] font-black uppercase tracking-wide shadow-sm",
-                  index === 0
+                  isActive(item.href)
                     ? "border-[var(--dw-orange)] bg-[var(--dw-orange-soft)] text-[var(--dw-orange-muted)]"
                     : "border-[#dbe3ef] bg-white text-[#4d5b6f]",
                 ].join(" ")}
@@ -141,7 +148,7 @@ export function PageShell({
           <Link
             key={item.href}
             href={item.href}
-            className="flex flex-col items-center gap-1 rounded-2xl px-2 py-2 text-[10px] font-semibold text-white/55 transition hover:bg-white/5 hover:text-[var(--dw-orange)]"
+            className={["flex flex-col items-center gap-1 rounded-2xl px-2 py-2 text-[10px] font-semibold transition hover:bg-white/5 hover:text-[var(--dw-orange)]", isActive(item.href) ? "bg-white/10 text-[var(--dw-orange)]" : "text-white/55"].join(" ")}
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 text-xs text-[var(--dw-orange)]">
               {item.icon}

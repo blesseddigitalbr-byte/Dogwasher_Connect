@@ -3,6 +3,11 @@ import { PageShell } from "@/components/ui/page-shell";
 import { createClient } from "@/lib/supabase/server";
 import { professionalNavItems } from "@/features/professional/nav";
 
+const demoOpportunities = [
+  { id: "demo-central", title: "Pet Shop Central", service_type: "Banho e tosa", description: "Atendimento de cães de pequeno e médio porte, com estrutura completa e equipe de apoio.", starts_at: "2026-08-08T08:00:00-03:00", value_cents: 18000, slots: 1, establishments: { nome_fantasia: "Pet Shop Central", razao_social: null } },
+  { id: "demo-jardins", title: "Clínica Pet Jardins", service_type: "Tosa higiênica", description: "Diária de sábado para reforço da equipe de estética.", starts_at: "2026-08-09T09:00:00-03:00", value_cents: 22000, slots: 1, establishments: { nome_fantasia: "Clínica Pet Jardins", razao_social: null } },
+];
+
 export default async function ProfissionalOportunidadesPage() {
   const supabase = await createClient();
 
@@ -14,6 +19,8 @@ export default async function ProfissionalOportunidadesPage() {
     .eq("status", "published")
     .order("starts_at", { ascending: true });
 
+  const items = opportunities?.length ? opportunities : demoOpportunities;
+
   return (
     <PageShell
       title="Oportunidades disponíveis"
@@ -21,14 +28,15 @@ export default async function ProfissionalOportunidadesPage() {
       navItems={professionalNavItems}
     >
       <section className="grid gap-4">
-        {opportunities?.length ? (
-          opportunities.map((opportunity) => (
+        {items.length ? (
+          items.map((opportunity) => (
             <article
               key={opportunity.id}
               className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm"
             >
               <div className="flex flex-col justify-between gap-4 md:flex-row md:items-start">
                 <div>
+                  {!opportunities?.length && <span className="mb-2 inline-flex rounded-full bg-[#fff4dc] px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-[#9a5e00]">Exemplo de oportunidade</span>}
                   <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">
                     {opportunity.service_type}
                   </p>

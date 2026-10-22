@@ -4,13 +4,25 @@ import { createClient } from "@/lib/supabase/server";
 import { ApplyOpportunityForm } from "@/features/opportunities/apply-opportunity-form";
 import { professionalNavItems } from "@/features/professional/nav";
 
+const demoOpportunity = {
+  id: "demo-central",
+  title: "Pet Shop Central",
+  service_type: "Banho e tosa",
+  description: "Atendimento de cães de pequeno e médio porte, com estrutura completa e equipe de apoio.",
+  starts_at: "2026-08-08T08:00:00-03:00",
+  ends_at: "2026-08-08T17:00:00-03:00",
+  value_cents: 18000,
+  slots: 1,
+  establishments: { nome_fantasia: "Pet Shop Central", razao_social: null },
+};
+
 export default async function DetalheOportunidadePage(props: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await props.params;
   const supabase = await createClient();
 
-  const { data: opportunity } = await supabase
+  const { data: dbOpportunity } = await supabase
     .from("opportunities")
     .select(
       "id,title,service_type,description,starts_at,ends_at,value_cents,slots,establishments(nome_fantasia,razao_social)"
@@ -19,13 +31,17 @@ export default async function DetalheOportunidadePage(props: {
     .eq("status", "published")
     .single();
 
-  if (!opportunity) {
+  const selectedOpportunity = dbOpportunity ?? (id === demoOpportunity.id ? demoOpportunity : null);
+
+  if (!selectedOpportunity) {
     notFound();
   }
 
+  const opportunity = selectedOpportunity;
+
   return (
     <PageShell
-      title={opportunity.title}
+      title={selectedOpportunity.title}
       subtitle={`${establishmentName(opportunity.establishments)} • ${opportunity.service_type}`}
       navItems={professionalNavItems}
     >
@@ -47,7 +63,7 @@ export default async function DetalheOportunidadePage(props: {
           </div>
         </section>
 
-        <ApplyOpportunityForm opportunityId={opportunity.id} />
+        <ApplyOpportunityForm opportunityId={selectedOpportunity.id} />
       </div>
     </PageShell>
   );

@@ -30,10 +30,10 @@ export function SignUpForm({
   }, [router, state.redirectTo]);
 
   return (
-    <form action={formAction} className="mt-7 flex flex-col gap-5">
+    <form action={formAction} className="flex flex-col gap-5">
       <fieldset>
-        <legend className="text-sm font-bold text-[#d3e4fe]">Você é:</legend>
-        <div className="mt-3 grid gap-3">
+        <legend className="text-sm font-bold text-[#44474c]">Você é:</legend>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
           <RoleOption
             label="Profissional Dog Washer"
             value="professional"
@@ -47,9 +47,9 @@ export function SignUpForm({
         </div>
       </fieldset>
 
-      <DarkField label="Nome completo ou razão social" name="fullNameOrRazaoSocial" required />
-      <DarkField label="E-mail" type="email" name="email" autoComplete="email" required />
-      <DarkField
+      <LightField label="Nome completo ou razão social" name="fullNameOrRazaoSocial" required />
+      <LightField label="E-mail" type="email" name="email" autoComplete="email" required />
+      <LightField
         label="Senha"
         type={showPassword ? "text" : "password"}
         name="password"
@@ -60,7 +60,7 @@ export function SignUpForm({
           <button
             type="button"
             onClick={() => setShowPassword((current) => !current)}
-            className="text-lg text-[#dbc2b1] transition-colors hover:text-[var(--dw-orange)]"
+            className="text-lg text-[#75777c] transition-colors hover:text-[#121c29]"
             aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
           >
             ◉
@@ -68,20 +68,20 @@ export function SignUpForm({
         }
       />
 
-      <label className="flex items-start gap-3 text-sm font-semibold leading-5 text-[#d3e4fe]">
+      <label className="flex items-start gap-3 text-sm font-semibold leading-5 text-[#44474c]">
         <input
           type="checkbox"
           name="acceptedTerms"
           required
-          className="mt-0.5 size-4 rounded border border-[var(--dw-orange)]/50 bg-[#061a2f] accent-[var(--dw-orange)]"
+          className="mt-0.5 size-4 rounded border border-[#c5c6cc] text-[#855300] accent-[#fea619] focus:ring-[#fea619]"
         />
         <span>
           Li e aceito os{" "}
-          <Link href="/termos" className="text-[var(--dw-orange)] hover:underline">
+          <Link href="/termos" className="font-black text-[#855300] hover:underline">
             Termos de Uso
           </Link>{" "}
           e a{" "}
-          <Link href="/privacidade" className="text-[var(--dw-orange)] hover:underline">
+          <Link href="/privacidade" className="font-black text-[#855300] hover:underline">
             Política de Privacidade
           </Link>
           .
@@ -89,12 +89,17 @@ export function SignUpForm({
       </label>
 
       {state.error && (
-        <p className="rounded-md border border-red-400/30 bg-red-950/30 px-4 py-3 text-sm font-semibold text-red-200">
+        <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
           {state.error}
         </p>
       )}
 
-      <Button type="submit" variant="secondary" className="mt-2 w-full py-4 font-bold" disabled={pending}>
+      <Button
+        type="submit"
+        variant="secondary"
+        className="mt-1 w-full rounded-lg py-4 text-base font-black shadow-sm shadow-[#fea619]/20"
+        disabled={pending}
+      >
         {pending ? "Criando conta..." : "Criar conta"}
       </Button>
     </form>
@@ -111,21 +116,21 @@ function RoleOption({
   defaultChecked: boolean;
 }) {
   return (
-    <label className="flex cursor-pointer items-center gap-3 rounded-md border border-[var(--dw-orange)]/40 bg-[#0b1c30] px-4 py-4 text-sm font-bold text-[#d3e4fe] transition-colors hover:border-[var(--dw-orange)] has-[:checked]:border-[var(--dw-orange)] has-[:checked]:bg-[#213145]">
+    <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-[#c5c6cc] bg-white px-4 py-3 text-sm font-bold text-[#191c1d] transition-all hover:border-[#855300] has-[:checked]:border-[#fea619] has-[:checked]:bg-[#fff7e6] has-[:checked]:shadow-sm">
       <input
         type="radio"
         name="role"
         value={value}
         defaultChecked={defaultChecked}
         required={value === "professional"}
-        className="size-4 accent-[var(--dw-orange)]"
+        className="size-4 accent-[#fea619]"
       />
       {label}
     </label>
   );
 }
 
-function DarkField({
+function LightField({
   label,
   trailing,
   ...props
@@ -137,11 +142,11 @@ function DarkField({
 
   return (
     <label className="block">
-      <span className="text-sm font-bold text-[#d3e4fe]">{label}</span>
-      <span className="mt-2 flex items-center gap-3 rounded-md border border-[var(--dw-orange)]/35 bg-[#0b1c30] px-4 py-3.5 focus-within:border-[var(--dw-orange)] focus-within:ring-2 focus-within:ring-[var(--dw-orange)]/20">
+      <span className="text-sm font-bold text-[#44474c]">{label}</span>
+      <span className="mt-2 flex items-center gap-3 rounded-lg border border-[#c5c6cc] bg-white px-4 py-3 transition-all focus-within:border-[#121c29] focus-within:ring-2 focus-within:ring-[#fea619]/25">
         <input
           id={inputId}
-          className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#d3e4fe] outline-none placeholder:text-[#dbc2b1]/60"
+          className="min-w-0 flex-1 bg-transparent text-base font-semibold text-[#191c1d] outline-none placeholder:text-[#75777c]/70"
           {...props}
         />
         {trailing}
