@@ -3,7 +3,7 @@
 import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { signIn } from "@/features/auth/actions";
+import { signIn, signInWithMagicLink } from "@/features/auth/actions";
 import type { ActionResult } from "@/features/auth/actions";
 import { Button } from "@/components/ui/button";
 
@@ -16,6 +16,10 @@ export function LoginForm() {
     async (_prev: typeof initialState, formData: FormData) => {
       return signIn(formData);
     },
+    initialState
+  );
+  const [magicState, magicAction, magicPending] = useActionState(
+    async (_prev: typeof initialState, formData: FormData) => signInWithMagicLink(formData),
     initialState
   );
 
@@ -79,6 +83,7 @@ export function LoginForm() {
           {state.error}
         </p>
       )}
+      {magicState.error && <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">{magicState.error}</p>}
 
       <Button
         type="submit"
@@ -88,6 +93,10 @@ export function LoginForm() {
       >
         {pending ? "Entrando..." : "Entrar →"}
       </Button>
+
+      <button formAction={magicAction} type="submit" disabled={magicPending} className="w-full rounded-lg border border-[#121c29] px-4 py-3 text-sm font-black text-[#121c29] transition hover:bg-[#f3f4f6]">
+        {magicPending ? "Enviando link..." : "Entrar por link mágico"}
+      </button>
 
       <p className="text-center text-sm font-semibold text-[#44474c]">
         Ainda não tem conta?{" "}
