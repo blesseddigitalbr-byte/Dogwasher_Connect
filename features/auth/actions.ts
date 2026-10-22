@@ -97,6 +97,21 @@ export async function signIn(formData: FormData): Promise<ActionResult> {
   return { error: null, redirectTo };
 }
 
+export async function signInWithMagicLink(formData: FormData): Promise<ActionResult> {
+  const email = String(formData.get("email") ?? "").trim();
+  if (!email || !email.includes("@")) return { error: "Informe um e-mail válido." };
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/login` },
+  });
+  if (error) {
+    if (error.message.toLowerCase().includes("rate limit")) return { error: "Muitas solicitações. Aguarde alguns minutos e tente novamente." };
+    return { error: error.message };
+  }
+  return { error: null, redirectTo: "/login?magic=sent" };
+}
+
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
