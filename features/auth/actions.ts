@@ -101,9 +101,10 @@ export async function signInWithMagicLink(formData: FormData): Promise<ActionRes
   const email = String(formData.get("email") ?? "").trim();
   if (!email || !email.includes("@")) return { error: "Informe um e-mail válido." };
   const supabase = await createClient();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dogwasher-connect.vercel.app";
   const { error } = await supabase.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/login` },
+    options: { emailRedirectTo: `${siteUrl}/login` },
   });
   if (error) {
     if (error.message.toLowerCase().includes("rate limit")) return { error: "Muitas solicitações. Aguarde alguns minutos e tente novamente." };

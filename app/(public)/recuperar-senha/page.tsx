@@ -8,8 +8,9 @@ async function requestReset(formData: FormData) {
   "use server";
   const email = String(formData.get("email"));
   const supabase = await createClient();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dogwasher-connect.vercel.app";
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/redefinir-senha`,
+    redirectTo: `${siteUrl}/redefinir-senha`,
   });
   if (error) throw new Error(error.message);
 }
