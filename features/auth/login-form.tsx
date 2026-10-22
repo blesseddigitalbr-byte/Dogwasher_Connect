@@ -29,6 +29,10 @@ export function LoginForm() {
     }
   }, [router, state.redirectTo]);
 
+  useEffect(() => {
+    if (magicState.redirectTo) router.replace(magicState.redirectTo);
+  }, [router, magicState.redirectTo]);
+
   return (
     <form action={formAction} className="flex flex-col gap-5">
       <label className="block">
@@ -94,7 +98,7 @@ export function LoginForm() {
         {pending ? "Entrando..." : "Entrar →"}
       </Button>
 
-      <button formAction={magicAction} type="submit" disabled={magicPending} className="w-full rounded-lg border border-[#121c29] px-4 py-3 text-sm font-black text-[#121c29] transition hover:bg-[#f3f4f6]">
+      <button formAction={magicAction} formNoValidate type="submit" disabled={magicPending} className="w-full rounded-lg border border-[#121c29] px-4 py-3 text-sm font-black text-[#121c29] transition hover:bg-[#f3f4f6]">
         {magicPending ? "Enviando link..." : "Entrar por link mágico"}
       </button>
 
