@@ -61,11 +61,21 @@ export default async function ProfissionalDashboardPage() {
             <Metric label="Perfil" value={`${progressPercent}%`} />
             <Metric label="Status" value={statusLabel} />
           </div>
+          <div className="mt-5 rounded-2xl border border-[#dbe3ef] bg-[#f7f9fd] p-4">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-xs font-black uppercase tracking-wide text-[#637083]">Perfil para análise</p>
+              <span className="text-sm font-black text-[var(--dw-orange-muted)]">{progressPercent}%</span>
+            </div>
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#e3e8f0]">
+              <div className="h-full rounded-full bg-[var(--dw-orange)] transition-all" style={{ width: `${progressPercent}%` }} />
+            </div>
+            <p className="mt-2 text-xs leading-5 text-[#637083]">Complete os dados para liberar sua presença nas buscas da rede.</p>
+          </div>
           <Link
             href="/profissional/onboarding"
             className="mt-5 block rounded-xl bg-[var(--dw-orange)] px-4 py-3 text-center text-sm font-black text-[#061426] transition hover:brightness-110"
           >
-            Completar perfil
+            {progressPercent === 100 ? "Perfil enviado para análise" : "Completar perfil"}
           </Link>
         </section>
 
@@ -100,6 +110,21 @@ export default async function ProfissionalDashboardPage() {
           </Panel>
         </section>
       </div>
+
+      <section className="mt-5 grid gap-4 sm:grid-cols-2">
+        <Link href="/profissional/oportunidades" className="rounded-[20px] border border-[#dbe3ef] bg-[#071426] p-5 text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+          <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">Próximo passo</p>
+          <h2 className="mt-2 text-lg font-black">Encontrar oportunidades</h2>
+          <p className="mt-2 text-sm leading-6 text-white/65">Veja diárias publicadas por estabelecimentos validados.</p>
+          <span className="mt-4 inline-flex text-sm font-black text-[var(--dw-orange)]">Ver vagas →</span>
+        </Link>
+        <Link href="/profissional/agenda" className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+          <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">Sua rotina</p>
+          <h2 className="mt-2 text-lg font-black text-[#071426]">Agenda de trabalhos</h2>
+          <p className="mt-2 text-sm leading-6 text-[#4d5b6f]">Acompanhe candidaturas aceitas, check-ins e próximos atendimentos.</p>
+          <span className="mt-4 inline-flex text-sm font-black text-[var(--dw-orange-muted)]">Abrir agenda →</span>
+        </Link>
+      </section>
 
         <section className="mt-5 rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm">
         <p className="text-xs font-black uppercase tracking-wide text-[var(--dw-orange)]">

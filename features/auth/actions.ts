@@ -45,7 +45,14 @@ export async function signUp(formData: FormData): Promise<ActionResult> {
   });
 
   if (authError || !authData.user) {
+    if (authError?.message.toLowerCase().includes("rate limit")) {
+      return { error: "Muitas tentativas de cadastro ou confirmação. Aguarde alguns minutos e tente novamente." };
+    }
     return { error: authError?.message ?? "Não foi possível criar a conta." };
+  }
+
+  if (!authData.session) {
+    return { error: null, redirectTo: "/login?registered=1" };
   }
 
   return {

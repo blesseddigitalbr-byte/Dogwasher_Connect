@@ -1,6 +1,7 @@
 import { PageShell } from "@/components/ui/page-shell";
 import { createClient } from "@/lib/supabase/server";
 import { ProfessionalOnboardingForm } from "@/features/onboarding/professional-onboarding-form";
+import { professionalNavItems } from "@/features/professional/nav";
 
 export default async function OnboardingProfissionalPage() {
   const supabase = await createClient();
@@ -18,6 +19,7 @@ export default async function OnboardingProfissionalPage() {
     <PageShell
       title="Complete seu perfil"
       subtitle="Essas informações são revisadas pela equipe antes da liberação para candidaturas."
+      navItems={professionalNavItems}
     >
       <section className="max-w-2xl rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-sm md:p-7">
         <ProfessionalOnboardingForm defaultValues={profile ?? {}} />
