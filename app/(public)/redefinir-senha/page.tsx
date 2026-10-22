@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
 
 export default function RedefinirSenhaPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  useEffect(() => {
+    const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+    const code = searchParams.get("code");
+    if (code) supabase.auth.exchangeCodeForSession(code).then(({ error: exchangeError }) => { if (exchangeError) setError("Este link expirou ou já foi utilizado. Solicite uma nova recuperação."); });
+  }, [searchParams]);
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
